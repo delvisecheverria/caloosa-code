@@ -87,7 +87,7 @@
     }
 
     /* BLOQUE TEXTO + FOTO */
-    .delvis-block {
+    .delvis-block, .florida-block {
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -96,20 +96,21 @@
       flex-wrap:wrap;
     }
 
-    .delvis-text {
+    .delvis-text, .florida-text {
       flex:1 1 50%;
       text-align:left;
     }
 
-    .delvis-photo {
+    .delvis-photo, .florida-photo {
       flex:1 1 45%;
       display:flex;
       justify-content:center;
       position:relative;
     }
 
+    /* FOTO DELVIS */
     .delvis-photo img {
-      width:50%; /* 50% más pequeña */
+      width:50%;
       max-width:220px;
       border-radius:16px;
       object-fit:cover;
@@ -118,7 +119,6 @@
       z-index:2;
     }
 
-    /* CAPA AMARILLA TRANSLÚCIDA SOBRE LA FOTO */
     .delvis-photo::after {
       content:"";
       position:absolute;
@@ -134,20 +134,13 @@
       pointer-events:none;
     }
 
-    /* MAPA FLORIDA */
-    .map-florida {
-      position:relative;
-      width:37.5%;
-      max-width:360px;
-      margin:40px auto;
-    }
-
-    .map-florida img {
+    /* FOTO FLORIDA */
+    .florida-photo img {
+      width:75%;
+      max-width:280px;
+      border-radius:12px;
+      object-fit:cover;
       display:block;
-      width:100%;
-      height:auto;
-      border-radius:10px;
-      border:none;
     }
 
     /* INSTRUCTORS */
@@ -218,13 +211,13 @@
     }
 
     @media (max-width:768px){
-      .map-florida { width:75%; }
-      .delvis-block { flex-direction:column; text-align:center; }
-      .delvis-text { text-align:center; }
+      .delvis-block, .florida-block { flex-direction:column; text-align:center; }
+      .delvis-text, .florida-text { text-align:center; }
       .delvis-photo img, .delvis-photo::after {
         width:65%;
         max-width:200px;
       }
+      .florida-photo img { width:80%; }
     }
   </style>
 </head>
@@ -252,21 +245,22 @@
     <div class="delvis-block">
       <div class="delvis-text">
         <p>Delvis has a deep passion for teaching and mentorship, which inspired him to create a program that helps others gain the skills and confidence to grow in the tech industry.</p>
+        <p>This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.</p>
       </div>
       <div class="delvis-photo">
         <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria">
       </div>
     </div>
 
-    <p>This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.</p>
-
-    <div class="map-florida">
-      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
+    <div class="florida-block">
+      <div class="florida-photo">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
+      </div>
+      <div class="florida-text">
+        <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
+        <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.</p>
+      </div>
     </div>
-
-    <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
-
-    <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.</p>
 
     <section class="instructors">
       <h2>Our Instructors</h2>
