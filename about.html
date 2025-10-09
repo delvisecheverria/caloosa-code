@@ -11,20 +11,21 @@
       font-family: 'Inter Tight', sans-serif;
       background: white;
       color: #111;
+      text-align: center;
     }
 
-    /* Header */
+    /* Header - identical to Program */
     header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
       padding: 25px 0 10px;
+      text-align: center;
     }
     .brand {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 4px;
       font-size: 12px;
       text-transform: uppercase;
@@ -37,30 +38,32 @@
       padding: 0 4px;
     }
     .code { font-weight: 700; }
+
     .tagline {
       font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 3px;
       color: #555;
       margin-top: 6px;
+      margin-bottom: 12px;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: 300;
       letter-spacing: 2px;
-      margin: 25px 0 10px;
+      margin: 10px 0 15px;
     }
     h1 b { font-weight: 700; }
 
     nav {
       display: flex;
-      gap: 24px;
       justify-content: center;
-      margin-top: 5px;
+      gap: 24px;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 20px;
     }
     nav a {
       text-decoration: none;
@@ -78,7 +81,7 @@
     /* Main content */
     main {
       max-width: 850px;
-      margin: 40px auto;
+      margin: 0 auto 60px;
       text-align: left;
       line-height: 1.6;
       font-size: 15px;
@@ -174,7 +177,7 @@
       <span class="badge">CALOOSA</span>
       <span class="code">CODE</span>
     </div>
-    <div class="tagline">Empowering the next generation of QA Engineers</div>
+    <p class="tagline">Empowering the next generation of QA Engineers</p>
     <h1>ABOUT <b>US</b></h1>
     <nav>
       <a href="index.html">Home</a>
