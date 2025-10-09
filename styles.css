@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .brand {
@@ -42,17 +42,20 @@ body {
 }
 .code { color: var(--text); }
 
-/* Empowering text — mantiene estilo original */
+/* Empowering text */
 .empower {
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.25em;
+  color: #6b7280;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
-/* Hero */
+/* Hero title */
 .hero-title {
   font-weight: 300;
   font-size: clamp(48px, 9vw, 96px);
@@ -64,6 +67,7 @@ body {
   font-weight: 800;
 }
 
+/* Nav */
 .main-nav {
   margin: 16px 0 32px;
   display: flex;
@@ -77,15 +81,22 @@ body {
   text-decoration: none;
   letter-spacing: 0.1em;
 }
-.main-nav a:hover {
-  color: #ca8a04;
-}
+.main-nav a:hover { color: #ca8a04; }
 
 /* Scene */
 .scene-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin: 40px 0;
+}
+
+/* Intro paragraph */
+.intro {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
 }
 
 /* Footer */
@@ -93,6 +104,7 @@ body {
   font-size: 12px;
   color: var(--muted);
   line-height: 1.6;
+  margin-top: 40px;
 }
 .footer .email {
   color: #ca8a04;
