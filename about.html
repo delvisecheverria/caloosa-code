@@ -87,17 +87,12 @@
       color:#333;
     }
 
-    /* MAPA FLORIDA */
+    /* MAPA FLORIDA (75% más pequeño) */
     .map-florida {
       position:relative;
-      width:50%;
-      max-width:480px;
+      width:37.5%; /* antes 50% */
+      max-width:360px; /* más compacto */
       margin:40px auto;
-    }
-
-    .map-inner {
-      position:relative;
-      z-index:1;
     }
 
     .map-florida img {
@@ -107,30 +102,6 @@
       border-radius:10px;
       border:none;
     }
-
-    /* ICONOS DE GEOLOCALIZACIÓN */
-    .marker {
-      position:absolute;
-      z-index:10; /* garantiza que estén sobre el mapa */
-      font-size:20px;
-      animation:float 3s ease-in-out infinite, pulse 2.5s ease-in-out infinite;
-      filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));
-    }
-
-    @keyframes float {
-      0%,100% { transform:translateY(0); }
-      50% { transform:translateY(-5px); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity:1; transform:scale(1); }
-      50% { opacity:.75; transform:scale(1.2); }
-    }
-
-    /* Posicionamiento sobre la zona gris (suroeste) */
-    .marker:nth-child(2) { left:28%; top:82%; animation-delay:0s; }
-    .marker:nth-child(3) { left:32%; top:84%; animation-delay:.3s; }
-    .marker:nth-child(4) { left:36%; top:80%; animation-delay:.6s; }
 
     /* INSTRUCTORS */
     .instructors {
@@ -200,7 +171,6 @@
 
     @media (max-width:768px){
       .map-florida { width:75%; }
-      .marker { font-size:17px; }
     }
   </style>
 </head>
@@ -230,12 +200,7 @@
     <p>This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.</p>
 
     <div class="map-florida">
-      <div class="map-inner">
-        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
-      </div>
-      <div class="marker">📍</div>
-      <div class="marker">📍</div>
-      <div class="marker">📍</div>
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
     </div>
 
     <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
