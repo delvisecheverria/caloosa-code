@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .brand {
@@ -42,12 +42,13 @@ body {
 }
 .code { color: var(--text); }
 
-/* Empowering text */
-.empower p {
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+/* Empowering text — mantiene estilo original */
+.empower {
+  font-weight: 300;
   font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
   margin-bottom: 40px;
 }
 
