@@ -79,7 +79,7 @@
     .map-wrap {
       position:relative;
       width:100%;
-      max-width:100%;
+      max-width:70%;
       margin:0 auto;
       overflow:hidden;
     }
@@ -88,6 +88,10 @@
       width:100%;
       height:auto;
       border-radius:8px;
+    }
+
+    @media (max-width:768px){
+      .map-wrap { max-width:95%; }
     }
 
     /* Badges flotantes */
