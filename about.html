@@ -87,35 +87,42 @@
       color:#333;
     }
 
+    /* MAPA FLORIDA */
     .map-florida {
       position:relative;
-      width:100%;
-      max-width:850px;
+      width:75%;
+      max-width:650px;
       margin:40px auto;
     }
 
     .map-florida img {
+      display:block;
       width:100%;
+      height:auto;
       border-radius:10px;
       border:2px solid #FFD700;
+      position:relative;
+      z-index:1;
     }
 
-    /* GEOLOCATION ICONS */
+    /* ICONOS DE GEOLOCALIZACIÓN */
     .marker {
       position:absolute;
-      animation:float 3s ease-in-out infinite;
+      z-index:2;
       font-size:22px;
+      animation:float 3s ease-in-out infinite;
+      filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));
     }
 
     @keyframes float {
       0%,100% { transform:translateY(0); }
-      50% { transform:translateY(-6px); }
+      50% { transform:translateY(-8px); }
     }
 
-    /* Ubicación de marcadores — zona suroeste */
-    .marker:nth-child(2) { left:38%; top:75%; animation-delay:0s; }
-    .marker:nth-child(3) { left:42%; top:78%; animation-delay:.3s; }
-    .marker:nth-child(4) { left:46%; top:74%; animation-delay:.6s; }
+    /* Ajustados a la zona suroeste */
+    .marker:nth-child(2) { left:30%; top:73%; animation-delay:0s; }
+    .marker:nth-child(3) { left:34%; top:77%; animation-delay:.25s; }
+    .marker:nth-child(4) { left:38%; top:72%; animation-delay:.5s; }
 
     /* INSTRUCTORS */
     .instructors {
@@ -181,6 +188,11 @@
       color:#FFD700;
       text-decoration:none;
       font-weight:600;
+    }
+
+    @media (max-width:768px){
+      .map-florida { width:90%; }
+      .marker { font-size:18px; }
     }
   </style>
 </head>
