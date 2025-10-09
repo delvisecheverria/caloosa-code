@@ -75,12 +75,30 @@
       background:#FFD700;
     }
 
+    /* Intro */
+    .intro {
+      text-align:center;
+      max-width:850px;
+      margin:20px auto;
+      color:#333;
+      font-size:.95rem;
+      line-height:1.6;
+    }
+    .highlight {
+      background:#FFF8DC;
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:6px;
+      font-weight:600;
+      border:1px solid #FFE77A;
+    }
+
     /* Mapa responsive */
     .map-wrap {
       position:relative;
       width:100%;
-      max-width:50%;
-      margin:0 auto;
+      max-width:45%;
+      margin:20px auto;
       overflow:hidden;
     }
     .map-wrap img {
@@ -132,7 +150,6 @@
       50% { transform:translate(-50%,-50%) translateY(-6px); }
     }
 
-    /* Posiciones adaptadas */
     .CA { left:18%; top:58%; }
     .TX { left:42%; top:60%; }
     .FL { left:80%; top:75%; }
@@ -147,6 +164,39 @@
       .GA { left:70%; top:60%; }
       .NY { left:82%; top:36%; }
     }
+
+    /* Tabla estilo PDF */
+    .table-wrap {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      margin:30px auto;
+      text-align:center;
+      max-width:900px;
+      padding:0 20px;
+    }
+    table {
+      border-collapse:collapse;
+      width:100%;
+      max-width:700px;
+      margin:0 auto;
+      font-size:.9rem;
+    }
+    th, td {
+      border:2px solid #000;
+      padding:12px;
+      text-align:center;
+    }
+    th {
+      background:#000;
+      color:#fff;
+      text-transform:uppercase;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+    tr:nth-child(even){background:#f9f9f9;}
+    tr:hover{background:#fff8dc;transition:.3s;}
 
     /* Acordeón */
     .prog-wrap {
@@ -228,42 +278,70 @@
   </header>
 
   <main>
+    <p class="intro">
+      <span class="highlight">👀 Mira los salarios como QA en estos estados:</span> <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b> y <b>Georgia</b>.
+    </p>
+
     <!-- Mapa -->
     <div class="map-wrap">
       <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
 
       <div class="badge-chip CA">
-        <div class="badge-line">👷 <span>Jobs:</span> <span class="badge-value">31,530</span></div>
-        <div class="badge-line">💵 <span>Salary:</span> <span class="badge-value">$130,250</span></div>
+        <div class="badge-line">👷 Jobs: <span class="badge-value">31,530</span></div>
+        <div class="badge-line">💵 Salary: <span class="badge-value">$130,250</span></div>
       </div>
 
       <div class="badge-chip TX" style="animation-delay:.15s">
-        <div class="badge-line">👷 <span>Jobs:</span> <span class="badge-value">19,300</span></div>
-        <div class="badge-line">💵 <span>Salary:</span> <span class="badge-value">$107,930</span></div>
+        <div class="badge-line">👷 Jobs: <span class="badge-value">19,300</span></div>
+        <div class="badge-line">💵 Salary: <span class="badge-value">$107,930</span></div>
       </div>
 
       <div class="badge-chip FL" style="animation-delay:.30s">
-        <div class="badge-line">👷 <span>Jobs:</span> <span class="badge-value">12,080</span></div>
-        <div class="badge-line">💵 <span>Salary:</span> <span class="badge-value">$104,440</span></div>
+        <div class="badge-line">👷 Jobs: <span class="badge-value">12,080</span></div>
+        <div class="badge-line">💵 Salary: <span class="badge-value">$104,440</span></div>
       </div>
 
       <div class="badge-chip GA" style="animation-delay:.45s">
-        <div class="badge-line">👷 <span>Jobs:</span> <span class="badge-value">7,830</span></div>
-        <div class="badge-line">💵 <span>Salary:</span> <span class="badge-value">$109,980</span></div>
+        <div class="badge-line">👷 Jobs: <span class="badge-value">7,830</span></div>
+        <div class="badge-line">💵 Salary: <span class="badge-value">$109,980</span></div>
       </div>
 
       <div class="badge-chip NY" style="animation-delay:.60s">
-        <div class="badge-line">👷 <span>Jobs:</span> <span class="badge-value">11,140</span></div>
-        <div class="badge-line">💵 <span>Salary:</span> <span class="badge-value">$112,700</span></div>
+        <div class="badge-line">👷 Jobs: <span class="badge-value">11,140</span></div>
+        <div class="badge-line">💵 Salary: <span class="badge-value">$112,700</span></div>
       </div>
     </div>
 
-    <p style="text-align:center; font-size:.85rem; color:#555; max-width:880px; margin:18px auto 10px;">
+    <!-- Textos descriptivos -->
+    <p class="intro">
       Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
       This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
-      Based on official data from the U.S. Bureau of Labor Statistics (BLS), this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253).
-      Among all U.S. states, California, Texas, Florida, New York, and Georgia stand out as key hubs for QA employment.
     </p>
+    <p class="intro">
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and
+      Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
+      Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+    </p>
+
+    <!-- Tabla -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>State</th>
+            <th>QA Employment (Jobs)</th>
+            <th>Average Annual Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
+          <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
+          <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
+          <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
+          <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Acordeón -->
     <section class="prog-wrap">
@@ -295,8 +373,12 @@
         <div class="acc-body">
           <h3>Content:</h3>
           <ul>
-            <li><b>Web Automation (Weeks 5–7):</b> <b>Selenium</b> + <b>C#</b> fundamentals · Test framework with <b>NUnit</b> or <b>MSTest</b> · DOM locators & <b>Page Object Model</b> · <b>BrowserStack</b>, <b>GitHub</b></li>
-            <li><b>Mobile Automation (Weeks 8–10):</b> <b>iOS / Android</b> fundamentals · <b>Appium</b> setup (local & emulators) · Mobile POM & locator strategies</li>
+            <li><b>Selenium + C#</b> fundamentals</li>
+            <li>Test framework structure using <b>NUnit</b> or <b>MSTest</b></li>
+            <li>DOM interaction, locators, and <b>Page Object Model</b></li>
+            <li><b>BrowserStack</b>, <b>GitHub</b></li>
+            <li>Mobile testing fundamentals (<b>iOS / Android</b>)</li>
+            <li><b>Appium</b> setup for local and emulator testing</li>
           </ul>
           <h3>Objectives:</h3>
           <ul>
@@ -313,15 +395,16 @@
         <div class="acc-body">
           <h3>Content:</h3>
           <ul>
-            <li><b>SQL fundamentals</b>: SELECT, INSERT, UPDATE, DELETE (via <b>DBeaver</b>)</li>
-            <li><b>REST API</b> basics: <b>JSON</b>, <b>HTTP methods</b>, request <b>Body</b></li>
+            <li><b>SQL fundamentals</b>: SELECT, INSERT, UPDATE, DELETE</li>
+            <li>Queries for test data validation using <b>DBeaver</b></li>
+            <li><b>REST API</b> fundamentals: <b>JSON</b>, <b>HTTP methods</b>, Body</li>
             <li>Endpoint functional testing with <b>Postman</b></li>
           </ul>
           <h3>Objectives:</h3>
           <ul>
-            <li>Write and run SQL queries to validate data</li>
-            <li>Test REST API endpoints for functionality and accuracy</li>
-            <li>Create Postman collections, use environments, and automate assertions</li>
+            <li>Write and run <b>SQL</b> queries to validate data</li>
+            <li>Test <b>REST API</b> endpoints for functionality and accuracy</li>
+            <li>Create <b>Postman</b> collections, use environments, and automate assertions</li>
           </ul>
         </div>
       </details>
@@ -334,13 +417,13 @@
             <li>Types of <b>load</b>, <b>stress</b>, and <b>endurance tests</b></li>
             <li>Scripting with <b>JMeter</b></li>
             <li>Load generation with <b>OctoPerf</b></li>
-            <li>Result analysis & <b>performance monitoring</b></li>
+            <li>Result analysis and <b>performance monitoring</b></li>
           </ul>
           <h3>Objectives:</h3>
           <ul>
             <li>Understand performance testing methodologies</li>
-            <li>Create JMeter scripts for load and stress testing</li>
-            <li>Generate realistic load scenarios using OctoPerf</li>
+            <li>Create <b>JMeter</b> scripts for load and stress testing</li>
+            <li>Generate realistic load scenarios using <b>OctoPerf</b></li>
             <li>Analyze and interpret performance metrics</li>
             <li>Provide recommendations based on results</li>
           </ul>
@@ -350,8 +433,9 @@
       <details class="acc">
         <summary><span class="caret">▶</span> MONTHS 6 – 8: INTERNSHIP / REAL-WORLD QA PROJECT</summary>
         <div class="acc-body">
-          <p style="margin:.25rem 0 0;font-size:.95rem">
-            Guaranteed real-world internship experience for all graduating students — <b>100%</b> job preparation and project-based practice.
+          <p>
+            During the final phase, students participate in a <b>100% guaranteed internship program</b> designed to provide real-world experience.
+            Graduates work on live QA projects under industry mentorship, applying all their acquired skills in automation, API, and performance testing.
           </p>
         </div>
       </details>
