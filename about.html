@@ -95,20 +95,23 @@
       margin:40px auto;
     }
 
+    .map-inner {
+      position:relative;
+      z-index:1;
+    }
+
     .map-florida img {
       display:block;
       width:100%;
       height:auto;
       border-radius:10px;
-      border:2px solid #FFD700;
-      position:relative;
-      z-index:1;
+      border:none;
     }
 
     /* ICONOS DE GEOLOCALIZACIÓN */
     .marker {
       position:absolute;
-      z-index:2;
+      z-index:10; /* garantiza que estén sobre el mapa */
       font-size:20px;
       animation:float 3s ease-in-out infinite, pulse 2.5s ease-in-out infinite;
       filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));
@@ -121,13 +124,13 @@
 
     @keyframes pulse {
       0%, 100% { opacity:1; transform:scale(1); }
-      50% { opacity:.7; transform:scale(1.2); }
+      50% { opacity:.75; transform:scale(1.2); }
     }
 
-    /* Posicionamiento dentro del borde suroeste */
+    /* Posicionamiento sobre la zona gris (suroeste) */
     .marker:nth-child(2) { left:28%; top:82%; animation-delay:0s; }
-    .marker:nth-child(3) { left:33%; top:84%; animation-delay:.3s; }
-    .marker:nth-child(4) { left:38%; top:80%; animation-delay:.6s; }
+    .marker:nth-child(3) { left:32%; top:84%; animation-delay:.3s; }
+    .marker:nth-child(4) { left:36%; top:80%; animation-delay:.6s; }
 
     /* INSTRUCTORS */
     .instructors {
@@ -227,7 +230,9 @@
     <p>This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.</p>
 
     <div class="map-florida">
-      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
+      <div class="map-inner">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
+      </div>
       <div class="marker">📍</div>
       <div class="marker">📍</div>
       <div class="marker">📍</div>
