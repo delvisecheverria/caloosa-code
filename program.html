@@ -82,12 +82,27 @@
       font-size:.95rem;
       line-height:1.6;
     }
+
+    /* Animated Highlight Line */
     .highlight {
-      background:#FFF8DC;
+      position:relative;
       display:inline-block;
-      padding:4px 8px;
-      border-radius:6px;
-      border:1px solid #FFE77A;
+    }
+
+    .highlight::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-2px;
+      width:0%;
+      height:3px;
+      background:#FFD700;
+      animation:underlineFlow 3s ease-in-out infinite;
+    }
+
+    @keyframes underlineFlow {
+      0%, 100% { width:0%; left:0; }
+      50% { width:100%; left:0; }
     }
 
     /* MAP */
@@ -286,12 +301,11 @@
       </div>
     </div>
 
-    <p class="intro"><span class="highlight">👀 See the QA Engineer salaries across California, Texas, Florida, New York, and Georgia.</span></p>
-
     <p class="intro">
       Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
       <span class="highlight">This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</span>
     </p>
+
     <p class="intro">
       Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and
       Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
@@ -318,7 +332,7 @@
       </table>
     </div>
 
-    <!-- Acordeón -->
+    <!-- Acordeones -->
     <section class="prog-wrap">
       <details class="acc">
         <summary><span class="caret">▶</span> WEEKS 1 – 4: QA FUNDAMENTALS & MANUAL TESTING</summary>
@@ -342,7 +356,69 @@
           </ul>
         </div>
       </details>
-      <!-- demás acordeones igual que antes -->
+
+      <details class="acc">
+        <summary><span class="caret">▶</span> WEEKS 5 – 10: WEB & MOBILE TEST AUTOMATION</summary>
+        <div class="acc-body">
+          <h3>Content:</h3>
+          <ul>
+            <li><b>Web Automation</b> (Weeks 5 – 7): <b>Selenium + C#</b>, <b>NUnit</b> or <b>MSTest</b>, DOM locators, <b>Page Object Model</b>, <b>BrowserStack</b>, <b>GitHub</b></li>
+            <li><b>Mobile Automation</b> (Weeks 8 – 10): <b>Appium</b>, <b>iOS / Android</b> setup, framework creation, locators for mobile apps</li>
+          </ul>
+          <h3>Objectives:</h3>
+          <ul>
+            <li>Build a test automation framework using <b>Selenium + C#</b></li>
+            <li>Automate test cases with <b>DOM locators</b></li>
+            <li>Apply <b>Page Object Model</b> and maintain reusable scripts</li>
+            <li>Configure <b>Appium</b> for device and emulator testing</li>
+            <li>Integrate tests with <b>BrowserStack</b> and <b>GitHub</b></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary><span class="caret">▶</span> WEEKS 11 – 14: API TESTING + DATABASES</summary>
+        <div class="acc-body">
+          <h3>Content:</h3>
+          <ul>
+            <li><b>SQL fundamentals</b>: SELECT, INSERT, UPDATE, DELETE</li>
+            <li>Data validation using <b>DBeaver</b></li>
+            <li><b>REST API</b> testing with <b>Postman</b> — JSON, HTTP methods, body, and assertions</li>
+          </ul>
+          <h3>Objectives:</h3>
+          <ul>
+            <li>Write and execute SQL queries for validation</li>
+            <li>Test API endpoints and automate validations</li>
+            <li>Use <b>Postman</b> for REST API automation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary><span class="caret">▶</span> WEEKS 15 – 17: PERFORMANCE TESTING</summary>
+        <div class="acc-body">
+          <h3>Content:</h3>
+          <ul>
+            <li>Understand <b>load</b>, <b>stress</b>, and <b>endurance</b> tests</li>
+            <li>Scripting and analysis with <b>JMeter</b></li>
+            <li>Load generation using <b>OctoPerf</b></li>
+            <li>Performance tracking and monitoring</li>
+          </ul>
+          <h3>Objectives:</h3>
+          <ul>
+            <li>Build test plans for different performance scenarios</li>
+            <li>Run JMeter scripts and analyze results</li>
+            <li>Interpret metrics and create optimization reports</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary><span class="caret">▶</span> MONTH 6 – 8: INTERNSHIP / REAL-WORLD QA PROJECT</summary>
+        <div class="acc-body">
+          <p>100% job placement support for graduates, plus real-world QA experience with live projects.</p>
+        </div>
+      </details>
     </section>
 
     <footer>
