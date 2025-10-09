@@ -13,6 +13,7 @@
       color:#000;
     }
 
+    /* HEADER */
     header {
       text-align:center;
       padding-top:28px;
@@ -75,7 +76,7 @@
       background:#FFD700;
     }
 
-    /* Content */
+    /* CONTENT */
     main {
       max-width:850px;
       margin:0 auto;
@@ -86,12 +87,6 @@
       color:#333;
     }
 
-    .highlight {
-      color:#000;
-      font-weight:600;
-    }
-
-    /* Florida map area */
     .map-florida {
       position:relative;
       width:100%;
@@ -105,21 +100,24 @@
       border:2px solid #FFD700;
     }
 
+    /* GEOLOCATION ICONS */
     .marker {
       position:absolute;
       animation:float 3s ease-in-out infinite;
-      font-size:20px;
+      font-size:22px;
     }
+
     @keyframes float {
       0%,100% { transform:translateY(0); }
       50% { transform:translateY(-6px); }
     }
 
-    .marker:nth-child(1) { left:62%; top:78%; animation-delay:0s; }
-    .marker:nth-child(2) { left:65%; top:82%; animation-delay:.2s; }
-    .marker:nth-child(3) { left:69%; top:80%; animation-delay:.4s; }
+    /* Ubicación de marcadores — zona suroeste */
+    .marker:nth-child(2) { left:38%; top:75%; animation-delay:0s; }
+    .marker:nth-child(3) { left:42%; top:78%; animation-delay:.3s; }
+    .marker:nth-child(4) { left:46%; top:74%; animation-delay:.6s; }
 
-    /* Instructors */
+    /* INSTRUCTORS */
     .instructors {
       margin-top:60px;
     }
@@ -212,7 +210,7 @@
     <p>This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.</p>
 
     <div class="map-florida">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Florida_map_blank.svg/1280px-Florida_map_blank.svg.png" alt="Florida Map">
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
       <div class="marker">📍</div>
       <div class="marker">📍</div>
       <div class="marker">📍</div>
