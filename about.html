@@ -90,8 +90,8 @@
     /* MAPA FLORIDA */
     .map-florida {
       position:relative;
-      width:35%;
-      max-width:380px;
+      width:50%;
+      max-width:480px;
       margin:40px auto;
     }
 
@@ -110,10 +110,8 @@
       position:absolute;
       z-index:2;
       font-size:20px;
-      color:#000;
-      text-shadow:0 1px 3px rgba(255,255,255,.8);
-      animation:float 3s ease-in-out infinite, pulse 3s ease-in-out infinite;
-      transform-origin:center;
+      animation:float 3s ease-in-out infinite, pulse 2.5s ease-in-out infinite;
+      filter:drop-shadow(0 1px 2px rgba(0,0,0,.3));
     }
 
     @keyframes float {
@@ -122,14 +120,14 @@
     }
 
     @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:.8; transform:scale(1.1); }
+      0%, 100% { opacity:1; transform:scale(1); }
+      50% { opacity:.7; transform:scale(1.2); }
     }
 
-    /* Ajustados al borde suroeste de Florida */
-    .marker:nth-child(2) { left:28%; top:86%; animation-delay:0s; }
-    .marker:nth-child(3) { left:33%; top:82%; animation-delay:.3s; }
-    .marker:nth-child(4) { left:38%; top:87%; animation-delay:.6s; }
+    /* Posicionamiento dentro del borde suroeste */
+    .marker:nth-child(2) { left:28%; top:82%; animation-delay:0s; }
+    .marker:nth-child(3) { left:33%; top:84%; animation-delay:.3s; }
+    .marker:nth-child(4) { left:38%; top:80%; animation-delay:.6s; }
 
     /* INSTRUCTORS */
     .instructors {
@@ -198,8 +196,8 @@
     }
 
     @media (max-width:768px){
-      .map-florida { width:65%; }
-      .marker { font-size:18px; }
+      .map-florida { width:75%; }
+      .marker { font-size:17px; }
     }
   </style>
 </head>
@@ -237,4 +235,54 @@
 
     <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
 
-    <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just
+    <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.</p>
+
+    <section class="instructors">
+      <h2>Our Instructors</h2>
+      <div class="instructor-grid">
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=15" alt="Delvis Echeverria">
+          <h3>Delvis Echeverria</h3>
+          <p>QA Lead & Program Director</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=11" alt="Maria Torres">
+          <h3>Maria Torres</h3>
+          <p>QA Automation Engineer</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=22" alt="Daniel Kim">
+          <h3>Daniel Kim</h3>
+          <p>Performance Testing Expert</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=33" alt="Isabella Garcia">
+          <h3>Isabella Garcia</h3>
+          <p>Mobile QA Specialist</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=44" alt="Carlos Mendoza">
+          <h3>Carlos Mendoza</h3>
+          <p>API & Security Testing</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/150?img=55" alt="Sophia Johnson">
+          <h3>Sophia Johnson</h3>
+          <p>Automation Instructor</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+  </footer>
+</body>
+</html>
