@@ -6,106 +6,300 @@
   <title>QA Engineer Program — Caloosa Code</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    .program-wrap{max-width:980px;margin:0 auto;padding:0 16px}
-    .map-wrap{position:relative;width:min(900px,95vw);margin:30px auto}
-    .map-wrap img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-    .badge{position:absolute;transform:translate(-50%,-50%);font-size:12px;text-align:center}
-    .badge .box{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:8px;padding:6px 10px;margin-bottom:4px}
-    .badge b{font-weight:700}
-    .float{animation:float 3s ease-in-out infinite}
-    @keyframes float{
-      0%{transform:translate(-50%,-50%) translateY(0)}
-      50%{transform:translate(-50%,-50%) translateY(-6px)}
-      100%{transform:translate(-50%,-50%) translateY(0)}
+    /* === HEADER & NAV === */
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #fff;
+      color: #000;
     }
-    .program-text{max-width:900px;margin:18px auto;font-size:14px;color:#333;line-height:1.6}
-    details.ac{max-width:760px;margin:12px auto;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
-    details.ac + details.ac{margin-top:8px}
-    details.ac summary{cursor:pointer;list-style:none;font-weight:700;color:#7c5a00}
-    details.ac summary::-webkit-details-marker{display:none}
-    details.ac p{margin-top:10px;font-size:13px;color:#555}
+    header {
+      text-align: center;
+      padding-top: 1.5rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .symbol { color: #000; }
+    .badge {
+      background: #FFD700;
+      color: #000;
+      padding: 1px 4px;
+      font-weight: 800;
+    }
+    .code { color: #000; }
+    .empower {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #555;
+      margin-top: 6px;
+      margin-bottom: 1rem;
+    }
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .main-nav a {
+      text-decoration: none;
+      color: #333;
+      position: relative;
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+    }
+    .main-nav a:hover {
+      color: #000;
+    }
+    .main-nav a.active {
+      color: #000;
+    }
+    .main-nav a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #FFD700;
+    }
+
+    /* === MAP === */
+    .map-wrap {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .map-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .badge {
+      position: absolute;
+      font-size: 10px;
+      background: #FFF8DC;
+      border: 1px solid #FFD700;
+      color: #000;
+      border-radius: 8px;
+      padding: 4px 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      animation: float 3s ease-in-out infinite;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .badge:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    /* Adjusted badge positions */
+    .CA { left: 13%; top: 55%; }
+    .TX { left: 41%; top: 56%; }
+    .FL { left: 78%; top: 72%; }
+    .GA { left: 67%; top: 54%; }
+    .NY { left: 84%; top: 28%; }
+
+    /* === PROGRAM BLOCKS === */
+    .program-section {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border: 2px solid #FFD700;
+      border-radius: 10px;
+      background: #fff;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .program-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .program-section h2 {
+      text-transform: uppercase;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: #000;
+    }
+    .program-section h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: #111;
+    }
+    .program-section ul {
+      margin: 0.25rem 0 1rem 1rem;
+      font-size: 0.85rem;
+      color: #222;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #555;
+      margin-top: 3rem;
+      padding-bottom: 1.5rem;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <!-- Header -->
-    <header class="header">
-      <span class="brand">
-        <span class="symbol">&lt;//&gt;</span>
-        <span class="badge">CALOOSA</span>
-        <span class="code">CODE</span>
-      </span>
-    </header>
+  <header>
+    <span class="brand">
+      <span class="symbol">&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span class="code">CODE</span>
+    </span>
+    <div class="empower">Empowering the next generation of QA Engineers</div>
+    <nav class="main-nav">
+      <a href="program.html" class="active">Program</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Empowering -->
-    <section class="empower">
-      <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
+  <main>
+    <h1 style="text-align:center; font-weight:400; letter-spacing:1px; margin-bottom:1rem;">QA ENGINEER PROGRAM</h1>
+
+    <!-- Map -->
+    <div class="map-wrap">
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+      <div class="badge CA">👷 Jobs: 31,530<br>💵 Salary: $130,250</div>
+      <div class="badge TX">👷 Jobs: 19,300<br>💵 Salary: $107,930</div>
+      <div class="badge FL">👷 Jobs: 12,080<br>💵 Salary: $104,440</div>
+      <div class="badge GA">👷 Jobs: 7,830<br>💵 Salary: $109,980</div>
+      <div class="badge NY">👷 Jobs: 11,140<br>💵 Salary: $112,700</div>
+    </div>
+
+    <p style="text-align:center; font-size:0.8rem; color:#555; max-width:800px; margin:1.5rem auto;">
+      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
+      This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
+      Based on official data from the U.S. Bureau of Labor Statistics (BLS), this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253).
+      Among all U.S. states, California, Texas, Florida, New York, and Georgia stand out as key hubs for QA employment.
+    </p>
+
+    <!-- Program Sections -->
+    <section class="program-section">
+      <h2>WEEKS 1 – 4: QA FUNDAMENTALS & MANUAL TESTING</h2>
+      <h3>Content:</h3>
+      <ul>
+        <li>Introduction to the Software Development Life Cycle (SDLC)</li>
+        <li>Types and levels of testing, QA roles</li>
+        <li>Test case design and execution</li>
+        <li>Test case management using AIO Test / TestRail</li>
+        <li>Bug reporting and management in Jira</li>
+        <li>Hands-on practice with a sample web application and full traceability</li>
+      </ul>
+      <h3>Objectives:</h3>
+      <ul>
+        <li>Understand the software development lifecycle and QA’s role in it</li>
+        <li>Differentiate between testing types and levels</li>
+        <li>Design, execute, and manage manual test cases</li>
+        <li>Report bugs with clarity and reproducibility</li>
+        <li>Demonstrate traceability from requirements to bugs</li>
+      </ul>
     </section>
 
-    <!-- Hero -->
-    <section class="hero program-wrap">
-      <h1 class="hero-title">QA Engineer Program</h1>
+    <section class="program-section">
+      <h2>WEEKS 5 – 10: WEB & MOBILE TEST AUTOMATION</h2>
+      <h3>Content:</h3>
+      <ul>
+        <li><strong>Web Automation (Weeks 5 – 7):</strong> Selenium + C# fundamentals, framework setup, DOM interaction, BrowserStack, GitHub</li>
+        <li><strong>Mobile Automation (Weeks 8 – 10):</strong> Appium setup, mobile locators, framework integration, real devices & emulators</li>
+      </ul>
+      <h3>Objectives:</h3>
+      <ul>
+        <li>Build a basic test automation framework with Selenium and C#</li>
+        <li>Automate functional test cases using DOM locators</li>
+        <li>Apply Page Object Model and maintain scripts efficiently</li>
+        <li>Configure Appium and run tests on real devices or emulators</li>
+      </ul>
+    </section>
 
-      <nav class="main-nav">
-        <a href="program.html">Program</a>
-        <a href="about.html">About</a>
-        <a href="partners.html">Partners</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <section class="program-section">
+      <h2>WEEKS 11 – 14: API TESTING + DATABASES</h2>
+      <h3>Content:</h3>
+      <ul>
+        <li>SQL fundamentals (SELECT, INSERT, UPDATE, DELETE)</li>
+        <li>Queries for test data validation using DBeaver</li>
+        <li>REST API fundamentals: JSON, HTTP methods, body</li>
+        <li>Endpoint functional testing with Postman</li>
+      </ul>
+      <h3>Objectives:</h3>
+      <ul>
+        <li>Write and run SQL queries to validate data</li>
+        <li>Test REST API endpoints for functionality and accuracy</li>
+        <li>Create Postman collections, use environments, and automate assertions</li>
+      </ul>
+    </section>
 
-      <!-- Map + floating badges -->
-      <div class="map-wrap">
-        <img src="CaloosaCode.png" alt="QA Employment Map">
-        <!-- CA -->
-        <div class="badge float" style="left:11%; top:56%">
-          <div class="box">👷 <b>Jobs:</b> 31,530</div>
-          <div class="box">💵 <b>Salary:</b> $130,250</div>
-        </div>
-        <!-- TX -->
-        <div class="badge float" style="left:42%; top:58%; animation-delay:.15s">
-          <div class="box">👷 <b>Jobs:</b> 19,300</div>
-          <div class="box">💵 <b>Salary:</b> $107,930</div>
-        </div>
-        <!-- FL -->
-        <div class="badge float" style="left:79%; top:74%; animation-delay:.3s">
-          <div class="box">👷 <b>Jobs:</b> 12,080</div>
-          <div class="box">💵 <b>Salary:</b> $104,440</div>
-        </div>
-        <!-- GA -->
-        <div class="badge float" style="left:69%; top:55%; animation-delay:.45s">
-          <div class="box">👷 <b>Jobs:</b> 7,830</div>
-          <div class="box">💵 <b>Salary:</b> $109,980</div>
-        </div>
-        <!-- NY -->
-        <div class="badge float" style="left:84%; top:30%; animation-delay:.6s">
-          <div class="box">👷 <b>Jobs:</b> 11,140</div>
-          <div class="box">💵 <b>Salary:</b> $112,700</div>
-        </div>
-      </div>
+    <section class="program-section">
+      <h2>WEEKS 15 – 17: PERFORMANCE TESTING</h2>
+      <h3>Content:</h3>
+      <ul>
+        <li>Types of load, stress, and endurance tests</li>
+        <li>Scripting with JMeter</li>
+        <li>Load generation with OctoPerf</li>
+        <li>Result analysis and performance monitoring</li>
+      </ul>
+      <h3>Objectives:</h3>
+      <ul>
+        <li>Understand performance testing methodologies</li>
+        <li>Create JMeter scripts for load and stress testing</li>
+        <li>Generate realistic load scenarios using OctoPerf</li>
+        <li>Analyze and interpret performance metrics</li>
+        <li>Provide recommendations based on results</li>
+      </ul>
+    </section>
 
-      <p class="program-text">
-        Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
-        This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
-        Based on official data from the U.S. Bureau of Labor Statistics (BLS), this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253).
-        Among all U.S. states, California, Texas, Florida, New York, and Georgia stand out as key hubs for QA employment.
+    <section class="program-section">
+      <h2>MONTHS 6 – 8: INTERNSHIP / REAL-WORLD QA PROJECT</h2>
+      <p style="font-size:0.9rem; color:#222; margin-top:0.5rem;">
+        Guaranteed real-world internship experience for all graduating students — 100% job preparation and project-based practice.
       </p>
-
-      <!-- Accordion weeks -->
-      <details class="ac">
-        <summary>Week 1 — Foundations of QA and Testing</summary>
-        <p>QA principles, test case design, defect lifecycle, manual testing tools, and professional workflows.</p>
-      </details>
-      <details class="ac">
-        <summary>Week 2 — Automation and CI/CD Integration</summary>
-        <p>Automation frameworks, scripting basics, and CI pipelines (GitHub Actions) with integrated test suites.</p>
-      </details>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a class="email" href="mailto:info@sqaadvisory.com">info@sqaadvisory.com</a></p>
-    </footer>
   </main>
+
+  <footer>
+    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+  </footer>
+
+  <script>
+    // Fade-in scroll effect
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.program-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
