@@ -1,40 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caloosa Code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Caloosa Code — Landing</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo"><span>&lt;//&gt;</span><span class="yellow">CALOOSA</span> CODE</div>
-    <p class="tagline">Empowering the next generation of QA Engineers</p>
-    <nav class="menu">
-      <ul>
-        <li><a href="program.html">Program</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="partners.html">Partners</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <main class="page">
+    <!-- Logo -->
+    <header class="header">
+      <span class="brand">
+        <span class="symbol">&lt;//&gt;</span>
+        <span class="badge">CALOOSA</span>
+        <span class="code">CODE</span>
+      </span>
+    </header>
 
-  <main>
-    <!-- Mantener animación de juncos -->
-    <div class="hero">
-      <h1><span class="yellow">Caloosa</span> Code</h1>
-      <svg class="reeds-animation" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 20 120 Q 30 80, 40 40" stroke="black" stroke-width="2" fill="none"/>
-        <path d="M 50 120 Q 60 85, 70 45" stroke="black" stroke-width="2" fill="none"/>
-        <path d="M 80 120 Q 85 90, 95 50" stroke="black" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
+    <!-- Empowering text -->
+    <section class="empower">
+      <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
+    </section>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">
+        Caloosa <span class="accent">Code</span>
+      </h1>
+
+      <nav class="main-nav">
+        <a href="program.html">Program</a>
+        <a href="about.html">About</a>
+        <a href="partners.html">Partners</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Animated Scene -->
+      <div class="scene-wrap" aria-hidden="true">
+        <svg width="250" height="180" viewBox="0 0 250 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sun and clouds -->
+          <g>
+            <circle cx="180" cy="35" r="20" fill="#FFD700" opacity="0.7" style="animation: sunMove 10s ease-in-out infinite" />
+            <ellipse cx="140" cy="45" rx="25" ry="12" fill="#f2f2f2" opacity="0.8" style="animation: cloudMove 8s ease-in-out infinite" />
+            <ellipse cx="170" cy="30" rx="30" ry="15" fill="#f2f2f2" opacity="0.8" style="animation: cloudMove 9s ease-in-out infinite; animation-delay: 1s" />
+          </g>
+
+          <!-- Water surface -->
+          <path d="M 30 140 Q 90 135, 150 140 T 250 140" stroke="#000" stroke-width="1.2" fill="none" style="animation: waterSurface 4s ease-in-out infinite" />
+
+          <!-- Reeds cluster -->
+          <g>
+            <path d="M 85 140 Q 82 110, 80 85 Q 78 60, 77 35 Q 80 25, 84 35 Q 85 65, 87 90 Q 88 120, 90 140 Z" fill="#fff" stroke="#000" stroke-width="2.4" style="animation: swayTall 5s ease-in-out infinite; transform-origin: 85px 140px" />
+            <path d="M 95 140 Q 93 105, 91 75 Q 89 50, 88 28 Q 90 20, 93 28 Q 94 55, 96 85 Q 97 115, 98 140 Z" fill="#fff" stroke="#000" stroke-width="2.5" style="animation: swayTall 5.3s ease-in-out infinite; animation-delay: .2s; transform-origin: 95px 140px" />
+            <path d="M 110 140 Q 108 100, 106 70 Q 105 45, 104 20 Q 107 10, 110 20 Q 112 45, 113 75 Q 114 110, 115 140 Z" fill="#fff" stroke="#000" stroke-width="2.7" style="animation: swayTall 5.5s ease-in-out infinite; animation-delay: .4s; transform-origin: 110px 140px" />
+            <path d="M 125 140 Q 122 105, 120 70 Q 118 50, 117 25 Q 119 18, 122 25 Q 123 52, 125 85 Q 126 115, 128 140 Z" fill="#fff" stroke="#000" stroke-width="2.9" style="animation: swayTall 5.7s ease-in-out infinite; animation-delay: .6s; transform-origin: 125px 140px" />
+            <path d="M 140 140 Q 138 110, 136 80 Q 134 55, 133 30 Q 136 25, 139 30 Q 140 55, 141 85 Q 142 115, 144 140 Z" fill="#fff" stroke="#000" stroke-width="2.6" style="animation: swayTall 5.9s ease-in-out infinite; animation-delay: .8s; transform-origin: 140px 140px" />
+            <path d="M 155 140 Q 153 115, 151 85 Q 149 60, 148 40 Q 150 35, 153 40 Q 154 65, 155 90 Q 156 115, 158 140 Z" fill="#fff" stroke="#000" stroke-width="2.4" style="animation: swayTall 6s ease-in-out infinite; animation-delay: 1s; transform-origin: 155px 140px" />
+          </g>
+
+          <ellipse cx="125" cy="145" rx="90" ry="6" fill="#000" opacity="0.06" style="animation: pulse 4s ease-in-out infinite" />
+        </svg>
+      </div>
+
+      <p class="intro">
+        Caloosa Code is an initiative born from the SWFL Tech Night community and led by Delvis Echeverria, a technology professional with 15+ years of experience in software development, specializing in QA and testing. The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community. In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+      <p><a class="email" href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+    </footer>
   </main>
-
-  <footer>
-    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-    <a href="mailto:decheverria@sqadvisory.com" class="email">decheverria@sqadvisory.com</a>
-  </footer>
 </body>
 </html>
