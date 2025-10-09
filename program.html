@@ -5,9 +5,30 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>QA Engineer Program — Caloosa Code</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .program-wrap{max-width:980px;margin:0 auto;padding:0 16px}
+    .map-wrap{position:relative;width:min(900px,95vw);margin:30px auto}
+    .map-wrap img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+    .badge{position:absolute;transform:translate(-50%,-50%);font-size:12px;text-align:center}
+    .badge .box{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:8px;padding:6px 10px;margin-bottom:4px}
+    .badge b{font-weight:700}
+    .float{animation:float 3s ease-in-out infinite}
+    @keyframes float{
+      0%{transform:translate(-50%,-50%) translateY(0)}
+      50%{transform:translate(-50%,-50%) translateY(-6px)}
+      100%{transform:translate(-50%,-50%) translateY(0)}
+    }
+    .program-text{max-width:900px;margin:18px auto;font-size:14px;color:#333;line-height:1.6}
+    details.ac{max-width:760px;margin:12px auto;background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;box-shadow:0 4px 14px rgba(0,0,0,.04)}
+    details.ac + details.ac{margin-top:8px}
+    details.ac summary{cursor:pointer;list-style:none;font-weight:700;color:#7c5a00}
+    details.ac summary::-webkit-details-marker{display:none}
+    details.ac p{margin-top:10px;font-size:13px;color:#555}
+  </style>
 </head>
 <body>
   <main class="page">
+    <!-- Header -->
     <header class="header">
       <span class="brand">
         <span class="symbol">&lt;//&gt;</span>
@@ -16,29 +37,71 @@
       </span>
     </header>
 
+    <!-- Empowering -->
     <section class="empower">
       <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
     </section>
 
-    <section class="hero">
+    <!-- Hero -->
+    <section class="hero program-wrap">
       <h1 class="hero-title">QA Engineer Program</h1>
 
       <nav class="main-nav">
-        <a href="program.html" class="active">Program</a>
+        <a href="program.html">Program</a>
         <a href="about.html">About</a>
         <a href="partners.html">Partners</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <img src="CaloosaCode.png" alt="QA Employment Map" style="max-width:800px;margin:30px auto;display:block;">
+      <!-- Map + floating badges -->
+      <div class="map-wrap">
+        <img src="CaloosaCode.png" alt="QA Employment Map">
+        <!-- CA -->
+        <div class="badge float" style="left:11%; top:56%">
+          <div class="box">👷 <b>Jobs:</b> 31,530</div>
+          <div class="box">💵 <b>Salary:</b> $130,250</div>
+        </div>
+        <!-- TX -->
+        <div class="badge float" style="left:42%; top:58%; animation-delay:.15s">
+          <div class="box">👷 <b>Jobs:</b> 19,300</div>
+          <div class="box">💵 <b>Salary:</b> $107,930</div>
+        </div>
+        <!-- FL -->
+        <div class="badge float" style="left:79%; top:74%; animation-delay:.3s">
+          <div class="box">👷 <b>Jobs:</b> 12,080</div>
+          <div class="box">💵 <b>Salary:</b> $104,440</div>
+        </div>
+        <!-- GA -->
+        <div class="badge float" style="left:69%; top:55%; animation-delay:.45s">
+          <div class="box">👷 <b>Jobs:</b> 7,830</div>
+          <div class="box">💵 <b>Salary:</b> $109,980</div>
+        </div>
+        <!-- NY -->
+        <div class="badge float" style="left:84%; top:30%; animation-delay:.6s">
+          <div class="box">👷 <b>Jobs:</b> 11,140</div>
+          <div class="box">💵 <b>Salary:</b> $112,700</div>
+        </div>
+      </div>
 
-      <p class="intro">
+      <p class="program-text">
         Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
         This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
         Based on official data from the U.S. Bureau of Labor Statistics (BLS), this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253).
+        Among all U.S. states, California, Texas, Florida, New York, and Georgia stand out as key hubs for QA employment.
       </p>
+
+      <!-- Accordion weeks -->
+      <details class="ac">
+        <summary>Week 1 — Foundations of QA and Testing</summary>
+        <p>QA principles, test case design, defect lifecycle, manual testing tools, and professional workflows.</p>
+      </details>
+      <details class="ac">
+        <summary>Week 2 — Automation and CI/CD Integration</summary>
+        <p>Automation frameworks, scripting basics, and CI pipelines (GitHub Actions) with integrated test suites.</p>
+      </details>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
       <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
       <p><a class="email" href="mailto:info@sqaadvisory.com">info@sqaadvisory.com</a></p>
