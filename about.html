@@ -65,26 +65,26 @@
       position:relative;
       animation:fadeZoom 1.6s ease forwards;
       z-index:2;
-      box-shadow:0 0 0 0 rgba(255,215,0,0.3);
     }
-    .delvis-photo::before {
+    /* Gradiente amarillo encima */
+    .delvis-photo::after {
       content:"";
       position:absolute;
       width:50%;
       max-width:220px;
-      height:auto;
-      aspect-ratio:3/4;
-      border-radius:16px;
-      background:rgba(255,215,0,0.28);
+      height:100%;
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
+      border-radius:16px;
       pointer-events:none;
-      z-index:1;
-      filter:blur(2px);
+      background:linear-gradient(180deg, rgba(255,215,0,0.25) 0%, rgba(255,215,0,0.15) 100%);
+      mix-blend-mode:multiply;
+      z-index:3;
+      animation:fadeZoom 1.8s ease forwards;
     }
 
-    /* FOTO FLORIDA */
+    /* FOTO FLORIDA SIN BORDES */
     .florida-photo img {
       width:75%;
       max-width:280px;
@@ -92,8 +92,6 @@
       object-fit:cover;
       display:block;
       animation:fadeZoom 1.8s ease forwards;
-      z-index:2;
-      box-shadow:0 0 15px rgba(255,215,0,0.25);
     }
 
     /* TEXTO INDEPENDIENTE */
@@ -123,7 +121,7 @@
     @media (max-width:768px){
       .delvis-block, .florida-block { flex-direction:column; text-align:center; }
       .delvis-text, .florida-text { text-align:center; }
-      .delvis-photo img, .delvis-photo::before { width:65%; max-width:200px; }
+      .delvis-photo img, .delvis-photo::after { width:65%; max-width:200px; }
       .florida-photo img { width:80%; }
     }
   </style>
