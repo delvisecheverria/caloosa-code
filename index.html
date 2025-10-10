@@ -5,138 +5,63 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Caloosa Code — Landing</title>
 
-  <!-- Lottie Player -->
+  <!-- ✅ Lottie Player (necesario para ver la animación) -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
   <style>
-    :root {
-      --yellow: #ffd600;
-      --black: #000;
-      --gray: #555;
-      --font-serif: "Playfair Display", serif;
-      --font-sans: "Inter", sans-serif;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      font-family: system-ui, sans-serif;
       background: #fff;
-      font-family: var(--font-sans);
-      color: var(--black);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      color: #000;
+      margin: 0;
+      padding: 2rem;
       text-align: center;
-      min-height: 100vh;
-      padding: 3rem 1rem;
     }
 
-    .header .brand {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.25rem;
-      font-family: var(--font-serif);
+    .brand {
       font-size: 2rem;
-      letter-spacing: 0.05em;
+      font-weight: bold;
     }
 
     .symbol {
-      color: var(--yellow);
-    }
-
-    .badge {
-      font-weight: 700;
-    }
-
-    .code {
-      font-weight: 400;
-      letter-spacing: 0.1em;
+      color: #ffd600;
     }
 
     .empower p {
-      font-size: 1rem;
-      color: var(--gray);
-      margin-top: 1rem;
+      color: #555;
       font-weight: 500;
       letter-spacing: 0.05em;
-    }
-
-    .hero {
-      margin-top: 2rem;
-      max-width: 800px;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .accent {
-      color: var(--yellow);
     }
 
     .main-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
       margin-top: 1rem;
+      margin-bottom: 2rem;
     }
 
     .main-nav a {
+      margin: 0 1rem;
       text-decoration: none;
-      color: var(--black);
+      color: #000;
       font-weight: 500;
-      letter-spacing: 0.05em;
-      transition: color 0.3s ease;
     }
 
     .main-nav a:hover {
-      color: var(--yellow);
+      color: #ffd600;
     }
 
     .scene-wrap {
       display: flex;
       justify-content: center;
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
 
-    /* Simple SVG animations */
-    @keyframes sunMove {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-
-    @keyframes cloudMove {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(10px); }
-    }
-
-    @keyframes waterSurface {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(2px); }
-    }
-
-    @keyframes swayTall {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(3deg); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-
-    /* Fade-in para la animación */
+    /* 🔸 Animación Lottie centrada y con fade-in */
     .lottie-wrap {
-      opacity: 0;
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
       animation: fadeIn 2s ease forwards;
+      opacity: 0;
       animation-delay: 0.5s;
     }
 
@@ -146,26 +71,18 @@
       }
     }
 
-    .intro {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 2rem auto;
-    }
-
-    .footer {
+    footer {
       margin-top: 2rem;
+      color: #555;
       font-size: 0.9rem;
-      color: var(--gray);
     }
 
-    .footer .email {
-      color: var(--yellow);
+    .email {
+      color: #ffd600;
       text-decoration: none;
     }
 
-    .footer .email:hover {
+    .email:hover {
       text-decoration: underline;
     }
   </style>
@@ -190,7 +107,7 @@
     <!-- Hero -->
     <section class="hero">
       <h1 class="hero-title">
-        Caloosa <span class="accent">Code</span>
+        Caloosa <span class="accent" style="color:#ffd600;">Code</span>
       </h1>
 
       <nav class="main-nav">
@@ -200,7 +117,7 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Animated Scene (tu SVG se mantiene igual) -->
+      <!-- Animated Scene -->
       <div class="scene-wrap" aria-hidden="true">
         <svg width="250" height="180" viewBox="0 0 250 180" xmlns="http://www.w3.org/2000/svg">
           <!-- Sun and clouds -->
@@ -227,7 +144,7 @@
         </svg>
       </div>
 
-      <!-- 🔹 Animación Lottie -->
+      <!-- 🔹 NUEVA ANIMACIÓN (se verá debajo del SVG) -->
       <div class="lottie-wrap">
         <lottie-player
           src="https://lottie.host/9f7c6a9f-caloosa-hero.json"
@@ -235,7 +152,7 @@
           speed="1"
           loop
           autoplay
-          style="width: 380px; height: 380px; margin-top: 3rem"
+          style="width: 380px; height: 380px;"
         ></lottie-player>
       </div>
 
