@@ -64,24 +64,24 @@
       display:block;
       position:relative;
       animation:fadeZoom 1.6s ease forwards;
-      filter:brightness(1.05);
       z-index:2;
+      box-shadow:0 0 0 0 rgba(255,215,0,0.3);
     }
     .delvis-photo::before {
       content:"";
       position:absolute;
       width:50%;
       max-width:220px;
-      height:100%;
+      height:auto;
+      aspect-ratio:3/4;
       border-radius:16px;
       background:rgba(255,215,0,0.28);
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
       pointer-events:none;
-      mix-blend-mode:multiply;
-      animation:fadeZoom 2s ease forwards;
-      z-index:3;
+      z-index:1;
+      filter:blur(2px);
     }
 
     /* FOTO FLORIDA */
@@ -92,6 +92,8 @@
       object-fit:cover;
       display:block;
       animation:fadeZoom 1.8s ease forwards;
+      z-index:2;
+      box-shadow:0 0 15px rgba(255,215,0,0.25);
     }
 
     /* TEXTO INDEPENDIENTE */
