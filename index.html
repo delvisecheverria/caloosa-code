@@ -1,148 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caloosa Code</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Caloosa Code — Landing</title>
 
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Lottie Player -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <!-- Lottie Player -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    :root {
+      --yellow: #ffd600;
+      --black: #000;
+      --gray: #555;
+      --font-serif: "Playfair Display", serif;
+      --font-sans: "Inter", sans-serif;
+    }
 
-    <style>
-      :root {
-        --yellow: #ffd600;
-        --black: #000;
-        --gray: #555;
-        --font-serif: "Playfair Display", serif;
-        --font-sans: "Inter", sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      font-family: var(--font-sans);
+      color: var(--black);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+
+    .header .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .symbol {
+      color: var(--yellow);
+    }
+
+    .badge {
+      font-weight: 700;
+    }
+
+    .code {
+      font-weight: 400;
+      letter-spacing: 0.1em;
+    }
+
+    .empower p {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-top: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .hero {
+      margin-top: 2rem;
+      max-width: 800px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .accent {
+      color: var(--yellow);
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+
+    .main-nav a:hover {
+      color: var(--yellow);
+    }
+
+    .scene-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    /* Simple SVG animations */
+    @keyframes sunMove {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    @keyframes cloudMove {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+
+    @keyframes waterSurface {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(2px); }
+    }
+
+    @keyframes swayTall {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    /* Fade-in para la animación */
+    .lottie-wrap {
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
+    }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    .intro {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 2rem auto;
+    }
 
-      body {
-        background: #fff;
-        font-family: var(--font-sans);
-        color: var(--black);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        min-height: 100vh;
-        padding: 3rem 1rem;
-      }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
 
-      header {
-        margin-bottom: 1rem;
-      }
+    .footer .email {
+      color: var(--yellow);
+      text-decoration: none;
+    }
 
-      .logo {
-        font-family: var(--font-serif);
-        font-size: clamp(3rem, 10vw, 8rem);
-        font-weight: 600;
-      }
+    .footer .email:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
 
-      .logo span {
-        color: var(--yellow);
-        font-weight: 500;
-      }
-
-      .empowering {
-        font-size: 1.2rem;
-        color: var(--gray);
-        margin-top: 0.5rem;
-        font-weight: 400;
-      }
-
-      /* 🔹 Texto animado en línea circular */
-      .circle-text {
-        position: relative;
-        width: 250px;
-        height: 250px;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        border: 2px solid var(--yellow);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .circle-text p {
-        position: absolute;
-        width: 100%;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--black);
-        animation: rotate 10s linear infinite;
-      }
-
-      @keyframes rotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      /* 🔸 Contenido dentro del círculo */
-      .circle-text span {
-        position: absolute;
-        color: var(--yellow);
-        font-size: 0.9rem;
-      }
-
-      lottie-player {
-        margin-top: 3rem;
-        width: 400px;
-        height: 400px;
-      }
-
-      footer {
-        margin-top: 2rem;
-        font-size: 0.9rem;
-        color: var(--gray);
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <div class="logo"><span>Caloosa</span> Code</div>
-      <p class="empowering">
-        Empowering the next generation of QA Engineers & Software Testers.
-      </p>
+<body>
+  <main class="page">
+    <!-- Logo -->
+    <header class="header">
+      <span class="brand">
+        <span class="symbol">&lt;//&gt;</span>
+        <span class="badge">CALOOSA</span>
+        <span class="code">CODE</span>
+      </span>
     </header>
 
-    <!-- 🔸 Texto animado circular -->
-    <div class="circle-text">
-      <p>
-        All our graduates are 100% guaranteed their first real-world work
-        experience as interns with one of our partner companies ✨
+    <!-- Empowering text -->
+    <section class="empower">
+      <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
+    </section>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">
+        Caloosa <span class="accent">Code</span>
+      </h1>
+
+      <nav class="main-nav">
+        <a href="program.html">Program</a>
+        <a href="about.html">About</a>
+        <a href="partners.html">Partners</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Animated Scene (tu SVG se mantiene igual) -->
+      <div class="scene-wrap" aria-hidden="true">
+        <svg width="250" height="180" viewBox="0 0 250 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sun and clouds -->
+          <g>
+            <circle cx="180" cy="35" r="20" fill="#FFD700" opacity="0.7" style="animation: sunMove 10s ease-in-out infinite" />
+            <ellipse cx="140" cy="45" rx="25" ry="12" fill="#f2f2f2" opacity="0.8" style="animation: cloudMove 8s ease-in-out infinite" />
+            <ellipse cx="170" cy="30" rx="30" ry="15" fill="#f2f2f2" opacity="0.8" style="animation: cloudMove 9s ease-in-out infinite; animation-delay: 1s" />
+          </g>
+
+          <!-- Water surface -->
+          <path d="M 30 140 Q 90 135, 150 140 T 250 140" stroke="#000" stroke-width="1.2" fill="none" style="animation: waterSurface 4s ease-in-out infinite" />
+
+          <!-- Reeds cluster -->
+          <g>
+            <path d="M 85 140 Q 82 110, 80 85 Q 78 60, 77 35 Q 80 25, 84 35 Q 85 65, 87 90 Q 88 120, 90 140 Z" fill="#fff" stroke="#000" stroke-width="2.4" style="animation: swayTall 5s ease-in-out infinite; transform-origin: 85px 140px" />
+            <path d="M 95 140 Q 93 105, 91 75 Q 89 50, 88 28 Q 90 20, 93 28 Q 94 55, 96 85 Q 97 115, 98 140 Z" fill="#fff" stroke="#000" stroke-width="2.5" style="animation: swayTall 5.3s ease-in-out infinite; animation-delay: .2s; transform-origin: 95px 140px" />
+            <path d="M 110 140 Q 108 100, 106 70 Q 105 45, 104 20 Q 107 10, 110 20 Q 112 45, 113 75 Q 114 110, 115 140 Z" fill="#fff" stroke="#000" stroke-width="2.7" style="animation: swayTall 5.5s ease-in-out infinite; animation-delay: .4s; transform-origin: 110px 140px" />
+            <path d="M 125 140 Q 122 105, 120 70 Q 118 50, 117 25 Q 119 18, 122 25 Q 123 52, 125 85 Q 126 115, 128 140 Z" fill="#fff" stroke="#000" stroke-width="2.9" style="animation: swayTall 5.7s ease-in-out infinite; animation-delay: .6s; transform-origin: 125px 140px" />
+            <path d="M 140 140 Q 138 110, 136 80 Q 134 55, 133 30 Q 136 25, 139 30 Q 140 55, 141 85 Q 142 115, 144 140 Z" fill="#fff" stroke="#000" stroke-width="2.6" style="animation: swayTall 5.9s ease-in-out infinite; animation-delay: .8s; transform-origin: 140px 140px" />
+            <path d="M 155 140 Q 153 115, 151 85 Q 149 60, 148 40 Q 150 35, 153 40 Q 154 65, 155 90 Q 156 115, 158 140 Z" fill="#fff" stroke="#000" stroke-width="2.4" style="animation: swayTall 6s ease-in-out infinite; animation-delay: 1s; transform-origin: 155px 140px" />
+          </g>
+
+          <ellipse cx="125" cy="145" rx="90" ry="6" fill="#000" opacity="0.06" style="animation: pulse 4s ease-in-out infinite" />
+        </svg>
+      </div>
+
+      <!-- 🔹 Animación Lottie -->
+      <div class="lottie-wrap">
+        <lottie-player
+          src="https://lottie.host/9f7c6a9f-caloosa-hero.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          style="width: 380px; height: 380px; margin-top: 3rem"
+        ></lottie-player>
+      </div>
+
+      <p class="intro">
+        Caloosa Code is an initiative born from the SWFL Tech Night community and led by Delvis Echeverria, a technology professional with 15+ years of experience in software development, specializing in QA and testing. The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community. In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.
       </p>
-      <span>Guaranteed Internship</span>
-    </div>
+    </section>
 
-    <!-- 🔹 Animación Lottie -->
-    <lottie-player
-      src="https://lottie.host/9f7c6a9f-caloosa-hero.json"
-      background="transparent"
-      speed="1"
-      loop
-      autoplay
-    ></lottie-player>
-
-    <footer>© 2025 Caloosa Code. All rights reserved.</footer>
-  </body>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+      <p><a class="email" href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+    </footer>
+  </main>
+</body>
 </html>
