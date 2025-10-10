@@ -13,7 +13,7 @@
       color:#000;
     }
 
-    /* HEADER */
+    /* HEADER (igual a program.html) */
     header { text-align:center; padding-top:28px; }
     .brand { display:inline-flex; align-items:center; gap:3px; font-weight:700; font-size:.85rem; letter-spacing:1px; text-transform:uppercase; }
     .symbol { color:#000; }
@@ -28,10 +28,9 @@
     .main-nav a.active { color:#000; }
     .main-nav a.active::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:#FFD700; }
 
-    /* CONTENT */
+    /* LAYOUT */
     main { max-width:850px; margin:0 auto; padding:20px; line-height:1.7; font-size:.95rem; color:#333; }
 
-    /* BLOQUES */
     .delvis-block, .florida-block {
       display:flex;
       align-items:center;
@@ -55,43 +54,39 @@
       100% { opacity:1; transform:scale(1); }
     }
 
-    /* FOTO DELVIS */
-    .delvis-photo img {
-      width:50%;
-      max-width:220px;
-      border-radius:16px;
-      object-fit:cover;
-      display:block;
+    /* FOTO DELVIS con gradiente encima (overlay) */
+    .photo-frame {
       position:relative;
-      animation:fadeZoom 1.6s ease forwards;
-      z-index:2;
+      display:inline-block;
+      width:220px;              /* tamaño estable y limpio */
+      border-radius:16px;
+      overflow:hidden;          /* clave: recorta el overlay al marco */
+      animation:fadeZoom 1.6s ease both;
     }
-    /* Gradiente amarillo encima */
-    .delvis-photo::after {
+    .photo-frame img {
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:inherit;
+      object-fit:cover;
+    }
+    .photo-frame::after {
       content:"";
       position:absolute;
-      width:50%;
-      max-width:220px;
-      height:100%;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      border-radius:16px;
+      inset:0; /* cubre exactamente la imagen */
+      background:linear-gradient(180deg, rgba(255,215,0,0.30) 0%, rgba(255,215,0,0.15) 100%);
+      mix-blend-mode:multiply;  /* tinte amarillo translúcido */
       pointer-events:none;
-      background:linear-gradient(180deg, rgba(255,215,0,0.25) 0%, rgba(255,215,0,0.15) 100%);
-      mix-blend-mode:multiply;
-      z-index:3;
-      animation:fadeZoom 1.8s ease forwards;
     }
 
-    /* FOTO FLORIDA SIN BORDES */
+    /* FOTO FLORIDA limpia (sin color extra) */
     .florida-photo img {
       width:75%;
       max-width:280px;
       border-radius:12px;
       object-fit:cover;
       display:block;
-      animation:fadeZoom 1.8s ease forwards;
+      animation:fadeZoom 1.8s ease both;
     }
 
     /* TEXTO INDEPENDIENTE */
@@ -121,7 +116,7 @@
     @media (max-width:768px){
       .delvis-block, .florida-block { flex-direction:column; text-align:center; }
       .delvis-text, .florida-text { text-align:center; }
-      .delvis-photo img, .delvis-photo::after { width:65%; max-width:200px; }
+      .photo-frame { width:200px; }   /* ajusta tamaño en mobile */
       .florida-photo img { width:80%; }
     }
   </style>
@@ -152,11 +147,13 @@
         <p>Delvis has a deep passion for teaching and mentorship, which inspired him to create a program that helps others gain the skills and confidence to grow in the tech industry.</p>
       </div>
       <div class="delvis-photo">
-        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria">
+        <span class="photo-frame">
+          <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria">
+        </span>
       </div>
     </div>
 
-    <!-- Texto independiente -->
+    <!-- Texto independiente (centrado) -->
     <div class="independent-text">
       This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.
     </div>
