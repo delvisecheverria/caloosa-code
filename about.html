@@ -28,8 +28,10 @@
     .main-nav a.active { color:#000; }
     .main-nav a.active::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:#FFD700; }
 
-    /* BLOQUES */
+    /* CONTENT */
     main { max-width:850px; margin:0 auto; padding:20px; line-height:1.7; font-size:.95rem; color:#333; }
+
+    /* BLOQUES */
     .delvis-block, .florida-block {
       display:flex;
       align-items:center;
@@ -43,7 +45,14 @@
       flex:1 1 45%;
       display:flex;
       justify-content:center;
+      align-items:center;
       position:relative;
+    }
+
+    /* ANIMACIÓN SUAVE */
+    @keyframes fadeZoom {
+      0% { opacity:0; transform:scale(0.96); }
+      100% { opacity:1; transform:scale(1); }
     }
 
     /* FOTO DELVIS */
@@ -54,23 +63,25 @@
       object-fit:cover;
       display:block;
       position:relative;
-      z-index:2;
       animation:fadeZoom 1.6s ease forwards;
+      filter:brightness(1.05);
+      z-index:2;
     }
-    .delvis-photo::after {
+    .delvis-photo::before {
       content:"";
       position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%,-50%);
       width:50%;
       max-width:220px;
       height:100%;
       border-radius:16px;
-      background:rgba(255,215,0,0.25);
-      z-index:3;
+      background:rgba(255,215,0,0.28);
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
       pointer-events:none;
+      mix-blend-mode:multiply;
       animation:fadeZoom 2s ease forwards;
+      z-index:3;
     }
 
     /* FOTO FLORIDA */
@@ -81,12 +92,6 @@
       object-fit:cover;
       display:block;
       animation:fadeZoom 1.8s ease forwards;
-    }
-
-    /* ANIMACIÓN SUAVE */
-    @keyframes fadeZoom {
-      0% { opacity:0; transform:scale(0.96); }
-      100% { opacity:1; transform:scale(1); }
     }
 
     /* TEXTO INDEPENDIENTE */
@@ -116,7 +121,7 @@
     @media (max-width:768px){
       .delvis-block, .florida-block { flex-direction:column; text-align:center; }
       .delvis-text, .florida-text { text-align:center; }
-      .delvis-photo img, .delvis-photo::after { width:65%; max-width:200px; }
+      .delvis-photo img, .delvis-photo::before { width:65%; max-width:200px; }
       .florida-photo img { width:80%; }
     }
   </style>
