@@ -84,6 +84,38 @@
       height: auto;
     }
 
+    /* INTRO TEXT */
+    .intro {
+      text-align: center;
+      max-width: 850px;
+      margin: 30px auto;
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 3px;
+      background: #FFD700;
+      animation: underlineFlow 3s ease-in-out infinite;
+    }
+
+    @keyframes underlineFlow {
+      0%, 100% { width: 0%; left: 0; }
+      50% { width: 100%; left: 0; }
+    }
+
     /* MAP SECTION */
     .map-wrap {
       position: relative;
@@ -135,39 +167,6 @@
     .FL { left: 80%; top: 75%; }
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
-
-    /* INTRO TEXT */
-    .intro {
-      text-align: center;
-      max-width: 850px;
-      margin: 30px auto;
-      color: #333;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding: 0 20px;
-    }
-
-    /* HIGHLIGHT LINE */
-    .highlight {
-      position: relative;
-      display: inline-block;
-    }
-
-    .highlight::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0%;
-      height: 3px;
-      background: #FFD700;
-      animation: underlineFlow 3s ease-in-out infinite;
-    }
-
-    @keyframes underlineFlow {
-      0%, 100% { width: 0%; left: 0; }
-      50% { width: 100%; left: 0; }
-    }
 
     /* TABLE */
     .table-wrap {
@@ -248,8 +247,14 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
+    <img src="assets/caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
+
+  <!-- INTRO ABOVE MAP -->
+  <p class="intro">
+    Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. 
+    <span class="highlight">This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</span>
+  </p>
 
   <!-- MAP + STATS SECTION -->
   <div class="map-wrap">
@@ -277,11 +282,7 @@
     </div>
   </div>
 
-  <p class="intro">
-    Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
-    <span class="highlight">This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</span>
-  </p>
-
+  <!-- INTRO BELOW MAP -->
   <p class="intro">
     Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and
     Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
