@@ -4,157 +4,158 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Caloosa Code — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    /* ====== Base Styles ====== */
     body {
-      font-family: "Inter", sans-serif;
       margin: 0;
+      font-family: "Inter Tight", system-ui, sans-serif;
       background: #fff;
-      color: #111;
+      color: #000;
       text-align: center;
     }
 
-    main.page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 1rem;
-    }
-
-    /* ====== Header ====== */
-    .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 1.5rem;
+    /* ===== HEADER ===== */
+    header {
+      padding-top: 60px;
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 1px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 4px;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .symbol {
-      color: #666;
-      font-weight: 400;
-      font-size: 1.1rem;
+      color: #000;
+      font-weight: 600;
     }
 
     .badge {
-      background: #FFD600;
+      background: #FFD700;
       color: #000;
-      padding: 0.2em 0.6em;
+      padding: 4px 8px;
       border-radius: 4px;
-      font-size: 0.9rem;
+      font-weight: 800;
     }
 
     .code {
       color: #000;
-      font-weight: 700;
     }
 
-    /* ====== Hero Image ====== */
+    .empower {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== HERO IMAGE ===== */
     .hero {
-      margin: 2.5rem auto 1.5rem auto;
-      width: 100%;
-      max-width: 950px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
     }
 
     .hero img {
-      width: 100%;
+      width: 80%;
+      max-width: 950px;
       height: auto;
       display: block;
       margin: 0 auto;
     }
 
-    /* ====== Navigation ====== */
+    /* ===== NAVIGATION ===== */
     nav.main-nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin: 1.5rem 0 2.5rem 0;
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      gap: 32px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin: 10px 0 50px;
     }
 
     nav.main-nav a {
       text-decoration: none;
-      color: #000;
+      color: #222;
       position: relative;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    nav.main-nav a::after {
+    nav.main-nav a:hover {
+      color: #000;
+    }
+
+    nav.main-nav a.active::after {
       content: "";
       position: absolute;
-      bottom: -4px;
       left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #FFD600;
-      transition: width 0.3s ease;
-    }
-
-    nav.main-nav a:hover {
-      color: #FFD600;
-    }
-
-    nav.main-nav a:hover::after {
+      bottom: -4px;
       width: 100%;
+      height: 2px;
+      background: #FFD700;
     }
 
-    /* ====== Footer ====== */
-    footer.footer {
-      font-size: 0.9em;
+    /* ===== FOOTER ===== */
+    footer {
+      font-size: 0.8rem;
       color: #555;
-      margin-top: 3rem;
-      padding-bottom: 2rem;
+      margin: 60px 0 30px;
     }
 
-    footer.footer .email {
-      color: #FFD600;
+    footer a {
+      color: #FFD700;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    footer.footer .email:hover {
+    footer a:hover {
       text-decoration: underline;
     }
 
-    /* ====== Responsive ====== */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .brand {
+        font-size: 1.3rem;
+      }
+      .empower {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+      }
+      .hero img {
+        width: 95%;
+      }
       nav.main-nav {
         flex-direction: column;
-        gap: 1rem;
-      }
-
-      .hero {
-        margin-top: 1rem;
+        gap: 12px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
+  <header>
+    <span class="brand">
+      <span class="symbol">&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span class="code">CODE</span>
+    </span>
+    <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
+  </header>
 
-    <!-- Header -->
-    <header class="header">
-      <span class="brand">
-        <span class="symbol">&lt;//&gt;</span>
-        <span class="badge">CALOOSA</span>
-        <span class="code">CODE</span>
-      </span>
-    </header>
-
-    <!-- Hero Image -->
+  <main>
+    <!-- Imagen del héroe -->
     <section class="hero">
-      <img src="caloosa-hero.png" alt="Caloosa Code illustration">
+      <img src="assets/caloosa-hero.png" alt="Caloosa Code Illustration">
     </section>
 
-    <!-- Main Navigation (same as Program page) -->
+    <!-- Menú principal -->
     <nav class="main-nav">
       <a href="program.html">Program</a>
       <a href="about.html">About</a>
@@ -163,11 +164,10 @@
     </nav>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
       <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a class="email" href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+      <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
     </footer>
-
   </main>
 </body>
 </html>
