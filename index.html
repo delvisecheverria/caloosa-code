@@ -47,10 +47,12 @@
     nav.main-nav {
       display: flex;
       justify-content: center;
-      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap; /* Esto permite que se ajuste pero siga horizontal */
+      gap: 22px;
       font-size: 0.9rem;
       text-transform: uppercase;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     nav.main-nav a {
@@ -59,6 +61,7 @@
       color: #222;
       padding-bottom: 3px;
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     nav.main-nav a:hover { color: #000; }
@@ -216,11 +219,18 @@
       font-weight: 600;
     }
 
+    /* RESPONSIVE FIX */
     @media (max-width: 768px) {
-      .brand { font-size: 1.3rem; }
+      .brand { font-size: 1.4rem; }
+      .empower { font-size: 0.7rem; letter-spacing: 0.2em; }
+      nav.main-nav { gap: 14px; font-size: 0.8rem; flex-wrap: nowrap; }
       .hero img { width: 95%; }
-      nav.main-nav { flex-direction: column; gap: 12px; }
-      .map-wrap { max-width: 85%; }
+      .map-wrap { max-width: 90%; }
+    }
+
+    @media (max-width: 480px) {
+      .brand { font-size: 1.2rem; }
+      nav.main-nav { gap: 10px; font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -252,7 +262,7 @@
 
   <!-- INTRO ABOVE MAP -->
   <p class="intro">
-    Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. 
+    Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
     <span class="highlight">This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</span>
   </p>
 
