@@ -78,7 +78,7 @@
 
     /* HERO IMAGE */
     .hero {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .hero img {
@@ -89,16 +89,17 @@
 
     /* ===== TIMELINE STYLES ===== */
     .bootcamp-timeline {
-      padding: 80px 20px 100px;
+      padding: 40px 20px 60px;
       background: #fff;
       text-align: center;
+      position: relative;
     }
 
     .bootcamp-timeline h2 {
-      font-size: 1.9rem;
+      font-size: 1.7rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     .bootcamp-timeline h2 span {
@@ -109,36 +110,38 @@
       position: relative;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      max-width: 1100px;
+      align-items: center;
+      max-width: 1000px;
       margin: 0 auto;
+      padding: 0 5%;
     }
 
     .timeline-line {
       position: absolute;
-      top: 60px;
+      top: 50%;
       left: 5%;
       right: 5%;
       height: 4px;
-      background: linear-gradient(to right, #FFD700 0%, #FFD700 100%);
-      animation: lineFlow 12s linear infinite;
-      background-size: 300% 100%;
-      background-position: 0 0;
+      background: #FFD700;
       z-index: 0;
+      width: 0;
+      animation: progressGrow 12s linear infinite;
+      transform: translateY(-50%);
+      border-radius: 2px;
     }
 
     .calendar {
       background: #fff;
-      border: 3px solid #FFD700;
+      border: 2px solid #000;
       border-radius: 6px;
-      width: 100px;
-      height: 100px;
+      width: 85px;
+      height: 85px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       transition: all 0.4s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
       position: relative;
       z-index: 1;
     }
@@ -146,18 +149,18 @@
     .calendar-header {
       background: #FFD700;
       color: #000;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       width: 100%;
-      padding: 6px 0;
+      padding: 5px 0;
       border-bottom: 2px solid #000;
     }
 
     .calendar-number {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: 800;
-      margin-top: 8px;
+      margin-top: 6px;
       color: #000;
     }
 
@@ -166,43 +169,48 @@
       flex: 1;
       position: relative;
       opacity: 0.4;
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .stage.active {
       opacity: 1;
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
-    .stage p {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      color: #333;
-      opacity: 0.8;
-      transition: all 0.4s ease;
-    }
-
-    .stage.active p {
+    .stage-text {
+      font-size: 1rem;
       color: #000;
-      font-weight: 700;
-      opacity: 1;
+      font-weight: 600;
+      margin-top: 25px;
+      min-height: 24px;
+      transition: opacity 0.4s ease;
     }
 
-    @keyframes lineFlow {
-      0% { background-position: 0 0; }
-      100% { background-position: -300% 0; }
+    @keyframes progressGrow {
+      0% { width: 0%; }
+      100% { width: 90%; }
     }
 
     @media (max-width: 900px) {
       .timeline {
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
       }
       .timeline-line {
         display: none;
       }
-      .stage {
-        margin-bottom: 40px;
+      .calendar {
+        width: 70px;
+        height: 70px;
+      }
+      .calendar-number {
+        font-size: 1rem;
+      }
+      .stage-text {
+        font-size: 0.9rem;
+        margin-top: 15px;
+        padding: 0 10px;
       }
     }
 
@@ -248,7 +256,7 @@
       background: #222;
     }
 
-    /* INTRO TEXT BELOW MAP */
+    /* MAP + TABLE SECTION */
     .intro {
       text-align: center;
       max-width: 850px;
@@ -259,7 +267,6 @@
       padding: 0 20px;
     }
 
-    /* MAP */
     .map-wrap {
       position: relative;
       width: 100%;
@@ -293,15 +300,6 @@
       animation: float 3s ease-in-out infinite;
       transform: translate(-50%, -50%);
       z-index: 2;
-    }
-
-    .badge-line {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      font-weight: 600;
-      margin: 2px 0;
     }
 
     @keyframes float {
@@ -390,13 +388,44 @@
     <h2>OUR FIRST BOOTCAMP: <span>QA ENGINEER</span></h2>
     <div class="timeline">
       <div class="timeline-line"></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">WEEKS</div><div class="calendar-number">1–4</div></div><p>QA Fundamentals & Manual Testing</p></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">WEEKS</div><div class="calendar-number">5–10</div></div><p>Web & Mobile Test Automation</p></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">WEEKS</div><div class="calendar-number">11–14</div></div><p>API Testing + Databases</p></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">WEEKS</div><div class="calendar-number">15–18</div></div><p>Performance Testing</p></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">WEEKS</div><div class="calendar-number">18–20</div></div><p>Capstone Project & Career Prep</p></div>
-      <div class="stage"><div class="calendar"><div class="calendar-header">MONTHS</div><div class="calendar-number">6–8</div></div><p>Internship / Real-World QA Project</p></div>
+      <div class="stage" data-text="QA Fundamentals & Manual Testing">
+        <div class="calendar">
+          <div class="calendar-header">WEEKS</div>
+          <div class="calendar-number">1–4</div>
+        </div>
+      </div>
+      <div class="stage" data-text="Web & Mobile Test Automation">
+        <div class="calendar">
+          <div class="calendar-header">WEEKS</div>
+          <div class="calendar-number">5–10</div>
+        </div>
+      </div>
+      <div class="stage" data-text="API Testing + Databases">
+        <div class="calendar">
+          <div class="calendar-header">WEEKS</div>
+          <div class="calendar-number">11–14</div>
+        </div>
+      </div>
+      <div class="stage" data-text="Performance Testing">
+        <div class="calendar">
+          <div class="calendar-header">WEEKS</div>
+          <div class="calendar-number">15–18</div>
+        </div>
+      </div>
+      <div class="stage" data-text="Capstone Project & Career Prep">
+        <div class="calendar">
+          <div class="calendar-header">WEEKS</div>
+          <div class="calendar-number">18–20</div>
+        </div>
+      </div>
+      <div class="stage" data-text="Internship / Real-World QA Project">
+        <div class="calendar">
+          <div class="calendar-header">MONTHS</div>
+          <div class="calendar-number">6–8</div>
+        </div>
+      </div>
     </div>
+    <p class="stage-text"></p>
   </section>
 
   <!-- GUARANTEED SECTION -->
@@ -442,12 +471,20 @@
   <script>
     /* ===== TIMELINE LOOP ANIMATION ===== */
     const stages = document.querySelectorAll('.stage');
+    const stageText = document.querySelector('.stage-text');
     let current = 0;
 
     function activateStage(index) {
       stages.forEach((stage, i) => {
         stage.classList.toggle('active', i === index);
       });
+      const activeStage = stages[index];
+      const text = activeStage.getAttribute('data-text');
+      stageText.style.opacity = 0;
+      setTimeout(() => {
+        stageText.textContent = text;
+        stageText.style.opacity = 1;
+      }, 250);
     }
 
     function loopStages() {
@@ -455,7 +492,7 @@
       current = (current + 1) % stages.length;
     }
 
-    setInterval(loopStages, 1500);
+    setInterval(loopStages, 1800);
   </script>
 </body>
 </html>
