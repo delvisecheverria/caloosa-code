@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -47,8 +48,12 @@
     .hero img { width: 80%; max-width: 900px; height: auto; margin-bottom: 40px; }
 
     /* OUR BOOTCAMP STAGES */
-    .bootcamp-section { background: #FFD700; padding: 50px 20px; text-align: center; color: #000; }
-    .bootcamp-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
+    .bootcamp-section {
+      background: #FFD700; padding: 50px 20px; text-align: center; color: #000;
+    }
+    .bootcamp-section h2 {
+      font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;
+    }
     .bootcamp-section p.desc {
       font-size: 1rem; margin-bottom: 28px; color: #111; max-width: 700px; margin-left: auto; margin-right: auto;
     }
@@ -93,7 +98,6 @@
       position: relative; width: 65%; max-width: 720px; border-radius: 10px; overflow: hidden;
     }
     .map-wrap img { width: 100%; border-radius: 10px; display: block; }
-    /* Floating chips (desktop only) */
     .badge-chip {
       position: absolute; font-size: 11px; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,.12);
       color: #000; border-radius: 10px; padding: 8px 10px; box-shadow: 0 2px 6px rgba(0,0,0,.08);
@@ -102,57 +106,34 @@
     @keyframes float { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
     .CA { left: 18%; top: 58%; } .TX { left: 42%; top: 60%; } .FL { left: 80%; top: 75%; }
     .GA { left: 68%; top: 57%; } .NY { left: 84%; top: 33%; }
-
-    /* Tabla más pequeña y pegada a la derecha del mapa (desktop) */
     .table-wrap { width: 22%; min-width: 200px; align-self: center; }
     table { border-collapse: collapse; width: 100%; font-size: 0.78rem; }
     th, td { border: 2px solid #000; padding: 8px; text-align: center; }
     th { background: #000; color: #fff; }
-
-    /* Mobile: mapa estático + tabla debajo (chips ocultos) */
     @media (max-width: 768px) {
       .map-section { flex-direction: column; gap: 14px; }
-      .badge-chip { display: none; }      /* sin animaciones en mobile */
+      .badge-chip { display: none; }
       .map-wrap { width: 92%; margin: 0 auto; }
       .table-wrap { width: 92%; margin: 0 auto; }
     }
 
-    /* GUARANTEE SECTION */
-    .guarantee {
-      margin: 48px auto 60px; padding: 0 20px;
+    /* NEW GUARANTEE SECTION (same layout as bootcamp) */
+    .guarantee-section {
+      background: #FFD700; padding: 50px 20px; text-align: center; color: #000;
     }
-    .guarantee-box {
-      position: relative; background: #FFD700; color: #000; border-radius: 14px;
-      padding: 28px 18px; max-width: 980px; margin: 0 auto;
-      /* borde animado (amarillo más oscuro) */
-      --b: 3px;
-      --c1: #e6c200;
-      --c2: transparent;
+    .guarantee-section h2 {
+      font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;
     }
-    .guarantee-box::before {
-      content: "";
-      position: absolute; inset: 0;
-      padding: var(--b);
-      border-radius: 16px;
-      background:
-        conic-gradient(from 0deg, var(--c1) 0 10%, var(--c2) 10% 100%);
-      -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      animation: spin 5s linear infinite;
+    .guarantee-section p {
+      font-size: 1rem; margin-bottom: 24px; color: #111; max-width: 700px;
+      margin-left: auto; margin-right: auto; line-height: 1.5;
     }
-    @keyframes spin { to { transform: rotate(1turn); } }
-
-    .guarantee h3 {
-      margin: 0 0 6px; font-size: 1.6rem; font-weight: 900; text-transform: uppercase;
+    .guarantee-section .learn-btn {
+      background: #000; color: #FFD700; border: none; padding: 10px 24px;
+      border-radius: 6px; cursor: pointer; text-transform: uppercase;
+      font-weight: 700; transition: background 0.3s;
     }
-    .guarantee p { margin: 6px auto; max-width: 800px; line-height: 1.5; }
-    .guarantee .cta {
-      margin-top: 14px; display: inline-block; background: #000; color: #FFD700;
-      padding: 10px 18px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase;
-    }
+    .guarantee-section .learn-btn:hover { background: #222; }
 
     footer { text-align: center; font-size: 0.75rem; color: #555; margin: 40px 0; }
   </style>
@@ -181,7 +162,7 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- OUR BOOTCAMP STAGES (MISMA ANIMACIÓN EN WEB Y MOBILE) -->
+  <!-- OUR BOOTCAMP STAGES -->
   <section class="bootcamp-section">
     <h2>Our Bootcamp Stages</h2>
     <p class="desc">
@@ -207,7 +188,6 @@
   <section>
     <h2 class="section-title">Why Become a QA Engineer</h2>
 
-    <!-- Intro text (restaurado) -->
     <p class="intro">
       Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
       This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
@@ -263,14 +243,14 @@
     </div>
   </section>
 
-  <!-- GUARANTEE BANNER -->
-  <section class="guarantee">
-    <div class="guarantee-box">
-      <h3>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h3>
-      <p><b>All our graduates</b> will have their first real QA job experience as <b>interns</b> in one of our <b>partner companies</b>.</p>
-      <p>A <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.</p>
-      <a class="cta" href="contact.html">I Want to Know More</a>
-    </div>
+  <!-- GUARANTEE (NEW DESIGN) -->
+  <section class="guarantee-section">
+    <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
+    <p>
+      All our graduates will have their first real QA job experience as <b>interns</b> in one of our <b>partner companies</b>.
+      This includes a <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.
+    </p>
+    <a class="learn-btn" href="contact.html">I Want to Know More</a>
   </section>
 
   <footer>
@@ -278,7 +258,6 @@
   </footer>
 
   <script>
-    /* Timeline animation (web + mobile) */
     const stages = document.querySelectorAll('.stage');
     const bootText = document.getElementById('bootcamp-text');
     const stageTexts = [
@@ -290,7 +269,6 @@
       "Internship / First QA Job"
     ];
     let idx = 0;
-
     function updateStages() {
       stages.forEach((s, i) => s.classList.toggle('active', i === idx));
       bootText.textContent = stageTexts[idx];
