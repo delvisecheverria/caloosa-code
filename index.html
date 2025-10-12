@@ -329,4 +329,90 @@
       You'll spend <b>three months</b> applying your newly learned skills 
       with <b>mentorship and hands-on guidance</b> from industry professionals.
     </p>
-    <a href="program
+    <a href="program.html" class="btn-black">Learn More</a>
+  </section>
+
+  <!-- WHY BECOME A QA ENGINEER -->
+  <section class="why-qa">
+    <h2>WHY BECOME A QA ENGINEER</h2>
+
+    <p class="intro">
+      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.  
+      This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
+    </p>
+
+    <p class="intro">
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253).  
+      Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.  
+      Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+    </p>
+
+    <div class="map-table-wrap">
+      <!-- MAP -->
+      <div class="map-wrap fade-on-scroll">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+
+        <div class="badge-chip CA">
+          <div class="badge-line">👷 Jobs: 31,530</div>
+          <div class="badge-line">💵 Salary: $130,250</div>
+        </div>
+        <div class="badge-chip TX" style="animation-delay:.15s">
+          <div class="badge-line">👷 Jobs: 19,300</div>
+          <div class="badge-line">💵 Salary: $107,930</div>
+        </div>
+        <div class="badge-chip FL" style="animation-delay:.3s">
+          <div class="badge-line">👷 Jobs: 12,080</div>
+          <div class="badge-line">💵 Salary: $104,440</div>
+        </div>
+        <div class="badge-chip GA" style="animation-delay:.45s">
+          <div class="badge-line">👷 Jobs: 7,830</div>
+          <div class="badge-line">💵 Salary: $109,980</div>
+        </div>
+        <div class="badge-chip NY" style="animation-delay:.6s">
+          <div class="badge-line">👷 Jobs: 11,140</div>
+          <div class="badge-line">💵 Salary: $112,700</div>
+        </div>
+      </div>
+
+      <!-- SMALLER TABLE -->
+      <div class="table-wrap compact">
+        <table>
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Jobs</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>California</td><td>31,530</td><td>$130K</td></tr>
+            <tr><td>Texas</td><td>19,300</td><td>$108K</td></tr>
+            <tr><td>Florida</td><td>12,080</td><td>$104K</td></tr>
+            <tr><td>New York</td><td>11,140</td><td>$113K</td></tr>
+            <tr><td>Georgia</td><td>7,830</td><td>$110K</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+  </footer>
+
+  <!-- SCROLL ANIMATION SCRIPT -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.fade-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
