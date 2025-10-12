@@ -110,11 +110,13 @@
       position: relative;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       align-items: center;
       flex-wrap: nowrap;
       max-width: 900px;
-      margin: 40px auto 20px;
+      margin: 30px auto 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
     }
 
     .timeline-line {
@@ -142,6 +144,7 @@
       border-radius: 8px;
       position: relative;
       z-index: 2;
+      flex-shrink: 0;
     }
 
     .stage span {
@@ -156,12 +159,14 @@
       background: #000;
       color: #FFD700;
       transform: scale(1.05);
+      transition: transform 0.3s, background 0.3s, color 0.3s;
     }
 
     .stage-text {
       font-weight: 600;
       font-size: 1rem;
       margin-top: 20px;
+      min-height: 28px;
     }
 
     .bootcamp button {
@@ -278,34 +283,15 @@
       font-weight: 600;
     }
 
-    /* MOBILE */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .timeline { display: none; }
-
-      .mobile-stages {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        justify-items: center;
-        max-width: 600px;
-        margin: 20px auto 10px;
+      .stage {
+        width: 90px;
+        height: 90px;
+        font-size: 0.7rem;
       }
-
-      .mobile-stages .stage {
-        width: 100px;
-        height: 100px;
-      }
-
-      .mobile-stages p {
-        grid-column: 1 / -1;
-        text-align: center;
-        font-weight: 600;
-        font-size: 0.9rem;
-        margin-top: 10px;
-      }
-
-      .map-section { flex-direction: column; }
-      .map-wrap, .table-wrap { width: 90%; }
+      .timeline { gap: 10px; max-width: 100%; overflow-x: visible; }
+      .stage-text { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -353,16 +339,6 @@
 
     <div class="stage-text" id="stageText">QA Fundamentals & Manual Testing</div>
     <button>Learn More</button>
-
-    <div class="mobile-stages">
-      <div class="stage"><span>Weeks</span>1–4</div>
-      <div class="stage"><span>Weeks</span>5–10</div>
-      <div class="stage"><span>Weeks</span>11–14</div>
-      <div class="stage"><span>Weeks</span>15–17</div>
-      <div class="stage"><span>Weeks</span>18–20</div>
-      <div class="stage"><span>Months</span>6–8</div>
-      <p>Each stage represents key milestones in your QA learning journey.</p>
-    </div>
   </section>
 
   <!-- WHY BECOME -->
