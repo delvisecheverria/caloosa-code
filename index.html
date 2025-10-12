@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -17,261 +16,150 @@
     }
 
     /* HEADER */
-    header {
-      text-align: center;
-      padding-top: 40px;
-    }
-
+    header { text-align: center; padding-top: 40px; }
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 4px;
+      font-weight: 700; font-size: 2rem; letter-spacing: 1px; text-transform: uppercase;
     }
-
     .symbol { color: #000; }
     .badge { background: #FFD700; color: #000; padding: 4px 8px; font-weight: 800; border-radius: 4px; }
     .code { color: #000; }
-
     .empower {
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: #666;
-      margin-top: 16px;
-      margin-bottom: 25px;
+      font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: #666; margin-top: 16px; margin-bottom: 25px;
     }
 
+    /* NAV MENU */
     nav.main-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      margin-bottom: 40px;
+      display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+      gap: 22px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 40px;
     }
-
     nav.main-nav a {
-      position: relative;
-      text-decoration: none;
-      color: #222;
-      padding-bottom: 3px;
-      transition: color 0.2s;
+      position: relative; text-decoration: none; color: #222; padding-bottom: 3px; transition: color 0.2s;
     }
-
     nav.main-nav a:hover { color: #000; }
     nav.main-nav a.active { color: #000; }
     nav.main-nav a.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: #FFD700;
+      content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #FFD700;
     }
 
     /* HERO */
-    .hero img {
-      width: 80%;
-      max-width: 900px;
-      height: auto;
-      margin-bottom: 40px;
-    }
+    .hero img { width: 80%; max-width: 900px; height: auto; margin-bottom: 40px; }
 
     /* OUR BOOTCAMP STAGES */
-    .bootcamp-section {
-      background: #FFD700;
-      padding: 50px 20px;
-      text-align: center;
-      color: #000;
-    }
-
-    .bootcamp-section h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
+    .bootcamp-section { background: #FFD700; padding: 50px 20px; text-align: center; color: #000; }
+    .bootcamp-section h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
     .bootcamp-section p.desc {
-      font-size: 1rem;
-      margin-bottom: 40px;
-      color: #111;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1rem; margin-bottom: 28px; color: #111; max-width: 700px; margin-left: auto; margin-right: auto;
     }
-
     .timeline {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      align-items: center;
-      flex-wrap: nowrap;
-      max-width: 950px;
-      margin: 0 auto 40px;
+      position: relative; display: flex; justify-content: center; gap: 40px; align-items: center;
+      flex-wrap: nowrap; max-width: 950px; margin: 0 auto 24px;
     }
-
     .timeline::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: #000;
-      z-index: 0;
+      content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 4px; background: #000; z-index: 0;
     }
-
     .stage {
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 12px;
-      width: 120px;
-      height: 120px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      transition: transform 0.3s, background 0.3s;
+      background: #fff; border: 3px solid #000; border-radius: 12px; width: 120px; height: 120px; z-index: 2;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      font-size: 0.85rem; font-weight: 700; transition: transform 0.3s, background 0.3s;
     }
-
-    .stage.active {
-      background: #000;
-      color: #FFD700;
-      transform: scale(1.1);
-    }
-
-    .stage .week {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .bootcamp-text {
-      font-size: 1rem;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-
+    .stage .week { font-size: 0.8rem; text-transform: uppercase; margin-bottom: 4px; }
+    .stage.active { background: #000; color: #FFD700; transform: scale(1.1); }
+    .bootcamp-text { font-size: 1rem; margin-top: 6px; font-weight: 600; }
     .learn-btn {
-      background: #000;
-      color: #FFD700;
-      border: none;
-      padding: 10px 24px;
-      border-radius: 6px;
-      cursor: pointer;
-      text-transform: uppercase;
-      font-weight: 700;
-      transition: background 0.3s;
+      background: #000; color: #FFD700; border: none; padding: 10px 24px; border-radius: 6px; cursor: pointer;
+      text-transform: uppercase; font-weight: 700; transition: background 0.3s;
     }
-
     .learn-btn:hover { background: #222; }
 
     @media (max-width: 768px) {
-      .timeline { gap: 16px; flex-wrap: wrap; }
+      .timeline { gap: 16px; flex-wrap: wrap; padding: 0 10px; }
       .stage { width: 90px; height: 90px; font-size: 0.7rem; }
-      .bootcamp-text { font-size: 0.85rem; }
+      .bootcamp-text { font-size: 0.88rem; padding: 0 14px; }
     }
 
     /* WHY BECOME A QA ENGINEER */
+    .section-title { margin: 50px 0 8px; font-size: 1.8rem; font-weight: 800; text-transform: uppercase; }
+    .intro {
+      text-align: center; max-width: 900px; margin: 12px auto 8px; color: #333;
+      font-size: 0.95rem; line-height: 1.6; padding: 0 20px;
+    }
     .map-section {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: nowrap;
-      margin-top: 60px;
-      padding: 20px;
+      display: flex; justify-content: center; align-items: flex-start; gap: 18px; flex-wrap: nowrap;
+      margin-top: 14px; padding: 10px 20px 24px;
     }
-
     .map-wrap {
-      position: relative;
-      width: 65%;
-      max-width: 720px;
-      border-radius: 10px;
-      overflow: hidden;
+      position: relative; width: 65%; max-width: 720px; border-radius: 10px; overflow: hidden;
     }
-
-    .map-wrap img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
+    .map-wrap img { width: 100%; border-radius: 10px; display: block; }
+    /* Floating chips (desktop only) */
     .badge-chip {
-      position: absolute;
-      font-size: 11px;
-      text-align: center;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.12);
-      color: #000;
-      border-radius: 10px;
-      padding: 8px 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.08);
-      transform: translate(-50%, -50%);
-      z-index: 4;
-      animation: float 3s ease-in-out infinite;
+      position: absolute; font-size: 11px; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,.12);
+      color: #000; border-radius: 10px; padding: 8px 10px; box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      transform: translate(-50%, -50%); z-index: 4; animation: float 3s ease-in-out infinite;
     }
+    @keyframes float { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
+    .CA { left: 18%; top: 58%; } .TX { left: 42%; top: 60%; } .FL { left: 80%; top: 75%; }
+    .GA { left: 68%; top: 57%; } .NY { left: 84%; top: 33%; }
 
-    @keyframes float {
-      0%,100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-6px); }
-    }
-
-    .CA { left: 18%; top: 58%; }
-    .TX { left: 42%; top: 60%; }
-    .FL { left: 80%; top: 75%; }
-    .GA { left: 68%; top: 57%; }
-    .NY { left: 84%; top: 33%; }
-
-    .table-wrap {
-      width: 25%;
-      min-width: 200px;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 0.82rem;
-    }
-
-    th, td {
-      border: 2px solid #000;
-      padding: 8px;
-      text-align: center;
-    }
-
+    /* Tabla más pequeña y pegada a la derecha del mapa (desktop) */
+    .table-wrap { width: 22%; min-width: 200px; align-self: center; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.78rem; }
+    th, td { border: 2px solid #000; padding: 8px; text-align: center; }
     th { background: #000; color: #fff; }
 
-    /* MOBILE MAP VIEW */
+    /* Mobile: mapa estático + tabla debajo (chips ocultos) */
     @media (max-width: 768px) {
-      .map-section { flex-direction: column; gap: 20px; }
-      .badge-chip { display: none; }
-      .map-wrap { width: 90%; margin: 0 auto; }
-      .table-wrap { width: 90%; margin: 0 auto; }
+      .map-section { flex-direction: column; gap: 14px; }
+      .badge-chip { display: none; }      /* sin animaciones en mobile */
+      .map-wrap { width: 92%; margin: 0 auto; }
+      .table-wrap { width: 92%; margin: 0 auto; }
     }
 
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #555;
-      margin: 40px 0;
+    /* GUARANTEE SECTION */
+    .guarantee {
+      margin: 48px auto 60px; padding: 0 20px;
     }
+    .guarantee-box {
+      position: relative; background: #FFD700; color: #000; border-radius: 14px;
+      padding: 28px 18px; max-width: 980px; margin: 0 auto;
+      /* borde animado (amarillo más oscuro) */
+      --b: 3px;
+      --c1: #e6c200;
+      --c2: transparent;
+    }
+    .guarantee-box::before {
+      content: "";
+      position: absolute; inset: 0;
+      padding: var(--b);
+      border-radius: 16px;
+      background:
+        conic-gradient(from 0deg, var(--c1) 0 10%, var(--c2) 10% 100%);
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      animation: spin 5s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(1turn); } }
+
+    .guarantee h3 {
+      margin: 0 0 6px; font-size: 1.6rem; font-weight: 900; text-transform: uppercase;
+    }
+    .guarantee p { margin: 6px auto; max-width: 800px; line-height: 1.5; }
+    .guarantee .cta {
+      margin-top: 14px; display: inline-block; background: #000; color: #FFD700;
+      padding: 10px 18px; border-radius: 8px; font-weight: 800; text-decoration: none; text-transform: uppercase;
+    }
+
+    footer { text-align: center; font-size: 0.75rem; color: #555; margin: 40px 0; }
   </style>
 </head>
 
 <body>
-
+  <!-- HEADER -->
   <header>
     <span class="brand">
       <span class="symbol">&lt;//&gt;</span>
@@ -293,7 +181,7 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- OUR BOOTCAMP STAGES -->
+  <!-- OUR BOOTCAMP STAGES (MISMA ANIMACIÓN EN WEB Y MOBILE) -->
   <section class="bootcamp-section">
     <h2>Our Bootcamp Stages</h2>
     <p class="desc">
@@ -301,7 +189,7 @@
       from fundamentals to automation, APIs, performance, and a real-world internship.
     </p>
 
-    <div class="timeline">
+    <div class="timeline" id="timeline">
       <div class="stage"><div class="week">Weeks 1–4</div>QA Fundamentals<br>& Manual Testing</div>
       <div class="stage"><div class="week">Weeks 5–10</div>Web & Mobile<br>Test Automation</div>
       <div class="stage"><div class="week">Weeks 11–14</div>API Testing<br>+ Databases</div>
@@ -311,15 +199,30 @@
     </div>
 
     <div class="bootcamp-text" id="bootcamp-text">QA Fundamentals & Manual Testing</div>
-    <button class="learn-btn">Learn More</button>
+    <br>
+    <a class="learn-btn" href="program.html">Learn More</a>
   </section>
 
   <!-- WHY BECOME A QA ENGINEER -->
   <section>
-    <h2>Why Become a QA Engineer</h2>
+    <h2 class="section-title">Why Become a QA Engineer</h2>
+
+    <!-- Intro text (restaurado) -->
+    <p class="intro">
+      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
+      This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
+    </p>
+    <p class="intro">
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance
+      Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
+      Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+    </p>
+
     <div class="map-section">
       <div class="map-wrap">
         <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+
+        <!-- Chips animados (solo desktop) -->
         <div class="badge-chip CA">
           <div>👷 Jobs: 31,530</div>
           <div>💵 Salary: $130,250</div>
@@ -342,6 +245,7 @@
         </div>
       </div>
 
+      <!-- Tabla más pequeña y centrada a la derecha -->
       <div class="table-wrap">
         <table>
           <thead>
@@ -359,11 +263,22 @@
     </div>
   </section>
 
+  <!-- GUARANTEE BANNER -->
+  <section class="guarantee">
+    <div class="guarantee-box">
+      <h3>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h3>
+      <p><b>All our graduates</b> will have their first real QA job experience as <b>interns</b> in one of our <b>partner companies</b>.</p>
+      <p>A <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.</p>
+      <a class="cta" href="contact.html">I Want to Know More</a>
+    </div>
+  </section>
+
   <footer>
     <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
   </footer>
 
   <script>
+    /* Timeline animation (web + mobile) */
     const stages = document.querySelectorAll('.stage');
     const bootText = document.getElementById('bootcamp-text');
     const stageTexts = [
@@ -374,17 +289,15 @@
       "Capstone Project & Career Prep",
       "Internship / First QA Job"
     ];
-    let index = 0;
+    let idx = 0;
 
     function updateStages() {
-      stages.forEach((s, i) => s.classList.toggle('active', i === index));
-      bootText.textContent = stageTexts[index];
-      index = (index + 1) % stages.length;
+      stages.forEach((s, i) => s.classList.toggle('active', i === idx));
+      bootText.textContent = stageTexts[idx];
+      idx = (idx + 1) % stages.length;
     }
-
     updateStages();
     setInterval(updateStages, 2500);
   </script>
-
 </body>
 </html>
