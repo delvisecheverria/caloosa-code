@@ -216,7 +216,7 @@
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    /* SMALLER TABLE - centered vertically with map */
+    /* TABLE - SMALLER AND CENTERED */
     .table-wrap.compact {
       display: flex;
       flex-direction: column;
@@ -251,6 +251,43 @@
 
     .map-wrap:hover {
       transform: scale(1.02);
+    }
+
+    /* PARTNER COMPANIES SECTION */
+    .partners {
+      background: #FFD700;
+      color: #000;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .partners h2 {
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .partner-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .partner-logos img {
+      height: 75px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .partner-logos img:hover {
+      transform: scale(1.06);
+      opacity: 1;
     }
 
     /* SCROLL ANIMATION */
@@ -299,6 +336,7 @@
     @media (max-width: 480px) {
       .brand { font-size: 1.2rem; }
       nav.main-nav { gap: 10px; font-size: 0.75rem; }
+      .partner-logos img { height: 55px; }
     }
   </style>
 </head>
@@ -398,6 +436,16 @@
           </tbody>
         </table>
       </div>
+    </div>
+  </section>
+
+  <!-- PARTNER COMPANIES SECTION -->
+  <section class="partners fade-on-scroll">
+    <h2>OUR PARTNER COMPANIES</h2>
+    <div class="partner-logos">
+      <img src="presto.jpg" alt="Presto Logo">
+      <img src="images.png" alt="QA-lified Logo">
+      <img src="images.jpeg" alt="Sequal Logo">
     </div>
   </section>
 
