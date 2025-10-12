@@ -106,6 +106,7 @@
       line-height: 1.6;
     }
 
+    /* Timeline desktop */
     .timeline {
       position: relative;
       display: flex;
@@ -182,6 +183,41 @@
       text-transform: uppercase;
     }
 
+    /* MOBILE VERSION (static grid) */
+    @media (max-width: 768px) {
+      .timeline { display: none; }
+      .stage-text { display: none; }
+
+      .mobile-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        max-width: 340px;
+        margin: 20px auto 0;
+      }
+
+      .mobile-stage {
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 8px;
+        padding: 12px 6px;
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .mobile-stage span {
+        display: block;
+        background: #FFD700;
+        color: #000;
+        border-radius: 4px;
+        padding: 2px 6px;
+        margin-bottom: 4px;
+        font-weight: 700;
+      }
+    }
+
     /* WHY BECOME A QA ENGINEER */
     .why {
       padding: 60px 20px;
@@ -202,7 +238,7 @@
       color: #333;
     }
 
-    /* --- MAP SECTION --- */
+    /* MAP SECTION */
     .map-section {
       display: flex;
       justify-content: center;
@@ -229,7 +265,6 @@
       border-radius: 10px;
     }
 
-    /* Chips (solo desktop) */
     .badge-chip {
       position: absolute;
       font-size: 11px;
@@ -255,17 +290,15 @@
 
     @keyframes float {
       0%,100% { transform: translate(-50%, -50%) translateY(0); }
-      50%     { transform: translate(-50%, -50%) translateY(-6px); }
+      50% { transform: translate(-50%, -50%) translateY(-6px); }
     }
 
-    /* Posiciones de chips */
     .CA { left: 18%; top: 58%; }
     .TX { left: 42%; top: 60%; }
     .FL { left: 80%; top: 75%; }
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    /* Tabla (solo desktop) */
     .table-wrap {
       width: 22%;
       min-width: 200px;
@@ -287,20 +320,10 @@
     }
     tr:nth-child(even){ background:#f9f9f9; }
 
-    /* --- MOBILE: solo mapa --- */
     @media (max-width: 768px) {
-      .map-section {
-        flex-direction: column;
-        gap: 0;
-      }
-      .table-wrap,
-      .badge-chip {
-        display: none !important; /* Oculta chips y tabla */
-      }
-      .map-wrap {
-        width: 90%;
-        max-width: 700px;
-      }
+      .map-section { flex-direction: column; }
+      .table-wrap, .badge-chip { display: none !important; }
+      .map-wrap { width: 90%; }
     }
 
     /* GUARANTEE */
@@ -368,6 +391,7 @@
       This bootcamp is designed to fill the industry gap — offering students hands-on experience, mentorship, and direct collaboration with professionals.
     </p>
 
+    <!-- Desktop animation -->
     <div class="timeline">
       <div class="timeline-line"></div>
       <div class="stage"><span>Weeks</span>1–4</div>
@@ -378,11 +402,21 @@
       <div class="stage"><span>Months</span>6–8</div>
     </div>
 
+    <!-- Mobile static grid -->
+    <div class="mobile-grid">
+      <div class="mobile-stage"><span>Weeks 1–4</span>QA Fundamentals & Manual Testing</div>
+      <div class="mobile-stage"><span>Weeks 5–10</span>Web & Mobile Test Automation</div>
+      <div class="mobile-stage"><span>Weeks 11–14</span>API Testing + Databases</div>
+      <div class="mobile-stage"><span>Weeks 15–17</span>Performance Testing</div>
+      <div class="mobile-stage"><span>Weeks 18–20</span>Capstone Project & Career Prep</div>
+      <div class="mobile-stage"><span>Months 6–8</span>Internship / First QA Job</div>
+    </div>
+
     <div class="stage-text" id="stageText">QA Fundamentals & Manual Testing</div>
     <button>Learn More</button>
   </section>
 
-  <!-- WHY BECOME A QA ENGINEER -->
+  <!-- WHY QA ENGINEER -->
   <section class="why">
     <h2>WHY BECOME A QA ENGINEER</h2>
     <p>Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</p>
@@ -445,7 +479,7 @@
   </footer>
 
   <script>
-    // Timeline: texto por etapa + animación de activo
+    // Desktop animation
     const stages = document.querySelectorAll('.timeline .stage');
     const stageText = document.getElementById('stageText');
     const texts = [
@@ -465,8 +499,10 @@
       index = (index + 1) % stages.length;
     }
 
-    setInterval(cycleStages, 2000);
-    cycleStages();
+    if (window.innerWidth > 768) {
+      setInterval(cycleStages, 2000);
+      cycleStages();
+    }
   </script>
 </body>
 </html>
