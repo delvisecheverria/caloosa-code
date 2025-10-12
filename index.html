@@ -48,7 +48,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: wrap; /* Esto permite que se ajuste pero siga horizontal */
+      flex-wrap: nowrap;
       gap: 22px;
       font-size: 0.9rem;
       text-transform: uppercase;
@@ -78,13 +78,55 @@
 
     /* HERO IMAGE */
     .hero {
-      margin-bottom: 60px;
+      margin-bottom: 0;
     }
 
     .hero img {
       width: 80%;
       max-width: 900px;
       height: auto;
+    }
+
+    /* INTERNSHIP GUARANTEE SECTION */
+    .intern-guarantee {
+      background: #FFD700;
+      color: #000;
+      text-align: center;
+      padding: 60px 20px;
+      margin: 0;
+    }
+
+    .intern-guarantee h2 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .intern-guarantee p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .btn-black {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-black:hover {
+      background: #333;
+      transform: scale(1.03);
     }
 
     /* INTRO TEXT */
@@ -258,6 +300,18 @@
   <!-- HERO -->
   <section class="hero">
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
+  </section>
+
+  <!-- INTERNSHIP GUARANTEE SECTION -->
+  <section class="intern-guarantee">
+    <h2>GET YOUR FIRST QA EXPERIENCE</h2>
+    <p>
+      Once you graduate, get your first professional experience as a 
+      <b>QA Intern</b> at one of our <b>partner companies</b>. 
+      You'll spend <b>three months</b> applying your newly learned skills 
+      with <b>mentorship and hands-on guidance</b> from industry professionals.
+    </p>
+    <a href="program.html" class="btn-black">Learn More</a>
   </section>
 
   <!-- INTRO ABOVE MAP -->
