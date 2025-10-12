@@ -249,4 +249,134 @@
 
     /* FOOTER */
     footer {
-      tex
+      text-align: center;
+      font-size: 0.75rem;
+      color: #555;
+      margin: 36px 0 22px;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE FIX */
+    @media (max-width: 768px) {
+      .brand { font-size: 1.4rem; }
+      .empower { font-size: 0.7rem; letter-spacing: 0.2em; }
+      nav.main-nav { gap: 14px; font-size: 0.8rem; flex-wrap: nowrap; }
+      .hero img { width: 95%; }
+      .map-wrap { max-width: 90%; }
+    }
+
+    @media (max-width: 480px) {
+      .brand { font-size: 1.2rem; }
+      nav.main-nav { gap: 10px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <span class="brand">
+      <span class="symbol">&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span class="code">CODE</span>
+    </span>
+    <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="program.html">Program</a>
+      <a href="about.html">About</a>
+      <a href="partners.html">Partners</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
+  </section>
+
+  <!-- INTERNSHIP GUARANTEE SECTION -->
+  <section class="intern-guarantee">
+    <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
+    <p>
+      Once you graduate, get your first professional experience as a 
+      <b>QA Intern</b> at one of our <b>partner companies</b>. 
+      You'll spend <b>three months</b> applying your newly learned skills 
+      with <b>mentorship and hands-on guidance</b> from industry professionals.
+    </p>
+    <a href="program.html" class="btn-black">Learn More</a>
+  </section>
+
+  <!-- INTRO ABOVE MAP -->
+  <p class="intro">
+    Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
+    <span class="highlight">This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</span>
+  </p>
+
+  <!-- MAP + STATS SECTION -->
+  <div class="map-wrap">
+    <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+
+    <div class="badge-chip CA">
+      <div class="badge-line">👷 Jobs: 31,530</div>
+      <div class="badge-line">💵 Salary: $130,250</div>
+    </div>
+    <div class="badge-chip TX" style="animation-delay:.15s">
+      <div class="badge-line">👷 Jobs: 19,300</div>
+      <div class="badge-line">💵 Salary: $107,930</div>
+    </div>
+    <div class="badge-chip FL" style="animation-delay:.3s">
+      <div class="badge-line">👷 Jobs: 12,080</div>
+      <div class="badge-line">💵 Salary: $104,440</div>
+    </div>
+    <div class="badge-chip GA" style="animation-delay:.45s">
+      <div class="badge-line">👷 Jobs: 7,830</div>
+      <div class="badge-line">💵 Salary: $109,980</div>
+    </div>
+    <div class="badge-chip NY" style="animation-delay:.6s">
+      <div class="badge-line">👷 Jobs: 11,140</div>
+      <div class="badge-line">💵 Salary: $112,700</div>
+    </div>
+  </div>
+
+  <!-- INTRO BELOW MAP -->
+  <p class="intro">
+    Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and
+    Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
+    Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+  </p>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>State</th>
+          <th>QA Employment (Jobs)</th>
+          <th>Average Annual Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
+        <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
+        <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
+        <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
+        <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
+  </footer>
+</body>
+</html>
