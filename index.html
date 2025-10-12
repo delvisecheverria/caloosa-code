@@ -6,12 +6,14 @@
   <title>Caloosa Code — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ========== GLOBAL ========== */
     body {
       margin: 0;
       font-family: "Inter Tight", system-ui, sans-serif;
       background: #fff;
       color: #000;
       text-align: center;
+      overflow-x: hidden;
     }
 
     header {
@@ -58,7 +60,6 @@
       color: #222;
       padding-bottom: 3px;
       transition: color 0.2s;
-      white-space: nowrap;
     }
 
     nav.main-nav a.active { color: #000; }
@@ -72,7 +73,7 @@
       background: #FFD700;
     }
 
-    /* HERO */
+    /* ========== HERO ========== */
     .hero img {
       width: 80%;
       max-width: 900px;
@@ -80,7 +81,7 @@
       margin-bottom: 40px;
     }
 
-    /* ===== BOOTCAMP SECTION ===== */
+    /* ========== BOOTCAMP SECTION ========== */
     .bootcamp-section {
       background: #FFD700;
       color: #000;
@@ -203,7 +204,7 @@
 
     .btn-black:hover { background: #222; }
 
-    /* ===== WHY QA ===== */
+    /* ========== WHY QA SECTION ========== */
     .why-section {
       padding: 80px 20px;
       background: #fff;
@@ -216,21 +217,28 @@
       margin-bottom: 40px;
     }
 
-    .intro {
-      text-align: center;
-      max-width: 850px;
-      margin: 30px auto;
-      color: #333;
-      font-size: 0.95rem;
-      line-height: 1.6;
+    .why-content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .why-content.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .map-wrap {
       position: relative;
       width: 100%;
       max-width: 45%;
-      margin: 40px auto;
       overflow: hidden;
+      min-width: 300px;
     }
 
     .map-wrap img {
@@ -238,10 +246,7 @@
       width: 100%;
       height: auto;
       border-radius: 8px;
-      transition: transform 1.5s ease;
     }
-
-    .map-wrap:hover img { transform: scale(1.03); }
 
     .badge-chip {
       position: absolute;
@@ -271,23 +276,22 @@
 
     @media (max-width: 768px) {
       .badge-chip { display: none; }
-      .map-wrap:hover img { transform: none; }
     }
 
     .table-wrap {
-      max-width: 700px;
-      margin: 30px auto;
+      flex: 0 0 320px;
+      margin-top: 20px;
     }
 
     table {
       border-collapse: collapse;
       width: 100%;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     th, td {
       border: 2px solid #000;
-      padding: 12px;
+      padding: 8px;
       text-align: center;
     }
 
@@ -297,7 +301,7 @@
       text-transform: uppercase;
     }
 
-    /* ===== FINAL GUARANTEED ===== */
+    /* ========== GUARANTEED SECTION ========== */
     .guaranteed-final {
       background: #FFD700;
       color: #000;
@@ -313,8 +317,6 @@
       line-height: 1.4;
     }
 
-    .guaranteed-final h2 span { display: block; }
-
     .guaranteed-final p {
       max-width: 700px;
       margin: 0 auto 30px;
@@ -329,7 +331,13 @@
       margin: 36px 0 22px;
     }
 
-    footer a { color: #FFD700; font-weight: 600; text-decoration: none; }
+    footer a { color: #FFD700; text-decoration: none; font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .why-content { flex-direction: column; align-items: center; }
+      .map-wrap, .table-wrap { max-width: 90%; }
+    }
   </style>
 </head>
 <body>
@@ -353,14 +361,12 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- ===== OUR BOOTCAMP ===== -->
+  <!-- Bootcamp -->
   <section class="bootcamp-section">
     <h2>Our Bootcamp Stages</h2>
     <p class="description">
       This bootcamp is designed to fill the gap in practical QA skills, offering students hands-on experience guided by industry professionals.
-      Through six stages, participants build a complete foundation — from manual QA to automation, performance, and real-world projects.
     </p>
-
     <div class="bootcamp-timeline">
       <div class="timeline">
         <div class="timeline-line"></div>
@@ -388,53 +394,40 @@
             <div class="calendar-number">15–18</div>
           </div>
         </div>
-        <div class="stage" data-text="Capstone Project & Career Prep">
-          <div class="calendar">
-            <div class="calendar-header">WEEKS</div>
-            <div class="calendar-number">18–20</div>
-          </div>
-        </div>
-        <div class="stage" data-text="Internship / Real-World QA Project">
-          <div class="calendar">
-            <div class="calendar-header">MONTHS</div>
-            <div class="calendar-number">6–8</div>
-          </div>
-        </div>
       </div>
       <p class="stage-text"></p>
       <a href="program.html" class="btn-black">LEARN MORE</a>
     </div>
   </section>
 
-  <!-- ===== WHY QA ===== -->
-  <section class="why-section">
+  <!-- Why QA -->
+  <section class="why-section" id="why">
     <h2>WHY BECOME A QA ENGINEER</h2>
-    <p class="intro">
-      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
-    </p>
-    <div class="map-wrap">
-      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
-      <div class="badge-chip CA"><div class="badge-line">👷 Jobs: 31,530</div><div class="badge-line">💵 Salary: $130,250</div></div>
-      <div class="badge-chip TX" style="animation-delay:.15s"><div class="badge-line">👷 Jobs: 19,300</div><div class="badge-line">💵 Salary: $107,930</div></div>
-      <div class="badge-chip FL" style="animation-delay:.3s"><div class="badge-line">👷 Jobs: 12,080</div><div class="badge-line">💵 Salary: $104,440</div></div>
-      <div class="badge-chip GA" style="animation-delay:.45s"><div class="badge-line">👷 Jobs: 7,830</div><div class="badge-line">💵 Salary: $109,980</div></div>
-      <div class="badge-chip NY" style="animation-delay:.6s"><div class="badge-line">👷 Jobs: 11,140</div><div class="badge-line">💵 Salary: $112,700</div></div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>State</th><th>QA Employment</th><th>Average Salary</th></tr></thead>
-        <tbody>
-          <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
-          <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
-          <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
-          <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
-          <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
-        </tbody>
-      </table>
+    <div class="why-content">
+      <div class="map-wrap">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+        <div class="badge-chip CA"><div>👷 Jobs: 31,530</div><div>💵 $130,250</div></div>
+        <div class="badge-chip TX"><div>👷 Jobs: 19,300</div><div>💵 $107,930</div></div>
+        <div class="badge-chip FL"><div>👷 Jobs: 12,080</div><div>💵 $104,440</div></div>
+        <div class="badge-chip GA"><div>👷 Jobs: 7,830</div><div>💵 $109,980</div></div>
+        <div class="badge-chip NY"><div>👷 Jobs: 11,140</div><div>💵 $112,700</div></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>State</th><th>QA Jobs</th><th>Salary</th></tr></thead>
+          <tbody>
+            <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
+            <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
+            <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
+            <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
+            <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FINAL GUARANTEED ===== -->
+  <!-- Final -->
   <section class="guaranteed-final">
     <h2><span>GET YOUR FIRST QA JOB EXPERIENCE</span>100% GUARANTEED</h2>
     <p><b>Once you graduate</b>, get your first QA experience as an intern in one of our <b>partner companies</b>.  
@@ -447,6 +440,7 @@
   </footer>
 
   <script>
+    /* Bootcamp stages animation */
     const stages = document.querySelectorAll('.stage');
     const stageText = document.querySelector('.stage-text');
     const line = document.querySelector('.timeline-line');
@@ -454,14 +448,12 @@
 
     function activateStage(index) {
       stages.forEach((stage, i) => stage.classList.toggle('active', i === index));
-      const activeStage = stages[index];
-      const text = activeStage.getAttribute('data-text');
+      const text = stages[index].getAttribute('data-text');
       stageText.style.opacity = 0;
       setTimeout(() => {
         stageText.textContent = text;
         stageText.style.opacity = 1;
       }, 250);
-
       const progress = ((index + 1) / stages.length) * 90;
       line.style.width = progress + "%";
     }
@@ -472,6 +464,18 @@
     }
 
     setInterval(loopStages, 1800);
+
+    /* Fade-in animation for map + table */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const whySection = document.querySelector('.why-content');
+    observer.observe(whySection);
   </script>
 </body>
 </html>
