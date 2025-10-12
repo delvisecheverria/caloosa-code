@@ -87,23 +87,65 @@
       height: auto;
     }
 
-    /* ===== TIMELINE STYLES ===== */
-    .bootcamp-timeline {
-      padding: 40px 20px 60px;
-      background: #fff;
+    /* ===== GUARANTEED SECTION ===== */
+    .guaranteed-section {
+      background: #FFD700;
+      color: #000;
       text-align: center;
+      padding: 80px 20px 100px;
       position: relative;
     }
 
-    .bootcamp-timeline h2 {
-      font-size: 1.7rem;
+    .guaranteed-section h2 {
+      font-size: 1.9rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
+      line-height: 1.4;
     }
 
-    .bootcamp-timeline h2 span {
-      color: #FFD700;
+    .guaranteed-section h2 span {
+      display: block;
+    }
+
+    .guaranteed-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn-black {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-bottom: 60px;
+    }
+
+    .btn-black:hover {
+      background: #222;
+    }
+
+    /* ===== TIMELINE STYLES (INSIDE YELLOW SECTION) ===== */
+    .bootcamp-timeline {
+      background: transparent;
+      text-align: center;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .bootcamp-timeline h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      color: #000;
     }
 
     .timeline {
@@ -122,7 +164,7 @@
       left: 5%;
       right: 5%;
       height: 4px;
-      background: #FFD700;
+      background: #000;
       z-index: 0;
       width: 0;
       animation: progressGrow 12s linear infinite;
@@ -131,7 +173,7 @@
     }
 
     .calendar {
-      background: #fff;
+      background: #FFD700;
       border: 2px solid #000;
       border-radius: 6px;
       width: 85px;
@@ -147,14 +189,14 @@
     }
 
     .calendar-header {
-      background: #FFD700;
-      color: #000;
+      background: #000;
+      color: #FFD700;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       width: 100%;
       padding: 5px 0;
-      border-bottom: 2px solid #000;
+      border-bottom: 2px solid #FFD700;
     }
 
     .calendar-number {
@@ -214,49 +256,20 @@
       }
     }
 
-    /* ===== GUARANTEED SECTION ===== */
-    .guaranteed-section {
-      background: #FFD700;
-      color: #000;
-      text-align: center;
+    /* ===== WHY BECOME A QA ENGINEER ===== */
+    .why-section {
       padding: 80px 20px;
+      background: #fff;
+      text-align: center;
     }
 
-    .guaranteed-section h2 {
+    .why-section h2 {
       font-size: 1.9rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 25px;
-      line-height: 1.4;
+      margin-bottom: 40px;
     }
 
-    .guaranteed-section h2 span {
-      display: block;
-    }
-
-    .guaranteed-section p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .btn-black {
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 4px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      transition: background 0.3s;
-    }
-
-    .btn-black:hover {
-      background: #222;
-    }
-
-    /* MAP + TABLE SECTION */
     .intro {
       text-align: center;
       max-width: 850px;
@@ -383,85 +396,88 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- TIMELINE -->
-  <section class="bootcamp-timeline">
-    <h2>OUR FIRST BOOTCAMP: <span>QA ENGINEER</span></h2>
-    <div class="timeline">
-      <div class="timeline-line"></div>
-      <div class="stage" data-text="QA Fundamentals & Manual Testing">
-        <div class="calendar">
-          <div class="calendar-header">WEEKS</div>
-          <div class="calendar-number">1–4</div>
-        </div>
-      </div>
-      <div class="stage" data-text="Web & Mobile Test Automation">
-        <div class="calendar">
-          <div class="calendar-header">WEEKS</div>
-          <div class="calendar-number">5–10</div>
-        </div>
-      </div>
-      <div class="stage" data-text="API Testing + Databases">
-        <div class="calendar">
-          <div class="calendar-header">WEEKS</div>
-          <div class="calendar-number">11–14</div>
-        </div>
-      </div>
-      <div class="stage" data-text="Performance Testing">
-        <div class="calendar">
-          <div class="calendar-header">WEEKS</div>
-          <div class="calendar-number">15–18</div>
-        </div>
-      </div>
-      <div class="stage" data-text="Capstone Project & Career Prep">
-        <div class="calendar">
-          <div class="calendar-header">WEEKS</div>
-          <div class="calendar-number">18–20</div>
-        </div>
-      </div>
-      <div class="stage" data-text="Internship / Real-World QA Project">
-        <div class="calendar">
-          <div class="calendar-header">MONTHS</div>
-          <div class="calendar-number">6–8</div>
-        </div>
-      </div>
-    </div>
-    <p class="stage-text"></p>
-  </section>
-
-  <!-- GUARANTEED SECTION -->
+  <!-- GUARANTEED + TIMELINE -->
   <section class="guaranteed-section">
     <h2><span>GET YOUR FIRST QA JOB EXPERIENCE</span>100% GUARANTEED</h2>
     <p>Once you graduate, get your first QA experience as an intern in one of our partner companies.
       You’ll receive full mentorship and guidance for three months while applying the skills you’ve learned.</p>
     <a href="program.html" class="btn-black">I WANT TO KNOW MORE</a>
+
+    <div class="bootcamp-timeline">
+      <h3>Our Bootcamp Stages</h3>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="stage" data-text="QA Fundamentals & Manual Testing">
+          <div class="calendar">
+            <div class="calendar-header">WEEKS</div>
+            <div class="calendar-number">1–4</div>
+          </div>
+        </div>
+        <div class="stage" data-text="Web & Mobile Test Automation">
+          <div class="calendar">
+            <div class="calendar-header">WEEKS</div>
+            <div class="calendar-number">5–10</div>
+          </div>
+        </div>
+        <div class="stage" data-text="API Testing + Databases">
+          <div class="calendar">
+            <div class="calendar-header">WEEKS</div>
+            <div class="calendar-number">11–14</div>
+          </div>
+        </div>
+        <div class="stage" data-text="Performance Testing">
+          <div class="calendar">
+            <div class="calendar-header">WEEKS</div>
+            <div class="calendar-number">15–18</div>
+          </div>
+        </div>
+        <div class="stage" data-text="Capstone Project & Career Prep">
+          <div class="calendar">
+            <div class="calendar-header">WEEKS</div>
+            <div class="calendar-number">18–20</div>
+          </div>
+        </div>
+        <div class="stage" data-text="Internship / Real-World QA Project">
+          <div class="calendar">
+            <div class="calendar-header">MONTHS</div>
+            <div class="calendar-number">6–8</div>
+          </div>
+        </div>
+      </div>
+      <p class="stage-text"></p>
+    </div>
   </section>
 
-  <!-- MAP SECTION -->
-  <div class="map-wrap">
-    <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
-    <div class="badge-chip CA"><div class="badge-line">👷 Jobs: 31,530</div><div class="badge-line">💵 Salary: $130,250</div></div>
-    <div class="badge-chip TX" style="animation-delay:.15s"><div class="badge-line">👷 Jobs: 19,300</div><div class="badge-line">💵 Salary: $107,930</div></div>
-    <div class="badge-chip FL" style="animation-delay:.3s"><div class="badge-line">👷 Jobs: 12,080</div><div class="badge-line">💵 Salary: $104,440</div></div>
-    <div class="badge-chip GA" style="animation-delay:.45s"><div class="badge-line">👷 Jobs: 7,830</div><div class="badge-line">💵 Salary: $109,980</div></div>
-    <div class="badge-chip NY" style="animation-delay:.6s"><div class="badge-line">👷 Jobs: 11,140</div><div class="badge-line">💵 Salary: $112,700</div></div>
-  </div>
+  <!-- WHY BECOME A QA ENGINEER -->
+  <section class="why-section">
+    <h2>WHY BECOME A QA ENGINEER</h2>
 
-  <p class="intro">
-    Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
-  </p>
+    <p class="intro">
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+    </p>
 
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>State</th><th>QA Employment</th><th>Average Salary</th></tr></thead>
-      <tbody>
-        <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
-        <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
-        <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
-        <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
-        <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="map-wrap">
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+      <div class="badge-chip CA"><div class="badge-line">👷 Jobs: 31,530</div><div class="badge-line">💵 Salary: $130,250</div></div>
+      <div class="badge-chip TX" style="animation-delay:.15s"><div class="badge-line">👷 Jobs: 19,300</div><div class="badge-line">💵 Salary: $107,930</div></div>
+      <div class="badge-chip FL" style="animation-delay:.3s"><div class="badge-line">👷 Jobs: 12,080</div><div class="badge-line">💵 Salary: $104,440</div></div>
+      <div class="badge-chip GA" style="animation-delay:.45s"><div class="badge-line">👷 Jobs: 7,830</div><div class="badge-line">💵 Salary: $109,980</div></div>
+      <div class="badge-chip NY" style="animation-delay:.6s"><div class="badge-line">👷 Jobs: 11,140</div><div class="badge-line">💵 Salary: $112,700</div></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>State</th><th>QA Employment</th><th>Average Salary</th></tr></thead>
+        <tbody>
+          <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
+          <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
+          <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
+          <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
+          <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
   <footer>
     <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
