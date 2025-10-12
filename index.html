@@ -6,195 +6,317 @@
   <title>Caloosa Code — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ========== GLOBAL ========== */
-    :root{
-      --yellow:#FFD700;
-      --black:#000;
-      --gray:#666;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:"Inter Tight",system-ui,sans-serif;
-      color:#000;
-      background:#fff;
-      text-align:center;
-      overflow-x:hidden;
+    body {
+      margin: 0;
+      font-family: "Inter Tight", system-ui, sans-serif;
+      background: #fff;
+      color: #000;
+      text-align: center;
     }
 
-    /* ========== HEADER ========== */
-    header{padding-top:36px}
-    .brand{
-      display:inline-flex;align-items:center;gap:4px;
-      font-weight:700;font-size:2rem;text-transform:uppercase;
-      letter-spacing:1px;
-    }
-    .symbol{color:#000}
-    .badge{background:var(--yellow);color:#000;padding:4px 8px;font-weight:800;border-radius:4px}
-    .code{color:#000}
-    .empower{
-      font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#666;
-      margin-top:14px;margin-bottom:22px;
-    }
-    nav.main-nav{
-      display:flex;justify-content:center;align-items:center;gap:22px;
-      flex-wrap:wrap;text-transform:uppercase;font-size:.9rem;margin-bottom:28px;
-    }
-    nav.main-nav a{
-      position:relative;text-decoration:none;color:#222;padding-bottom:3px;transition:color .2s;white-space:nowrap;
-    }
-    nav.main-nav a:hover{color:#000}
-    nav.main-nav a.active{color:#000}
-    nav.main-nav a.active::after{
-      content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--yellow);
+    /* HEADER */
+    header {
+      text-align: center;
+      padding-top: 40px;
     }
 
-    /* ========== HERO ========== */
-    .hero img{
-      width:80%;max-width:900px;height:auto;margin:0 auto 32px;display:block;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    /* ========== BOOTCAMP (amarillo) ========== */
-    .bootcamp{
-      background:var(--yellow);color:#000;padding:42px 16px 32px;
-    }
-    .bootcamp h2{
-      margin:0 0 12px;font-size:1.7rem;font-weight:800;text-transform:uppercase;
-    }
-    .bootcamp .bc-desc{
-      max-width:820px;margin:0 auto 18px;line-height:1.55;font-size:1rem;
+    .symbol { color: #000; }
+    .badge { background: #FFD700; color: #000; padding: 4px 8px; font-weight: 800; border-radius: 4px; }
+    .code { color: #000; }
+
+    .empower {
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #666;
+      margin-top: 16px;
+      margin-bottom: 25px;
     }
 
-    .timeline-wrap{
-      max-width:1100px;margin:0 auto;padding:8px 8px 6px;
-    }
-    .timeline{
-      position:relative;display:flex;justify-content:space-between;align-items:center;
-      gap:10px; /* compacto */
-      padding:0 3%;
-    }
-    /* línea NEGRA que avanza */
-    .timeline-line{
-      position:absolute;left:3%;right:3%;top:50%;height:4px;background:var(--black);
-      transform:translateY(-50%);border-radius:2px;width:0%;transition:width .7s ease;
-      z-index:0;
+    /* NAV MENU */
+    nav.main-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 40px;
     }
 
-    .stage{
-      flex:1;min-width:120px; /* asegura 6 en desktop */
-      display:flex;justify-content:center;align-items:center;
-      opacity:.45;transition:opacity .4s ease, transform .4s ease;z-index:1;
-    }
-    .stage.active{opacity:1;transform:scale(1.06)}
-
-    .calendar{
-      background:var(--yellow);border:2px solid var(--black);border-radius:8px;
-      width:95px;height:95px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-      box-shadow:0 3px 6px rgba(0,0,0,.08);
-    }
-    .cal-head{
-      width:100%;background:var(--black);color:var(--yellow);font-weight:800;
-      text-transform:uppercase;font-size:.72rem;border-bottom:2px solid var(--yellow);
-      padding:6px 0;border-top-left-radius:6px;border-top-right-radius:6px;
-    }
-    .cal-num{
-      margin-top:10px;font-size:1.05rem;font-weight:900;letter-spacing:.5px;
+    nav.main-nav a {
+      position: relative;
+      text-decoration: none;
+      color: #222;
+      padding-bottom: 3px;
+      transition: color 0.2s;
+      white-space: nowrap;
     }
 
-    .stage-text{
-      margin:12px auto 0;font-weight:700;min-height:24px;max-width:820px;
-      transition:opacity .25s ease;opacity:1;
+    nav.main-nav a:hover { color: #000; }
+    nav.main-nav a.active { color: #000; }
+    nav.main-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #FFD700;
     }
-    .bc-cta{margin-top:16px}
-    .btn-black{
-      background:#000;color:#fff;text-decoration:none;border-radius:4px;
-      padding:12px 22px;font-weight:800;letter-spacing:.6px;display:inline-block;
-      transition:transform .15s ease, background .2s;
+
+    /* HERO IMAGE */
+    .hero img {
+      width: 80%;
+      max-width: 900px;
+      height: auto;
+      margin-bottom: 40px;
     }
-    .btn-black:hover{background:#111;transform:translateY(-1px)}
 
-    /* ========== WHY BECOME A QA ENGINEER ========== */
-    .why{padding:56px 16px}
-    .why h2{
-      font-size:1.7rem;font-weight:800;text-transform:uppercase;margin:0 0 16px;
+    /* OUR BOOTCAMP SECTION */
+    .bootcamp {
+      background: #FFD700;
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
     }
-    .why p{max-width:920px;margin:10px auto;line-height:1.6}
 
-    .why-grid{
-      margin:20px auto 0;max-width:1200px;display:flex;justify-content:center;align-items:flex-start;gap:26px;
-      opacity:0;transform:translateY(40px);transition:opacity .8s ease, transform .8s ease;
+    .bootcamp h2 {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .why-grid.visible{opacity:1;transform:translateY(0)}
 
-    /* mapa (mantiene tamaño previo) */
-    .map-wrap{position:relative;width:100%;max-width:45%;min-width:420px;overflow:hidden}
-    .map-wrap img{display:block;width:100%;height:auto;border-radius:8px}
-
-    /* badges animados solo desktop */
-    .badge-chip{
-      position:absolute;font-size:11px;text-align:center;background:#fff;border:1px solid rgba(0,0,0,.12);
-      color:#000;border-radius:10px;padding:8px 10px;box-shadow:0 2px 6px rgba(0,0,0,.08);
-      animation:float 3s ease-in-out infinite;transform:translate(-50%,-50%);z-index:2;
+    .bootcamp p.intro-text {
+      font-size: 0.95rem;
+      max-width: 720px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
     }
-    @keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-6px)}}
-    .CA{left:18%;top:58%}.TX{left:42%;top:60%}.FL{left:80%;top:75%}.GA{left:68%;top:57%}.NY{left:84%;top:33%}
 
-    /* tabla pequeña a la derecha y bien pegada al mapa */
-    .table-wrap{flex:0 0 320px;margin-top:0}
-    table{border-collapse:collapse;width:100%;font-size:.8rem}
-    th,td{border:2px solid #000;padding:8px;text-align:center}
-    th{background:#000;color:#fff;text-transform:uppercase}
-
-    /* ========== GUARANTEED (amarilla final) ========== */
-    .guaranteed{
-      background:var(--yellow);color:#000;padding:54px 16px 48px
+    .timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+      margin: 40px auto 20px;
     }
-    .guaranteed h2{
-      margin:0 0 14px;font-size:1.7rem;font-weight:800;text-transform:uppercase;line-height:1.35
+
+    .timeline-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      background: #000;
+      z-index: 0;
     }
-    .guaranteed p{max-width:760px;margin:0 auto 18px;line-height:1.6}
 
-    footer{font-size:.75rem;color:#555;margin:30px 0 22px}
-    footer a{color:var(--yellow);text-decoration:none;font-weight:600}
-
-    /* ========== RESPONSIVE ========== */
-    @media (max-width:1024px){
-      .map-wrap{min-width:360px}
-      .table-wrap{flex:0 0 300px}
+    .stage {
+      background: #fff;
+      border: 2px solid #000;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      border-radius: 8px;
+      position: relative;
+      z-index: 2;
     }
-    @media (max-width:900px){
-      .why-grid{flex-direction:column;align-items:center}
-      .map-wrap{max-width:90%;min-width:0}
-      .table-wrap{width:92%}
+
+    .stage span {
+      background: #FFD700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #000;
     }
-    @media (max-width:768px){
-      .brand{font-size:1.35rem}
-      .empower{font-size:.7rem;letter-spacing:.2em}
-      nav.main-nav{gap:14px;font-size:.82rem;flex-wrap:nowrap}
 
-      .hero img{width:92%}
-
-      /* Bootcamp más compacto en mobile */
-      .bootcamp{padding:32px 14px 24px}
-      .timeline{gap:8px;padding:0 2%}
-      .calendar{width:72px;height:72px}
-      .cal-head{font-size:.64rem;padding:5px 0}
-      .cal-num{margin-top:7px;font-size:.95rem}
-
-      .stage-text{font-size:.95rem;min-height:20px}
-
-      /* Mapa sin animaciones: ocultar badges en mobile */
-      .badge-chip{display:none}
+    .stage.active {
+      background: #000;
+      color: #FFD700;
+      transform: scale(1.05);
     }
-    @media (max-width:480px){
-      nav.main-nav{gap:10px;font-size:.76rem}
-      .calendar{width:66px;height:66px}
-      .cal-num{font-size:.9rem}
-      .why{padding:44px 14px}
-      .why h2{font-size:1.4rem}
+
+    .stage-text {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+
+    .bootcamp button {
+      margin-top: 25px;
+      background: #000;
+      color: #FFD700;
+      border: none;
+      padding: 12px 28px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    /* WHY BECOME A QA ENGINEER */
+    .why {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .why h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .why p {
+      max-width: 850px;
+      margin: 10px auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .map-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .map-wrap {
+      position: relative;
+      width: 50%;
+      max-width: 500px;
+      min-width: 300px;
+    }
+
+    .map-wrap img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .table-wrap {
+      width: 35%;
+      min-width: 250px;
+      max-width: 350px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      border: 2px solid #000;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background: #000;
+      color: #fff;
+    }
+
+    tr:nth-child(even) { background: #f9f9f9; }
+
+    /* GET YOUR FIRST QA JOB */
+    .guarantee {
+      background: #FFD700;
+      color: #000;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .guarantee h2 {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .guarantee p {
+      max-width: 720px;
+      margin: 0 auto 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #555;
+      margin: 36px 0 22px;
+    }
+
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* MOBILE VIEW */
+    @media (max-width: 768px) {
+      .timeline {
+        display: none;
+      }
+      .mobile-stages {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        justify-items: center;
+        max-width: 600px;
+        margin: 20px auto 10px;
+      }
+
+      .mobile-stages .stage {
+        width: 90px;
+        height: 90px;
+      }
+
+      .mobile-stages p {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-top: 10px;
+      }
+
+      .map-section {
+        flex-direction: column;
+      }
+
+      .map-wrap, .table-wrap {
+        width: 90%;
+      }
+    }
+
+    @keyframes highlight {
+      0%, 100% { background: #fff; color: #000; }
+      50% { background: #000; color: #FFD700; transform: scale(1.05); }
     }
   </style>
 </head>
+
 <body>
   <!-- HEADER -->
   <header>
@@ -204,6 +326,8 @@
       <span class="code">CODE</span>
     </span>
     <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
+
+    <!-- NAVIGATION -->
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="program.html">Program</a>
@@ -215,108 +339,63 @@
 
   <!-- HERO -->
   <section class="hero">
-    <!-- Reemplaza la ruta por tu imagen en el repo -->
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- OUR BOOTCAMP (amarillo) -->
-  <section class="bootcamp" id="bootcamp-stages">
-    <h2>Our Bootcamp Stages</h2>
-    <p class="bc-desc">
-      This bootcamp is designed to fill the gap in practical QA skills, offering students hands-on experience guided by industry professionals.
+  <!-- OUR BOOTCAMP -->
+  <section class="bootcamp">
+    <h2>OUR BOOTCAMP STAGES</h2>
+    <p class="intro-text">
+      This bootcamp is designed to fill the industry gap — offering students hands-on experience, mentorship, and direct collaboration with professionals.
     </p>
 
-    <div class="timeline-wrap">
-      <div class="timeline" aria-hidden="true">
-        <div class="timeline-line"></div>
+    <!-- Desktop Timeline -->
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="stage"><span>W1–4</span></div>
+      <div class="stage"><span>W5–10</span></div>
+      <div class="stage"><span>W11–14</span></div>
+      <div class="stage"><span>W15–18</span></div>
+      <div class="stage"><span>W19–20</span></div>
+      <div class="stage"><span>M6–8</span></div>
+    </div>
 
-        <!-- 1 -->
-        <div class="stage" data-text="QA Fundamentals & Manual Testing" data-type="weeks" data-range="1–4">
-          <div class="calendar">
-            <div class="cal-head">Weeks</div>
-            <div class="cal-num">1–4</div>
-          </div>
-        </div>
-        <!-- 2 -->
-        <div class="stage" data-text="Web Automation (Selenium + C#)" data-type="weeks" data-range="5–7">
-          <div class="calendar">
-            <div class="cal-head">Weeks</div>
-            <div class="cal-num">5–7</div>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="stage" data-text="Mobile Automation (Appium)" data-type="weeks" data-range="8–10">
-          <div class="calendar">
-            <div class="cal-head">Weeks</div>
-            <div class="cal-num">8–10</div>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="stage" data-text="API Testing + Databases" data-type="weeks" data-range="11–14">
-          <div class="calendar">
-            <div class="cal-head">Weeks</div>
-            <div class="cal-num">11–14</div>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="stage" data-text="Performance Testing" data-type="weeks" data-range="15–17">
-          <div class="calendar">
-            <div class="cal-head">Weeks</div>
-            <div class="cal-num">15–17</div>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="stage" data-text="Internship / Real-World QA Project" data-type="months" data-range="6–8">
-          <div class="calendar">
-            <div class="cal-head">Months</div>
-            <div class="cal-num">6–8</div>
-          </div>
-        </div>
-      </div>
+    <div class="stage-text" id="stageText">QA Fundamentals & Manual Testing</div>
+    <button>Learn More</button>
 
-      <!-- texto dinámico (una sola vez, centrado) -->
-      <p class="stage-text" aria-live="polite"></p>
-
-      <div class="bc-cta">
-        <a class="btn-black" href="program.html">LEARN MORE</a>
-      </div>
+    <!-- Mobile Static -->
+    <div class="mobile-stages">
+      <div class="stage"><span>W1–4</span></div>
+      <div class="stage"><span>W5–10</span></div>
+      <div class="stage"><span>W11–14</span></div>
+      <div class="stage"><span>W15–18</span></div>
+      <div class="stage"><span>W19–20</span></div>
+      <div class="stage"><span>M6–8</span></div>
+      <p>Each stage represents key milestones in your QA learning journey.</p>
     </div>
   </section>
 
   <!-- WHY BECOME A QA ENGINEER -->
-  <section class="why" id="why">
+  <section class="why">
     <h2>WHY BECOME A QA ENGINEER</h2>
-
-    <!-- Párrafo 1 -->
     <p>
-      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
+      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. 
       This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
     </p>
-
-    <!-- Párrafo 2 -->
     <p>
-      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance
-      Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b>
-      stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts 
+      and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs 
+      for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
     </p>
 
-    <div class="why-grid">
-      <!-- Mapa (izquierda) -->
+    <div class="map-section">
       <div class="map-wrap">
         <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
-        <!-- Badges (solo desktop) -->
-        <div class="badge-chip CA"><div>👷 Jobs: 31,530</div><div>💵 $130,250</div></div>
-        <div class="badge-chip TX"><div>👷 Jobs: 19,300</div><div>💵 $107,930</div></div>
-        <div class="badge-chip FL"><div>👷 Jobs: 12,080</div><div>💵 $104,440</div></div>
-        <div class="badge-chip GA"><div>👷 Jobs: 7,830</div><div>💵 $109,980</div></div>
-        <div class="badge-chip NY"><div>👷 Jobs: 11,140</div><div>💵 $112,700</div></div>
       </div>
-
-      <!-- Tabla (derecha, compacta y cercana) -->
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>State</th><th>QA Jobs</th><th>Salary</th></tr>
+            <tr><th>State</th><th>Jobs</th><th>Salary</th></tr>
           </thead>
           <tbody>
             <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
@@ -330,58 +409,43 @@
     </div>
   </section>
 
-  <!-- GARANTÍA FINAL -->
-  <section class="guaranteed" id="guaranteed">
-    <h2>GET YOUR FIRST QA JOB EXPERIENCE<br>100% GUARANTEED</h2>
+  <!-- GUARANTEE SECTION -->
+  <section class="guarantee">
+    <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
     <p>
-      <b>Once you graduate</b>, get your first QA experience as an intern in one of our <b>partner companies</b>. You’ll receive full mentorship and guidance for
-      <b>three months</b> while applying the skills you’ve learned.
+      Once you graduate, you’ll have the opportunity to gain your first real-world QA experience through a 3-month internship with one of our partner companies, guided by mentorship and career support.
     </p>
-    <a class="btn-black" href="program.html">I WANT TO KNOW MORE</a>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
   </footer>
 
+  <!-- ANIMATION SCRIPT -->
   <script>
-    /* ====== TIMELINE LOOP (6 etapas) ====== */
-    const stages = document.querySelectorAll('.stage');
-    const stageText = document.querySelector('.stage-text');
-    const line = document.querySelector('.timeline-line');
-    let idx = 0;
+    const stages = document.querySelectorAll('.timeline .stage');
+    const stageText = document.getElementById('stageText');
+    const texts = [
+      "QA Fundamentals & Manual Testing",
+      "Web & Mobile Test Automation",
+      "API Testing + Databases",
+      "Performance Testing",
+      "Advanced QA Tools",
+      "Internship / Real-World QA Project"
+    ];
+    let index = 0;
 
-    function activate(i){
-      stages.forEach((s,k)=>s.classList.toggle('active',k===i));
-      const text = stages[i].dataset.text;
-      stageText.style.opacity = 0;
-      setTimeout(()=>{ stageText.textContent = text; stageText.style.opacity = 1; }, 180);
-
-      // progreso de la línea NEGRA en función de 6 etapas (del 0% al 100% del segmento útil)
-      const pct = ((i+1)/stages.length) * 94; // deja 3% margen a cada lado
-      line.style.width = pct + "%";
+    function cycleStages() {
+      stages.forEach(s => s.classList.remove('active'));
+      stages[index].classList.add('active');
+      stageText.textContent = texts[index];
+      index = (index + 1) % stages.length;
     }
 
-    function loop(){
-      activate(idx);
-      idx = (idx + 1) % stages.length;
-    }
-    // arranque inmediato + loop infinito
-    activate(0);
-    setInterval(loop, 1800); // 1.8s por etapa (puedes subirlo si lo quieres más lento)
-
-    /* ====== Fade-in de mapa + tabla (solo desktop; en mobile ya no hay badges) ====== */
-    const grid = document.querySelector('.why-grid');
-    const mq = window.matchMedia('(max-width: 768px)');
-    if (!mq.matches) {
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ grid.classList.add('visible'); }});
-      }, {threshold:.25});
-      io.observe(grid);
-    } else {
-      // en mobile la dejamos visible sin animaciones extra
-      grid.classList.add('visible');
-    }
+    setInterval(cycleStages, 2000);
+    cycleStages();
   </script>
 </body>
 </html>
