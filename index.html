@@ -154,20 +154,20 @@
       padding: 0 20px;
     }
 
-    /* MAP + TABLE SIDE BY SIDE (balanced layout) */
+    /* MAP + TABLE SIDE BY SIDE (balanced and centered) */
     .map-table-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px; /* más pegado al mapa */
+      gap: 40px; /* más espacio entre mapa y tabla */
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     .map-wrap {
       position: relative;
       width: 100%;
-      max-width: 50%;
+      max-width: 520px;
       margin: 0;
       overflow: hidden;
       transition: transform 0.5s ease;
@@ -216,23 +216,26 @@
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    /* SMALLER TABLE */
+    /* SMALLER TABLE - centered vertically with map */
     .table-wrap.compact {
-      max-width: 280px;
-      font-size: 0.83rem;
-      margin-top: 0;
-      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centra verticalmente respecto al mapa */
+      max-width: 300px;
+      font-size: 0.85rem;
+      margin: 0;
+      align-self: center; /* asegura que quede al centro del mapa */
     }
 
     .table-wrap.compact table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 0;
+      margin: 0 auto;
     }
 
     .table-wrap.compact th,
     .table-wrap.compact td {
-      padding: 7px 5px;
+      padding: 8px 6px;
       border: 1.2px solid #000;
     }
 
@@ -243,8 +246,8 @@
       font-weight: 700;
     }
 
-    tr:nth-child(even){background:#f9f9f9;}
-    tr:hover{background:#fff8dc;transition:.3s;}
+    tr:nth-child(even) { background: #f9f9f9; }
+    tr:hover { background: #fff8dc; transition: .3s; }
 
     /* Hover effect on map */
     .map-wrap:hover {
@@ -278,14 +281,20 @@
     }
 
     /* RESPONSIVE FIX */
+    @media (max-width: 900px) {
+      .map-table-wrap {
+        flex-direction: column;
+        gap: 25px;
+      }
+      .map-wrap { max-width: 90%; }
+      .table-wrap.compact { max-width: 80%; }
+    }
+
     @media (max-width: 768px) {
       .brand { font-size: 1.4rem; }
       .empower { font-size: 0.7rem; letter-spacing: 0.2em; }
       nav.main-nav { gap: 14px; font-size: 0.8rem; flex-wrap: nowrap; }
       .hero img { width: 95%; }
-      .map-table-wrap { flex-direction: column; gap: 20px; }
-      .map-wrap { max-width: 90%; }
-      .table-wrap.compact { max-width: 80%; }
     }
 
     @media (max-width: 480px) {
