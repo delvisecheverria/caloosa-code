@@ -154,12 +154,12 @@
       padding: 0 20px;
     }
 
-    /* MAP + TABLE SIDE BY SIDE (balanced and centered) */
+    /* MAP + TABLE SIDE BY SIDE */
     .map-table-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px; /* más espacio entre mapa y tabla */
+      gap: 25px;
       flex-wrap: wrap;
       margin-top: 20px;
     }
@@ -167,7 +167,7 @@
     .map-wrap {
       position: relative;
       width: 100%;
-      max-width: 520px;
+      max-width: 45%;
       margin: 0;
       overflow: hidden;
       transition: transform 0.5s ease;
@@ -220,11 +220,11 @@
     .table-wrap.compact {
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centra verticalmente respecto al mapa */
+      justify-content: center;
       max-width: 300px;
       font-size: 0.85rem;
       margin: 0;
-      align-self: center; /* asegura que quede al centro del mapa */
+      align-self: center;
     }
 
     .table-wrap.compact table {
@@ -249,7 +249,6 @@
     tr:nth-child(even) { background: #f9f9f9; }
     tr:hover { background: #fff8dc; transition: .3s; }
 
-    /* Hover effect on map */
     .map-wrap:hover {
       transform: scale(1.02);
     }
@@ -314,7 +313,6 @@
     </span>
     <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
 
-    <!-- NAVIGATION -->
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="program.html">Program</a>
@@ -357,7 +355,6 @@
     </p>
 
     <div class="map-table-wrap">
-      <!-- MAP -->
       <div class="map-wrap fade-on-scroll">
         <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
 
@@ -383,7 +380,6 @@
         </div>
       </div>
 
-      <!-- SMALLER TABLE -->
       <div class="table-wrap compact">
         <table>
           <thead>
@@ -411,7 +407,6 @@
     <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
   </footer>
 
-  <!-- SCROLL ANIMATION SCRIPT -->
   <script>
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
