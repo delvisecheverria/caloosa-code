@@ -76,7 +76,7 @@
       background: #FFD700;
     }
 
-    /* HERO IMAGE */
+    /* HERO */
     .hero img {
       width: 80%;
       max-width: 900px;
@@ -84,7 +84,7 @@
       margin-bottom: 40px;
     }
 
-    /* OUR BOOTCAMP SECTION */
+    /* OUR BOOTCAMP */
     .bootcamp {
       background: #FFD700;
       color: #000;
@@ -131,6 +131,7 @@
       width: 120px;
       height: 120px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-weight: 700;
@@ -146,6 +147,7 @@
       padding: 3px 8px;
       border-radius: 4px;
       color: #000;
+      margin-bottom: 4px;
     }
 
     .stage.active {
@@ -203,8 +205,8 @@
 
     .map-wrap {
       position: relative;
-      width: 50%;
-      max-width: 500px;
+      width: 55%;
+      max-width: 550px;
       min-width: 300px;
     }
 
@@ -215,9 +217,9 @@
     }
 
     .table-wrap {
-      width: 35%;
-      min-width: 250px;
-      max-width: 350px;
+      width: 30%;
+      min-width: 240px;
+      max-width: 320px;
     }
 
     table {
@@ -239,7 +241,7 @@
 
     tr:nth-child(even) { background: #f9f9f9; }
 
-    /* GET YOUR FIRST QA JOB */
+    /* GUARANTEE */
     .guarantee {
       background: #FFD700;
       color: #000;
@@ -274,11 +276,10 @@
       font-weight: 600;
     }
 
-    /* MOBILE VIEW */
+    /* MOBILE */
     @media (max-width: 768px) {
-      .timeline {
-        display: none;
-      }
+      .timeline { display: none; }
+
       .mobile-stages {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -289,8 +290,8 @@
       }
 
       .mobile-stages .stage {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
       }
 
       .mobile-stages p {
@@ -301,18 +302,8 @@
         margin-top: 10px;
       }
 
-      .map-section {
-        flex-direction: column;
-      }
-
-      .map-wrap, .table-wrap {
-        width: 90%;
-      }
-    }
-
-    @keyframes highlight {
-      0%, 100% { background: #fff; color: #000; }
-      50% { background: #000; color: #FFD700; transform: scale(1.05); }
+      .map-section { flex-direction: column; }
+      .map-wrap, .table-wrap { width: 90%; }
     }
   </style>
 </head>
@@ -327,7 +318,6 @@
     </span>
     <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
 
-    <!-- NAVIGATION -->
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="program.html">Program</a>
@@ -349,44 +339,35 @@
       This bootcamp is designed to fill the industry gap — offering students hands-on experience, mentorship, and direct collaboration with professionals.
     </p>
 
-    <!-- Desktop Timeline -->
     <div class="timeline">
       <div class="timeline-line"></div>
-      <div class="stage"><span>W1–4</span></div>
-      <div class="stage"><span>W5–10</span></div>
-      <div class="stage"><span>W11–14</span></div>
-      <div class="stage"><span>W15–18</span></div>
-      <div class="stage"><span>W19–20</span></div>
-      <div class="stage"><span>M6–8</span></div>
+      <div class="stage"><span>Weeks</span>1–4</div>
+      <div class="stage"><span>Weeks</span>5–10</div>
+      <div class="stage"><span>Weeks</span>11–14</div>
+      <div class="stage"><span>Weeks</span>15–17</div>
+      <div class="stage"><span>Weeks</span>18–20</div>
+      <div class="stage"><span>Months</span>6–8</div>
     </div>
 
     <div class="stage-text" id="stageText">QA Fundamentals & Manual Testing</div>
     <button>Learn More</button>
 
-    <!-- Mobile Static -->
     <div class="mobile-stages">
-      <div class="stage"><span>W1–4</span></div>
-      <div class="stage"><span>W5–10</span></div>
-      <div class="stage"><span>W11–14</span></div>
-      <div class="stage"><span>W15–18</span></div>
-      <div class="stage"><span>W19–20</span></div>
-      <div class="stage"><span>M6–8</span></div>
+      <div class="stage"><span>Weeks</span>1–4</div>
+      <div class="stage"><span>Weeks</span>5–10</div>
+      <div class="stage"><span>Weeks</span>11–14</div>
+      <div class="stage"><span>Weeks</span>15–17</div>
+      <div class="stage"><span>Weeks</span>18–20</div>
+      <div class="stage"><span>Months</span>6–8</div>
       <p>Each stage represents key milestones in your QA learning journey.</p>
     </div>
   </section>
 
-  <!-- WHY BECOME A QA ENGINEER -->
+  <!-- WHY BECOME -->
   <section class="why">
     <h2>WHY BECOME A QA ENGINEER</h2>
-    <p>
-      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. 
-      This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
-    </p>
-    <p>
-      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts 
-      and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs 
-      for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
-    </p>
+    <p>Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</p>
+    <p>Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:</p>
 
     <div class="map-section">
       <div class="map-wrap">
@@ -409,21 +390,18 @@
     </div>
   </section>
 
-  <!-- GUARANTEE SECTION -->
+  <!-- GUARANTEE -->
   <section class="guarantee">
     <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
-    <p>
-      Once you graduate, you’ll have the opportunity to gain your first real-world QA experience through a 3-month internship with one of our partner companies, guided by mentorship and career support.
-    </p>
+    <p>Once you graduate, you’ll have the opportunity to gain your first real-world QA experience through a 3-month internship with one of our partner companies, guided by mentorship and career support.</p>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
     <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
   </footer>
 
-  <!-- ANIMATION SCRIPT -->
+  <!-- JS -->
   <script>
     const stages = document.querySelectorAll('.timeline .stage');
     const stageText = document.getElementById('stageText');
@@ -432,8 +410,8 @@
       "Web & Mobile Test Automation",
       "API Testing + Databases",
       "Performance Testing",
-      "Advanced QA Tools",
-      "Internship / Real-World QA Project"
+      "Capstone Project & Career Preparation",
+      "Internship / First QA Job Experience during 3 months"
     ];
     let index = 0;
 
