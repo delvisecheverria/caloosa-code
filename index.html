@@ -202,12 +202,12 @@
       color: #333;
     }
 
-    /* --- MAP + TABLE LAYOUT (Desktop) --- */
+    /* --- MAP SECTION --- */
     .map-section {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 18px; /* más pegado */
+      gap: 18px;
       flex-wrap: nowrap;
       margin-top: 40px;
       position: relative;
@@ -215,20 +215,21 @@
 
     .map-wrap {
       position: relative;
-      width: 65%;          /* mapa más grande */
-      max-width: 720px;    /* aumentado */
+      width: 65%;
+      max-width: 720px;
       min-width: 360px;
       border-radius: 10px;
-      overflow: hidden;    /* para redondeo y overlays */
+      overflow: hidden;
     }
 
     .map-wrap img.map {
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 10px;
     }
 
-    /* Chips (Jobs / Salary) */
+    /* Chips (solo desktop) */
     .badge-chip {
       position: absolute;
       font-size: 11px;
@@ -251,89 +252,22 @@
       font-weight: 600;
       margin: 2px 0;
     }
+
     @keyframes float {
       0%,100% { transform: translate(-50%, -50%) translateY(0); }
       50%     { transform: translate(-50%, -50%) translateY(-6px); }
     }
 
-    /* Posiciones de chips sobre el mapa */
+    /* Posiciones de chips */
     .CA { left: 18%; top: 58%; }
     .TX { left: 42%; top: 60%; }
     .FL { left: 80%; top: 75%; }
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    /* Overlays animados SOLO desktop */
-    .map-anim .sun {
-      position: absolute;
-      top: 10%;
-      right: 8%;
-      width: 46px;
-      height: 46px;
-      background: #FFD700;
-      border-radius: 50%;
-      opacity: .85;
-      animation: sunPulse 5s ease-in-out infinite;
-      z-index: 2;
-    }
-    .map-anim .cloud {
-      position: absolute;
-      width: 70px;
-      height: 28px;
-      background: #f2f2f2;
-      border-radius: 28px;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,.06));
-      z-index: 2;
-    }
-    .map-anim .cloud::before,
-    .map-anim .cloud::after {
-      content: "";
-      position: absolute;
-      background: #f2f2f2;
-      border-radius: 50%;
-    }
-    .map-anim .cloud::before {
-      width: 30px; height: 30px; left: 10px; top: -12px;
-    }
-    .map-anim .cloud::after  {
-      width: 40px; height: 40px; left: 28px; top: -18px;
-    }
-    .cloud1 { top: 16%; left: 58%; animation: floatCloud 8s ease-in-out infinite; }
-    .cloud2 { top: 8%;  left: 45%; animation: floatCloud 9s ease-in-out infinite 1s; }
-
-    /* Olas */
-    .wave {
-      position: absolute;
-      left: 0;
-      bottom: 12%;
-      width: 100%;
-      height: 24px;
-      z-index: 1;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    .wave svg {
-      width: 120%;
-      height: 100%;
-      animation: waveSlide 4s ease-in-out infinite;
-    }
-
-    @keyframes sunPulse {
-      0%,100% { transform: scale(1); opacity: .85; }
-      50%     { transform: scale(1.12); opacity: 1; }
-    }
-    @keyframes floatCloud {
-      0%,100% { transform: translateX(0); }
-      50%     { transform: translateX(16px); }
-    }
-    @keyframes waveSlide {
-      0%,100% { transform: translateX(0); }
-      50%     { transform: translateX(-6%); }
-    }
-
-    /* Tabla más pequeña y centrada al lado derecho del mapa */
+    /* Tabla (solo desktop) */
     .table-wrap {
-      width: 22%;             /* más pequeña */
+      width: 22%;
       min-width: 200px;
       max-width: 240px;
     }
@@ -352,6 +286,22 @@
       color: #fff;
     }
     tr:nth-child(even){ background:#f9f9f9; }
+
+    /* --- MOBILE: solo mapa --- */
+    @media (max-width: 768px) {
+      .map-section {
+        flex-direction: column;
+        gap: 0;
+      }
+      .table-wrap,
+      .badge-chip {
+        display: none !important; /* Oculta chips y tabla */
+      }
+      .map-wrap {
+        width: 90%;
+        max-width: 700px;
+      }
+    }
 
     /* GUARANTEE */
     .guarantee {
@@ -383,49 +333,6 @@
       color: #FFD700;
       text-decoration: none;
       font-weight: 600;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .map-wrap { width: 60%; max-width: 640px; }
-      .table-wrap { width: 26%; max-width: 260px; }
-    }
-
-    @media (max-width: 768px) {
-      .brand { font-size: 1.4rem; }
-      .empower { font-size: 0.7rem; letter-spacing: 0.2em; }
-      nav.main-nav { gap: 14px; font-size: 0.8rem; flex-wrap: nowrap; }
-
-      /* Mapa + tabla en columna; SIN animaciones en mobile */
-      .map-section {
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-      .map-wrap { width: 90%; max-width: 720px; }
-      .map-anim, .cloud1, .cloud2, .sun, .wave { display: none !important; } /* oculta animaciones */
-      .badge-chip { animation: none; } /* chips sin animación, pero visibles */
-      .table-wrap {
-        width: 90%;
-        max-width: 420px;
-        margin: 0 auto;
-      }
-
-      /* Timeline responsive */
-      .timeline { gap: 10px; flex-wrap: wrap; justify-content: center; }
-      .stage {
-        width: 85px;
-        height: 85px;
-        font-size: 0.65rem;
-        margin-bottom: 10px;
-      }
-      .timeline-line { display: none; }
-      .stage-text { font-size: 0.9rem; min-height: 40px; }
-      .hero img { width: 95%; }
-    }
-
-    @media (max-width: 480px) {
-      .brand { font-size: 1.2rem; }
-      nav.main-nav { gap: 10px; font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -482,24 +389,10 @@
     <p>Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.</p>
 
     <div class="map-section">
-      <!-- MAPA (desktop con animaciones / mobile estático) -->
       <div class="map-wrap">
-        <!-- Imagen del mapa -->
         <img class="map" src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
 
-        <!-- Overlays animados SOLO Desktop -->
-        <div class="map-anim">
-          <div class="sun"></div>
-          <div class="cloud cloud1"></div>
-          <div class="cloud cloud2"></div>
-          <div class="wave">
-            <svg viewBox="0 0 600 60" preserveAspectRatio="none">
-              <path d="M0,30 C100,10 200,50 300,30 C400,10 500,50 600,30" fill="none" stroke="#000" stroke-width="1.5"/>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Chips de datos -->
+        <!-- Chips animados solo desktop -->
         <div class="badge-chip CA">
           <div class="badge-line">👷 Jobs: 31,530</div>
           <div class="badge-line">💵 Salary: $130,250</div>
@@ -522,7 +415,7 @@
         </div>
       </div>
 
-      <!-- Tabla pequeña a la derecha, centrada verticalmente -->
+      <!-- Tabla solo desktop -->
       <div class="table-wrap">
         <table>
           <thead>
