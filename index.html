@@ -87,65 +87,27 @@
       height: auto;
     }
 
-    /* ===== GUARANTEED SECTION ===== */
-    .guaranteed-section {
+    /* ===== BOOTCAMP STAGES SECTION ===== */
+    .bootcamp-section {
       background: #FFD700;
       color: #000;
       text-align: center;
-      padding: 80px 20px 100px;
+      padding: 80px 20px;
       position: relative;
     }
 
-    .guaranteed-section h2 {
+    .bootcamp-section h2 {
       font-size: 1.9rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 25px;
-      line-height: 1.4;
+      margin-bottom: 40px;
     }
 
-    .guaranteed-section h2 span {
-      display: block;
-    }
-
-    .guaranteed-section p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .btn-black {
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 4px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      transition: background 0.3s;
-      display: inline-block;
-      margin-bottom: 60px;
-    }
-
-    .btn-black:hover {
-      background: #222;
-    }
-
-    /* ===== TIMELINE STYLES (INSIDE YELLOW SECTION) ===== */
     .bootcamp-timeline {
       background: transparent;
       text-align: center;
       position: relative;
       padding: 0 20px;
-    }
-
-    .bootcamp-timeline h3 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-      color: #000;
     }
 
     .timeline {
@@ -228,6 +190,13 @@
       transition: opacity 0.4s ease;
     }
 
+    .bootcamp-description {
+      max-width: 750px;
+      margin: 50px auto 0;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
     @keyframes progressGrow {
       0% { width: 0%; }
       100% { width: 90%; }
@@ -300,6 +269,7 @@
       transform: scale(1.03);
     }
 
+    /* ===== MAP BADGES (DESKTOP ONLY) ===== */
     .badge-chip {
       position: absolute;
       font-size: 11px;
@@ -326,37 +296,54 @@
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    .table-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 40px auto;
-      max-width: 900px;
-      padding: 0 20px;
+    /* Hide animations on mobile */
+    @media (max-width: 768px) {
+      .badge-chip {
+        display: none;
+      }
+      .map-wrap:hover img {
+        transform: none;
+      }
     }
 
-    table {
-      border-collapse: collapse;
-      width: 80%;
-      max-width: 500px;
-      margin: 0 auto;
-      font-size: 0.85rem;
-    }
-
-    th, td {
-      border: 2px solid #000;
-      padding: 10px;
+    /* ===== GUARANTEED SECTION (FINAL) ===== */
+    .guaranteed-final {
+      background: #FFD700;
+      color: #000;
       text-align: center;
+      padding: 80px 20px;
     }
 
-    th {
+    .guaranteed-final h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    .guaranteed-final p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn-black {
       background: #000;
       color: #fff;
-      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 4px;
       font-weight: 700;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+      display: inline-block;
     }
 
-    tr:nth-child(even) { background: #f9f9f9; }
+    .btn-black:hover {
+      background: #222;
+    }
 
     footer {
       text-align: center;
@@ -396,15 +383,10 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- GUARANTEED + TIMELINE -->
-  <section class="guaranteed-section">
-    <h2><span>GET YOUR FIRST QA JOB EXPERIENCE</span>100% GUARANTEED</h2>
-    <p>Once you graduate, get your first QA experience as an intern in one of our partner companies.
-      You’ll receive full mentorship and guidance for three months while applying the skills you’ve learned.</p>
-    <a href="program.html" class="btn-black">I WANT TO KNOW MORE</a>
-
+  <!-- OUR BOOTCAMP STAGES -->
+  <section class="bootcamp-section">
+    <h2>Our Bootcamp Stages</h2>
     <div class="bootcamp-timeline">
-      <h3>Our Bootcamp Stages</h3>
       <div class="timeline">
         <div class="timeline-line"></div>
         <div class="stage" data-text="QA Fundamentals & Manual Testing">
@@ -446,6 +428,11 @@
       </div>
       <p class="stage-text"></p>
     </div>
+
+    <p class="bootcamp-description">
+      This bootcamp is designed to fill the gap in practical QA skills, offering students hands-on experience guided by industry professionals.
+      Through six stages, participants build a complete testing foundation — from manual QA to automation, performance, and real-world projects.
+    </p>
   </section>
 
   <!-- WHY BECOME A QA ENGINEER -->
@@ -477,6 +464,14 @@
         </tbody>
       </table>
     </div>
+  </section>
+
+  <!-- FINAL GUARANTEED SECTION -->
+  <section class="guaranteed-final">
+    <h2><span>GET YOUR FIRST QA JOB EXPERIENCE</span>100% GUARANTEED</h2>
+    <p>Once you graduate, get your first QA experience as an intern in one of our partner companies.  
+      You’ll receive full mentorship and guidance for three months while applying the skills you’ve learned.</p>
+    <a href="program.html" class="btn-black">I WANT TO KNOW MORE</a>
   </section>
 
   <footer>
