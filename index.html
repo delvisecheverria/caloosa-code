@@ -14,7 +14,6 @@
       text-align: center;
     }
 
-    /* HEADER */
     header {
       text-align: center;
       padding-top: 40px;
@@ -26,7 +25,6 @@
       gap: 4px;
       font-weight: 700;
       font-size: 2rem;
-      letter-spacing: 1px;
       text-transform: uppercase;
     }
 
@@ -43,7 +41,6 @@
       margin-bottom: 25px;
     }
 
-    /* NAV MENU */
     nav.main-nav {
       display: flex;
       justify-content: center;
@@ -64,7 +61,6 @@
       white-space: nowrap;
     }
 
-    nav.main-nav a:hover { color: #000; }
     nav.main-nav a.active { color: #000; }
     nav.main-nav a.active::after {
       content: "";
@@ -76,18 +72,15 @@
       background: #FFD700;
     }
 
-    /* HERO IMAGE */
-    .hero {
-      margin-bottom: 40px;
-    }
-
+    /* HERO */
     .hero img {
       width: 80%;
       max-width: 900px;
       height: auto;
+      margin-bottom: 40px;
     }
 
-    /* ===== BOOTCAMP STAGES SECTION ===== */
+    /* ===== BOOTCAMP SECTION ===== */
     .bootcamp-section {
       background: #FFD700;
       color: #000;
@@ -100,14 +93,20 @@
       font-size: 1.9rem;
       font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
+    }
+
+    .bootcamp-section p.description {
+      max-width: 750px;
+      margin: 0 auto 50px;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     .bootcamp-timeline {
-      background: transparent;
-      text-align: center;
       position: relative;
-      padding: 0 20px;
+      text-align: center;
+      padding: 0 20px 60px;
     }
 
     .timeline {
@@ -128,10 +127,10 @@
       height: 4px;
       background: #000;
       z-index: 0;
-      width: 0;
-      animation: progressGrow 12s linear infinite;
-      transform: translateY(-50%);
       border-radius: 2px;
+      width: 0%;
+      transition: width 1s ease;
+      transform: translateY(-50%);
     }
 
     .calendar {
@@ -165,7 +164,6 @@
       font-size: 1.1rem;
       font-weight: 800;
       margin-top: 6px;
-      color: #000;
     }
 
     .stage {
@@ -190,46 +188,25 @@
       transition: opacity 0.4s ease;
     }
 
-    .bootcamp-description {
-      max-width: 750px;
-      margin: 50px auto 0;
-      font-size: 1rem;
-      line-height: 1.6;
+    .btn-black {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 40px;
     }
 
-    @keyframes progressGrow {
-      0% { width: 0%; }
-      100% { width: 90%; }
-    }
+    .btn-black:hover { background: #222; }
 
-    @media (max-width: 900px) {
-      .timeline {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 18px;
-      }
-      .timeline-line {
-        display: none;
-      }
-      .calendar {
-        width: 70px;
-        height: 70px;
-      }
-      .calendar-number {
-        font-size: 1rem;
-      }
-      .stage-text {
-        font-size: 0.9rem;
-        margin-top: 15px;
-        padding: 0 10px;
-      }
-    }
-
-    /* ===== WHY BECOME A QA ENGINEER ===== */
+    /* ===== WHY QA ===== */
     .why-section {
       padding: 80px 20px;
       background: #fff;
-      text-align: center;
     }
 
     .why-section h2 {
@@ -246,7 +223,6 @@
       color: #333;
       font-size: 0.95rem;
       line-height: 1.6;
-      padding: 0 20px;
     }
 
     .map-wrap {
@@ -265,11 +241,8 @@
       transition: transform 1.5s ease;
     }
 
-    .map-wrap:hover img {
-      transform: scale(1.03);
-    }
+    .map-wrap:hover img { transform: scale(1.03); }
 
-    /* ===== MAP BADGES (DESKTOP ONLY) ===== */
     .badge-chip {
       position: absolute;
       font-size: 11px;
@@ -296,17 +269,35 @@
     .GA { left: 68%; top: 57%; }
     .NY { left: 84%; top: 33%; }
 
-    /* Hide animations on mobile */
     @media (max-width: 768px) {
-      .badge-chip {
-        display: none;
-      }
-      .map-wrap:hover img {
-        transform: none;
-      }
+      .badge-chip { display: none; }
+      .map-wrap:hover img { transform: none; }
     }
 
-    /* ===== GUARANTEED SECTION (FINAL) ===== */
+    .table-wrap {
+      max-width: 700px;
+      margin: 30px auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 2px solid #000;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #000;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    /* ===== FINAL GUARANTEED ===== */
     .guaranteed-final {
       background: #FFD700;
       color: #000;
@@ -322,27 +313,13 @@
       line-height: 1.4;
     }
 
+    .guaranteed-final h2 span { display: block; }
+
     .guaranteed-final p {
       max-width: 700px;
       margin: 0 auto 30px;
       font-size: 1rem;
       line-height: 1.6;
-    }
-
-    .btn-black {
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 4px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      transition: background 0.3s;
-      display: inline-block;
-    }
-
-    .btn-black:hover {
-      background: #222;
     }
 
     footer {
@@ -352,14 +329,9 @@
       margin: 36px 0 22px;
     }
 
-    footer a {
-      color: #FFD700;
-      text-decoration: none;
-      font-weight: 600;
-    }
+    footer a { color: #FFD700; font-weight: 600; text-decoration: none; }
   </style>
 </head>
-
 <body>
   <header>
     <span class="brand">
@@ -368,7 +340,6 @@
       <span class="code">CODE</span>
     </span>
     <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
-
     <nav class="main-nav">
       <a href="index.html" class="active">Home</a>
       <a href="program.html">Program</a>
@@ -378,14 +349,18 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- OUR BOOTCAMP STAGES -->
+  <!-- ===== OUR BOOTCAMP ===== -->
   <section class="bootcamp-section">
     <h2>Our Bootcamp Stages</h2>
+    <p class="description">
+      This bootcamp is designed to fill the gap in practical QA skills, offering students hands-on experience guided by industry professionals.
+      Through six stages, participants build a complete foundation — from manual QA to automation, performance, and real-world projects.
+    </p>
+
     <div class="bootcamp-timeline">
       <div class="timeline">
         <div class="timeline-line"></div>
@@ -427,22 +402,16 @@
         </div>
       </div>
       <p class="stage-text"></p>
+      <a href="program.html" class="btn-black">LEARN MORE</a>
     </div>
-
-    <p class="bootcamp-description">
-      This bootcamp is designed to fill the gap in practical QA skills, offering students hands-on experience guided by industry professionals.
-      Through six stages, participants build a complete testing foundation — from manual QA to automation, performance, and real-world projects.
-    </p>
   </section>
 
-  <!-- WHY BECOME A QA ENGINEER -->
+  <!-- ===== WHY QA ===== -->
   <section class="why-section">
     <h2>WHY BECOME A QA ENGINEER</h2>
-
     <p class="intro">
-      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:
+      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
     </p>
-
     <div class="map-wrap">
       <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
       <div class="badge-chip CA"><div class="badge-line">👷 Jobs: 31,530</div><div class="badge-line">💵 Salary: $130,250</div></div>
@@ -451,7 +420,6 @@
       <div class="badge-chip GA" style="animation-delay:.45s"><div class="badge-line">👷 Jobs: 7,830</div><div class="badge-line">💵 Salary: $109,980</div></div>
       <div class="badge-chip NY" style="animation-delay:.6s"><div class="badge-line">👷 Jobs: 11,140</div><div class="badge-line">💵 Salary: $112,700</div></div>
     </div>
-
     <div class="table-wrap">
       <table>
         <thead><tr><th>State</th><th>QA Employment</th><th>Average Salary</th></tr></thead>
@@ -466,29 +434,26 @@
     </div>
   </section>
 
-  <!-- FINAL GUARANTEED SECTION -->
+  <!-- ===== FINAL GUARANTEED ===== -->
   <section class="guaranteed-final">
     <h2><span>GET YOUR FIRST QA JOB EXPERIENCE</span>100% GUARANTEED</h2>
-    <p>Once you graduate, get your first QA experience as an intern in one of our partner companies.  
-      You’ll receive full mentorship and guidance for three months while applying the skills you’ve learned.</p>
+    <p><b>Once you graduate</b>, get your first QA experience as an intern in one of our <b>partner companies</b>.  
+      You’ll receive full mentorship and guidance for <b>three months</b> while applying the skills you’ve learned.</p>
     <a href="program.html" class="btn-black">I WANT TO KNOW MORE</a>
   </section>
 
   <footer>
     <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-    <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
   </footer>
 
   <script>
-    /* ===== TIMELINE LOOP ANIMATION ===== */
     const stages = document.querySelectorAll('.stage');
     const stageText = document.querySelector('.stage-text');
+    const line = document.querySelector('.timeline-line');
     let current = 0;
 
     function activateStage(index) {
-      stages.forEach((stage, i) => {
-        stage.classList.toggle('active', i === index);
-      });
+      stages.forEach((stage, i) => stage.classList.toggle('active', i === index));
       const activeStage = stages[index];
       const text = activeStage.getAttribute('data-text');
       stageText.style.opacity = 0;
@@ -496,6 +461,9 @@
         stageText.textContent = text;
         stageText.style.opacity = 1;
       }, 250);
+
+      const progress = ((index + 1) / stages.length) * 90;
+      line.style.width = progress + "%";
     }
 
     function loopStages() {
