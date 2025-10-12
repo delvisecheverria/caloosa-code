@@ -117,6 +117,7 @@
       margin: 30px auto 20px;
       overflow-x: auto;
       scroll-behavior: smooth;
+      padding-bottom: 10px;
     }
 
     .timeline-line {
@@ -145,6 +146,7 @@
       position: relative;
       z-index: 2;
       flex-shrink: 0;
+      transition: transform 0.3s, background 0.3s, color 0.3s;
     }
 
     .stage span {
@@ -159,7 +161,6 @@
       background: #000;
       color: #FFD700;
       transform: scale(1.05);
-      transition: transform 0.3s, background 0.3s, color 0.3s;
     }
 
     .stage-text {
@@ -205,28 +206,29 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 30px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 40px;
+      position: relative;
     }
 
     .map-wrap {
       position: relative;
-      width: 55%;
-      max-width: 550px;
+      width: 60%;
+      max-width: 580px;
       min-width: 300px;
     }
 
-    .map-wrap img {
+    .map-wrap svg {
       width: 100%;
       border-radius: 8px;
       display: block;
     }
 
     .table-wrap {
-      width: 30%;
+      width: 25%;
       min-width: 240px;
-      max-width: 320px;
+      max-width: 300px;
     }
 
     table {
@@ -283,15 +285,34 @@
       font-weight: 600;
     }
 
-    /* RESPONSIVE */
+    /* MAP ANIMATIONS */
+    @keyframes floatCloud {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(15px); }
+    }
+
+    @keyframes sunPulse {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    @keyframes waveMotion {
+      0%, 100% { d: path("M 0 90 Q 80 80, 160 90 T 320 90"); }
+      50% { d: path("M 0 90 Q 80 100, 160 90 T 320 90"); }
+    }
+
     @media (max-width: 768px) {
+      .timeline { gap: 10px; flex-wrap: wrap; justify-content: center; }
       .stage {
-        width: 90px;
-        height: 90px;
-        font-size: 0.7rem;
+        width: 85px;
+        height: 85px;
+        font-size: 0.65rem;
+        margin-bottom: 10px;
       }
-      .timeline { gap: 10px; max-width: 100%; overflow-x: visible; }
-      .stage-text { font-size: 0.9rem; }
+      .timeline-line { display: none; }
+      .stage-text { font-size: 0.9rem; min-height: 40px; }
+      .map-wrap svg { display: none; }
+      .map-wrap img { display: block; width: 100%; border-radius: 8px; }
     }
   </style>
 </head>
@@ -320,7 +341,7 @@
     <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
   </section>
 
-  <!-- OUR BOOTCAMP -->
+  <!-- OUR BOOTCAMP STAGES -->
   <section class="bootcamp">
     <h2>OUR BOOTCAMP STAGES</h2>
     <p class="intro-text">
@@ -341,16 +362,23 @@
     <button>Learn More</button>
   </section>
 
-  <!-- WHY BECOME -->
+  <!-- WHY BECOME A QA ENGINEER -->
   <section class="why">
     <h2>WHY BECOME A QA ENGINEER</h2>
     <p>Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</p>
-    <p>Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment. Here’s how these states compare in terms of number of QA jobs and average annual salaries:</p>
+    <p>Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.</p>
 
     <div class="map-section">
       <div class="map-wrap">
-        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+        <svg viewBox="0 0 320 180">
+          <circle cx="250" cy="35" r="20" fill="#FFD700" style="animation:sunPulse 5s infinite ease-in-out" />
+          <ellipse cx="200" cy="45" rx="25" ry="12" fill="#f2f2f2" style="animation:floatCloud 8s infinite ease-in-out" />
+          <ellipse cx="230" cy="30" rx="30" ry="15" fill="#f2f2f2" style="animation:floatCloud 9s infinite ease-in-out 1s" />
+          <path d="M 0 90 Q 80 80, 160 90 T 320 90" stroke="#000" stroke-width="1.5" fill="none" style="animation:waveMotion 4s infinite ease-in-out" />
+          <image href="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" width="320" height="180" clip-path="inset(0 round 10px)" />
+        </svg>
       </div>
+
       <div class="table-wrap">
         <table>
           <thead>
@@ -379,7 +407,6 @@
     <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
   </footer>
 
-  <!-- JS -->
   <script>
     const stages = document.querySelectorAll('.timeline .stage');
     const stageText = document.getElementById('stageText');
