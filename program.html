@@ -74,84 +74,53 @@
       background:#FFD700;
     }
 
-    /* Bloques principales */
+    /* Grid principal: 3 filas de 2 columnas */
     .blocks-section {
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
-      max-width:900px;
-      margin:40px auto;
+      grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+      gap:30px;
+      max-width:1000px;
+      margin:40px auto 80px;
       padding:0 20px;
     }
 
     .block {
-      border:2px solid #000;
-      border-radius:12px;
-      background:#fff;
-      box-shadow:0 4px 8px rgba(0,0,0,0.08);
-      text-align:center;
-      padding:24px 18px;
+      border:2px solid #FFD700;
+      border-radius:14px;
+      background:#FFFBE5;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+      padding:24px 20px;
       transition:transform .25s ease, box-shadow .25s ease;
-      cursor:pointer;
     }
     .block:hover {
-      transform:scale(1.05);
-      box-shadow:0 8px 16px rgba(0,0,0,0.15);
+      transform:scale(1.03);
+      box-shadow:0 8px 18px rgba(0,0,0,0.12);
     }
+
     .block h3 {
-      font-size:1rem;
+      font-size:1.05rem;
       text-transform:uppercase;
       color:#000;
-      margin-bottom:10px;
+      margin-bottom:12px;
+      text-align:center;
     }
-    .block p {
+
+    .block h4 {
+      margin-top:16px;
+      font-size:.9rem;
+      font-weight:700;
+      text-transform:uppercase;
+      color:#000;
+    }
+
+    .block ul {
+      margin:8px 0 0 16px;
       font-size:.85rem;
+      line-height:1.5;
       color:#333;
-      line-height:1.4;
-      margin:0;
     }
 
-    /* Acordeones */
-    .prog-wrap {
-      max-width:880px;
-      margin:60px auto;
-      padding:0 16px;
-    }
-    details.acc {
-      border:1px solid #FFD700;
-      border-radius:12px;
-      background:#fff;
-      margin:12px auto;
-    }
-    details.acc summary {
-      cursor:pointer;
-      list-style:none;
-      padding:14px 16px;
-      font-weight:800;
-      text-transform:uppercase;
-      font-size:.95rem;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      color:#000;
-    }
-    details.acc summary::-webkit-details-marker { display:none; }
-    .caret {
-      display:inline-block;
-      transition:transform .25s ease;
-    }
-    details[open] .caret { transform:rotate(90deg); }
-
-    .acc-body {
-      padding:0 16px 16px 16px;
-      text-align:left;
-      color:#111;
-      line-height:1.6;
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .45s ease;
-    }
-    details[open] .acc-body { max-height:1200px; }
+    .block li { margin-bottom:6px; }
 
     footer {
       text-align:center;
@@ -163,6 +132,12 @@
       color:#FFD700;
       text-decoration:none;
       font-weight:600;
+    }
+
+    @media (max-width:768px){
+      .blocks-section {
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -184,121 +159,109 @@
   </header>
 
   <main>
-    <!-- Bloques principales -->
     <section class="blocks-section">
-      <div class="block" onclick="document.getElementById('week1').scrollIntoView({behavior:'smooth'})">
-        <h3>Weeks 1–4</h3>
-        <p>QA Fundamentals & Manual Testing</p>
+
+      <!-- Block 1 -->
+      <div class="block">
+        <h3>Weeks 1–4: QA Fundamentals & Manual Testing</h3>
+        <h4>Content:</h4>
+        <ul>
+          <li>Introduction to the <b>SDLC</b> and QA roles</li>
+          <li><b>Types</b> and <b>levels</b> of testing</li>
+          <li><b>Test case design</b> and execution</li>
+          <li>Test management in <b>AIO Test / TestRail</b></li>
+          <li>Bug tracking in <b>Jira</b></li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Understand the QA role in SDLC</li>
+          <li>Design and execute manual test cases</li>
+          <li>Report and track bugs effectively</li>
+        </ul>
       </div>
-      <div class="block" onclick="document.getElementById('week5').scrollIntoView({behavior:'smooth'})">
-        <h3>Weeks 5–10</h3>
-        <p>Web & Mobile Test Automation</p>
+
+      <!-- Block 2 -->
+      <div class="block">
+        <h3>Weeks 5–10: Web & Mobile Test Automation</h3>
+        <h4>Content:</h4>
+        <ul>
+          <li><b>Selenium + C#</b> automation</li>
+          <li><b>DOM locators</b> & Page Object Model</li>
+          <li><b>BrowserStack</b> integration</li>
+          <li>Mobile testing with <b>Appium</b> (iOS/Android)</li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Build automation frameworks</li>
+          <li>Automate and reuse scripts</li>
+          <li>Integrate with GitHub and CI</li>
+        </ul>
       </div>
-      <div class="block" onclick="document.getElementById('week11').scrollIntoView({behavior:'smooth'})">
-        <h3>Weeks 11–14</h3>
-        <p>API Testing + Databases</p>
+
+      <!-- Block 3 -->
+      <div class="block">
+        <h3>Weeks 11–14: API Testing + Databases</h3>
+        <h4>Content:</h4>
+        <ul>
+          <li>SQL basics: SELECT, INSERT, UPDATE, DELETE</li>
+          <li>Data validation with <b>DBeaver</b></li>
+          <li>REST API testing with <b>Postman</b></li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Validate data through SQL</li>
+          <li>Test and automate REST APIs</li>
+        </ul>
       </div>
-      <div class="block" onclick="document.getElementById('week15').scrollIntoView({behavior:'smooth'})">
-        <h3>Weeks 15–17</h3>
-        <p>Performance Testing</p>
+
+      <!-- Block 4 -->
+      <div class="block">
+        <h3>Weeks 15–17: Performance Testing</h3>
+        <h4>Content:</h4>
+        <ul>
+          <li>Understand load, stress, and endurance tests</li>
+          <li><b>JMeter</b> scripting and analysis</li>
+          <li>Load generation with <b>OctoPerf</b></li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Design test plans for performance</li>
+          <li>Analyze results and optimize performance</li>
+        </ul>
       </div>
-      <div class="block" onclick="document.getElementById('month6').scrollIntoView({behavior:'smooth'})">
-        <h3>Months 6–8</h3>
-        <p>Internship / Real-World QA Project</p>
+
+      <!-- Block 5 -->
+      <div class="block">
+        <h3>Months 6–8: Internship / Real-World Project</h3>
+        <h4>Content:</h4>
+        <ul>
+          <li>Hands-on QA project experience</li>
+          <li>Work with live environments and tools</li>
+          <li>Collaborate with real engineering teams</li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Gain real-world QA experience</li>
+          <li>Build a professional QA portfolio</li>
+        </ul>
       </div>
+
+      <!-- Block 6 -->
       <div class="block">
         <h3>Career Launch</h3>
-        <p>Portfolio, Resume, and Job Readiness</p>
+        <h4>Content:</h4>
+        <ul>
+          <li>Resume and portfolio building</li>
+          <li>Interview preparation</li>
+          <li>1:1 career guidance and mentoring</li>
+        </ul>
+        <h4>Objectives:</h4>
+        <ul>
+          <li>Get job-ready as a QA Engineer</li>
+          <li>Secure job placement support</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- Acordeones -->
-    <section class="prog-wrap">
-      <details class="acc" id="week1">
-        <summary><span class="caret">▶</span> WEEKS 1 – 4: QA FUNDAMENTALS & MANUAL TESTING</summary>
-        <div class="acc-body">
-          <h3>Content:</h3>
-          <ul>
-            <li>Introduction to the <b>Software Development Life Cycle</b> (SDLC)</li>
-            <li><b>Types</b> and <b>levels</b> of testing, QA roles</li>
-            <li><b>Test case design</b> and execution</li>
-            <li>Test case management using <b>AIO Test / TestRail</b></li>
-            <li>Bug reporting and management in <b>Jira</b></li>
-            <li><b>Hands-on practice</b> with a sample web application and full traceability</li>
-          </ul>
-          <h3>Objectives:</h3>
-          <ul>
-            <li>Understand the software development lifecycle and QA’s role in it</li>
-            <li>Differentiate between testing types and levels</li>
-            <li>Design, execute, and manage manual test cases</li>
-            <li>Report bugs with clarity and reproducibility</li>
-            <li>Demonstrate traceability from requirements to bugs</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="acc" id="week5">
-        <summary><span class="caret">▶</span> WEEKS 5 – 10: WEB & MOBILE TEST AUTOMATION</summary>
-        <div class="acc-body">
-          <h3>Content:</h3>
-          <ul>
-            <li><b>Web Automation</b> (Weeks 5 – 7): <b>Selenium + C#</b>, <b>NUnit</b> or <b>MSTest</b>, DOM locators, <b>Page Object Model</b>, <b>BrowserStack</b>, <b>GitHub</b></li>
-            <li><b>Mobile Automation</b> (Weeks 8 – 10): <b>Appium</b>, <b>iOS / Android</b> setup, framework creation, locators for mobile apps</li>
-          </ul>
-          <h3>Objectives:</h3>
-          <ul>
-            <li>Build a test automation framework using <b>Selenium + C#</b></li>
-            <li>Automate test cases with <b>DOM locators</b></li>
-            <li>Apply <b>Page Object Model</b> and maintain reusable scripts</li>
-            <li>Configure <b>Appium</b> for device and emulator testing</li>
-            <li>Integrate tests with <b>BrowserStack</b> and <b>GitHub</b></li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="acc" id="week11">
-        <summary><span class="caret">▶</span> WEEKS 11 – 14: API TESTING + DATABASES</summary>
-        <div class="acc-body">
-          <h3>Content:</h3>
-          <ul>
-            <li><b>SQL fundamentals</b>: SELECT, INSERT, UPDATE, DELETE</li>
-            <li>Data validation using <b>DBeaver</b></li>
-            <li><b>REST API</b> testing with <b>Postman</b> — JSON, HTTP methods, body, and assertions</li>
-          </ul>
-          <h3>Objectives:</h3>
-          <ul>
-            <li>Write and execute SQL queries for validation</li>
-            <li>Test API endpoints and automate validations</li>
-            <li>Use <b>Postman</b> for REST API automation</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="acc" id="week15">
-        <summary><span class="caret">▶</span> WEEKS 15 – 17: PERFORMANCE TESTING</summary>
-        <div class="acc-body">
-          <h3>Content:</h3>
-          <ul>
-            <li>Understand <b>load</b>, <b>stress</b>, and <b>endurance</b> tests</li>
-            <li>Scripting and analysis with <b>JMeter</b></li>
-            <li>Load generation using <b>OctoPerf</b></li>
-            <li>Performance tracking and monitoring</li>
-          </ul>
-          <h3>Objectives:</h3>
-          <ul>
-            <li>Build test plans for different performance scenarios</li>
-            <li>Run JMeter scripts and analyze results</li>
-            <li>Interpret metrics and create optimization reports</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="acc" id="month6">
-        <summary><span class="caret">▶</span> MONTH 6 – 8: INTERNSHIP / REAL-WORLD QA PROJECT</summary>
-        <div class="acc-body">
-          <p>100% job placement support for graduates, plus real-world QA experience with live projects.</p>
-        </div>
-      </details>
     </section>
 
     <footer>
