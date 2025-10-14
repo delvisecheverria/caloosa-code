@@ -74,13 +74,38 @@
       background:#FFD700;
     }
 
-    /* Grid principal: 3 filas de 2 columnas */
+    /* Animación de subrayado */
+    .section-title {
+      text-align:center;
+      font-weight:700;
+      font-size:1.4rem;
+      margin-top:40px;
+      margin-bottom:10px;
+      position:relative;
+      display:inline-block;
+    }
+    .section-title::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0%;
+      height:3px;
+      background:#FFD700;
+      animation:underlineFlow 3s ease-in-out infinite;
+    }
+    @keyframes underlineFlow {
+      0%, 100% { width:0%; left:0; }
+      50% { width:100%; left:0; }
+    }
+
+    /* Bloques principales (3 arriba, 3 abajo) */
     .blocks-section {
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
-      gap:30px;
-      max-width:1000px;
-      margin:40px auto 80px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:28px;
+      max-width:1100px;
+      margin:50px auto 70px;
       padding:0 20px;
     }
 
@@ -90,37 +115,43 @@
       background:#FFFBE5;
       box-shadow:0 4px 10px rgba(0,0,0,0.08);
       padding:24px 20px;
-      transition:transform .25s ease, box-shadow .25s ease;
+      transition:transform .35s ease, box-shadow .35s ease;
+      animation:float 3s ease-in-out infinite;
     }
+    .block:nth-child(odd) { animation-delay:.3s; }
+    .block:nth-child(even) { animation-delay:.6s; }
+
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50% { transform:translateY(-8px); }
+    }
+
     .block:hover {
       transform:scale(1.03);
-      box-shadow:0 8px 18px rgba(0,0,0,0.12);
+      box-shadow:0 8px 18px rgba(0,0,0,0.15);
     }
 
     .block h3 {
-      font-size:1.05rem;
+      font-size:1rem;
       text-transform:uppercase;
       color:#000;
-      margin-bottom:12px;
       text-align:center;
+      margin-bottom:10px;
     }
-
     .block h4 {
-      margin-top:16px;
+      margin-top:12px;
       font-size:.9rem;
       font-weight:700;
       text-transform:uppercase;
       color:#000;
     }
-
     .block ul {
-      margin:8px 0 0 16px;
+      margin:6px 0 0 16px;
       font-size:.85rem;
       line-height:1.5;
       color:#333;
     }
-
-    .block li { margin-bottom:6px; }
+    .block li { margin-bottom:5px; }
 
     footer {
       text-align:center;
@@ -159,109 +190,99 @@
   </header>
 
   <main>
-    <section class="blocks-section">
+    <h2 class="section-title">Our Bootcamp Stages</h2>
 
-      <!-- Block 1 -->
+    <section class="blocks-section">
       <div class="block">
-        <h3>Weeks 1–4: QA Fundamentals & Manual Testing</h3>
+        <h3>Weeks 1–4: QA Fundamentals</h3>
         <h4>Content:</h4>
         <ul>
-          <li>Introduction to the <b>SDLC</b> and QA roles</li>
-          <li><b>Types</b> and <b>levels</b> of testing</li>
-          <li><b>Test case design</b> and execution</li>
-          <li>Test management in <b>AIO Test / TestRail</b></li>
-          <li>Bug tracking in <b>Jira</b></li>
+          <li>Intro to SDLC and QA roles</li>
+          <li>Types & levels of testing</li>
+          <li>Manual testing with AIO Test</li>
+          <li>Bug reporting in Jira</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
-          <li>Understand the QA role in SDLC</li>
-          <li>Design and execute manual test cases</li>
-          <li>Report and track bugs effectively</li>
+          <li>Understand QA lifecycle</li>
+          <li>Design and execute test cases</li>
+          <li>Master traceability and bug flow</li>
         </ul>
       </div>
 
-      <!-- Block 2 -->
       <div class="block">
-        <h3>Weeks 5–10: Web & Mobile Test Automation</h3>
+        <h3>Weeks 5–10: Automation</h3>
         <h4>Content:</h4>
         <ul>
-          <li><b>Selenium + C#</b> automation</li>
-          <li><b>DOM locators</b> & Page Object Model</li>
-          <li><b>BrowserStack</b> integration</li>
-          <li>Mobile testing with <b>Appium</b> (iOS/Android)</li>
+          <li>Selenium + C# automation</li>
+          <li>DOM locators & POM</li>
+          <li>Appium for mobile testing</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
           <li>Build automation frameworks</li>
-          <li>Automate and reuse scripts</li>
-          <li>Integrate with GitHub and CI</li>
+          <li>Integrate with BrowserStack</li>
         </ul>
       </div>
 
-      <!-- Block 3 -->
       <div class="block">
-        <h3>Weeks 11–14: API Testing + Databases</h3>
+        <h3>Weeks 11–14: API + Databases</h3>
         <h4>Content:</h4>
         <ul>
-          <li>SQL basics: SELECT, INSERT, UPDATE, DELETE</li>
-          <li>Data validation with <b>DBeaver</b></li>
-          <li>REST API testing with <b>Postman</b></li>
+          <li>SQL basics with DBeaver</li>
+          <li>REST API testing in Postman</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
-          <li>Validate data through SQL</li>
-          <li>Test and automate REST APIs</li>
+          <li>Automate API validation</li>
+          <li>Correlate API & DB results</li>
         </ul>
       </div>
 
-      <!-- Block 4 -->
       <div class="block">
-        <h3>Weeks 15–17: Performance Testing</h3>
+        <h3>Weeks 15–17: Performance</h3>
         <h4>Content:</h4>
         <ul>
-          <li>Understand load, stress, and endurance tests</li>
-          <li><b>JMeter</b> scripting and analysis</li>
-          <li>Load generation with <b>OctoPerf</b></li>
+          <li>Load & stress testing</li>
+          <li>JMeter scripting</li>
+          <li>OctoPerf analytics</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
-          <li>Design test plans for performance</li>
-          <li>Analyze results and optimize performance</li>
+          <li>Build load test scenarios</li>
+          <li>Interpret performance metrics</li>
         </ul>
       </div>
 
-      <!-- Block 5 -->
       <div class="block">
-        <h3>Months 6–8: Internship / Real-World Project</h3>
+        <h3>Months 6–8: Internship</h3>
         <h4>Content:</h4>
         <ul>
-          <li>Hands-on QA project experience</li>
-          <li>Work with live environments and tools</li>
-          <li>Collaborate with real engineering teams</li>
+          <li>Real-world QA projects</li>
+          <li>Team collaboration</li>
+          <li>Mentorship support</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
-          <li>Gain real-world QA experience</li>
-          <li>Build a professional QA portfolio</li>
+          <li>Gain job experience</li>
+          <li>Develop QA portfolio</li>
         </ul>
       </div>
 
-      <!-- Block 6 -->
       <div class="block">
         <h3>Career Launch</h3>
         <h4>Content:</h4>
         <ul>
-          <li>Resume and portfolio building</li>
-          <li>Interview preparation</li>
-          <li>1:1 career guidance and mentoring</li>
+          <li>Resume & portfolio prep</li>
+          <li>Interview training</li>
+          <li>Job placement support</li>
         </ul>
         <h4>Objectives:</h4>
         <ul>
-          <li>Get job-ready as a QA Engineer</li>
-          <li>Secure job placement support</li>
+          <li>Land your first QA job</li>
+          <li>Launch your QA career</li>
         </ul>
       </div>
-
     </section>
 
     <footer>
