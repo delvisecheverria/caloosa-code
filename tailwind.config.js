@@ -5,9 +5,9 @@ export default {
       colors: {
         gold: "#FFD700",
         amber: "#FFB700",
-        dark: "#0B0C10",
-      },
-    },
+        dark: "#0B0C10"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };

@@ -107,30 +107,6 @@ export default function CaloosaCodeLandingGoldFull() {
         </div>
       </section>
 
-      <section id="about" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700] mb-4">About the Bootcamp</h2>
-        <p className="text-white/80 max-w-3xl mx-auto mb-6">Learn by doing with real-world projects, feedback from expert mentors, and a clear path toward your first QA job experience. We focus on solid fundamentals and practical skills so you can contribute from day one.</p>
-      </section>
-
-      <section id="curriculum" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700]">Curriculum Overview</h2>
-        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { title: "Manual QA", desc: "Testing basics, strategies, and documentation." },
-            { title: "Automation", desc: "From unit to E2E with reliable frameworks." },
-            { title: "API Testing", desc: "Contracts, schema validation, and resilience." },
-            { title: "Data Testing", desc: "DW validation, SQL, and data quality checks." },
-            { title: "Performance", desc: "JMeter, k6, metrics, and capacity planning." },
-            { title: "AI Testing", desc: "Use AI to design tests and analyze results." },
-          ].map((m) => (
-            <Card key={m.title} className="bg-white/5 border-white/10 text-white rounded-2xl">
-              <CardHeader><CardTitle className="text-lg text-[#FFD700]">{m.title}</CardTitle></CardHeader>
-              <CardContent className="-mt-3 text-white/80">{m.desc}</CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
       <section id="guarantee" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
         <div className="rounded-3xl p-8" style={{ background: `linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,183,0,0.12))` }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -149,32 +125,6 @@ export default function CaloosaCodeLandingGoldFull() {
               <p className="mt-2 text-white/80 max-w-2xl">We believe in accessibility and talent. Apply now to win one of <b>5 Full Scholarships</b> that cover the entire bootcamp cost. Selected students will gain mentorship, full access to the program, and community recognition as Caloosa Scholars.</p>
             </div>
             <GlowButton><span>Apply for a Scholarship</span><ArrowRight size={18} /></GlowButton>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonials" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700]">Success Stories</h2>
-        <div className="mt-6 grid md:grid-cols-3 gap-5">
-          {[1, 2, 3].map((i) => (
-            <Card key={i} className="bg-white/5 border-white/10 text-white rounded-2xl">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-2 text-[#FFD700]">{[...Array(5)].map((_, idx) => (<Star key={idx} size={16} />))}</div>
-                <p className="mt-3 text-white/80">“This bootcamp gave me the structure and confidence to start working as a QA. The mentorship and real projects were game-changers.”</p>
-                <div className="mt-4 text-white/60 text-sm">— Alumni Name</div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section id="apply" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
-        <div className="rounded-3xl p-10 text-center" style={{ background: `linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,183,0,0.08))` }}>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#FFD700]">Ready to start your QA journey?</h2>
-          <p className="mt-3 text-white/80 max-w-2xl mx-auto">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
-            <GlowButton><span>Apply to the Bootcamp</span></GlowButton>
-            <GlowButton variant="secondary"><span className="inline-flex items-center gap-2"><GraduationCap size={18} style={{ color: COLORS.gold }} /><span>We have 5 Full Scholarships</span></span></GlowButton>
           </div>
         </div>
       </section>
