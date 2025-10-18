@@ -1,281 +1,281 @@
 <!doctype html>
 <html lang="en">
->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Caloosa Code — Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Caloosa Code — QA Bootcamp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: "Inter Tight", system-ui, sans-serif;
-      background: #fff;
-      color: #000;
-      text-align: center;
+    :root{
+      --bg:#0B0C10;
+      --text:#FFFFFF;
+      --muted:#E5E7EB;
+      --gold:#FFD700;
+      --amber:#FFB700;
+      --goldA: rgba(255,215,0,.12);
+      --amberA: rgba(255,183,0,.12);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Inter Tight",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+    /* Background glows */
+    .glow-wrap{position:fixed inset:0;pointer-events:none;overflow:hidden}
+    .blob{position:absolute;filter:blur(48px);opacity:.3;border-radius:999px}
+    .blob.top{top:-90px;right:-90px;width:320px;height:320px;background:var(--gold)}
+    .blob.bot{bottom:-120px;left:-120px;width:400px;height:400px;background:var(--amber);opacity:.25}
+    .radial{position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 40%, rgba(255,215,0,.08) 0%, transparent 60%)}
+
+    /* Header */
+    header{position:relative;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+    .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:.12em;text-transform:uppercase}
+    .brand .symbol{color:var(--gold)}
+    .brand .badge{background:var(--gold);color:var(--bg);padding:2px 8px;border-radius:6px}
+    .brand .code{color:#fff}
+    .menu{display:flex;gap:18px}
+    .menu a{color:#ffffffcc;font-weight:600;text-transform:uppercase;font-size:.9rem}
+    .menu a:hover{color:#fff}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:14px 22px;border-radius:16px;border:none;cursor:pointer;font-weight:700;
+      transition:transform .2s, box-shadow .2s, opacity .2s;will-change:transform
+    }
+    .btn-primary{
+      color:#000;background:linear-gradient(135deg,var(--gold),var(--amber));
+      box-shadow:0 0 .75rem var(--gold), 0 0 1.5rem var(--amber)
+    }
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{
+      color:#fff;background:transparent;border:2px solid #ffffff4d;backdrop-filter: blur(4px)
     }
 
-    /* HEADER */
-    header { text-align: center; padding-top: 40px; }
-    .brand {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-weight: 700; font-size: 2rem; letter-spacing: 1px; text-transform: uppercase;
+    /* Hero */
+    .hero{position:relative;z-index:10;padding:48px 0 72px}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+    h1{font-size:clamp(32px,4.5vw,48px);line-height:1.1;margin:0 0 8px;font-weight:800}
+    .lead{font-size:clamp(16px,2.4vw,20px);color:#ffffffe6;margin:10px 0}
+    .muted{color:#ffffffb3}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .kpis{display:flex;gap:22px;margin-top:16px;color:#ffffffb3;font-size:.95rem}
+    .kpis .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;background:var(--gold)}
+
+    /* Right illustration with golden lines */
+    .illu-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+    .conic{
+      position:absolute;inset:-10%;border-radius:999px;filter:blur(36px);opacity:.22;
+      background:conic-gradient(from 0deg, rgba(255,215,0,.55), rgba(255,183,0,.35), transparent 260deg);
+      animation:spin 16s linear infinite
     }
-    .symbol { color: #000; }
-    .badge { background: #FFD700; color: #000; padding: 4px 8px; font-weight: 800; border-radius: 4px; }
-    .code { color: #000; }
-    .empower {
-      font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase;
-      color: #666; margin-top: 16px; margin-bottom: 25px;
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .illu{position:relative;z-index:1;max-width:420px;width:100%;
+      filter: drop-shadow(0 0 35px rgba(255,215,0,.4));
     }
 
-    /* NAV MENU */
-    nav.main-nav {
-      display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
-      gap: 22px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 40px;
-    }
-    nav.main-nav a {
-      position: relative; text-decoration: none; color: #222; padding-bottom: 3px; transition: color 0.2s;
-    }
-    nav.main-nav a:hover { color: #000; }
-    nav.main-nav a.active { color: #000; }
-    nav.main-nav a.active::after {
-      content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #FFD700;
-    }
+    /* Sections */
+    section{position:relative;z-index:10}
+    .section{padding:0 0 72px}
+    .title{font-size:clamp(24px,3.6vw,32px);font-weight:800;color:var(--gold);margin:0 0 10px;text-align:center}
+    .center{max-width:940px;margin:0 auto;text-align:center}
+    .cards{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin-top:22px}
+    .card{background:#ffffff0d;border:1px solid #ffffff1a;border-radius:20px;padding:18px;text-align:left}
+    .card h3{margin:6px 0 4px;color:var(--gold);font-size:1.05rem}
+    .card p{margin:0;color:#ffffffcc;font-size:.95rem}
 
-    /* HERO */
-    .hero img { width: 80%; max-width: 900px; height: auto; margin-bottom: 40px; }
+    /* Guarantee + Scholarships blocks */
+    .panel{border-radius:24px;padding:26px;background:linear-gradient(135deg,var(--goldA),var(--amberA));border:1px solid #ffffff1a}
+    .panel h3{margin:0 0 8px;color:var(--gold);font-size:1.4rem}
+    .panel-row{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 
-    /* OUR BOOTCAMP STAGES */
-    .bootcamp-section {
-      background: #FFD700; padding: 50px 20px; text-align: center; color: #000;
-    }
-    .bootcamp-section h2 {
-      font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;
-    }
-    .bootcamp-section p.desc {
-      font-size: 1rem; margin-bottom: 28px; color: #111; max-width: 700px; margin-left: auto; margin-right: auto;
-    }
-    .timeline {
-      position: relative; display: flex; justify-content: center; gap: 40px; align-items: center;
-      flex-wrap: nowrap; max-width: 950px; margin: 0 auto 24px;
-    }
-    .timeline::before {
-      content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 4px; background: #000; z-index: 0;
-    }
-    .stage {
-      background: #fff; border: 3px solid #000; border-radius: 12px; width: 120px; height: 120px; z-index: 2;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      font-size: 0.85rem; font-weight: 700; transition: transform 0.3s, background 0.3s;
-    }
-    .stage .week { font-size: 0.8rem; text-transform: uppercase; margin-bottom: 4px; }
-    .stage.active { background: #000; color: #FFD700; transform: scale(1.1); }
-    .bootcamp-text { font-size: 1rem; margin-top: 6px; font-weight: 600; }
-    .learn-btn {
-      background: #000; color: #FFD700; border: none; padding: 10px 24px; border-radius: 6px; cursor: pointer;
-      text-transform: uppercase; font-weight: 700; transition: background 0.3s;
-    }
-    .learn-btn:hover { background: #222; }
+    /* Testimonials */
+    .tgrid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin-top:22px}
+    .tcard{background:#ffffff0d;border:1px solid #ffffff1a;border-radius:20px;padding:18px;text-align:left}
+    .stars{color:var(--gold);letter-spacing:2px}
 
-    @media (max-width: 768px) {
-      .timeline { gap: 16px; flex-wrap: wrap; padding: 0 10px; }
-      .stage { width: 90px; height: 90px; font-size: 0.7rem; }
-      .bootcamp-text { font-size: 0.88rem; padding: 0 14px; }
-    }
+    /* Final CTA */
+    .final{padding:64px 24px;border-radius:24px;text-align:center;background:linear-gradient(135deg,var(--goldA),var(--amberA));border:1px solid #ffffff1a}
 
-    /* WHY BECOME A QA ENGINEER */
-    .section-title { margin: 50px 0 8px; font-size: 1.8rem; font-weight: 800; text-transform: uppercase; }
-    .intro {
-      text-align: center; max-width: 900px; margin: 12px auto 8px; color: #333;
-      font-size: 0.95rem; line-height: 1.6; padding: 0 20px;
-    }
-    .map-section {
-      display: flex; justify-content: center; align-items: flex-start; gap: 18px; flex-wrap: nowrap;
-      margin-top: 14px; padding: 10px 20px 24px;
-    }
-    .map-wrap {
-      position: relative; width: 65%; max-width: 720px; border-radius: 10px; overflow: hidden;
-    }
-    .map-wrap img { width: 100%; border-radius: 10px; display: block; }
-    .badge-chip {
-      position: absolute; font-size: 11px; text-align: center; background: #fff; border: 1px solid rgba(0,0,0,.12);
-      color: #000; border-radius: 10px; padding: 8px 10px; box-shadow: 0 2px 6px rgba(0,0,0,.08);
-      transform: translate(-50%, -50%); z-index: 4; animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
-    .CA { left: 18%; top: 58%; } .TX { left: 42%; top: 60%; } .FL { left: 80%; top: 75%; }
-    .GA { left: 68%; top: 57%; } .NY { left: 84%; top: 33%; }
-    .table-wrap { width: 22%; min-width: 200px; align-self: center; }
-    table { border-collapse: collapse; width: 100%; font-size: 0.78rem; }
-    th, td { border: 2px solid #000; padding: 8px; text-align: center; }
-    th { background: #000; color: #fff; }
-    @media (max-width: 768px) {
-      .map-section { flex-direction: column; gap: 14px; }
-      .badge-chip { display: none; }
-      .map-wrap { width: 92%; margin: 0 auto; }
-      .table-wrap { width: 92%; margin: 0 auto; }
-    }
+    footer{color:#a1a1aa;text-align:center;padding:32px 0}
 
-    /* NEW GUARANTEE SECTION (same layout as bootcamp) */
-    .guarantee-section {
-      background: #FFD700; padding: 50px 20px; text-align: center; color: #000;
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr;gap:28px}
+      .menu{display:none}
+      .cards,.tgrid{grid-template-columns:1fr 1fr}
     }
-    .guarantee-section h2 {
-      font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase;
+    @media (max-width: 640px){
+      .cards,.tgrid{grid-template-columns:1fr}
     }
-    .guarantee-section p {
-      font-size: 1rem; margin-bottom: 24px; color: #111; max-width: 700px;
-      margin-left: auto; margin-right: auto; line-height: 1.5;
-    }
-    .guarantee-section .learn-btn {
-      background: #000; color: #FFD700; border: none; padding: 10px 24px;
-      border-radius: 6px; cursor: pointer; text-transform: uppercase;
-      font-weight: 700; transition: background 0.3s;
-    }
-    .guarantee-section .learn-btn:hover { background: #222; }
-
-    footer { text-align: center; font-size: 0.75rem; color: #555; margin: 40px 0; }
   </style>
 </head>
-
 <body>
-  <!-- HEADER -->
+  <!-- background glows -->
+  <div class="glow-wrap">
+    <div class="blob top"></div>
+    <div class="blob bot"></div>
+    <div class="radial"></div>
+  </div>
+
+  <!-- NAV -->
   <header>
-    <span class="brand">
-      <span class="symbol">&lt;//&gt;</span>
-      <span class="badge">CALOOSA</span>
-      <span class="code">CODE</span>
-    </span>
-    <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
-    <nav class="main-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="program.html">Program</a>
-      <a href="about.html">About</a>
-      <a href="partners.html">Partners</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="container nav">
+      <div class="brand">
+        <span class="symbol">&lt;//&gt;</span>
+        <span class="badge">CALOOSA</span>
+        <span class="code">CODE</span>
+      </div>
+      <nav class="menu">
+        <a href="#curriculum">Curriculum</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#apply">Apply</a>
+        <button class="btn btn-primary" onclick="scrollToId('apply')">
+          Apply Now
+          <span aria-hidden>→</span>
+        </button>
+      </nav>
+    </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <img src="caloosa-hero.png" alt="Caloosa Code Illustration">
-  </section>
+    <div class="container grid">
+      <div>
+        <h1>Become a Professional <span style="color:var(--gold)">QA Engineer</span> from Scratch</h1>
+        <p id="rotator" class="lead">Get your first QA job experience — 100% guaranteed.</p>
+        <p class="muted">A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
 
-  <!-- OUR BOOTCAMP STAGES -->
-  <section class="bootcamp-section">
-    <h2>Our Bootcamp Stages</h2>
-    <p class="desc">
-      This bootcamp is designed to provide you with hands-on QA experience through every stage —
-      from fundamentals to automation, APIs, performance, and a real-world internship.
-    </p>
-
-    <div class="timeline" id="timeline">
-      <div class="stage"><div class="week">Weeks 1–4</div>QA Fundamentals<br>& Manual Testing</div>
-      <div class="stage"><div class="week">Weeks 5–10</div>Web & Mobile<br>Test Automation</div>
-      <div class="stage"><div class="week">Weeks 11–14</div>API Testing<br>+ Databases</div>
-      <div class="stage"><div class="week">Weeks 15–17</div>Performance<br>Testing</div>
-      <div class="stage"><div class="week">Weeks 18–20</div>Capstone Project<br>& Career Prep</div>
-      <div class="stage"><div class="week">Months 6–8</div>Internship /<br>First QA Job</div>
-    </div>
-
-    <div class="bootcamp-text" id="bootcamp-text">QA Fundamentals & Manual Testing</div>
-    <br>
-    <a class="learn-btn" href="program.html">Learn More</a>
-  </section>
-
-  <!-- WHY BECOME A QA ENGINEER -->
-  <section>
-    <h2 class="section-title">Why Become a QA Engineer</h2>
-
-    <p class="intro">
-      Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge.
-      This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.
-    </p>
-    <p class="intro">
-      Based on official data from the <b>U.S. Bureau of Labor Statistics (BLS)</b>, this 2024 study looks specifically at Software Quality Assurance
-      Analysts and Testers (OCC 15-1253). Among all U.S. states, <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for QA employment.
-      Here’s how these states compare in terms of number of QA jobs and average annual salaries:
-    </p>
-
-    <div class="map-section">
-      <div class="map-wrap">
-        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
-
-        <!-- Chips animados (solo desktop) -->
-        <div class="badge-chip CA">
-          <div>👷 Jobs: 31,530</div>
-          <div>💵 Salary: $130,250</div>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="scrollToId('apply')">Apply to the Bootcamp</button>
+          <button class="btn btn-ghost" onclick="scrollToId('scholarships')">🎓 Win one of 5 Full Scholarships</button>
         </div>
-        <div class="badge-chip TX" style="animation-delay:.15s">
-          <div>👷 Jobs: 19,300</div>
-          <div>💵 Salary: $107,930</div>
-        </div>
-        <div class="badge-chip FL" style="animation-delay:.3s">
-          <div>👷 Jobs: 12,080</div>
-          <div>💵 Salary: $104,440</div>
-        </div>
-        <div class="badge-chip GA" style="animation-delay:.45s">
-          <div>👷 Jobs: 7,830</div>
-          <div>💵 Salary: $109,980</div>
-        </div>
-        <div class="badge-chip NY" style="animation-delay:.6s">
-          <div>👷 Jobs: 11,140</div>
-          <div>💵 Salary: $112,700</div>
+
+        <div class="kpis">
+          <span><span class="dot"></span>100% Job Experience Guaranteed</span>
+          <span><span class="dot" style="background:var(--amber)"></span>Practice-first, mentor-led</span>
         </div>
       </div>
 
-      <!-- Tabla más pequeña y centrada a la derecha -->
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>State</th><th>Jobs</th><th>Salary</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
-            <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
-            <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
-            <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
-            <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
-          </tbody>
-        </table>
+      <!-- Right illustration -->
+      <div class="illu-wrap">
+        <div class="conic"></div>
+        <img class="illu" src="caloosapic.png" alt="Caloosa Code QA Illustration" />
       </div>
     </div>
   </section>
 
-  <!-- GUARANTEE (NEW DESIGN) -->
-  <section class="guarantee-section">
-    <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
-    <p>
-      All our graduates will have their first real QA job experience as <b>interns</b> in one of our <b>partner companies</b>.
-      This includes a <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.
-    </p>
-    <a class="learn-btn" href="contact.html">I Want to Know More</a>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container center">
+      <h2 class="title">About the Bootcamp</h2>
+      <p class="muted">Learn by doing with real-world projects, feedback from expert mentors, and a clear path toward your first QA job experience. We focus on solid fundamentals and practical skills so you can contribute from day one.</p>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="section" id="curriculum">
+    <div class="container">
+      <h2 class="title">Curriculum Overview</h2>
+      <div class="cards">
+        <div class="card"><h3>Manual QA</h3><p>Testing basics, strategies, and documentation.</p></div>
+        <div class="card"><h3>Automation</h3><p>From unit to E2E with reliable frameworks.</p></div>
+        <div class="card"><h3>API Testing</h3><p>Contracts, schema validation, and resilience.</p></div>
+        <div class="card"><h3>Data Testing</h3><p>DW validation, SQL, and data quality checks.</p></div>
+        <div class="card"><h3>Performance</h3><p>JMeter, k6, metrics, and capacity planning.</p></div>
+        <div class="card"><h3>AI Testing</h3><p>Use AI to design tests and analyze results.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="section" id="guarantee">
+    <div class="container">
+      <div class="panel panel-row">
+        <div class="panel-row">
+          <div>
+            <h3>100% Job Experience Guaranteed</h3>
+            <p class="muted" style="max-width:720px">You will ship real testing projects and collect verifiable experience. If you complete all milestones and don’t get a project assignment, we’ll extend your mentorship and help you land practical experience.</p>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="scrollToId('apply')">See How It Works</button>
+      </div>
+
+      <!-- SCHOLARSHIPS -->
+      <div class="panel" id="scholarships" style="margin-top:18px">
+        <div class="panel-row">
+          <div>
+            <h3>Full Scholarship Opportunities</h3>
+            <p class="muted" style="max-width:720px">
+              We believe in accessibility and talent. Apply now to win one of <b>5 Full Scholarships</b> that cover the entire bootcamp cost.
+              Selected students will gain mentorship, full access to the program, and community recognition as Caloosa Scholars.
+            </p>
+          </div>
+          <button class="btn btn-primary" onclick="scrollToId('apply')">Apply for a Scholarship</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="title">Success Stories</h2>
+      <div class="tgrid">
+        <div class="tcard"><div class="stars">★★★★★</div><p class="muted">“This bootcamp gave me the structure and confidence to start working as a QA. The mentorship and real projects were game-changers.”</p><small class="muted">— Alumni Name</small></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p class="muted">“Hands-on, clear and practical. I shipped real tests and built a portfolio that helped me get interviews.”</p><small class="muted">— Alumni Name</small></div>
+        <div class="tcard"><div class="stars">★★★★★</div><p class="muted">“The job experience component made all the difference. Highly recommended.”</p><small class="muted">— Alumni Name</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="final">
+        <h2 class="title" style="margin-bottom:8px">Ready to start your QA journey?</h2>
+        <p class="muted" style="max-width:760px;margin:8px auto 18px">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
+        <div class="cta-row" style="justify-content:center">
+          <button class="btn btn-primary" onclick="scrollToId('applyForm')">Apply to the Bootcamp</button>
+          <button class="btn btn-ghost" onclick="scrollToId('scholarships')">🎓 We have 5 Full Scholarships</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
+    ©2025 Caloosa Code — Building the Future of QA Talent
   </footer>
 
   <script>
-    const stages = document.querySelectorAll('.stage');
-    const bootText = document.getElementById('bootcamp-text');
-    const stageTexts = [
-      "QA Fundamentals & Manual Testing",
-      "Web & Mobile Test Automation",
-      "API Testing + Databases",
-      "Performance Testing",
-      "Capstone Project & Career Prep",
-      "Internship / First QA Job"
-    ];
-    let idx = 0;
-    function updateStages() {
-      stages.forEach((s, i) => s.classList.toggle('active', i === idx));
-      bootText.textContent = stageTexts[idx];
-      idx = (idx + 1) % stages.length;
+    // Smooth scroll
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el){ el.scrollIntoView({behavior:"smooth", block:"start"}); }
     }
-    updateStages();
-    setInterval(updateStages, 2500);
+
+    // Rotating hero phrases
+    const phrases = [
+      "Get your first QA job experience — 100% guaranteed.",
+      "Learn QA from Manual to Automation, including API, Performance & AI Testing."
+    ];
+    const rotator = document.getElementById("rotator");
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % phrases.length;
+      rotator.style.opacity = 0;
+      setTimeout(() => {
+        rotator.textContent = phrases[idx];
+        rotator.style.opacity = 1;
+      }, 250);
+    }, 3800);
   </script>
 </body>
 </html>
