@@ -1,0 +1,183 @@
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { GraduationCap, Rocket, ShieldCheck, Star, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const COLORS = {
+  bg: "#0B0C10",
+  text: "#FFFFFF",
+  gold: "#FFD700",
+  amber: "#FFB700",
+};
+
+const phrases = [
+  "Get your first QA job experience — 100% guaranteed.",
+  "Learn QA from Manual to Automation, including API, Performance & AI Testing.",
+];
+
+function useRotatingText(items, interval = 3000) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % items.length), interval);
+    return () => clearInterval(id);
+  }, [items, interval]);
+  return items[index];
+}
+
+function GlowButton({ children, variant = "primary" }) {
+  const isPrimary = variant === "primary";
+  return (
+    <Button
+      className={[
+        "px-6 py-6 text-base rounded-2xl transition-transform duration-200",
+        "shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+        isPrimary
+          ? "text-black font-semibold"
+          : "bg-transparent text-white border-2 border-white/30 backdrop-blur-sm",
+      ].join(" ")}
+      style={{
+        background: isPrimary ? `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.amber})` : undefined,
+        boxShadow: isPrimary
+          ? `0 0 0.75rem ${COLORS.gold}, 0 0 1.5rem ${COLORS.amber}`
+          : undefined,
+      }}
+    >
+      <span className="inline-flex items-center gap-2">{children}</span>
+    </Button>
+  );
+}
+
+export default function CaloosaCodeLandingGoldFull() {
+  const phrase = useRotatingText(phrases, 3800);
+
+  return (
+    <div className="min-h-screen w-full" style={{ background: COLORS.bg, color: COLORS.text }}>
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <motion.div className="absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl opacity-30" style={{ background: COLORS.gold }} animate={{ y: [0, 12, 0], x: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }} />
+        <motion.div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full blur-3xl opacity-25" style={{ background: COLORS.amber }} animate={{ y: [0, -10, 0], x: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }} />
+        <div className="absolute inset-0" style={{ background: "radial-gradient(60% 60% at 50% 40%, rgba(255,215,0,0.08) 0%, transparent 60%)" }} />
+      </div>
+
+      <header className="relative z-10 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-3 text-xl font-bold uppercase tracking-wider">
+          <span className="text-[#FFD700]">&lt;//&gt;</span>
+          <span className="bg-[#FFD700] text-[#0B0C10] px-2 py-1 rounded font-extrabold">CALOOSA</span>
+          <span className="text-white">CODE</span>
+        </div>
+        <div className="hidden md:flex items-center gap-4">
+          <a href="#curriculum" className="text-white/80 hover:text-white transition-colors">Curriculum</a>
+          <a href="#guarantee" className="text-white/80 hover:text-white transition-colors">Guarantee</a>
+          <a href="#apply" className="text-white/80 hover:text-white transition-colors">Apply</a>
+          <GlowButton>
+            <span>Apply Now</span>
+            <ArrowRight size={18} />
+          </GlowButton>
+        </div>
+      </header>
+
+      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-8 pb-16 md:pt-16 md:pb-24">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <motion.h1 className="text-4xl md:text-5xl font-extrabold leading-tight" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              Become a Professional <span style={{ color: COLORS.gold }}>QA Engineer</span> from Scratch
+            </motion.h1>
+            <div className="mt-4 min-h-[4.5rem]">
+              <AnimatePresence mode="wait">
+                <motion.p key={phrase} className="text-lg md:text-xl text-white/90" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.35 }}>
+                  {phrase}
+                </motion.p>
+              </AnimatePresence>
+              <p className="mt-3 text-white/70">A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <GlowButton><span>Apply to the Bootcamp</span></GlowButton>
+              <GlowButton variant="secondary"><span className="inline-flex items-center gap-2"><GraduationCap size={18} style={{ color: COLORS.gold }} /><span>Win one of 5 Full Scholarships</span></span></GlowButton>
+            </div>
+            <div className="mt-6 flex items-center gap-6 text-sm text-white/70">
+              <span className="inline-flex items-center gap-2"><ShieldCheck size={16} style={{ color: COLORS.gold }} /> 100% Job Experience Guaranteed</span>
+              <span className="inline-flex items-center gap-2"><Rocket size={16} style={{ color: COLORS.amber }} /> Practice-first, mentor-led</span>
+            </div>
+          </div>
+          <div className="relative flex justify-center items-center">
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-20" style={{ background: "conic-gradient(from 0deg, rgba(255,215,0,0.5), rgba(255,183,0,0.3), transparent 240deg)" }} />
+            <img src="/caloosa-hero.png" alt="Caloosa Code QA Illustration" className="relative z-10 max-w-md w-full" style={{ filter: "drop-shadow(0 0 35px rgba(255,215,0,0.4))" }} />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700] mb-4">About the Bootcamp</h2>
+        <p className="text-white/80 max-w-3xl mx-auto mb-6">Learn by doing with real-world projects, feedback from expert mentors, and a clear path toward your first QA job experience. We focus on solid fundamentals and practical skills so you can contribute from day one.</p>
+      </section>
+
+      <section id="curriculum" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700]">Curriculum Overview</h2>
+        <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { title: "Manual QA", desc: "Testing basics, strategies, and documentation." },
+            { title: "Automation", desc: "From unit to E2E with reliable frameworks." },
+            { title: "API Testing", desc: "Contracts, schema validation, and resilience." },
+            { title: "Data Testing", desc: "DW validation, SQL, and data quality checks." },
+            { title: "Performance", desc: "JMeter, k6, metrics, and capacity planning." },
+            { title: "AI Testing", desc: "Use AI to design tests and analyze results." },
+          ].map((m) => (
+            <Card key={m.title} className="bg-white/5 border-white/10 text-white rounded-2xl">
+              <CardHeader><CardTitle className="text-lg text-[#FFD700]">{m.title}</CardTitle></CardHeader>
+              <CardContent className="-mt-3 text-white/80">{m.desc}</CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section id="guarantee" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+        <div className="rounded-3xl p-8" style={{ background: `linear-gradient(135deg, rgba(255,215,0,0.12), rgba(255,183,0,0.12))` }}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold inline-flex items-center gap-3 text-[#FFD700]"><ShieldCheck /> 100% Job Experience Guaranteed</h3>
+              <p className="mt-2 text-white/80 max-w-2xl">You will ship real testing projects and collect verifiable experience. If you complete all milestones and don’t get a project assignment, we’ll extend your mentorship and help you land practical experience.</p>
+            </div>
+            <GlowButton><span>See How It Works</span><ArrowRight size={18} /></GlowButton>
+          </div>
+        </div>
+
+        <div className="rounded-3xl p-8 mt-10" style={{ background: `linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,183,0,0.05))` }}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold inline-flex items-center gap-3 text-[#FFD700]"><GraduationCap /> Full Scholarship Opportunities</h3>
+              <p className="mt-2 text-white/80 max-w-2xl">We believe in accessibility and talent. Apply now to win one of <b>5 Full Scholarships</b> that cover the entire bootcamp cost. Selected students will gain mentorship, full access to the program, and community recognition as Caloosa Scholars.</p>
+            </div>
+            <GlowButton><span>Apply for a Scholarship</span><ArrowRight size={18} /></GlowButton>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#FFD700]">Success Stories</h2>
+        <div className="mt-6 grid md:grid-cols-3 gap-5">
+          {[1, 2, 3].map((i) => (
+            <Card key={i} className="bg-white/5 border-white/10 text-white rounded-2xl">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-[#FFD700]">{[...Array(5)].map((_, idx) => (<Star key={idx} size={16} />))}</div>
+                <p className="mt-3 text-white/80">“This bootcamp gave me the structure and confidence to start working as a QA. The mentorship and real projects were game-changers.”</p>
+                <div className="mt-4 text-white/60 text-sm">— Alumni Name</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section id="apply" className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
+        <div className="rounded-3xl p-10 text-center" style={{ background: `linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,183,0,0.08))` }}>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#FFD700]">Ready to start your QA journey?</h2>
+          <p className="mt-3 text-white/80 max-w-2xl mx-auto">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+            <GlowButton><span>Apply to the Bootcamp</span></GlowButton>
+            <GlowButton variant="secondary"><span className="inline-flex items-center gap-2"><GraduationCap size={18} style={{ color: COLORS.gold }} /><span>We have 5 Full Scholarships</span></span></GlowButton>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
