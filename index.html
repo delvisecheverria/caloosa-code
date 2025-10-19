@@ -256,7 +256,7 @@
     </div>
   </section>
 
-  <section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
+ <section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
   <div style="max-width:1100px; margin:0 auto;">
     <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
     
@@ -434,29 +434,32 @@
   </div>
 
   <script>
-    // Solo abre un módulo a la vez
-    document.querySelectorAll("#curriculum .module").forEach(card => {
+    // Solo abre el módulo clickeado
+    const modules = document.querySelectorAll("#curriculum .module");
+    modules.forEach((card) => {
       const header = card.querySelector(".module-header");
-      const list = card.querySelector(".objectives");
-      const icon = card.querySelector(".toggle");
+      header.addEventListener("click", (e) => {
+        e.stopPropagation();
 
-      header.addEventListener("click", () => {
-        const isVisible = list.style.display === "block";
+        const currentList = card.querySelector(".objectives");
+        const currentIcon = card.querySelector(".toggle");
 
-        // Cierra todos los demás
-        document.querySelectorAll("#curriculum .objectives").forEach(l => l.style.display = "none");
-        document.querySelectorAll("#curriculum .toggle").forEach(i => i.textContent = "+");
+        // Cierra todos los demás módulos
+        modules.forEach((otherCard) => {
+          if (otherCard !== card) {
+            otherCard.querySelector(".objectives").style.display = "none";
+            otherCard.querySelector(".toggle").textContent = "+";
+          }
+        });
 
-        // Abre solo el actual
-        if (!isVisible) {
-          list.style.display = "block";
-          icon.textContent = "–";
-        }
+        // Alterna solo el actual
+        const isVisible = currentList.style.display === "block";
+        currentList.style.display = isVisible ? "none" : "block";
+        currentIcon.textContent = isVisible ? "+" : "–";
       });
     });
   </script>
 </section>
-
 
 
 
