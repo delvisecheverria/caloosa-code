@@ -258,16 +258,85 @@
 
   <section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
   <div style="max-width:1100px; margin:0 auto;">
-    <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px;">Curriculum Overview</h2>
+    <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
     
-    <div class="modules-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
-      <!-- Module 1 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Weeks 1–4: QA Fundamentals & Manual Testing</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+    <style>
+      /* Layout: exactamente 3 columnas en desktop, 2 en tablets, 1 en móvil */
+      #curriculum .modules-grid{
+        display:grid; 
+        grid-template-columns:repeat(3, 1fr);
+        gap:24px;
+      }
+      @media (max-width: 980px){
+        #curriculum .modules-grid{ grid-template-columns:repeat(2, 1fr); }
+      }
+      @media (max-width: 640px){
+        #curriculum .modules-grid{ grid-template-columns:1fr; }
+      }
+      #curriculum .module{
+        border:2px solid #000; 
+        border-radius:12px; 
+        padding:20px; 
+        text-align:left; 
+        transition:all .25s ease; 
+        background:#fff;
+      }
+      #curriculum .module-header{
+        display:flex; 
+        align-items:center; 
+        justify-content:space-between; 
+        cursor:pointer;
+      }
+      #curriculum .module h3{
+        margin:0; 
+        font-size:1.1rem; 
+        font-weight:800; 
+        color:#000;
+      }
+      #curriculum .toggle{
+        font-size:1.5rem; 
+        font-weight:900; 
+        line-height:1; 
+        user-select:none;
+      }
+      #curriculum .objectives{
+        display:none; 
+        margin-top:12px; 
+        padding-left:20px; 
+        list-style:disc; 
+        color:#000;
+      }
+      /* Hover suave */
+      #curriculum .module:hover{
+        transform:translateY(-5px);
+        box-shadow:0 6px 12px rgba(0,0,0,0.18);
+      }
+      #curriculum .cta-curriculum{
+        margin-top:50px; 
+        background:#000; 
+        color:#FFD700; 
+        font-weight:800; 
+        border:none; 
+        padding:14px 36px; 
+        border-radius:10px; 
+        cursor:pointer; 
+        font-size:1rem; 
+        transition:transform .2s ease, box-shadow .2s ease;
+      }
+      #curriculum .cta-curriculum:hover{
+        transform:translateY(-2px);
+        box-shadow:0 10px 24px rgba(0,0,0,0.25);
+      }
+    </style>
+
+    <div class="modules-grid">
+      <!-- 1) Weeks 1–4 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Weeks 1–4: QA Fundamentals & Manual Testing</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Understand the software development lifecycle and QA’s role in it</li>
           <li>Differentiate between testing types and levels</li>
           <li>Design, execute, and manage manual test cases</li>
@@ -276,13 +345,13 @@
         </ul>
       </div>
 
-      <!-- Module 2 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Weeks 5–10: Web & Mobile Test Automation</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+      <!-- 2) Weeks 5–10 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Weeks 5–10: Web & Mobile Test Automation</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Build a basic test automation framework with Selenium and C#</li>
           <li>Automate functional test cases using DOM locators</li>
           <li>Apply Page Object Model and maintain scripts efficiently</li>
@@ -291,26 +360,26 @@
         </ul>
       </div>
 
-      <!-- Module 3 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Weeks 11–14: API Testing + Databases</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+      <!-- 3) Weeks 11–14 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Weeks 11–14: API Testing + Databases</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Write and run SQL queries to validate data</li>
           <li>Test REST API endpoints for functionality and accuracy</li>
           <li>Create Postman collections, use environments, and automate assertions</li>
         </ul>
       </div>
 
-      <!-- Module 4 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Weeks 15–17: Performance Testing</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+      <!-- 4) Weeks 15–17 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Weeks 15–17: Performance Testing</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Understand performance testing methodologies</li>
           <li>Create JMeter scripts for load and stress testing</li>
           <li>Generate realistic load scenarios using OctoPerf</li>
@@ -319,13 +388,13 @@
         </ul>
       </div>
 
-      <!-- Module 5 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Weeks 18–20: Capstone Project & Career Preparation</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+      <!-- 5) Weeks 18–20 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Weeks 18–20: Capstone Project & Career Preparation</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Build your QA portfolio and résumé</li>
           <li>Optimize your LinkedIn and professional profiles</li>
           <li>Prepare for QA interviews and mock sessions</li>
@@ -333,27 +402,27 @@
         </ul>
       </div>
 
-      <!-- Module 6 -->
-      <div class="module" style="border:2px solid #000; border-radius:12px; padding:20px; text-align:left; transition:all .3s ease; background:#fff;">
-        <div class="module-header" style="display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
-          <h3 style="margin:0; font-size:1.1rem; font-weight:700;">Months 6–8: Internship / First QA Job Experience</h3>
-          <span class="toggle" style="font-size:1.5rem; font-weight:900;">+</span>
+      <!-- 6) Months 6–8 -->
+      <div class="module">
+        <div class="module-header">
+          <h3>Months 6–8: Internship / First QA Job Experience</h3>
+          <span class="toggle">+</span>
         </div>
-        <ul class="objectives" style="display:none; margin-top:10px; padding-left:20px; list-style:disc;">
+        <ul class="objectives">
           <li>Join one of our partner companies as an intern</li>
           <li>Work on real QA projects under mentorship</li>
           <li>Gain verifiable experience for your first QA role</li>
+          <li><em>Example partner companies (replace with real names):</em> fintech, healthtech, and e-commerce teams</li>
         </ul>
       </div>
     </div>
 
-    <button style="margin-top:50px; background:#000; color:#FFD700; font-weight:700; border:none; padding:14px 36px; border-radius:8px; cursor:pointer; font-size:1rem; transition:all 0.3s; box-shadow:0 0 8px rgba(0,0,0,0.25);">
-      More Details about the Curriculum
-    </button>
+    <button class="cta-curriculum">More Details about the Curriculum</button>
   </div>
 
   <script>
-    document.querySelectorAll(".module").forEach(card => {
+    // Permite abrir varios módulos a la vez; alterna +/– individualmente
+    document.querySelectorAll("#curriculum .module").forEach(card => {
       const header = card.querySelector(".module-header");
       const list = card.querySelector(".objectives");
       const icon = card.querySelector(".toggle");
@@ -362,16 +431,6 @@
         const isVisible = list.style.display === "block";
         list.style.display = isVisible ? "none" : "block";
         icon.textContent = isVisible ? "+" : "–";
-      });
-
-      card.addEventListener("mouseover", () => {
-        card.style.transform = "translateY(-5px)";
-        card.style.boxShadow = "0 6px 12px rgba(0,0,0,0.25)";
-      });
-
-      card.addEventListener("mouseout", () => {
-        card.style.transform = "translateY(0)";
-        card.style.boxShadow = "none";
       });
     });
   </script>
