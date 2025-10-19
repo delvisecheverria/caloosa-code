@@ -317,14 +317,15 @@
   </section>
 
   <!-- Curriculum Overview (amarillo + módulos colapsables) -->
- <section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
+<section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
   <div style="max-width:1100px; margin:0 auto;">
     <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
-    
+
     <style>
       #curriculum .modules-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        align-items: start; /* 🔥 fuerza alturas independientes */
         gap: 24px;
       }
       @media (max-width: 980px) {
@@ -340,11 +341,12 @@
         padding: 22px;
         text-align: left;
         background: #fff;
-        transition: all 0.25s ease;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
         overflow: hidden;
       }
+
       #curriculum .module:hover {
-        transform: translateY(-5px);
+        transform: translateY(-4px);
         box-shadow: 0 6px 12px rgba(0,0,0,0.18);
       }
 
@@ -382,7 +384,7 @@
       #curriculum .objectives {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease;
+        transition: max-height 0.4s ease;
         margin-top: 0;
         padding-left: 20px;
         list-style: disc;
@@ -391,7 +393,7 @@
 
       #curriculum .objectives.open {
         margin-top: 12px;
-        max-height: 300px;
+        max-height: 400px;
       }
 
       #curriculum .cta-curriculum {
@@ -505,7 +507,6 @@
   </div>
 
   <script>
-    // Solo se abre el módulo clickeado
     const modules = document.querySelectorAll("#curriculum .module");
     modules.forEach((card) => {
       const header = card.querySelector(".module-header");
@@ -515,13 +516,13 @@
       header.addEventListener("click", () => {
         const isOpen = objectives.classList.contains("open");
 
-        // Cerrar todos los módulos
+        // Cerrar todos
         modules.forEach((m) => {
           m.querySelector(".objectives").classList.remove("open");
           m.querySelector(".toggle").textContent = "+";
         });
 
-        // Si no estaba abierto, abrirlo
+        // Si no estaba abierto, abrir solo ese
         if (!isOpen) {
           objectives.classList.add("open");
           toggle.textContent = "–";
@@ -530,7 +531,6 @@
     });
   </script>
 </section>
-
 
   <!-- Apply -->
   <section id="apply" class="block">
