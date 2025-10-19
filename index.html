@@ -1,12 +1,283 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caloosa Code — QA Bootcamp</title>
-  </head>
-  <body class="bg-[#0B0C10] text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/CaloosaCodeLandingGoldFull.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caloosa Code — QA Bootcamp</title>
+  <style>
+    :root{
+      --gold:#FFD700;
+      --amber:#FFB700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text);
+      background:#fff;
+    }
+
+    header{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-weight:800;
+      text-transform:uppercase;
+      font-size:1.2rem;
+      letter-spacing:.5px;
+    }
+    .logo span:first-child{color:#000}
+    .logo .badge{
+      background:var(--gold);
+      color:var(--text);
+      padding:3px 6px;
+      border-radius:6px;
+    }
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      margin-left:1.25rem;
+      font-weight:600;
+      position:relative;
+    }
+    nav a:hover::after{
+      content:"";
+      position:absolute;left:0;bottom:-4px;
+      width:100%;height:2px;background:var(--gold);
+    }
+
+    .hero{
+      max-width:1200px;
+      margin:2rem auto 3.5rem;
+      padding:0 1.5rem;
+      display:flex;
+      gap:2rem;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .hero-text{flex:1 1 520px;text-align:left}
+    .hero h1{
+      margin:0 0 .75rem 0;
+      font-size:3rem;line-height:1.15;font-weight:900;
+    }
+    .hero h1 span{color:var(--gold)}
+    .hero p{
+      margin:.25rem 0 1.25rem 0;
+      color:var(--muted);
+      max-width:560px;
+      font-size:1.05rem;
+    }
+    .btn-row{display:flex; gap:.9rem; flex-wrap:wrap}
+    .btn{
+      padding:.95rem 1.7rem;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.5rem;
+      transition:background .25s, color .25s, transform .25s, box-shadow .25s;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold), var(--amber));
+      color:#000;
+    }
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(255,183,0,.35)}
+    .btn-secondary{
+      border:2px solid var(--gold);
+      background:#fff;
+      color:var(--text);
+    }
+    .btn-secondary:hover{background:var(--gold); color:#000}
+
+    .hero-benefits{
+      margin-top:1rem;
+      display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap;
+      color:#111; font-size:.98rem;
+    }
+    .benefit{display:inline-flex; align-items:center; gap:.5rem}
+
+    .hero-illustration img{
+      max-width:560px; width:100%;
+      border-radius:16px;
+      display:block;
+    }
+
+    .yellow-section{
+      background:var(--gold);
+      color:#000;
+      padding:3rem 1.5rem;
+      text-align:center;
+    }
+    .yellow-section h2{
+      margin:0 0 .6rem 0;
+      font-size:2rem; font-weight:900; color:#000;
+    }
+    .yellow-section p{max-width:800px; margin:1rem auto; line-height:1.6}
+    .yellow-btn{
+      display:inline-block; margin-top:1rem;
+      background: #fff;
+      color:#000;
+      padding:.9rem 1.7rem;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 0 16px rgba(255,255,255,.6);
+      border: 2px solid #fff;
+    }
+
+    section.block{max-width:1200px; margin:3.5rem auto; padding:0 1.5rem; text-align:center}
+    section.block h2{font-size:2rem; font-weight:900; color:#000; margin:.2rem 0 .8rem}
+    section.block p.lead{color:var(--muted); max-width:860px; margin:.25rem auto 1.25rem; line-height:1.6}
+
+    .why{
+      display:grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap:1.2rem; align-items:start;
+    }
+    .map-wrap{position:relative; border-radius:12px; overflow:hidden}
+    .map-wrap img{width:100%; display:block}
+    .badge-chip{
+      position:absolute; transform:translate(-50%,-50%);
+      background:#fff; color:#000;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:10px; font-size:12px; text-align:center;
+      padding:8px 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-6px); }
+    }
+    .CA{left:18%; top:58%}
+    .TX{left:42%; top:60%}
+    .FL{left:80%; top:75%}
+    .GA{left:68%; top:57%}
+    .NY{left:84%; top:33%}
+
+    .table-wrap{border:1px solid var(--border); border-radius:14px; padding:10px; background:#fff;}
+    table{border-collapse:collapse; width:100%; font-size:.86rem; border-radius:12px; overflow:hidden}
+    th, td{border:1px solid rgba(0,0,0,.08); padding:10px; text-align:center}
+    th{background:linear-gradient(135deg, var(--gold), var(--amber)); color:#000}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:1.2rem;text-align:left}
+    .card{border:1px solid var(--border); border-radius:16px; padding:1.25rem; background:#fff}
+
+    footer{text-align:center; padding:2rem; font-size:.85rem; color:#555; border-top:1px solid #eee; margin-top:3rem;}
+
+    @media (max-width:980px){.why{grid-template-columns:1fr}.hero{justify-content:center}}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span>&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span>CODE</span>
+    </div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#guarantee">Guarantee</a>
+      <a href="#apply">Apply</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Become a Professional <span>QA Engineer</span> from Scratch</h1>
+      <p>A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
+
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
+        <a class="btn btn-secondary" href="#apply">🎓 Win one of 5 Full Scholarships</a>
+      </div>
+
+      <div class="hero-benefits">
+        <span class="benefit">🛡️ 100% Job Experience Guaranteed</span>
+        <span class="benefit">👨‍🏫 1:1 Learn face-to-face with real mentors</span>
+        <span class="benefit">🧠 Hands-on lessons</span>
+      </div>
+    </div>
+
+    <div class="hero-illustration">
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/main/caloosa-hero.png" alt="Caloosa Code Illustration"/>
+    </div>
+  </section>
+
+  <section class="yellow-section" id="guarantee">
+    <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
+    <p>All our graduates will have their first real QA job experience as <b>interns</b> in one of our partner companies. This includes a <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.</p>
+    <a class="yellow-btn" href="#apply">See How It Works ➜</a>
+  </section>
+
+  <section id="about" class="block">
+    <h2>Why Become a QA Engineer</h2>
+    <p class="lead">Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</p>
+
+    <div class="why">
+      <div class="map-wrap">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/CaloosaCode.png" alt="QA Employment Map">
+        <div class="badge-chip CA"><div>👷 Jobs: 31,530</div><div>💵 Salary: $130,250</div></div>
+        <div class="badge-chip TX"><div>👷 Jobs: 19,300</div><div>💵 Salary: $107,930</div></div>
+        <div class="badge-chip FL"><div>👷 Jobs: 12,080</div><div>💵 Salary: $104,440</div></div>
+        <div class="badge-chip GA"><div>👷 Jobs: 7,830</div><div>💵 Salary: $109,980</div></div>
+        <div class="badge-chip NY"><div>👷 Jobs: 11,140</div><div>💵 Salary: $112,700</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>State</th><th>Jobs</th><th>Salary</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
+            <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
+            <tr><td>Florida</td><td>12,080</td><td>$104,440</td></tr>
+            <tr><td>New York</td><td>11,140</td><td>$112,700</td></tr>
+            <tr><td>Georgia</td><td>7,830</td><td>$109,980</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="curriculum" class="block">
+    <h2>Curriculum Overview</h2>
+    <p class="lead">Your roadmap from zero to job-ready QA Engineer.</p>
+    <div class="cards">
+      <div class="card"><strong>Manual QA</strong><br/>Testing basics, strategies, and documentation.</div>
+      <div class="card"><strong>Automation</strong><br/>From unit to E2E with reliable frameworks.</div>
+      <div class="card"><strong>API Testing</strong><br/>Contracts, schema validation, and resilience.</div>
+      <div class="card"><strong>Data Testing</strong><br/>DW validation, SQL, and data quality checks.</div>
+      <div class="card"><strong>Performance</strong><br/>JMeter, k6, metrics, and capacity planning.</div>
+      <div class="card"><strong>AI Testing</strong><br/>Use AI to design tests and analyze results.</div>
+    </div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Ready to start your QA journey?</h2>
+    <p class="lead">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
+      <a class="btn btn-secondary" href="#apply">🎓 We have 5 Full Scholarships</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
+</body>
 </html>
