@@ -107,12 +107,8 @@
       display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
       color:#111; font-size:.98rem;
     }
-    .benefit{
-      display:inline-flex; align-items:center; gap:.5rem;
-    }
-    .benefit svg{
-      flex-shrink:0;
-    }
+    .benefit{display:inline-flex; align-items:center; gap:.5rem}
+    .benefit svg{flex-shrink:0}
 
     .hero-illustration img{
       max-width:560px; width:100%;
@@ -133,14 +129,14 @@
     .yellow-section p{max-width:800px; margin:1rem auto; line-height:1.6}
     .yellow-btn{
       display:inline-block; margin-top:1rem;
-      background: #fff;
+      background:#fff;
       color:#000;
       padding:.9rem 1.7rem;
       border-radius:10px;
       font-weight:800;
       text-decoration:none;
       box-shadow:0 0 16px rgba(255,255,255,.6);
-      border: 2px solid #fff;
+      border:2px solid #fff;
     }
 
     section.block{max-width:1200px; margin:3.5rem auto; padding:0 1.5rem; text-align:center}
@@ -201,21 +197,22 @@
     </nav>
   </header>
 
-  <!-- ✅ HERO ACTUALIZADO -->
+  <!-- ✅ HERO ACTUALIZADO: botones lado a lado + iconos dorados minimalistas -->
   <section class="hero">
     <div class="hero-text">
       <h1>Become a Professional <span>QA Engineer</span> from Scratch</h1>
       <p>A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
 
-      <!-- BUTTONS SIDE BY SIDE -->
+      <!-- BOTONES UNO AL LADO DEL OTRO -->
       <div class="btn-row">
         <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
         <a class="btn btn-secondary" href="#apply">🎓 Win one of 5 Full Scholarships</a>
       </div>
 
-      <!-- BENEFITS WITH MINIMAL GOLD ICONS -->
+      <!-- BENEFICIOS CON ICONOS LINEALES DORADOS -->
       <div class="hero-benefits">
         <span class="benefit">
+          <!-- Shield -->
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
@@ -223,6 +220,7 @@
         </span>
 
         <span class="benefit">
+          <!-- User (1:1 mentor) -->
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="8" r="4"/>
             <path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
@@ -231,6 +229,7 @@
         </span>
 
         <span class="benefit">
+          <!-- Layers (hands-on) -->
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="12 2 2 7 12 12 22 7 12 2"/>
             <polyline points="2 17 12 22 22 17"/>
@@ -247,13 +246,14 @@
   </section>
   <!-- ✅ FIN HERO -->
 
-  <!-- Secciones siguientes (sin cambios) -->
+  <!-- Sección amarilla (garantía) -->
   <section class="yellow-section" id="guarantee">
     <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
     <p>All our graduates will have their first real QA job experience as <b>interns</b> in one of our partner companies. This includes a <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.</p>
     <a class="yellow-btn" href="#apply">See How It Works ➜</a>
   </section>
 
+  <!-- Why Become a QA Engineer (mapa + tabla) -->
   <section id="about" class="block">
     <h2>Why Become a QA Engineer</h2>
     <p class="lead">Many traditional programs do not provide students with industry-relevant content, leaving a gap in practical testing knowledge. This bootcamp is designed to fill that gap, offering students hands-on experience and insights directly from industry professionals.</p>
@@ -285,8 +285,204 @@
     </div>
   </section>
 
-  <!-- Curriculum + Apply (sin cambios) -->
-  <!-- ... (mantiene tus secciones de curriculum y apply) ... -->
+  <!-- Curriculum Overview (amarillo + módulos colapsables) -->
+  <section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
+      
+      <style>
+        #curriculum .modules-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+        }
+        @media (max-width: 980px) { #curriculum .modules-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { #curriculum .modules-grid { grid-template-columns: 1fr; } }
+        #curriculum .module {
+          border: 2px solid #000;
+          border-radius: 12px;
+          padding: 22px;
+          text-align: left;
+          background: #fff;
+          transition: all 0.25s ease;
+        }
+        #curriculum .module:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.18); }
+        #curriculum .module-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+        }
+        #curriculum .module h3 {
+          margin: 0;
+          font-size: 1.05rem;
+          font-weight: 800;
+          color: #000;
+        }
+        #curriculum .label {
+          display: block;
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #000;
+          margin-bottom: 6px;
+          opacity: 0.7;
+        }
+        #curriculum .toggle { font-size: 1.5rem; font-weight: 900; line-height: 1; user-select: none; }
+        #curriculum .objectives {
+          display: none;
+          margin-top: 12px;
+          padding-left: 20px;
+          list-style: disc;
+          color: #000;
+        }
+        #curriculum .cta-curriculum {
+          margin-top: 50px;
+          background: #000;
+          color: #FFD700;
+          font-weight: 800;
+          border: none;
+          padding: 14px 36px;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: transform .2s ease, box-shadow .2s ease;
+        }
+        #curriculum .cta-curriculum:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+      </style>
+
+      <div class="modules-grid">
+        <!-- 1 -->
+        <div class="module">
+          <span class="label">Weeks 1–4</span>
+          <div class="module-header">
+            <h3>QA Fundamentals & Manual Testing</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Understand the software development lifecycle and QA’s role in it</li>
+            <li>Differentiate between testing types and levels</li>
+            <li>Design, execute, and manage manual test cases</li>
+            <li>Report bugs with clarity and reproducibility</li>
+            <li>Demonstrate traceability from requirements to bugs</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="module">
+          <span class="label">Weeks 5–10</span>
+          <div class="module-header">
+            <h3>Web & Mobile Test Automation</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Build a basic test automation framework with Selenium and C#</li>
+            <li>Automate functional test cases using DOM locators</li>
+            <li>Apply Page Object Model and maintain scripts efficiently</li>
+            <li>Configure Appium and run tests on real devices or emulators</li>
+            <li>Extend automation skills to mobile testing scenarios</li>
+          </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="module">
+          <span class="label">Weeks 11–14</span>
+          <div class="module-header">
+            <h3>API Testing + Databases</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Write and run SQL queries to validate data</li>
+            <li>Test REST API endpoints for functionality and accuracy</li>
+            <li>Create Postman collections, use environments, and automate assertions</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="module">
+          <span class="label">Weeks 15–17</span>
+          <div class="module-header">
+            <h3>Performance Testing</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Understand performance testing methodologies</li>
+            <li>Create JMeter scripts for load and stress testing</li>
+            <li>Generate realistic load scenarios using OctoPerf</li>
+            <li>Analyze and interpret performance metrics</li>
+            <li>Provide recommendations based on results</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="module">
+          <span class="label">Weeks 18–20</span>
+          <div class="module-header">
+            <h3>Capstone Project & Career Preparation</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Build your QA portfolio and résumé</li>
+            <li>Optimize your LinkedIn and professional profiles</li>
+            <li>Prepare for QA interviews and mock sessions</li>
+            <li>Learn to present your work as an intern</li>
+          </ul>
+        </div>
+
+        <!-- 6 -->
+        <div class="module">
+          <span class="label">Months 6–8</span>
+          <div class="module-header">
+            <h3>Internship / First QA Job Experience</h3>
+            <span class="toggle">+</span>
+          </div>
+          <ul class="objectives">
+            <li>Apply your QA skills in a real-world environment</li>
+            <li>Collaborate with engineering teams and follow agile workflows</li>
+            <li>Deliver quality test documentation and reporting</li>
+            <li>Receive mentorship and performance feedback from senior QA professionals</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="cta-curriculum">More Details about the Curriculum</button>
+    </div>
+
+    <script>
+      // Solo abre el módulo clickeado (los demás se cierran)
+      const modules = document.querySelectorAll("#curriculum .module");
+      modules.forEach((card) => {
+        const header = card.querySelector(".module-header");
+        header.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          const currentList = card.querySelector(".objectives");
+          const currentIcon = card.querySelector(".toggle");
+
+          modules.forEach((other) => {
+            if (other !== card) {
+              other.querySelector(".objectives").style.display = "none";
+              other.querySelector(".toggle").textContent = "+";
+            }
+          });
+
+          const isVisible = currentList.style.display === "block";
+          currentList.style.display = isVisible ? "none" : "block";
+          currentIcon.textContent = isVisible ? "+" : "–";
+        });
+      });
+    </script>
+  </section>
+
+  <!-- Apply -->
+  <section id="apply" class="block">
+    <h2>Ready to start your QA journey?</h2>
+    <p class="lead">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
+      <a class="btn btn-secondary" href="#apply">🎓 We have 5 Full Scholarships</a>
+    </div>
+  </section>
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 </body>
