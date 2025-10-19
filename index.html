@@ -261,79 +261,87 @@
     <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
     
     <style>
-      /* Layout: exactamente 3 columnas en desktop, 2 en tablets, 1 en móvil */
-      #curriculum .modules-grid{
-        display:grid; 
-        grid-template-columns:repeat(3, 1fr);
-        gap:24px;
+      #curriculum .modules-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
       }
-      @media (max-width: 980px){
-        #curriculum .modules-grid{ grid-template-columns:repeat(2, 1fr); }
+      @media (max-width: 980px) {
+        #curriculum .modules-grid { grid-template-columns: repeat(2, 1fr); }
       }
-      @media (max-width: 640px){
-        #curriculum .modules-grid{ grid-template-columns:1fr; }
+      @media (max-width: 640px) {
+        #curriculum .modules-grid { grid-template-columns: 1fr; }
       }
-      #curriculum .module{
-        border:2px solid #000; 
-        border-radius:12px; 
-        padding:20px; 
-        text-align:left; 
-        transition:all .25s ease; 
-        background:#fff;
+      #curriculum .module {
+        border: 2px solid #000;
+        border-radius: 12px;
+        padding: 22px;
+        text-align: left;
+        background: #fff;
+        transition: all 0.25s ease;
       }
-      #curriculum .module-header{
-        display:flex; 
-        align-items:center; 
-        justify-content:space-between; 
-        cursor:pointer;
+      #curriculum .module:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.18);
       }
-      #curriculum .module h3{
-        margin:0; 
-        font-size:1.1rem; 
-        font-weight:800; 
-        color:#000;
+      #curriculum .module-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
       }
-      #curriculum .toggle{
-        font-size:1.5rem; 
-        font-weight:900; 
-        line-height:1; 
-        user-select:none;
+      #curriculum .module h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #000;
       }
-      #curriculum .objectives{
-        display:none; 
-        margin-top:12px; 
-        padding-left:20px; 
-        list-style:disc; 
-        color:#000;
+      #curriculum .label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 6px;
+        opacity: 0.7;
       }
-      /* Hover suave */
-      #curriculum .module:hover{
-        transform:translateY(-5px);
-        box-shadow:0 6px 12px rgba(0,0,0,0.18);
+      #curriculum .toggle {
+        font-size: 1.5rem;
+        font-weight: 900;
+        line-height: 1;
+        user-select: none;
       }
-      #curriculum .cta-curriculum{
-        margin-top:50px; 
-        background:#000; 
-        color:#FFD700; 
-        font-weight:800; 
-        border:none; 
-        padding:14px 36px; 
-        border-radius:10px; 
-        cursor:pointer; 
-        font-size:1rem; 
-        transition:transform .2s ease, box-shadow .2s ease;
+      #curriculum .objectives {
+        display: none;
+        margin-top: 12px;
+        padding-left: 20px;
+        list-style: disc;
+        color: #000;
       }
-      #curriculum .cta-curriculum:hover{
-        transform:translateY(-2px);
-        box-shadow:0 10px 24px rgba(0,0,0,0.25);
+      #curriculum .cta-curriculum {
+        margin-top: 50px;
+        background: #000;
+        color: #FFD700;
+        font-weight: 800;
+        border: none;
+        padding: 14px 36px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+      #curriculum .cta-curriculum:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.25);
       }
     </style>
 
     <div class="modules-grid">
-      <!-- 1) Weeks 1–4 -->
+      <!-- 1 -->
       <div class="module">
+        <span class="label">Weeks 1–4</span>
         <div class="module-header">
-          <h3>Weeks 1–4: QA Fundamentals & Manual Testing</h3>
+          <h3>QA Fundamentals & Manual Testing</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
@@ -345,10 +353,11 @@
         </ul>
       </div>
 
-      <!-- 2) Weeks 5–10 -->
+      <!-- 2 -->
       <div class="module">
+        <span class="label">Weeks 5–10</span>
         <div class="module-header">
-          <h3>Weeks 5–10: Web & Mobile Test Automation</h3>
+          <h3>Web & Mobile Test Automation</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
@@ -360,10 +369,11 @@
         </ul>
       </div>
 
-      <!-- 3) Weeks 11–14 -->
+      <!-- 3 -->
       <div class="module">
+        <span class="label">Weeks 11–14</span>
         <div class="module-header">
-          <h3>Weeks 11–14: API Testing + Databases</h3>
+          <h3>API Testing + Databases</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
@@ -373,10 +383,11 @@
         </ul>
       </div>
 
-      <!-- 4) Weeks 15–17 -->
+      <!-- 4 -->
       <div class="module">
+        <span class="label">Weeks 15–17</span>
         <div class="module-header">
-          <h3>Weeks 15–17: Performance Testing</h3>
+          <h3>Performance Testing</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
@@ -388,10 +399,11 @@
         </ul>
       </div>
 
-      <!-- 5) Weeks 18–20 -->
+      <!-- 5 -->
       <div class="module">
+        <span class="label">Weeks 18–20</span>
         <div class="module-header">
-          <h3>Weeks 18–20: Capstone Project & Career Preparation</h3>
+          <h3>Capstone Project & Career Preparation</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
@@ -402,17 +414,18 @@
         </ul>
       </div>
 
-      <!-- 6) Months 6–8 -->
+      <!-- 6 -->
       <div class="module">
+        <span class="label">Months 6–8</span>
         <div class="module-header">
-          <h3>Months 6–8: Internship / First QA Job Experience</h3>
+          <h3>Internship / First QA Job Experience</h3>
           <span class="toggle">+</span>
         </div>
         <ul class="objectives">
-          <li>Join one of our partner companies as an intern</li>
-          <li>Work on real QA projects under mentorship</li>
-          <li>Gain verifiable experience for your first QA role</li>
-          <li><em>Example partner companies (replace with real names):</em> fintech, healthtech, and e-commerce teams</li>
+          <li>Apply your QA skills in a real-world environment</li>
+          <li>Collaborate with engineering teams and follow agile workflows</li>
+          <li>Deliver quality test documentation and reporting</li>
+          <li>Receive mentorship and performance feedback from senior QA professionals</li>
         </ul>
       </div>
     </div>
@@ -421,7 +434,7 @@
   </div>
 
   <script>
-    // Permite abrir varios módulos a la vez; alterna +/– individualmente
+    // Solo abre un módulo a la vez
     document.querySelectorAll("#curriculum .module").forEach(card => {
       const header = card.querySelector(".module-header");
       const list = card.querySelector(".objectives");
@@ -429,12 +442,21 @@
 
       header.addEventListener("click", () => {
         const isVisible = list.style.display === "block";
-        list.style.display = isVisible ? "none" : "block";
-        icon.textContent = isVisible ? "+" : "–";
+
+        // Cierra todos los demás
+        document.querySelectorAll("#curriculum .objectives").forEach(l => l.style.display = "none");
+        document.querySelectorAll("#curriculum .toggle").forEach(i => i.textContent = "+");
+
+        // Abre solo el actual
+        if (!isVisible) {
+          list.style.display = "block";
+          icon.textContent = "–";
+        }
       });
     });
   </script>
 </section>
+
 
 
   <section id="apply" class="block">
