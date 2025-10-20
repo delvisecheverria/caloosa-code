@@ -409,16 +409,17 @@
 <style>
 .benefits-line {
   display: flex;
-  justify-content: center; /* centrado horizontal */
+  justify-content: flex-start; /* mantiene alineado con el texto */
   align-items: center;
-  gap: 3rem; /* espacio equilibrado entre los 3 */
-  margin-top: 1.8rem;
-  flex-wrap: nowrap; /* todos en una sola fila */
+  gap: 2.2rem;
+  margin-top: 1.6rem;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 .benefit-item {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   font-size: 1rem;
   color: #000;
   white-space: nowrap;
@@ -433,13 +434,15 @@
 .benefit-item:hover svg {
   transform: scale(1.1);
 }
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .benefits-line {
-    flex-wrap: wrap; /* que se acomoden si la pantalla es chica */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.2rem;
   }
 }
 </style>
+
 
 <div class="benefits-line">
   <div class="benefit-item">
