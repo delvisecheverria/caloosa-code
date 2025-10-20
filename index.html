@@ -20,6 +20,7 @@
       background:#fff;
     }
 
+    /* HEADER */
     header{
       max-width:1200px;
       margin:0 auto;
@@ -27,6 +28,7 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
+      flex-wrap:wrap;
     }
     .logo{
       display:flex;
@@ -44,19 +46,61 @@
       padding:3px 6px;
       border-radius:6px;
     }
+
+    /* ✅ MENU ACTUALIZADO */
+    nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:nowrap;
+      gap:1.25rem;
+    }
     nav a{
       color:var(--text);
       text-decoration:none;
-      margin-left:1.25rem;
       font-weight:600;
       position:relative;
+      transition:color .25s ease;
+    }
+    nav a:hover{
+      color:#000;
     }
     nav a:hover::after{
       content:"";
-      position:absolute;left:0;bottom:-4px;
-      width:100%;height:2px;background:var(--gold);
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:100%;
+      height:2px;
+      background:var(--gold);
     }
 
+    /* Responsive menu */
+    @media (max-width:768px){
+      nav{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        gap:1rem;
+        justify-content:flex-start;
+        -webkit-overflow-scrolling:touch;
+      }
+      nav::-webkit-scrollbar{display:none;}
+      nav a{
+        font-size:.85rem;
+        white-space:nowrap;
+      }
+    }
+
+    @media (max-width:480px){
+      nav{
+        gap:.75rem;
+      }
+      nav a{
+        font-size:.78rem;
+      }
+    }
+
+    /* HERO */
     .hero{
       max-width:1200px;
       margin:2rem auto 3.5rem;
@@ -116,6 +160,7 @@
       display:block;
     }
 
+    /* SECCIONES */
     .yellow-section{
       background:var(--gold);
       color:#000;
@@ -173,30 +218,24 @@
     th, td{border:1px solid rgba(0,0,0,.08); padding:10px; text-align:center}
     th{background:linear-gradient(135deg, var(--gold), var(--amber)); color:#000}
 
-    .cards{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px,1fr));gap:1.2rem;text-align:left}
-    .card{border:1px solid var(--border); border-radius:16px; padding:1.25rem; background:#fff}
-
     footer{text-align:center; padding:2rem; font-size:.85rem; color:#555; border-top:1px solid #eee; margin-top:3rem;}
 
     @media (max-width:980px){.why{grid-template-columns:1fr}.hero{justify-content:center}}
+
     /* Subrayado animado dorado */
-.sweep-underline{
-  background-image: linear-gradient(#FFD700, #FFD700);
-  background-repeat: no-repeat;
-  background-position: 0 100%;          /* línea en la parte inferior del texto */
-  background-size: 0% 2px;              /* comienza sin ancho */
-  animation: underline-sweep 1.6s ease-out forwards;
-}
-
-/* Respeta usuarios con reducción de movimiento */
-@media (prefers-reduced-motion: reduce){
-  .sweep-underline{ animation: none; background-size: 100% 2px; }
-}
-
-@keyframes underline-sweep{
-  to { background-size: 100% 2px; }
-}
-
+    .sweep-underline{
+      background-image: linear-gradient(#FFD700, #FFD700);
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 2px;
+      animation: underline-sweep 1.6s ease-out forwards;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .sweep-underline{ animation: none; background-size: 100% 2px; }
+    }
+    @keyframes underline-sweep{
+      to { background-size: 100% 2px; }
+    }
   </style>
 </head>
 <body>
@@ -215,84 +254,49 @@
     </nav>
   </header>
 
-  <!-- ✅ HERO ACTUALIZADO: botones lado a lado + iconos dorados minimalistas -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Become a Professional <span>QA Engineer</span> from Scratch</h1>
-    <p>A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Become a Professional <span>QA Engineer</span> from Scratch</h1>
+      <p>A complete bootcamp that transforms beginners into job-ready QA Engineers through hands-on learning and real projects.</p>
 
-    <!-- Botones alineados -->
-    <div class="btn-row" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
-      <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
-      <a class="btn btn-secondary" href="#apply">🎓 Win one of 5 Full Scholarships</a>
-    </div>
-
-    <!-- Beneficios con íconos minimalistas -->
-    <div class="hero-benefits" style="margin-top:1.2rem; display:flex; align-items:center; flex-wrap:wrap; gap:1.8rem; color:#000;">
-      <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-        <span>100% Job Experience Guaranteed</span>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
+        <a class="btn btn-secondary" href="#apply">🎓 Win one of 5 Full Scholarships</a>
       </div>
 
-      <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
-          <path d="M20 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M4 21v-2a4 4 0 0 1 3-3.87"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span>1:1 Learn face-to-face with real mentors</span>
-      </div>
-
-      <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu">
-          <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-          <rect x="9" y="9" width="6" height="6"></rect>
-          <line x1="9" y1="1" x2="9" y2="4"></line>
-          <line x1="15" y1="1" x2="15" y2="4"></line>
-          <line x1="9" y1="20" x2="9" y2="23"></line>
-          <line x1="15" y1="20" x2="15" y2="23"></line>
-          <line x1="20" y1="9" x2="23" y2="9"></line>
-          <line x1="20" y1="15" x2="23" y2="15"></line>
-          <line x1="1" y1="9" x2="4" y2="9"></line>
-          <line x1="1" y1="15" x2="4" y2="15"></line>
-        </svg>
-        <span>Hands-on lessons</span>
+      <div class="hero-benefits">
+        <div class="benefit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>100% Job Experience Guaranteed</span>
+        </div>
+        <div class="benefit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M4 21v-2a4 4 0 0 1 3-3.87"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>1:1 Learn face-to-face with real mentors</span>
+        </div>
+        <div class="benefit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="15" x2="23" y2="15"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/></svg>
+          <span>Hands-on lessons</span>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="hero-illustration">
+      <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/main/caloosa-hero.png" alt="Caloosa Code Illustration"/>
+    </div>
+  </section>
 
-  <div class="hero-illustration">
-    <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/main/caloosa-hero.png" alt="Caloosa Code Illustration"/>
-  </div>
-</section>
-  <!-- ✅ FIN HERO -->
-
-  <!-- Sección amarilla (garantía) -->
+  <!-- GUARANTEE SECTION -->
   <section class="yellow-section" id="guarantee">
     <h2>GET YOUR FIRST QA JOB EXPERIENCE — 100% GUARANTEED</h2>
     <p>All our graduates will have their first real QA job experience as <b>interns</b> in one of our partner companies. This includes a <b>3-month guided internship</b> where you’ll apply your QA skills with mentorship and real industry exposure.</p>
     <a class="yellow-btn" href="#apply">See How It Works ➜</a>
   </section>
 
-  <!-- Why Become a QA Engineer (mapa + tabla) -->
+  <!-- WHY QA ENGINEER -->
   <section id="about" class="block">
     <h2>Why Become a QA Engineer</h2>
-<p class="lead">
-  <b>Many traditional programs</b> do not provide students with <b>industry-relevant content</b>, leaving a gap in 
-  <b>practical testing knowledge</b>. 
-  <span class="sweep-underline">This <b>bootcamp</b> is designed to <b>fill that gap</b></span>, offering students 
-  <b>hands-on experience</b>, <b>real-world projects</b>, and <b>insights directly from industry professionals</b>.
-</p>
-
-
-<p class="lead">
-  Based on <b>official data from the U.S. Bureau of Labor Statistics (BLS)</b>, this <b>2024 study</b> focuses specifically 
-  on <b>Software Quality Assurance Analysts and Testers (OCC 15-1253)</b>. Among all U.S. states, 
-  <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for 
-  <b>QA employment</b>, showing strong demand and competitive <b>annual salaries</b> for skilled professionals.
-</p>
+    <p class="lead"><b>Many traditional programs</b> do not provide students with <b>industry-relevant content</b>, leaving a gap in <b>practical testing knowledge</b>. <span class="sweep-underline">This <b>bootcamp</b> is designed to <b>fill that gap</b></span>, offering students <b>hands-on experience</b>, <b>real-world projects</b>, and <b>insights directly from industry professionals</b>.</p>
+    <p class="lead">Based on <b>official data from the U.S. Bureau of Labor Statistics (BLS)</b>, this <b>2024 study</b> focuses on <b>Software Quality Assurance Analysts and Testers (OCC 15-1253)</b>. States like <b>California</b>, <b>Texas</b>, <b>Florida</b>, <b>New York</b>, and <b>Georgia</b> stand out as key hubs for <b>QA employment</b>.</p>
 
     <div class="why">
       <div class="map-wrap">
@@ -306,9 +310,7 @@
 
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr><th>State</th><th>Jobs</th><th>Salary</th></tr>
-          </thead>
+          <thead><tr><th>State</th><th>Jobs</th><th>Salary</th></tr></thead>
           <tbody>
             <tr><td>California</td><td>31,530</td><td>$130,250</td></tr>
             <tr><td>Texas</td><td>19,300</td><td>$107,930</td></tr>
@@ -318,232 +320,6 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </section>
-
-  <!-- Curriculum Overview (amarillo + módulos colapsables) -->
-<section id="curriculum" style="background:#FFD700; color:#000; padding:80px 20px; text-align:center; font-family:'Inter Tight', system-ui, sans-serif;">
-  <div style="max-width:1100px; margin:0 auto;">
-    <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
-
-    <style>
-      #curriculum .modules-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start; /* 🔥 fuerza alturas independientes */
-        gap: 24px;
-      }
-      @media (max-width: 980px) {
-        #curriculum .modules-grid { grid-template-columns: repeat(2, 1fr); }
-      }
-      @media (max-width: 640px) {
-        #curriculum .modules-grid { grid-template-columns: 1fr; }
-      }
-
-      #curriculum .module {
-        border: 2px solid #000;
-        border-radius: 12px;
-        padding: 22px;
-        text-align: left;
-        background: #fff;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        overflow: hidden;
-      }
-
-      #curriculum .module:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.18);
-      }
-
-      #curriculum .module-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-      }
-
-      #curriculum .label {
-        display: block;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        color: #000;
-        margin-bottom: 6px;
-        opacity: 0.7;
-      }
-
-      #curriculum .module h3 {
-        margin: 0;
-        font-size: 1.05rem;
-        font-weight: 800;
-        color: #000;
-      }
-
-      #curriculum .toggle {
-        font-size: 1.5rem;
-        font-weight: 900;
-        line-height: 1;
-        user-select: none;
-      }
-
-      #curriculum .objectives {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        margin-top: 0;
-        padding-left: 20px;
-        list-style: disc;
-        color: #000;
-      }
-
-      #curriculum .objectives.open {
-        margin-top: 12px;
-        max-height: 400px;
-      }
-
-      #curriculum .cta-curriculum {
-        margin-top: 50px;
-        background: #000;
-        color: #FFD700;
-        font-weight: 800;
-        border: none;
-        padding: 14px 36px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: transform .2s ease, box-shadow .2s ease;
-      }
-
-      #curriculum .cta-curriculum:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-      }
-    </style>
-
-    <div class="modules-grid">
-      <div class="module">
-        <span class="label">Weeks 1–4</span>
-        <div class="module-header">
-          <h3>QA Fundamentals & Manual Testing</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Understand the software development lifecycle and QA’s role in it</li>
-          <li>Differentiate between testing types and levels</li>
-          <li>Design, execute, and manage manual test cases</li>
-          <li>Report bugs with clarity and reproducibility</li>
-          <li>Demonstrate traceability from requirements to bugs</li>
-        </ul>
-      </div>
-
-      <div class="module">
-        <span class="label">Weeks 5–10</span>
-        <div class="module-header">
-          <h3>Web & Mobile Test Automation</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Build a basic test automation framework with Selenium and C#</li>
-          <li>Automate functional test cases using DOM locators</li>
-          <li>Apply Page Object Model and maintain scripts efficiently</li>
-          <li>Configure Appium and run tests on real devices or emulators</li>
-          <li>Extend automation skills to mobile testing scenarios</li>
-        </ul>
-      </div>
-
-      <div class="module">
-        <span class="label">Weeks 11–14</span>
-        <div class="module-header">
-          <h3>API Testing + Databases</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Write and run SQL queries to validate data</li>
-          <li>Test REST API endpoints for functionality and accuracy</li>
-          <li>Create Postman collections, use environments, and automate assertions</li>
-        </ul>
-      </div>
-
-      <div class="module">
-        <span class="label">Weeks 15–17</span>
-        <div class="module-header">
-          <h3>Performance Testing</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Understand performance testing methodologies</li>
-          <li>Create JMeter scripts for load and stress testing</li>
-          <li>Generate realistic load scenarios using OctoPerf</li>
-          <li>Analyze and interpret performance metrics</li>
-          <li>Provide recommendations based on results</li>
-        </ul>
-      </div>
-
-      <div class="module">
-        <span class="label">Weeks 18–20</span>
-        <div class="module-header">
-          <h3>Capstone Project & Career Preparation</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Build your QA portfolio and résumé</li>
-          <li>Optimize your LinkedIn and professional profiles</li>
-          <li>Prepare for QA interviews and mock sessions</li>
-          <li>Learn to present your work as an intern</li>
-        </ul>
-      </div>
-
-      <div class="module">
-        <span class="label">Months 6–8</span>
-        <div class="module-header">
-          <h3>Internship / First QA Job Experience</h3>
-          <span class="toggle">+</span>
-        </div>
-        <ul class="objectives">
-          <li>Apply your QA skills in a real-world environment</li>
-          <li>Collaborate with engineering teams and follow agile workflows</li>
-          <li>Deliver quality test documentation and reporting</li>
-          <li>Receive mentorship and performance feedback from senior QA professionals</li>
-        </ul>
-      </div>
-    </div>
-
-    <button class="cta-curriculum">More Details about the Curriculum</button>
-  </div>
-
-  <script>
-    const modules = document.querySelectorAll("#curriculum .module");
-    modules.forEach((card) => {
-      const header = card.querySelector(".module-header");
-      const objectives = card.querySelector(".objectives");
-      const toggle = card.querySelector(".toggle");
-
-      header.addEventListener("click", () => {
-        const isOpen = objectives.classList.contains("open");
-
-        // Cerrar todos
-        modules.forEach((m) => {
-          m.querySelector(".objectives").classList.remove("open");
-          m.querySelector(".toggle").textContent = "+";
-        });
-
-        // Si no estaba abierto, abrir solo ese
-        if (!isOpen) {
-          objectives.classList.add("open");
-          toggle.textContent = "–";
-        }
-      });
-    });
-  </script>
-</section>
-
-  <!-- Apply -->
-  <section id="apply" class="block">
-    <h2>Ready to start your QA journey?</h2>
-    <p class="lead">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
-    <div class="btn-row" style="justify-content:center">
-      <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
-      <a class="btn btn-secondary" href="#apply">🎓 We have 5 Full Scholarships</a>
     </div>
   </section>
 
