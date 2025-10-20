@@ -1,209 +1,184 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>About Us — Caloosa Code</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Caloosa Code</title>
   <style>
-    body {
+    :root{
+      --gold:#FFD700;
+      --amber:#FFB700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
       margin:0;
-      font-family:"Inter Tight", system-ui, sans-serif;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
       background:#fff;
-      color:#000;
     }
 
-    /* HEADER (igual a program.html) */
-    header { text-align:center; padding-top:28px; }
-    .brand { display:inline-flex; align-items:center; gap:3px; font-weight:700; font-size:.85rem; letter-spacing:1px; text-transform:uppercase; }
-    .symbol { color:#000; }
-    .badge { background:#FFD700; color:#000; padding:1px 4px; font-weight:800; }
-    .code { color:#000; }
-    .empower { font-size:.65rem; letter-spacing:.3em; text-transform:uppercase; color:#666; margin-top:12px; margin-bottom:16px; }
-    .page-title { font-weight:400; letter-spacing:.5px; margin:6px 0 12px 0; text-transform:uppercase; }
-    .page-title b { font-weight:700; }
-    .main-nav { display:flex; justify-content:center; gap:24px; font-size:.8rem; text-transform:uppercase; margin:14px 0 24px; }
-    .main-nav a { position:relative; text-decoration:none; color:#222; padding-bottom:3px; transition:color .2s; }
-    .main-nav a:hover { color:#000; }
-    .main-nav a.active { color:#000; }
-    .main-nav a.active::after { content:""; position:absolute; left:0; bottom:0; width:100%; height:2px; background:#FFD700; }
-
-    /* LAYOUT */
-    main { max-width:850px; margin:0 auto; padding:20px; line-height:1.7; font-size:.95rem; color:#333; }
-
-    .delvis-block, .florida-block {
+    header{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:30px;
-      margin:40px 0;
-      flex-wrap:wrap;
     }
-    .delvis-text, .florida-text { flex:1 1 50%; text-align:left; }
-    .delvis-photo, .florida-photo {
-      flex:1 1 45%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      position:relative;
-    }
+    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
+    .logo span:first-child{color:#000}
+    .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
+    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
+    nav .nav-links a:hover::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold)}
 
-    /* ANIMACIÓN SUAVE */
-    @keyframes fadeZoom {
-      0% { opacity:0; transform:scale(0.96); }
-      100% { opacity:1; transform:scale(1); }
-    }
+    main{max-width:1000px;margin:3rem auto;padding:0 1.5rem}
+    h1{font-size:2.5rem;font-weight:900;margin:0 0 .6rem 0}
+    h1 span{color:var(--gold)}
+    p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.4rem}
 
-    /* FOTO DELVIS con gradiente encima (overlay) */
-    .photo-frame {
-      position:relative;
-      display:inline-block;
-      width:220px;              /* tamaño estable y limpio */
-      border-radius:16px;
-      overflow:hidden;          /* clave: recorta el overlay al marco */
-      animation:fadeZoom 1.6s ease both;
-    }
-    .photo-frame img {
-      display:block;
-      width:100%;
-      height:auto;
-      border-radius:inherit;
-      object-fit:cover;
-    }
-    .photo-frame::after {
-      content:"";
-      position:absolute;
-      inset:0; /* cubre exactamente la imagen */
-      background:linear-gradient(180deg, rgba(255,215,0,0.30) 0%, rgba(255,215,0,0.15) 100%);
-      mix-blend-mode:multiply;  /* tinte amarillo translúcido */
-      pointer-events:none;
-    }
+    /* ====== BLOCKS ====== */
+    .block{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:2rem;margin:3rem 0;}
+    .text{color:var(--muted);line-height:1.7;font-size:1.05rem;text-align:justify;display:flex;flex-direction:column;justify-content:center;}
+    .photo{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+    .photo img{width:100%;height:auto;object-fit:cover;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
 
-    /* FOTO FLORIDA limpia (sin color extra) */
-    .florida-photo img {
-      width:75%;
-      max-width:280px;
-      border-radius:12px;
-      object-fit:cover;
-      display:block;
-      animation:fadeZoom 1.8s ease both;
-    }
+    /* Overlay dorado solo para Delvis */
+    .photo-frame{position:relative;width:50%;border-radius:16px;overflow:hidden;}
+    .photo-frame img{width:100%;height:auto;object-fit:cover;border-radius:inherit;}
+    .photo-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,215,0,.25) 0%,rgba(255,215,0,.10) 100%);mix-blend-mode:multiply;pointer-events:none}
 
-    /* TEXTO INDEPENDIENTE */
-    .independent-text {
-      margin:40px auto;
-      max-width:800px;
-      font-size:.95rem;
-      color:#333;
-      text-align:center;
-      line-height:1.7;
-    }
+    /* Texto intermedio */
+    .independent-text{max-width:1000px;margin:3rem auto;text-align:justify;color:var(--muted);line-height:1.8;font-size:1.05rem;}
 
-    /* INSTRUCTORES */
-    .instructors { margin-top:60px; text-align:center; }
-    .instructors h2 { font-size:1.4rem; font-weight:700; margin-bottom:24px; text-transform:uppercase; }
-    .instructor-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:24px; justify-items:center; }
-    .instructor { text-align:center; }
-    .instructor img { width:100px; height:100px; border-radius:50%; border:4px solid #FFD700; transition:filter .4s, transform .4s; object-fit:cover; }
-    .instructor:hover img { filter:grayscale(100%) brightness(1.2); transform:scale(1.05); }
-    .instructor h3 { font-size:.9rem; margin-top:8px; font-weight:700; }
-    .instructor p { font-size:.8rem; color:#555; margin:4px 0; }
-    .instructor a { font-size:.8rem; color:#FFD700; text-decoration:none; font-weight:600; }
+    .instructors{text-align:center;margin-top:4rem}
+    .instructors h2{font-size:2rem;font-weight:900;margin:.2rem 0 1.2rem;color:#000}
+    .instructor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;justify-items:center}
+    .instructor{text-align:center}
+    .instructor img{width:100px;height:100px;border-radius:50%;border:4px solid var(--gold);object-fit:cover;margin-bottom:10px}
+    .instructor h3{font-size:1rem;margin:0 0 4px;font-weight:700;color:#000}
+    .instructor p{font-size:.9rem;color:#666;margin:0 0 6px}
+    .instructor a{font-size:.85rem;color:var(--gold);text-decoration:none;font-weight:700}
 
-    footer { text-align:center; font-size:.75rem; color:#555; margin:50px 0 22px; }
-    footer a { color:#FFD700; text-decoration:none; font-weight:600; }
+    .yellow-section{background:var(--gold);color:#000;padding:3rem 1.5rem;text-align:center;margin-top:4rem}
+    .yellow-section h2{margin:0 0 .6rem 0;font-size:2rem;font-weight:900;color:#000}
+    .yellow-section p{max-width:800px;margin:1rem auto;line-height:1.6}
+    .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:1.2rem}
+    .yellow-btn,.white-btn{display:inline-block;padding:.9rem 1.7rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid #fff;transition:transform .25s,box-shadow .25s}
+    .yellow-btn{background:#fff;color:#000}
+    .white-btn{background:transparent;color:#000;border:2px solid #000}
+    .yellow-btn:hover,.white-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1)}
 
-    @media (max-width:768px){
-      .delvis-block, .florida-block { flex-direction:column; text-align:center; }
-      .delvis-text, .florida-text { text-align:center; }
-      .photo-frame { width:200px; }   /* ajusta tamaño en mobile */
-      .florida-photo img { width:80%; }
-    }
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem}
+
+    @media (max-width:800px){.block{grid-template-columns:1fr;text-align:center}.photo{height:auto}.photo img{height:auto;width:100%}}
   </style>
 </head>
-
 <body>
   <header>
-    <span class="brand">
-      <span class="symbol">&lt;//&gt;</span>
+    <div class="logo">
+      <span>&lt;//&gt;</span>
       <span class="badge">CALOOSA</span>
-      <span class="code">CODE</span>
-    </span>
-    <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
-    <h1 class="page-title">ABOUT <b>US</b></h1>
-    <nav class="main-nav">
-      <a href="program.html">Program</a>
-      <a href="about.html" class="active">About</a>
-      <a href="partners.html">Partners</a>
-      <a href="contact.html">Contact</a>
+      <span>CODE</span>
+    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="guarantee.html">Guarantee</a>
+        <a href="apply.html">Apply</a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <!-- Bloque Delvis -->
-    <div class="delvis-block">
-      <div class="delvis-text">
+    <h1>About <span>Caloosa Code</span></h1>
+
+    <!-- Primer bloque: Delvis -->
+    <section class="block">
+      <div class="text">
         <p>Caloosa Code is an initiative born from the SWFL Tech Night community and led by <b>Delvis Echeverria</b>, a technology professional with 15+ years of experience in software development, specializing in QA and testing.</p>
         <p>Delvis has a deep passion for teaching and mentorship, which inspired him to create a program that helps others gain the skills and confidence to grow in the tech industry.</p>
       </div>
-      <div class="delvis-photo">
+      <div class="photo">
         <span class="photo-frame">
-          <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria">
+          <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria" />
         </span>
       </div>
-    </div>
+    </section>
 
-    <!-- Texto independiente (centrado) -->
+    <!-- Segundo bloque: Texto justificado -->
     <div class="independent-text">
       This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.
     </div>
 
-    <!-- Bloque Florida -->
-    <div class="florida-block">
-      <div class="florida-photo">
-        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map">
+    <!-- Tercer bloque: Florida -->
+    <section class="block">
+      <div class="photo">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map" style="box-shadow:none;"/>
       </div>
-      <div class="florida-text">
+      <div class="text">
         <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
         <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.</p>
       </div>
-    </div>
+    </section>
 
     <!-- Instructores -->
     <section class="instructors">
-      <h2>OUR INSTRUCTORS</h2>
+      <h2>Our Instructors</h2>
       <div class="instructor-grid">
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=12" alt="Instructor">
-          <h3>Alex Rivera</h3><p>Automation Engineer</p><a href="#">LinkedIn →</a>
+          <h3>Alex Rivera</h3>
+          <p>Automation Engineer</p>
+          <a href="#">LinkedIn →</a>
         </div>
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=21" alt="Instructor">
-          <h3>Maria Torres</h3><p>QA Lead</p><a href="#">LinkedIn →</a>
+          <h3>Maria Torres</h3>
+          <p>QA Lead</p>
+          <a href="#">LinkedIn →</a>
         </div>
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=5" alt="Instructor">
-          <h3>Daniel Kim</h3><p>Performance Tester</p><a href="#">LinkedIn →</a>
+          <h3>Daniel Kim</h3>
+          <p>Performance Tester</p>
+          <a href="#">LinkedIn →</a>
         </div>
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=33" alt="Instructor">
-          <h3>Carlos Mendoza</h3><p>Security Testing Expert</p><a href="#">LinkedIn →</a>
+          <h3>Carlos Mendoza</h3>
+          <p>Security Testing Expert</p>
+          <a href="#">LinkedIn →</a>
         </div>
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=49" alt="Instructor">
-          <h3>Sophia Johnson</h3><p>API Testing Instructor</p><a href="#">LinkedIn →</a>
+          <h3>Sophia Johnson</h3>
+          <p>API Testing Instructor</p>
+          <a href="#">LinkedIn →</a>
         </div>
         <div class="instructor">
           <img src="https://i.pravatar.cc/100?img=48" alt="Instructor">
-          <h3>Isabella Garcia</h3><p>Mobile QA Specialist</p><a href="#">LinkedIn →</a>
+          <h3>Isabella Garcia</h3>
+          <p>Mobile QA Specialist</p>
+          <a href="#">LinkedIn →</a>
         </div>
       </div>
     </section>
-
-    <footer>
-      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
-    </footer>
   </main>
+
+  <section class="yellow-section">
+    <h2>Ready to Start Your QA Journey?</h2>
+    <p>Join <b>Caloosa Code</b> today and build skills that companies hire for. Applications are open now!</p>
+    <div class="btn-row">
+      <a class="yellow-btn" href="apply.html">Apply to the Bootcamp</a>
+      <a class="white-btn" href="apply.html">🎓 Win one of 5 Full Scholarships</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 </body>
 </html>
