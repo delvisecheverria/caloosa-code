@@ -137,13 +137,21 @@
     }
     .btn-secondary:hover{background:var(--gold); color:#000}
 
-    .hero-benefits{
-      margin-top:1rem;
-      display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
-      color:#111; font-size:.98rem;
+    /* ====== NUEVA BARRA DE BENEFICIOS (reemplaza hero-benefits) ====== */
+    .benefits-bar {
+      display:flex; justify-content:center; align-items:center; gap:2rem; flex-wrap:wrap;
+      background:#fff; border:1px solid var(--border); border-radius:14px;
+      padding:1.4rem 2rem; margin-top:1.6rem; max-width:750px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.04);
     }
-    .benefit{display:inline-flex; align-items:center; gap:.5rem}
-    .benefit svg{flex-shrink:0}
+    .benefit-item {
+      display:flex; align-items:center; gap:10px; color:#111; font-size:1rem; font-weight:500;
+    }
+    .benefit-item b { color:#000; font-weight:800; }
+    .benefit-item svg {
+      flex-shrink:0; stroke:var(--amber); width:22px; height:22px; transition:transform .25s ease;
+    }
+    .benefit-item:hover svg { transform:scale(1.15); }
 
     .hero-illustration img{
       max-width:560px; width:100%;
@@ -196,10 +204,7 @@
       padding:8px 10px;
       animation: float 3s ease-in-out infinite;
     }
-    @keyframes float {
-      0%,100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-6px); }
-    }
+    @keyframes float { 0%,100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-6px); } }
     .CA{left:18%; top:58%}
     .TX{left:42%; top:60%}
     .FL{left:80%; top:75%}
@@ -233,30 +238,27 @@
     .testi-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:22px;
-      margin-top:18px;
+      gap:26px;
+      margin-top:24px;
     }
     .testi-card{
       border:1px solid var(--border);
       border-radius:16px;
-      padding:22px;
+      padding:26px;
       background:#fff;
       box-shadow:0 6px 14px rgba(0,0,0,.05);
-      opacity:0; transform:translateY(12px);
-      animation:fadeUp .6s ease forwards;
+      transition:all .3s ease;
+      text-align:left;
     }
-    .testi-card:nth-child(2){animation-delay:.15s}
-    .testi-card:nth-child(3){animation-delay:.3s}
-    @keyframes fadeUp{
-      to{opacity:1; transform:translateY(0)}
-    }
-    .avatar{
-      width:72px; height:72px; border-radius:50%;
-      object-fit:cover; display:block; margin:0 auto 10px; border:3px solid #fff; box-shadow:0 0 0 3px var(--gold);
-    }
-    .i-name{font-weight:900; margin:8px 0 4px}
-    .i-role{font-size:.9rem; color:#555; margin-bottom:10px}
-    .i-quote{font-size:.95rem; color:#222; line-height:1.6}
+    .testi-card:hover{transform:translateY(-6px); box-shadow:0 12px 24px rgba(0,0,0,.08)}
+    .testi-header{display:flex; align-items:center; gap:14px; margin-bottom:10px}
+    .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; border:3px solid var(--gold)}
+    .testi-info{flex:1}
+    .testi-name{font-weight:800; font-size:1.05rem; color:#000; display:flex; align-items:center; gap:6px}
+    .linkedin svg{transition:transform .25s ease}
+    .linkedin:hover svg{transform:scale(1.2)}
+    .testi-role{font-size:.85rem; text-transform:uppercase; letter-spacing:.5px; color:#666; margin-top:2px}
+    .testi-quote{font-size:.95rem; color:#222; line-height:1.6; margin-top:10px; font-style:italic}
 
     footer{text-align:center; padding:2rem; font-size:.85rem; color:#555; border-top:1px solid #eee; margin-top:3rem;}
 
@@ -271,33 +273,25 @@
     @media (prefers-reduced-motion: reduce){
       .sweep-underline{ animation: none; background-size: 100% 2px; }
     }
-    @keyframes underline-sweep{
-      to { background-size: 100% 2px; }
-    }
+    @keyframes underline-sweep{ to { background-size: 100% 2px; } }
 
     /* ====== RESPONSIVE ====== */
-    @media (max-width:1200px){
-      header{padding:1rem}
-    }
+    @media (max-width:1200px){ header{padding:1rem} }
     @media (max-width:980px){
       .why{grid-template-columns:1fr}
       .hero{justify-content:center}
-      /* ocultar chips (animaciones) del mapa en mobile */
       .badge-chip{display:none}
     }
     @media (max-width:860px){
-      /* hamburguesa visible, ocultar links desktop */
       .hamburger{display:inline-block}
       nav .nav-links{display:none}
     }
-    @media (min-width:861px){
-      .nav-panel{display:none!important}
-    }
+    @media (min-width:861px){ .nav-panel{display:none!important} }
     @media (max-width:820px){
-      .i-grid{grid-template-columns:1fr 1fr}
+      .testi-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media (max-width:560px){
-      .i-grid{grid-template-columns:1fr}
+      .testi-grid{grid-template-columns:1fr}
       .hero h1{font-size:2.2rem}
     }
   </style>
@@ -347,25 +341,24 @@
         <a class="btn btn-secondary" href="#apply">🎓 Win one of 5 Full Scholarships</a>
       </div>
 
-      <div class="hero-benefits" style="margin-top:1.2rem; display:flex; align-items:center; flex-wrap:wrap; gap:1.8rem; color:#000;">
-        <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield">
+      <!-- ====== BARRA DE BENEFICIOS NUEVA ====== -->
+      <div class="benefits-bar">
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
           </svg>
-          <span>100% Job Experience Guaranteed</span>
+          <span><b>100%</b> Job Experience Guaranteed</span>
         </div>
-
-        <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
             <path d="M20 21v-2a4 4 0 0 0-3-3.87"></path>
             <path d="M4 21v-2a4 4 0 0 1 3-3.87"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
-          <span>1:1 Learn face-to-face with real mentors</span>
+          <span><b>1:1</b> Learn face-to-face with real mentors</span>
         </div>
-
-        <div class="benefit" style="display:flex; align-items:center; gap:8px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu">
+        <div class="benefit-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
             <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
             <rect x="9" y="9" width="6" height="6"></rect>
             <line x1="9" y1="1" x2="9" y2="4"></line>
@@ -377,7 +370,7 @@
             <line x1="1" y1="9" x2="4" y2="9"></line>
             <line x1="1" y1="15" x2="4" y2="15"></line>
           </svg>
-          <span>Hands-on lessons</span>
+          <span><b>Hands-on</b> lessons</span>
         </div>
       </div>
     </div>
@@ -445,88 +438,20 @@
       <h2 style="font-size:2.2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px; color:#000;">Curriculum Overview</h2>
 
       <style>
-        #curriculum .modules-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          align-items: start;
-          gap: 24px;
-        }
-        @media (max-width: 980px) {
-          #curriculum .modules-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-          #curriculum .modules-grid { grid-template-columns: 1fr; }
-        }
+        #curriculum .modules-grid { display:grid; grid-template-columns:repeat(3, 1fr); align-items:start; gap:24px; }
+        @media (max-width: 980px) { #curriculum .modules-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { #curriculum .modules-grid { grid-template-columns: 1fr; } }
 
-        #curriculum .module {
-          border: 2px solid #000;
-          border-radius: 12px;
-          padding: 22px;
-          text-align: left;
-          background: #fff;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
-          overflow: hidden;
-        }
-        #curriculum .module:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 6px 12px rgba(0,0,0,0.18);
-        }
-        #curriculum .module-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          cursor: pointer;
-        }
-        #curriculum .label {
-          display: block;
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          font-weight: 700;
-          color: #000;
-          margin-bottom: 6px;
-          opacity: 0.7;
-        }
-        #curriculum .module h3 {
-          margin: 0;
-          font-size: 1.05rem;
-          font-weight: 800;
-          color: #000;
-        }
-        #curriculum .toggle {
-          font-size: 1.5rem;
-          font-weight: 900;
-          line-height: 1;
-          user-select: none;
-        }
-        #curriculum .objectives {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.4s ease;
-          margin-top: 0;
-          padding-left: 20px;
-          list-style: disc;
-          color: #000;
-        }
-        #curriculum .objectives.open {
-          margin-top: 12px;
-          max-height: 400px;
-        }
-        #curriculum .cta-curriculum {
-          margin-top: 50px;
-          background: #000;
-          color: #FFD700;
-          font-weight: 800;
-          border: none;
-          padding: 14px 36px;
-          border-radius: 10px;
-          cursor: pointer;
-          font-size: 1rem;
-          transition: transform .2s ease, box-shadow .2s ease;
-        }
-        #curriculum .cta-curriculum:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-        }
+        #curriculum .module { border:2px solid #000; border-radius:12px; padding:22px; text-align:left; background:#fff; transition: transform .25s ease, box-shadow .25s ease; overflow:hidden; }
+        #curriculum .module:hover { transform: translateY(-4px); box-shadow: 0 6px 12px rgba(0,0,0,0.18); }
+        #curriculum .module-header { display:flex; align-items:center; justify-content:space-between; cursor:pointer; }
+        #curriculum .label { display:block; font-size:.8rem; text-transform:uppercase; font-weight:700; color:#000; margin-bottom:6px; opacity:.7; }
+        #curriculum .module h3 { margin:0; font-size:1.05rem; font-weight:800; color:#000; }
+        #curriculum .toggle { font-size:1.5rem; font-weight:900; line-height:1; user-select:none; }
+        #curriculum .objectives { max-height:0; overflow:hidden; transition:max-height .4s ease; margin-top:0; padding-left:20px; list-style:disc; color:#000; }
+        #curriculum .objectives.open { margin-top:12px; max-height:400px; }
+        #curriculum .cta-curriculum { margin-top:50px; background:#000; color:#FFD700; font-weight:800; border:none; padding:14px 36px; border-radius:10px; cursor:pointer; font-size:1rem; transition: transform .2s ease, box-shadow .2s ease; }
+        #curriculum .cta-curriculum:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
       </style>
 
       <div class="modules-grid">
@@ -629,14 +554,10 @@
 
         header.addEventListener("click", () => {
           const isOpen = objectives.classList.contains("open");
-
-          // Cerrar todos
           modules.forEach((m) => {
             m.querySelector(".objectives").classList.remove("open");
             m.querySelector(".toggle").textContent = "+";
           });
-
-          // Abrir solo el clicado si no estaba abierto
           if (!isOpen) {
             objectives.classList.add("open");
             toggle.textContent = "–";
@@ -646,195 +567,120 @@
     </script>
   </section>
 
-<!-- ====== TESTIMONIOS ====== -->
-<section id="testimonials" class="testimonials">
-  <h2>What Our Graduates Say</h2>
-  <p class="lead" style="max-width:800px; margin:0 auto 2rem; line-height:1.6;">
-    Previously, before this QA Bootcamp, we ran a <b>Frontend Development Bootcamp</b> — and the feedback from those students was incredible.  
-    Here’s what they shared about their experience 👇
-  </p>
+  <!-- ====== TESTIMONIOS ====== -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Graduates Say</h2>
+    <p class="lead" style="max-width:800px; margin:0 auto 2rem; line-height:1.6;">
+      Previously, before this QA Bootcamp, we ran a <b>Frontend Development Bootcamp</b> — and the feedback from those students was incredible.  
+      Here’s what they shared about their experience 👇
+    </p>
 
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=300&auto=format&fit=crop" alt="Graduate 1">
-        <div class="testi-info">
-          <div class="testi-name">
-            Sofia Ramirez
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=300&auto=format&fit=crop" alt="Graduate 1">
+          <div class="testi-info">
+            <div class="testi-name">
+              Sofia Ramirez
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">Frontend Developer @ FinTech Co.</div>
           </div>
-          <div class="testi-role">Frontend Developer @ FinTech Co.</div>
         </div>
+        <p class="testi-quote">“Learning by building real projects made all the difference. I transitioned into a frontend role right after finishing!”</p>
       </div>
-      <p class="testi-quote">“Learning by building real projects made all the difference. I transitioned into a frontend role right after finishing!”</p>
-    </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=300&auto=format&fit=crop" alt="Graduate 2">
-        <div class="testi-info">
-          <div class="testi-name">
-            Daniel Kim
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=300&auto=format&fit=crop" alt="Graduate 2">
+          <div class="testi-info">
+            <div class="testi-name">
+              Daniel Kim
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">Frontend Engineer @ SaaS Startup</div>
           </div>
-          <div class="testi-role">Frontend Engineer @ SaaS Startup</div>
         </div>
+        <p class="testi-quote">“The structure and mentorship were top-notch. It gave me the confidence to work with modern frameworks.”</p>
       </div>
-      <p class="testi-quote">“The structure and mentorship were top-notch. It gave me the confidence to work with modern frameworks.”</p>
-    </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format&fit=crop" alt="Graduate 3">
-        <div class="testi-info">
-          <div class="testi-name">
-            Alicia Torres
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format&fit=crop" alt="Graduate 3">
+          <div class="testi-info">
+            <div class="testi-name">
+              Alicia Torres
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">UI Developer @ HealthTech</div>
           </div>
-          <div class="testi-role">UI Developer @ HealthTech</div>
         </div>
+        <p class="testi-quote">“This bootcamp was the perfect bridge between theory and real-world coding challenges.”</p>
       </div>
-      <p class="testi-quote">“This bootcamp was the perfect bridge between theory and real-world coding challenges.”</p>
-    </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=300&auto=format&fit=crop" alt="Graduate 4">
-        <div class="testi-info">
-          <div class="testi-name">
-            Miguel Santos
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=300&auto=format&fit=crop" alt="Graduate 4">
+          <div class="testi-info">
+            <div class="testi-name">
+              Miguel Santos
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">React Developer @ E-commerce Co.</div>
           </div>
-          <div class="testi-role">React Developer @ E-commerce Co.</div>
         </div>
+        <p class="testi-quote">“The practical approach and teamwork dynamics prepared me for my current job. Incredible experience.”</p>
       </div>
-      <p class="testi-quote">“The practical approach and teamwork dynamics prepared me for my current job. Incredible experience.”</p>
-    </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=300&auto=format&fit=crop" alt="Graduate 5">
-        <div class="testi-info">
-          <div class="testi-name">
-            Isabella Nguyen
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=300&auto=format&fit=crop" alt="Graduate 5">
+          <div class="testi-info">
+            <div class="testi-name">
+              Isabella Nguyen
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">Frontend Designer @ Media Co.</div>
           </div>
-          <div class="testi-role">Frontend Designer @ Media Co.</div>
         </div>
+        <p class="testi-quote">“I loved the mentorship! Every lesson felt connected to what real developers do daily.”</p>
       </div>
-      <p class="testi-quote">“I loved the mentorship! Every lesson felt connected to what real developers do daily.”</p>
-    </div>
 
-    <div class="testi-card">
-      <div class="testi-header">
-        <img class="avatar" src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=300&auto=format&fit=crop" alt="Graduate 6">
-        <div class="testi-info">
-          <div class="testi-name">
-            Carlos Pérez
-            <a href="#" class="linkedin" title="LinkedIn Profile">
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
+      <div class="testi-card">
+        <div class="testi-header">
+          <img class="avatar" src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=300&auto=format&fit=crop" alt="Graduate 6">
+          <div class="testi-info">
+            <div class="testi-name">
+              Carlos Pérez
+              <a href="#" class="linkedin" title="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFB700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+            </div>
+            <div class="testi-role">Web Developer @ StartUpX</div>
           </div>
-          <div class="testi-role">Web Developer @ StartUpX</div>
         </div>
+        <p class="testi-quote">“Hands-on and focused on employability — that’s what made the difference for me.”</p>
       </div>
-      <p class="testi-quote">“Hands-on and focused on employability — that’s what made the difference for me.”</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  margin-top: 24px;
-}
-.testi-card {
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 6px 14px rgba(0,0,0,.05);
-  padding: 26px;
-  text-align: left;
-  transition: all 0.3s ease;
-}
-.testi-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,.08);
-}
-.testi-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
-}
-.avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--gold);
-}
-.testi-info {
-  flex: 1;
-}
-.testi-name {
-  font-weight: 800;
-  font-size: 1.05rem;
-  color: #000;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.linkedin svg {
-  transition: transform 0.25s ease;
-}
-.linkedin:hover svg {
-  transform: scale(1.2);
-}
-.testi-role {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #666;
-  margin-top: 2px;
-}
-.testi-quote {
-  font-size: 0.95rem;
-  color: #222;
-  line-height: 1.6;
-  margin-top: 10px;
-  font-style: italic;
-}
-@media (max-width: 820px) {
-  .testi-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .testi-grid { grid-template-columns: 1fr; }
-}
-</style>
-
-
-<!-- ====== APPLY (Ready to start your QA journey?) ====== -->
-<section id="apply" class="yellow-section">
-  <h2>Ready to Start Your QA Journey?</h2>
-  <p>Join <b>Caloosa Code</b> today and build skills that companies hire for.  
-    Applications are open now, and full scholarships are available for top candidates.</p>
-  <a class="yellow-btn" href="#apply">Apply to the Bootcamp ➜</a>
-</section>
-
-
+  <!-- ====== APPLY (Ready to start your QA journey?) ====== -->
+  <section id="apply" class="yellow-section">
+    <h2>Ready to Start Your QA Journey?</h2>
+    <p>Join <b>Caloosa Code</b> today and build skills that companies hire for.  
+      Applications are open now, and full scholarships are available for top candidates.</p>
+    <a class="yellow-btn" href="#apply">Apply to the Bootcamp ➜</a>
+  </section>
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
