@@ -651,9 +651,8 @@
   <h2>What Our Graduates Say</h2>
   <p class="lead">Real stories from students who became job-ready QA Engineers.</p>
 
-  <div class="carousel-container">
-    <button class="carousel-btn prev">‹</button>
-    <div class="carousel-track">
+  <div class="testi-carousel">
+    <div class="testi-track">
       <div class="testi-card">
         <img class="avatar" src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=300&auto=format&fit=crop" alt="Graduate 1">
         <div class="testi-name">Sofia Ramirez</div>
@@ -674,79 +673,64 @@
         <div class="testi-role">QA Analyst @ HealthTech</div>
         <div class="testi-quote">“I loved the real-world assignments and the 1:1 support. The internship helped me convert to a full-time role.”</div>
       </div>
+
+      <div class="testi-card">
+        <img class="avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=300&auto=format&fit=crop" alt="Graduate 4">
+        <div class="testi-name">Miguel Santos</div>
+        <div class="testi-role">QA Tester @ E-commerce Co.</div>
+        <div class="testi-quote">“This bootcamp changed how I see QA. The mentorship and career guidance were amazing!”</div>
+      </div>
     </div>
-    <button class="carousel-btn next">›</button>
   </div>
 </section>
 
 <style>
-.carousel-container {
-  position: relative;
+.testi-carousel {
   overflow: hidden;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
+  position: relative;
 }
-.carousel-track {
+.testi-track {
   display: flex;
-  transition: transform 0.5s ease;
+  gap: 22px;
+  animation: scrollTestimonials 22s linear infinite;
+}
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .testi-card {
-  flex: 0 0 50%;
-  box-sizing: border-box;
+  flex: 0 0 calc(50% - 11px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  padding: 22px;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--gold);
-  border: none;
-  font-size: 2rem;
-  font-weight: 900;
-  color: #000;
-  cursor: pointer;
-  padding: 0 10px;
-  border-radius: 8px;
-  opacity: 0.7;
-  transition: opacity 0.3s;
+.testi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
 }
-.carousel-btn:hover {
-  opacity: 1;
-}
-.carousel-btn.prev { left: 0; }
-.carousel-btn.next { right: 0; }
-@media (max-width: 700px){
-  .testi-card{flex:0 0 100%;}
+@media (max-width: 700px) {
+  .testi-card { flex: 0 0 100%; }
+  .testi-track { animation-duration: 30s; }
 }
 </style>
 
 <script>
-const track = document.querySelector('.carousel-track');
-const prevBtn = document.querySelector('.carousel-btn.prev');
-const nextBtn = document.querySelector('.carousel-btn.next');
-let index = 0;
-
-function moveCarousel() {
-  const total = document.querySelectorAll('.testi-card').length;
-  const visible = window.innerWidth < 700 ? 1 : 2;
-  if (index >= total - visible) index = 0;
-  if (index < 0) index = total - visible;
-  track.style.transform = `translateX(-${index * (100 / visible)}%)`;
-}
-
-nextBtn.addEventListener('click', () => { index++; moveCarousel(); });
-prevBtn.addEventListener('click', () => { index--; moveCarousel(); });
-setInterval(() => { index++; moveCarousel(); }, 5000);
+const track = document.querySelector('.testi-track');
+track.innerHTML += track.innerHTML; // duplicar contenido para loop infinito
 </script>
 
+
 <!-- ====== APPLY ====== -->
-<section id="apply" class="block" style="background:var(--gold);">
-  <h2>Ready to start your QA journey?</h2>
-  <p class="lead">Join Caloosa Code today and build skills that companies hire for. Applications are open now.</p>
-  <div class="btn-row" style="justify-content:center">
-    <a class="btn btn-primary" href="#apply">Apply to the Bootcamp</a>
-    <a class="btn btn-secondary" href="#apply">🎓 We have 5 Full Scholarships</a>
-  </div>
-</section>
+<section id="apply" class="block" style="background:var(--gold); padding:3.5rem 1.5rem;">
+  <h2 style="color:#000;">Ready to start your QA journey?</h2>
+  <p class="lead" style
+
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
