@@ -7,7 +7,6 @@
   <style>
     :root{
       --gold:#FFD700;
-      --amber:#FFB700;
       --text:#0B0C10;
       --muted:#333;
       --border:rgba(255,183,0,.3);
@@ -39,22 +38,44 @@
     .hero p{color:var(--muted);line-height:1.7;font-size:1.1rem;max-width:700px;margin:0 auto;}
 
     /* CURRICULUM */
-    .curriculum{max-width:1100px;margin:3rem auto;padding:0 1.5rem;display:flex;flex-direction:column;gap:1.5rem;}
+    .curriculum{max-width:1100px;margin:3rem auto;padding:0 1.5rem;display:flex;flex-direction:column;gap:1.2rem;}
     .week-block{
       border:1px solid var(--border);
       border-radius:12px;
       background:#fff;
-      padding:1.8rem;
-      transition:transform .25s, box-shadow .25s;
+      transition:box-shadow .25s, transform .25s;
+      overflow:hidden;
     }
-    .week-block:nth-child(even){background:var(--light-bg);}
-    .week-block:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.06);}
-    .week-header{font-weight:800;font-size:1.15rem;margin-bottom:1rem;color:#000;}
+    .week-block:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.05);}
+    .week-header{
+      background:var(--light-bg);
+      font-weight:800;font-size:1.15rem;
+      color:#000;
+      padding:1rem 1.5rem;
+      display:flex;justify-content:space-between;align-items:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    .week-header:hover{background:#f0f0f0;}
     .week-label{background:var(--gold);color:#000;padding:4px 10px;border-radius:8px;font-size:.85rem;margin-right:10px;}
-    .week-content{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .toggle-icon{font-size:1.4rem;font-weight:900;color:var(--muted);transition:transform .25s;}
+    .week-block.open .toggle-icon{transform:rotate(180deg);}
+
+    .week-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .4s ease, padding .3s ease;
+      padding:0 1.5rem;
+    }
+    .week-block.open .week-content{
+      max-height:900px;
+      padding:1.5rem;
+    }
+
     .week-content h4{margin:0 0 .6rem 0;font-weight:800;color:#000;}
     .week-content ul{list-style:disc;padding-left:1.4rem;margin:0;color:var(--muted);line-height:1.6;font-size:.96rem;}
     .week-content ul li{margin-bottom:.4rem;}
+    .week-content div{margin-bottom:1rem;}
 
     /* CTA */
     .cta-section{background:var(--gold);text-align:center;padding:3rem 1.5rem;color:#000;margin-top:3rem;}
@@ -63,8 +84,6 @@
     .yellow-btn{display:inline-block;background:#000;color:var(--gold);padding:.9rem 1.7rem;border-radius:10px;font-weight:800;text-decoration:none;transition:transform .25s, box-shadow .25s;}
     .yellow-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);}
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
-
-    @media(max-width:800px){.week-content{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -95,7 +114,10 @@
   <section class="curriculum">
     <!-- Weeks 1–4 -->
     <div class="week-block">
-      <div class="week-header"><span class="week-label">Weeks 1–4</span> QA Fundamentals & Manual Testing</div>
+      <div class="week-header">
+        <div><span class="week-label">Weeks 1–4</span> QA Fundamentals & Manual Testing</div>
+        <div class="toggle-icon">+</div>
+      </div>
       <div class="week-content">
         <div>
           <h4>Goals</h4>
@@ -113,53 +135,59 @@
             <li>Introduction to the Software Development Life Cycle (SDLC)</li>
             <li>Types and levels of testing, QA roles</li>
             <li>Test case design and execution</li>
-            <li>Test management with AIO Test / TestRail</li>
-            <li>Bug reporting in Jira</li>
-            <li>Hands-on web app project and full traceability</li>
+            <li>Test case management using AIO Test / TestRail</li>
+            <li>Bug reporting and management in Jira</li>
+            <li>Hands-on practice with a sample web application and full traceability</li>
           </ul>
         </div>
       </div>
     </div>
 
     <!-- Weeks 5–10 -->
-<div class="week-block">
-  <div class="week-header"><span class="week-label">Weeks 5–10</span> Web & Mobile Test Automation</div>
-  <div class="week-content">
-    <div>
-      <h4>Goals</h4>
-      <ul>
-        <li>Build a basic test automation framework using Selenium and C#</li>
-        <li>Automate functional test cases with DOM locators and assertions</li>
-        <li>Apply the Page Object Model for scalability and maintenance</li>
-        <li>Integrate tests with BrowserStack and version control via GitHub</li>
-        <li>Extend automation to mobile applications using Appium</li>
-      </ul>
+    <div class="week-block">
+      <div class="week-header">
+        <div><span class="week-label">Weeks 5–10</span> Web & Mobile Test Automation</div>
+        <div class="toggle-icon">+</div>
+      </div>
+      <div class="week-content">
+        <div>
+          <h4>Goals</h4>
+          <ul>
+            <li>Build a basic test automation framework using Selenium and C#</li>
+            <li>Automate functional test cases with DOM locators and assertions</li>
+            <li>Apply the Page Object Model for scalability and maintenance</li>
+            <li>Integrate tests with BrowserStack and version control via GitHub</li>
+            <li>Extend automation to mobile applications using Appium</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Content</h4>
+          <ul>
+            <li><b>Web Automation (Weeks 5–7):</b></li>
+            <ul>
+              <li>Selenium + C# fundamentals</li>
+              <li>Test framework structure using NUnit or MSTest</li>
+              <li>DOM interaction, locators, and Page Object Model</li>
+              <li>Integration with BrowserStack and GitHub</li>
+            </ul>
+            <li><b>Mobile Automation (Weeks 8–10):</b></li>
+            <ul>
+              <li>Mobile testing fundamentals (iOS / Android)</li>
+              <li>Appium setup for local and emulator testing</li>
+              <li>Test framework structure for mobile automation</li>
+              <li>Page Object Model and locator strategies for mobile apps</li>
+            </ul>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div>
-      <h4>Content</h4>
-      <ul>
-        <li><b>Web Automation (Weeks 5–7):</b></li>
-        <ul>
-          <li>Selenium + C# fundamentals</li>
-          <li>Test framework structure using NUnit or MSTest</li>
-          <li>DOM interaction, locators, and Page Object Model</li>
-          <li>Integration with BrowserStack and GitHub</li>
-        </ul>
-        <li><b>Mobile Automation (Weeks 8–10):</b></li>
-        <ul>
-          <li>Mobile testing fundamentals (iOS / Android)</li>
-          <li>Appium setup for local and emulator testing</li>
-          <li>Test framework structure for mobile automation</li>
-          <li>Page Object Model and locator strategies for mobile apps</li>
-        </ul>
-      </ul>
-    </div>
-  </div>
-</div>
 
     <!-- Weeks 11–14 -->
     <div class="week-block">
-      <div class="week-header"><span class="week-label">Weeks 11–14</span> API Testing + Databases</div>
+      <div class="week-header">
+        <div><span class="week-label">Weeks 11–14</span> API Testing + Databases</div>
+        <div class="toggle-icon">+</div>
+      </div>
       <div class="week-content">
         <div>
           <h4>Goals</h4>
@@ -184,7 +212,10 @@
 
     <!-- Weeks 15–17 -->
     <div class="week-block">
-      <div class="week-header"><span class="week-label">Weeks 15–17</span> Performance Testing</div>
+      <div class="week-header">
+        <div><span class="week-label">Weeks 15–17</span> Performance Testing</div>
+        <div class="toggle-icon">+</div>
+      </div>
       <div class="week-content">
         <div>
           <h4>Goals</h4>
@@ -209,7 +240,10 @@
 
     <!-- Weeks 18–20 -->
     <div class="week-block">
-      <div class="week-header"><span class="week-label">Weeks 18–20</span> Capstone Project & Career Preparation</div>
+      <div class="week-header">
+        <div><span class="week-label">Weeks 18–20</span> Capstone Project & Career Preparation</div>
+        <div class="toggle-icon">+</div>
+      </div>
       <div class="week-content">
         <div>
           <h4>Goals</h4>
@@ -234,7 +268,10 @@
 
     <!-- Months 6–8 -->
     <div class="week-block">
-      <div class="week-header"><span class="week-label">Months 6–8</span> Internship / Real-World QA Project</div>
+      <div class="week-header">
+        <div><span class="week-label">Months 6–8</span> Internship / Real-World QA Project</div>
+        <div class="toggle-icon">+</div>
+      </div>
       <div class="week-content">
         <div>
           <h4>Goals</h4>
@@ -267,5 +304,16 @@
   </section>
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
+
+  <script>
+    document.querySelectorAll('.week-block').forEach(block => {
+      const header = block.querySelector('.week-header');
+      const icon = block.querySelector('.toggle-icon');
+      header.addEventListener('click', () => {
+        block.classList.toggle('open');
+        icon.textContent = block.classList.contains('open') ? '−' : '+';
+      });
+    });
+  </script>
 </body>
 </html>
