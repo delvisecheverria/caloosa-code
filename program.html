@@ -10,14 +10,15 @@
       --amber:#FFB700;
       --text:#0B0C10;
       --muted:#333;
-      --border:rgba(255,183,0,.45);
+      --border:rgba(255,183,0,.3);
+      --light-bg:#fafafa;
     }
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
       color:var(--text);
       background:#fff;
-      overflow-y: scroll;
+      overflow-y:scroll;
     }
 
     /* ===== HEADER ===== */
@@ -28,91 +29,78 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      position:relative;
-      z-index:100;
     }
-    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
+    .logo{
+      display:flex;align-items:center;gap:6px;font-weight:800;
+      text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px
+    }
     .logo span:first-child{color:#000}
     .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
-
     nav .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      margin-left:1.25rem;
-      font-weight:600;
-      position:relative;
+      color:var(--text);text-decoration:none;margin-left:1.25rem;
+      font-weight:600;position:relative;
     }
     nav .nav-links a:hover::after,
     nav .nav-links a.active::after{
-      content:"";
-      position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);
+      content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);
     }
 
     /* ===== HERO ===== */
-    .hero{
-      text-align:center;
-      max-width:900px;
-      margin:3rem auto 2rem;
-      padding:0 1.5rem;
-    }
+    .hero{text-align:center;max-width:900px;margin:3rem auto 2rem;padding:0 1.5rem;}
     .hero h1{
-      font-size:2.6rem;
-      font-weight:900;
-      color:#000;
-      margin-bottom:.5rem;
+      font-size:2.6rem;font-weight:900;color:#000;margin-bottom:.5rem;
     }
-    .hero p{
-      color:var(--muted);
-      line-height:1.7;
-      font-size:1.1rem;
-      max-width:700px;
-      margin:0 auto;
-    }
+    .hero h1 span{color:var(--gold);}
+    .hero p{color:var(--muted);line-height:1.7;font-size:1.1rem;max-width:700px;margin:0 auto;}
 
-    /* ===== CURRICULUM GRID ===== */
-    .modules-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:24px;
+    /* ===== CURRICULUM BLOCKS ===== */
+    .curriculum{
       max-width:1100px;
-      margin:2.5rem auto;
+      margin:3rem auto;
       padding:0 1.5rem;
+      display:flex;
+      flex-direction:column;
+      gap:1.5rem;
     }
-    .module{
-      border:2px solid var(--border);
-      border-radius:14px;
-      padding:24px;
+    .week-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.5rem;
+      border:1px solid var(--border);
+      border-radius:12px;
       background:#fff;
+      padding:1.8rem;
       transition:transform .25s, box-shadow .25s;
-      text-align:left;
     }
-    .module:hover{
-      transform:translateY(-4px);
-      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    .week-row:nth-child(even){background:var(--light-bg);}
+    .week-row:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 18px rgba(0,0,0,.06);
     }
-    .module .label{
+    .week-label{
       display:inline-block;
       background:var(--gold);
       color:#000;
-      font-size:.8rem;
       font-weight:700;
-      padding:3px 8px;
-      border-radius:6px;
-      margin-bottom:10px;
+      font-size:.85rem;
+      padding:4px 10px;
+      border-radius:8px;
+      margin-bottom:.7rem;
     }
-    .module h3{
-      margin:0 0 .8rem 0;
-      font-size:1.1rem;
+    .week-row h3{
+      margin:0 0 .6rem 0;
       font-weight:800;
+      font-size:1.1rem;
       color:#000;
     }
-    .module ul{
-      padding-left:1.2rem;
+    .week-row ul{
+      list-style:disc;
+      padding-left:1.4rem;
+      margin:0;
       color:var(--muted);
-      font-size:.95rem;
       line-height:1.6;
+      font-size:.96rem;
     }
-    .module ul li{margin-bottom:.4rem;}
 
     /* ===== CTA SECTION ===== */
     .cta-section{
@@ -120,6 +108,7 @@
       text-align:center;
       padding:3rem 1.5rem;
       color:#000;
+      margin-top:3rem;
     }
     .cta-section h2{
       font-size:2rem;
@@ -144,18 +133,13 @@
     }
     .yellow-btn:hover{
       transform:translateY(-2px);
-      box-shadow:0 10px 24px rgba(0,0,0,.2);
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
     }
 
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
 
-    /* ===== RESPONSIVE ===== */
     @media(max-width:800px){
-      .hamburger{display:inline-block;}
-      nav .nav-links{display:none;}
-    }
-    @media(min-width:801px){
-      .nav-panel, .overlay{display:none!important;}
+      .week-row{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -180,70 +164,141 @@
   </header>
 
   <section class="hero">
-    <h1>QA Engineer Curriculum</h1>
-    <p>A 5-month intensive program designed to prepare you for your first QA job through hands-on learning, real projects, and mentorship.</p>
+    <h1><span>QA Engineer</span> Curriculum</h1>
+    <p>A 5-month intensive program designed to prepare you for your first QA job — plus a 3-month guided internship with real companies.</p>
   </section>
 
-  <section class="modules-grid">
-    <div class="module">
-      <span class="label">Weeks 1–4</span>
-      <h3>QA Fundamentals & Manual Testing</h3>
-      <ul>
-        <li>Understand SDLC and QA’s role in it</li>
-        <li>Differentiate between testing types and levels</li>
-        <li>Design and execute manual test cases</li>
-        <li>Report bugs with clarity and reproducibility</li>
-        <li>Use Jira, TestRail, and AIO Test effectively</li>
-      </ul>
+  <section class="curriculum">
+    <!-- Weeks 1–4 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Weeks 1–4</span>
+        <h3>QA Fundamentals & Manual Testing</h3>
+        <ul>
+          <li>Understand QA’s role in the software lifecycle</li>
+          <li>Design and execute effective manual test cases</li>
+          <li>Report bugs with clarity and reproducibility</li>
+          <li>Develop attention to detail and documentation skills</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> SDLC, Testing levels, Test Design, Defect Management</li>
+          <li><b>Tools:</b> Jira, TestRail, AIO Test</li>
+          <li><b>Deliverables:</b> Bug reports, Test plans, QA documentation</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="module">
-      <span class="label">Weeks 5–10</span>
-      <h3>Web & Mobile Test Automation</h3>
-      <ul>
-        <li>Build frameworks with Selenium & C#</li>
-        <li>Apply Page Object Model for test maintenance</li>
-        <li>Run Appium tests on real devices</li>
-        <li>Version control with GitHub</li>
-      </ul>
+    <!-- Weeks 5–10 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Weeks 5–10</span>
+        <h3>Web & Mobile Test Automation</h3>
+        <ul>
+          <li>Learn test automation fundamentals using C# and Selenium</li>
+          <li>Build frameworks using the Page Object Model</li>
+          <li>Execute mobile tests with Appium on real devices</li>
+          <li>Understand CI/CD integration for test automation</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> Selenium WebDriver, NUnit, Appium basics, BrowserStack</li>
+          <li><b>Tools:</b> Visual Studio, GitHub Actions</li>
+          <li><b>Deliverables:</b> Automated scripts, reusable framework</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="module">
-      <span class="label">Weeks 11–14</span>
-      <h3>API Testing + Databases</h3>
-      <ul>
-        <li>Validate REST API endpoints with Postman</li>
-        <li>Use environments and automate assertions</li>
-        <li>Run SQL queries for data verification</li>
-        <li>Tools: Postman, DBeaver</li>
-      </ul>
+    <!-- Weeks 11–14 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Weeks 11–14</span>
+        <h3>API Testing & Databases</h3>
+        <ul>
+          <li>Understand REST architecture and HTTP methods</li>
+          <li>Write automated API tests and assertions</li>
+          <li>Execute and validate SQL queries</li>
+          <li>Test data integrity and backend validation</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> Postman Collections, JSON payloads, SQL fundamentals</li>
+          <li><b>Tools:</b> Postman, DBeaver</li>
+          <li><b>Deliverables:</b> API test suite, Database validation scripts</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="module">
-      <span class="label">Weeks 15–17</span>
-      <h3>Performance Testing</h3>
-      <ul>
-        <li>Understand load, stress, and endurance testing</li>
-        <li>Create JMeter scripts for performance validation</li>
-        <li>Analyze test results and performance metrics</li>
-      </ul>
+    <!-- Weeks 15–17 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Weeks 15–17</span>
+        <h3>Performance Testing</h3>
+        <ul>
+          <li>Understand performance test principles and KPIs</li>
+          <li>Create load and stress test scenarios</li>
+          <li>Analyze performance reports and metrics</li>
+          <li>Optimize test configurations for scalability</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> Load vs. Stress tests, KPIs, Performance tuning</li>
+          <li><b>Tools:</b> Apache JMeter, OctoPerf</li>
+          <li><b>Deliverables:</b> Performance reports, analysis summary</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="module">
-      <span class="label">Weeks 18–20</span>
-      <h3>Capstone Project & Career Preparation</h3>
-      <ul>
-        <li>Build your QA portfolio</li>
-        <li>Prepare for interviews and mock sessions</li>
-        <li>Present your final QA project</li>
-        <li>Receive personalized feedback</li>
-      </ul>
+    <!-- Weeks 18–20 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Weeks 18–20</span>
+        <h3>Capstone Project & Career Preparation</h3>
+        <ul>
+          <li>Build a real QA project portfolio</li>
+          <li>Apply all QA disciplines learned during the program</li>
+          <li>Prepare for interviews and mock assessments</li>
+          <li>Showcase your QA project presentation</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> Project planning, test execution, reporting</li>
+          <li><b>Tools:</b> GitHub, Notion, AIO Test</li>
+          <li><b>Deliverables:</b> Full QA case study project</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Months 6–8 -->
+    <div class="week-row">
+      <div>
+        <span class="week-label">Months 6–8</span>
+        <h3>Internship / First QA Job Experience</h3>
+        <ul>
+          <li>Collaborate with partner companies on live QA projects</li>
+          <li>Work within agile teams with real deadlines</li>
+          <li>Receive mentorship from experienced QA professionals</li>
+          <li>Document and report real QA results</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><b>Content:</b> Internship program structure, company onboarding, collaboration tools</li>
+          <li><b>Environment:</b> Real industry projects with supervision</li>
+          <li><b>Outcome:</b> First official QA experience for your résumé</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="cta-section">
     <h2>Ready to Start Your QA Journey?</h2>
-    <p>Join <b>Caloosa Code</b> today and build real QA skills that companies hire for. Applications are open now!</p>
+    <p>Join <b>Caloosa Code</b> today and build the QA skills companies are hiring for. Applications are open now.</p>
     <a class="yellow-btn" href="apply.html">Apply Now</a>
   </section>
 
