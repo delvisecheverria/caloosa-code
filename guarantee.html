@@ -92,9 +92,32 @@
       flex-wrap:wrap;
       gap:2rem;
     }
-    .partners-text{flex:1 1 420px;}
-    .partners-text h2{font-size:1.8rem;font-weight:900;margin-bottom:1rem;color:#000;}
-    .partners-text p{color:var(--muted);max-width:600px;line-height:1.6;}
+    .partners h2{
+      width:100%;
+      text-align:center;
+      font-size:1.9rem;
+      font-weight:900;
+      color:#000;
+      margin-bottom:1.5rem;
+    }
+    .partners-content{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:2rem;
+      width:100%;
+    }
+    .partners-text{
+      flex:1 1 420px;
+      text-align:left;
+    }
+    .partners-text p{
+      color:var(--muted);
+      line-height:1.7;
+      max-width:500px;
+      font-size:1.05rem;
+    }
     .partners img{
       flex:1 1 420px;
       width:100%;
@@ -102,16 +125,37 @@
       border-radius:16px;
       box-shadow:0 8px 20px rgba(0,0,0,.08);
     }
-    .logo-row{
+
+    /* ===== PARTNER LOGOS ===== */
+    .partner-logos{
       width:100%;
       display:flex;
       justify-content:center;
-      gap:40px;
-      margin-top:2rem;
+      gap:30px;
       flex-wrap:wrap;
+      margin-top:2.5rem;
     }
-    .logo-row img{height:40px;opacity:.85;transition:opacity .25s;}
-    .logo-row img:hover{opacity:1;}
+    .partner-card{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:#fff;
+      box-shadow:0 4px 12px rgba(0,0,0,.04);
+      transition:transform .25s;
+    }
+    .partner-card:hover{transform:translateY(-4px);}
+    .partner-logo{
+      width:26px;height:26px;border-radius:50%;
+      background:var(--gold);
+    }
+    .partner-name{
+      font-weight:700;
+      font-size:.95rem;
+      color:#000;
+    }
 
     /* ===== BENEFITS ===== */
     .benefits{text-align:center;margin:4rem 0;}
@@ -131,7 +175,7 @@
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
 
     @media(max-width:900px){
-      .partners{flex-direction:column;text-align:center;}
+      .partners-content{flex-direction:column;text-align:center;}
       .benefit-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
     }
     @media(max-width:800px){
@@ -169,6 +213,7 @@
     <h1><span>Get Your First Job</span> <span class="highlight">— 100% Guaranteed</span></h1>
     <p>All Caloosa Code graduates will gain real-world QA experience through a <b>3-month guided internship</b> in one of our partner companies. Apply your skills, work with real teams, and start building your career in software testing.</p>
 
+    <!-- Steps -->
     <div class="steps-pro">
       <article class="step-card">
         <div class="step-head">
@@ -201,21 +246,25 @@
       </article>
     </div>
 
+    <!-- Partners -->
     <section class="partners">
-      <div class="partners-text">
-        <h2>Work with Our Partner Companies</h2>
-        <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
+      <h2>Work with Our Partner Companies</h2>
+      <div class="partners-content">
+        <div class="partners-text">
+          <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
+        </div>
+        <img src="./job.png" alt="QA Internship Collaboration" />
       </div>
-      <img src="./job.png" alt="QA Internship Collaboration" />
+
+      <div class="partner-logos">
+        <div class="partner-card"><div class="partner-logo"></div><span class="partner-name">QA Labs</span></div>
+        <div class="partner-card"><div class="partner-logo"></div><span class="partner-name">Softlytics</span></div>
+        <div class="partner-card"><div class="partner-logo"></div><span class="partner-name">TestHive</span></div>
+        <div class="partner-card"><div class="partner-logo"></div><span class="partner-name">BugTrackers</span></div>
+      </div>
     </section>
 
-    <div class="logo-row">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 1">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 2">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 4">
-    </div>
-
+    <!-- Benefits -->
     <section class="benefits">
       <h2>What You’ll Gain</h2>
       <div class="benefit-grid">
