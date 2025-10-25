@@ -1,59 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Partners — Caloosa Code</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
-    .partners-wrap{max-width:980px;margin:0 auto;padding:0 16px}
-    .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;max-width:900px;margin:30px auto}
-    .logo-card{height:80px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.04);transition:.25s}
-    .logo-card:hover{border-color:#FFD700;transform:translateY(-2px)}
-    .logo-card svg{width:120px;height:40px}
+    :root{
+      --gold:#FFD700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.3);
+    }
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+      overflow-y:scroll;
+    }
+    header{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;}
+    .logo .badge{background:var(--gold);padding:3px 6px;border-radius:6px}
+    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative;}
+    nav .nav-links a:hover::after,
+    nav .nav-links a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);}
+
+    main{max-width:1100px;margin:3rem auto;padding:0 1.5rem;}
+
+    .partners-section{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:2rem;
+      margin-bottom:3rem;
+    }
+    .partners-text h1{text-align:center;font-size:2.4rem;font-weight:900;margin-bottom:.5rem;color:#000;}
+    .partners-text h1 span{color:var(--gold);}
+    .partners-text h2{text-align:left;font-size:2rem;font-weight:900;margin-bottom:1rem;color:#000;}
+    .partners-text p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.2rem;}
+    .partners-image img{width:100%;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.1);}
+
+    .logos{
+      display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:2rem;
+      margin:3rem auto;
+    }
+    .logos img{
+      width:140px;
+      height:auto;
+      filter:grayscale(100%);
+      opacity:.8;
+      transition:all .3s ease;
+    }
+    .logos img:hover{filter:grayscale(0%);opacity:1;transform:translateY(-4px);}
+
+    .cta{
+      background:var(--gold);
+      color:#000;
+      text-align:center;
+      padding:3rem 1.5rem;
+      border-radius:0;
+      margin-top:3rem;
+    }
+    .cta h2{font-size:2rem;font-weight:900;margin-bottom:.6rem;}
+    .cta p{max-width:700px;margin:0 auto 1.5rem;line-height:1.6;}
+    .yellow-btn{
+      display:inline-block;
+      background:#000;
+      color:var(--gold);
+      padding:.9rem 1.7rem;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+      transition:transform .25s,box-shadow .25s;
+    }
+    .yellow-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);}
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
+
+    @media(max-width:800px){
+      .partners-section{grid-template-columns:1fr;text-align:center;}
+      .partners-image{order:-1;}
+    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="header">
-      <span class="brand">
-        <span class="symbol">&lt;//&gt;</span>
-        <span class="badge">CALOOSA</span>
-        <span class="code">CODE</span>
-      </span>
-    </header>
-
-    <section class="empower">
-      <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
-    </section>
-
-    <section class="hero partners-wrap">
-      <h1 class="hero-title">Our Partners</h1>
-
-      <nav class="main-nav">
-        <a href="program.html">Program</a>
+  <header>
+    <div class="logo">
+      <span>&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span>CODE</span>
+    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="partners.html">Partners</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="guarantee.html">My First Job</a>
+        <a href="partners.html" class="active">Partners</a>
+        <a href="apply.html">Apply</a>
         <a href="contact.html">Contact</a>
-      </nav>
+      </div>
+    </nav>
+  </header>
 
-      <div class="logo-grid">
-        <!-- 8 placeholders -->
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
-        <div class="logo-card"><svg viewBox="0 0 120 40"><rect x="1" y="1" width="118" height="38" rx="6" fill="#f3f4f6" stroke="#e5e7eb"/><text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#9aa2ad">Logo</text></svg></div>
+  <main>
+    <section class="partners-section">
+      <div class="partners-text">
+        <h1>Our <span>Partner Companies</span></h1>
+        <h2>Work with Our Partner Companies</h2>
+        <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
+        <p>These partnerships bridge the gap between education and employment — helping our graduates apply their skills in real-world projects and secure their first QA job experience.</p>
+      </div>
+      <div class="partners-image">
+        <img src="./partners-team.jpg" alt="Partner Collaboration">
       </div>
     </section>
 
-    <footer class="footer">
-      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a class="email" href="mailto:info@sqaadvisory.com">info@sqaadvisory.com</a></p>
-    </footer>
+    <div class="logos">
+      <img src="./partner1.png" alt="Partner 1">
+      <img src="./partner2.png" alt="Partner 2">
+      <img src="./partner3.png" alt="Partner 3">
+      <img src="./partner4.png" alt="Partner 4">
+      <img src="./partner5.png" alt="Partner 5">
+    </div>
+
+    <section class="cta">
+      <h2>Become a Partner</h2>
+      <p>Join our network of companies mentoring future QA professionals.  
+      Partner with Caloosa Code and gain access to trained and motivated QA interns ready to make an impact.</p>
+      <a href="contact.html" class="yellow-btn">Contact Us</a>
+    </section>
   </main>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 </body>
 </html>
