@@ -1,75 +1,169 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — Caloosa Code</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us — Caloosa Code</title>
   <style>
-    .contact-wrap{max-width:720px;margin:0 auto;padding:0 16px}
-    .envelope{width:120px;height:120px;margin:0 auto 12px;display:block;animation:float 3.5s ease-in-out infinite}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
-    form.contact{display:grid;gap:10px;margin-top:16px}
-    form.contact input, form.contact textarea{padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px;font:inherit}
-    form.contact button{background:#FFD700;border:none;color:#000;font-weight:700;padding:10px 14px;border-radius:999px;cursor:pointer}
-    form.contact button:hover{filter:brightness(.95)}
-    .note{font-size:12px;color:#666;margin-top:8px}
+    :root{
+      --gold:#FFD700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+      overflow-y:scroll;
+      scrollbar-gutter:stable;
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      position:fixed;top:0;left:0;right:0;width:100%;
+      background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);
+      z-index:1000;
+    }
+    .header-inner{max-width:1200px;margin:0 auto;padding:1.25rem 1rem;
+      display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:6px;font-weight:800;
+      text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px;}
+    .logo span:first-child{color:#000}
+    .logo .badge{background:var(--gold);color:var(--text);
+      padding:3px 6px;border-radius:6px}
+    nav .nav-links a{color:var(--text);text-decoration:none;
+      margin-left:1.25rem;font-weight:600;position:relative;}
+    nav .nav-links a:hover::after,nav .nav-links a.active::after{
+      content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;
+      background:var(--gold);
+    }
+
+    .hamburger{display:none;border:2px solid #000;background:#fff;
+      border-radius:10px;padding:.5rem .6rem;cursor:pointer;z-index:120;}
+    .hamburger>span{display:block;width:22px;height:2px;background:#000;
+      margin:4px 0;transition:.25s ease;}
+    .nav-panel{display:none;position:fixed;inset:0;background:#fff;
+      padding:80px 24px 24px;z-index:110;}
+    .nav-panel a{display:block;padding:14px 8px;font-weight:800;
+      text-decoration:none;color:#000;border-bottom:1px solid #eee;}
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);
+      backdrop-filter:blur(3px);z-index:90;}
+    .nav-open .nav-panel{display:block;}
+    .nav-open .overlay{display:block;}
+    .nav-open .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-open .hamburger span:nth-child(2){opacity:0}
+    .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    @media(max-width:800px){.hamburger{display:inline-block}
+      nav .nav-links{display:none}}
+    @media(min-width:801px){.nav-panel,.overlay{display:none!important}}
+
+    /* ===== MAIN ===== */
+    main{max-width:900px;margin:7rem auto 3rem;padding:0 1.5rem;text-align:center;}
+    h1{font-size:2.5rem;font-weight:900;margin-bottom:1rem;}
+    h1 span{color:var(--gold);}
+    p{color:var(--muted);font-size:1.05rem;line-height:1.7;margin-bottom:2rem;}
+
+    .illustration{text-align:center;margin:2rem auto;}
+    .illustration img{width:180px;max-width:90%;height:auto;}
+
+    form{max-width:600px;margin:0 auto;background:#fff;
+      border:1px solid var(--border);border-radius:14px;
+      padding:2rem;box-shadow:0 8px 24px rgba(0,0,0,0.05);}
+    form label{display:block;text-align:left;margin-bottom:6px;
+      font-weight:600;color:#000;}
+    form input,form textarea{
+      width:100%;padding:10px 12px;margin-bottom:1rem;
+      border:1px solid #ccc;border-radius:8px;font-size:1rem;
+    }
+    form button{
+      background:#000;color:var(--gold);border:none;
+      padding:.9rem 1.7rem;border-radius:10px;
+      font-weight:800;cursor:pointer;transition:transform .25s,box-shadow .25s;
+    }
+    form button:hover{transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(0,0,0,0.08);}
+    .success{display:none;margin-top:1rem;color:green;font-weight:600;}
+
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;
+      border-top:1px solid #eee;margin-top:3rem;}
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="header">
-      <span class="brand">
-        <span class="symbol">&lt;//&gt;</span>
-        <span class="badge">CALOOSA</span>
-        <span class="code">CODE</span>
-      </span>
-    </header>
+  <div class="overlay" id="overlay"></div>
 
-    <section class="empower">
-      <p>EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</p>
-    </section>
-
-    <section class="hero contact-wrap">
-      <h1 class="hero-title">Contact Us</h1>
-
-      <nav class="main-nav">
-        <a href="program.html">Program</a>
-        <a href="about.html">About</a>
-        <a href="partners.html">Partners</a>
-        <a href="contact.html">Contact</a>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span>&lt;//&gt;</span><span class="badge">CALOOSA</span><span>CODE</span>
+      </div>
+      <nav>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="program.html">Curriculum</a>
+          <a href="guarantee.html">My First Job</a>
+          <a href="partners.html">Partners</a>
+          <a href="apply.html">Apply</a>
+          <a href="scholarships.html">Scholarships</a>
+          <a href="contact.html" class="active">Contact</a>
+        </div>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <div class="nav-panel" id="navPanel">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="program.html">Curriculum</a>
+          <a href="guarantee.html">My First Job</a>
+          <a href="partners.html">Partners</a>
+          <a href="apply.html">Apply</a>
+          <a href="scholarships.html">Scholarships</a>
+          <a href="contact.html">Contact</a>
+        </div>
       </nav>
+    </div>
+  </header>
 
-      <!-- Envelope animation -->
-      <svg class="envelope" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="10" y="20" width="100" height="40" rx="6" ry="6" fill="#fff" stroke="#000" stroke-width="1.5"/>
-        <polyline points="10,20 60,50 110,20" fill="none" stroke="#000" stroke-width="1.5"/>
-      </svg>
+  <main>
+    <div class="illustration">
+      <img src="./paperplane-flamingo.png" alt="Paper plane and flamingo illustration">
+    </div>
+    <h1>Say <span>Hello!</span></h1>
+    <p>Have a question, a partnership idea, or just want to share good vibes?  
+       Drop us a message — our digital flamingo 🦩 will deliver it with style!</p>
 
-      <p class="intro" style="max-width:520px">Send us a message and we'll get back to you soon.</p>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input id="name" type="text" required placeholder="Jane Doe"/>
 
-      <!-- REAL submit via FormSubmit -->
-      <form class="contact" action="https://formsubmit.co/info@sqaadvisory.com" method="POST">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+      <label for="email">Email</label>
+      <input id="email" type="email" required placeholder="you@example.com"/>
 
-        <!-- anti-bot -->
-        <input type="text" name="_honey" style="display:none">
-        <!-- success redirect -->
-        <input type="hidden" name="_next" value="thankyou.html">
-        <input type="hidden" name="_captcha" value="false">
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" required placeholder="Write something nice..."></textarea>
 
-        <button type="submit">Send Message ✉️</button>
-      </form>
-      <p class="note">* First submission triggers a one-time verification from FormSubmit to activate this recipient.</p>
-    </section>
-
-    <footer class="footer">
-      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a class="email" href="mailto:info@sqaadvisory.com">info@sqaadvisory.com</a></p>
-    </footer>
+      <button type="submit">Send Message 📨</button>
+      <div class="success">Your message has taken off! ✈️</div>
+    </form>
   </main>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
+
+  <script>
+    const body=document.body,h=document.getElementById('hamburger'),
+    n=document.getElementById('navPanel'),o=document.getElementById('overlay');
+    h.onclick=()=>body.classList.toggle('nav-open');
+    o.onclick=()=>body.classList.remove('nav-open');
+    n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
+
+    const form=document.getElementById('contactForm');
+    const msg=document.querySelector('.success');
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      msg.style.display='block';
+      form.reset();
+    });
+  </script>
 </body>
 </html>
