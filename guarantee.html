@@ -86,51 +86,52 @@
     /* ===== PARTNER SECTION ===== */
     .partners{
       margin:5rem 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:2rem;
+      width:100%;
     }
     .partners h2{
-      width:100%;
       text-align:center;
       font-size:1.9rem;
       font-weight:900;
       color:#000;
-      margin-bottom:1.5rem;
+      margin-bottom:2rem;
     }
     .partners-content{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      flex-wrap:wrap;
       gap:2rem;
-      width:100%;
+      flex-wrap:nowrap;
+      max-width:1000px;
+      margin:0 auto;
     }
     .partners-text{
-      flex:1 1 420px;
+      flex:1;
       text-align:left;
     }
     .partners-text p{
       color:var(--muted);
+      font-size:1.05rem;
       line-height:1.7;
       max-width:500px;
-      font-size:1.05rem;
+      margin:0;
     }
-    .partners img{
-      flex:1 1 420px;
+    .partners-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+    .partners-image img{
       width:100%;
-      max-width:500px;
+      max-width:480px;
       border-radius:16px;
       box-shadow:0 8px 20px rgba(0,0,0,.08);
     }
 
     /* ===== PARTNER LOGOS ===== */
     .partner-logos{
-      width:100%;
       display:flex;
       justify-content:center;
+      align-items:center;
       gap:30px;
       flex-wrap:wrap;
       margin-top:2.5rem;
@@ -151,11 +152,7 @@
       width:26px;height:26px;border-radius:50%;
       background:var(--gold);
     }
-    .partner-name{
-      font-weight:700;
-      font-size:.95rem;
-      color:#000;
-    }
+    .partner-name{font-weight:700;font-size:.95rem;color:#000;}
 
     /* ===== BENEFITS ===== */
     .benefits{text-align:center;margin:4rem 0;}
@@ -176,6 +173,8 @@
 
     @media(max-width:900px){
       .partners-content{flex-direction:column;text-align:center;}
+      .partners-text p{max-width:100%;text-align:center;}
+      .partners-image img{max-width:100%;}
       .benefit-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
     }
     @media(max-width:800px){
@@ -253,7 +252,9 @@
         <div class="partners-text">
           <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
         </div>
-        <img src="./job.png" alt="QA Internship Collaboration" />
+        <div class="partners-image">
+          <img src="./job.png" alt="QA Internship Collaboration" />
+        </div>
       </div>
 
       <div class="partner-logos">
