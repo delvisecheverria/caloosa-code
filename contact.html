@@ -165,13 +165,10 @@
     }
     .text { flex: 1; }
 
-    /* ===== SOCIAL SECTION (white background) ===== */
+    /* ===== SOCIAL SECTION ===== */
     .social-section {
-      background: #fff;
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
+      padding: 3rem 1.5rem 2rem;
     }
     .social-section h2 {
       font-size: 1.6rem;
@@ -182,15 +179,18 @@
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 35px;
       flex-wrap: wrap;
     }
     .social-icons a {
-      color: #000;
-      font-size: 1.8rem;
-      transition: transform .25s ease;
+      color: var(--gold);
+      font-size: 2rem;
+      transition: transform .25s ease, color .25s ease;
     }
-    .social-icons a:hover { transform: scale(1.15); }
+    .social-icons a:hover {
+      transform: scale(1.15);
+      color: #000;
+    }
 
     /* ===== CTA ===== */
     .yellow-section {
@@ -271,9 +271,7 @@
         <a href="scholarships.html">Scholarships</a>
         <a href="contact.html" class="active">Contact</a>
       </div>
-
       <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-
       <div class="nav-panel" id="navPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
