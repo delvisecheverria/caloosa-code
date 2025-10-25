@@ -22,7 +22,7 @@
       scrollbar-gutter:stable;
     }
 
-    /* ===== HEADER FIJO ===== */
+    /* ===== HEADER ===== */
     header{
       position:fixed;
       top:0; left:0; right:0;
@@ -61,7 +61,7 @@
     h1 .highlight{color:#000;}
     p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.4rem;}
 
-    /* BLOQUES */
+    /* ===== STEPS ===== */
     .steps-pro{margin:2rem 0 3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
     .step-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 18px 18px;box-shadow:0 10px 24px rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;}
     .step-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.08);}
@@ -71,12 +71,16 @@
     .step-title{margin:0;color:#000;font-weight:900;font-size:1.1rem;}
     .step-desc{margin:.35rem 0 0;color:var(--muted);line-height:1.6;}
 
-    .mentorship{margin:4rem 0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;}
-    .mentorship img{width:100%;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.1);}
-    .mentorship-text h2{color:#000;font-weight:900;font-size:1.6rem;margin-bottom:1rem;}
-    .mentorship-text p{line-height:1.8;color:var(--muted);}
-    @media(max-width:800px){.mentorship{grid-template-columns:1fr;text-align:center;}}
+    /* ===== PARTNER SECTION ===== */
+    .partners{margin:5rem 0;text-align:center;}
+    .partners h2{font-size:1.8rem;font-weight:900;margin-bottom:1rem;color:#000;}
+    .partners p{color:var(--muted);max-width:700px;margin:0 auto 2rem;}
+    .partners img{width:100%;max-width:600px;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.08);}
+    .logo-row{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-top:2rem;}
+    .logo-row img{height:40px;opacity:.85;transition:opacity .25s;}
+    .logo-row img:hover{opacity:1;}
 
+    /* ===== BENEFITS ===== */
     .benefits{margin:4rem 0;text-align:center;}
     .benefits h2{font-size:1.8rem;font-weight:900;margin-bottom:1rem;color:#000;}
     .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:1.5rem;}
@@ -88,10 +92,8 @@
     .yellow-section h2{margin:0 0 .6rem;font-size:2rem;font-weight:900;color:#000;}
     .yellow-section p{max-width:800px;margin:1rem auto;line-height:1.6;}
     .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:1.2rem;}
-    .yellow-btn,.white-btn{display:inline-block;padding:.9rem 1.7rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid #fff;transition:transform .25s,box-shadow .25s;}
-    .yellow-btn{background:#fff;color:#000;}
-    .white-btn{background:transparent;color:#000;border:2px solid #000;}
-    .yellow-btn:hover,.white-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1);}
+    .yellow-btn{display:inline-block;padding:.9rem 1.7rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid #fff;background:#fff;color:#000;transition:transform .25s,box-shadow .25s;}
+    .yellow-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1);}
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
     @media(max-width:800px){.hamburger{display:inline-block}nav .nav-links{display:none}}
     @media(min-width:801px){.nav-panel,.overlay{display:none!important}}
@@ -126,19 +128,15 @@
     <div class="steps-pro">
       <article class="step-card">
         <div class="step-head">
-          <span class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="m22 10-10 5-10-5 10-5 10 5Z"/><path d="M6 12v5c0 .7 0 1 .2 1.3.2.3.6.5 1.3.9 1.5.8 3.2 1.3 4.5 1.3s3-.4 4.5-1.3c.7-.4 1.1-.6 1.3-.9.2-.3.2-.6.2-1.3v-5"/></svg>
-          </span>
+          <span class="step-icon">🎓</span>
           <h3 class="step-title">Graduate from Caloosa Code</h3>
         </div>
-        <p class="step-desc">Complete the <b>5-month QA Bootcamp</b> mastering <b>Manual Testing</b>, <b>Automation</b>, <b>API Testing</b>, and <b>Performance</b>, under expert guidance.</p>
+        <p class="step-desc">Complete the <b>5-month QA Bootcamp</b> mastering <b>Manual</b>, <b>Automation</b>, <b>API</b>, and <b>Performance Testing</b> under expert guidance.</p>
       </article>
 
       <article class="step-card">
         <div class="step-head">
-          <span class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 21V7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v12H3Z"/><path d="M16 21v-5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v5"/></svg>
-          </span>
+          <span class="step-icon">🏢</span>
           <h3 class="step-title">Join a Partner Internship</h3>
         </div>
         <p class="step-desc">Get matched with one of our partner companies for a <b>3-month guided internship</b> with real industry exposure.</p>
@@ -146,21 +144,24 @@
 
       <article class="step-card">
         <div class="step-head">
-          <span class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 4H7a2 2 0 0 0-2 2v12a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6a2 2 0 0 0-2-2h-2"/><path d="m9 14 2 2 4-4"/></svg>
-          </span>
+          <span class="step-icon">💻</span>
           <h3 class="step-title">Gain Real QA Experience</h3>
         </div>
-        <p class="step-desc">Work on <b>real projects</b>, collaborate with QA teams, and add your first proven QA experience to your resume.</p>
+        <p class="step-desc">Work on <b>real projects</b>, collaborate with QA teams, and add your first QA experience to your resume.</p>
       </article>
     </div>
 
-    <section class="mentorship">
-      <div class="mentorship-text">
-        <h2>Guided Mentorship Every Step of the Way</h2>
-        <p>During your internship, you’ll be guided by experienced <b>QA mentors</b> who provide code reviews, feedback, and professional advice. You’ll learn how QA operates in agile environments — from sprint planning to regression cycles — while building a portfolio of real projects.</p>
+    <section class="partners">
+      <h2>Work with Our Partner Companies</h2>
+      <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
+      <img src="./job.png" alt="QA Internship Collaboration" />
+
+      <div class="logo-row">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Logo_placeholder.svg" alt="Partner 4">
       </div>
-      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b0?q=80&w=1200&auto=format&fit=crop" alt="QA mentorship collaboration">
     </section>
 
     <section class="benefits">
@@ -169,6 +170,7 @@
         <div class="benefit"><h4>Real QA Experience</h4><p>Apply your skills in real projects within production-like environments.</p></div>
         <div class="benefit"><h4>Mentorship Support</h4><p>Receive continuous feedback from senior QA professionals during your internship.</p></div>
         <div class="benefit"><h4>Career Growth</h4><p>Boost your resume with verified QA experience that employers value.</p></div>
+        <div class="benefit"><h4>Your First QA Job</h4><p>Start your professional journey with hands-on experience and guidance from our partner network.</p></div>
       </div>
     </section>
   </main>
@@ -178,7 +180,6 @@
     <p>Join <b>Caloosa Code</b> today and graduate with guaranteed real-world QA experience.</p>
     <div class="btn-row">
       <a class="yellow-btn" href="apply.html">Apply Now</a>
-      <a class="white-btn" href="curriculum.html">See How It Works ➜</a>
     </div>
   </section>
 
