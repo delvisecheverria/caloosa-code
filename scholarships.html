@@ -73,7 +73,7 @@
       margin:3rem auto;
       padding:0 1.5rem;
       text-align:left;
-      margin-top:120px; /* compensa header fijo */
+      margin-top:120px;
     }
     h1{font-size:2.5rem;font-weight:900;margin-bottom:1rem;}
     h1 span{color:var(--gold);}
@@ -94,12 +94,7 @@
     .process span{display:flex;align-items:center;gap:.8rem;}
     .arrow{color:var(--gold);font-size:1.4rem;}
 
-    .requirements{margin:2.5rem 0;}
-    .requirements h2{font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#000;}
-    .requirements ul{list-style:none;padding:0;margin:0;}
-    .requirements li{margin-bottom:.8rem;padding-left:1.8rem;position:relative;color:var(--muted);}
-    .requirements li::before{content:'✔';position:absolute;left:0;top:0;color:var(--gold);font-weight:700;}
-
+    /* ===== FORM ===== */
     form{
       margin-top:2.5rem;
       background:#fff;
@@ -108,7 +103,7 @@
       padding:2rem;
       box-shadow:0 8px 24px rgba(0,0,0,0.05);
     }
-    form h2{font-size:1.4rem;margin-bottom:1rem;font-weight:800;}
+    form h2{font-size:1.4rem;margin-bottom:1.2rem;font-weight:800;}
     label{display:block;margin-bottom:6px;font-weight:600;color:#000;}
     input,textarea,select{
       width:100%;
@@ -119,11 +114,12 @@
       font-size:1rem;
       font-family:inherit;
     }
+    textarea{resize:vertical;}
     input[type="checkbox"]{width:auto;margin-right:8px;}
     button{
-      background:#fff;
-      color:#000;
-      border:2px solid var(--gold);
+      background:#000;
+      color:#fff;
+      border:none;
       padding:.9rem 1.7rem;
       border-radius:10px;
       font-weight:800;
@@ -132,6 +128,29 @@
     }
     button:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.08);}
     .success-msg{display:none;margin-top:1rem;color:green;font-weight:600;}
+
+    /* ===== CHECKLIST ===== */
+    .requirements{
+      background:#fafafa;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:1.5rem;
+      margin-top:1.5rem;
+    }
+    .requirements h3{font-size:1.2rem;font-weight:800;margin-bottom:.8rem;color:#000;}
+    .requirements label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:.6rem;
+      font-weight:500;
+      color:var(--muted);
+    }
+    .requirements input[type="checkbox"]{
+      width:18px;
+      height:18px;
+      accent-color:var(--gold);
+    }
 
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
 
@@ -188,48 +207,86 @@
       <span><b>Announcement of Awarded Scholarships</b></span>
     </div>
 
-    <section class="requirements">
-      <h2>Eligibility Requirements</h2>
-      <ul>
-        <li>Be currently enrolled in a technical or academic program.</li>
-        <li>Have basic knowledge of programming or databases.</li>
-        <li>Be involved in a community, student group, or local project.</li>
-        <li>Demonstrate motivation to grow in the field of QA or Software Testing.</li>
-        <li>Be available to complete the full 8-month bootcamp.</li>
-        <li>Have access to a computer and stable internet connection.</li>
-        <li>Commit to participate actively in all sessions and group activities.</li>
-      </ul>
-    </section>
-
     <form id="scholarshipForm">
       <h2>Apply for a Scholarship</h2>
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+      <label>Full Name</label>
+      <input type="text" name="fullname" required>
 
-      <label for="country">Country / City</label>
-      <input type="text" id="country" name="country" required />
+      <label>Email Address</label>
+      <input type="email" name="email" required>
 
-      <label for="program">Educational Program</label>
-      <input type="text" id="program" name="program" required />
+      <label>Phone Number</label>
+      <input type="tel" name="phone" placeholder="+1 234 567 890" required>
 
-      <label for="motivation">Motivation to Apply</label>
-      <textarea id="motivation" name="motivation" rows="4" required></textarea>
+      <label>Country</label>
+      <input type="text" name="country" required>
 
-      <label for="experience">Experience Level</label>
-      <select id="experience" name="experience" required>
+      <label>City</label>
+      <input type="text" name="city" required>
+
+      <label>Age</label>
+      <input type="number" name="age" required min="15" max="80">
+
+      <label>Are you currently a student?</label>
+      <select name="student" required>
         <option value="">Select one</option>
-        <option>Beginner</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>University or Institution</label>
+      <input type="text" name="university">
+
+      <label>Programming Knowledge</label>
+      <select name="programming" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
         <option>Intermediate</option>
         <option>Advanced</option>
       </select>
 
-      <label><input type="checkbox" required /> I agree to the terms and conditions.</label>
+      <label>Database Knowledge</label>
+      <select name="database" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+
+      <label>QA Knowledge</label>
+      <select name="qa" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+
+      <label>Why do you need this scholarship?</label>
+      <textarea name="reason" rows="3" required></textarea>
+
+      <label>Tell us about your story or motivation</label>
+      <textarea name="story" rows="3"></textarea>
+
+      <label>What do you expect to achieve after completing this program?</label>
+      <textarea name="goals" rows="3"></textarea>
+
+      <!-- CHECKLIST -->
+      <div class="requirements">
+        <h3>Eligibility Requirements</h3>
+        <label><input type="checkbox" required> Currently enrolled in a technical or academic program</label>
+        <label><input type="checkbox" required> Basic knowledge of programming or databases</label>
+        <label><input type="checkbox" required> Involved in a community, student group, or project</label>
+        <label><input type="checkbox" required> Available for the full 8-month bootcamp</label>
+        <label><input type="checkbox" required> Have access to a computer and stable internet</label>
+        <label><input type="checkbox" required> Commit to participate actively in all sessions</label>
+      </div>
 
       <button type="submit">Submit Application</button>
-      <div class="success-msg">Your application has been submitted successfully ✅</div>
+      <div class="success-msg">✅ Your scholarship application has been submitted successfully!</div>
     </form>
   </main>
 
