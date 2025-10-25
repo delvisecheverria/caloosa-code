@@ -74,12 +74,7 @@
     }
     .step-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.08); }
     .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-    .step-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: linear-gradient(135deg, var(--gold), var(--amber));
-      display: grid; place-items: center;
-      box-shadow: 0 6px 14px rgba(255,183,0,.35);
-    }
+    .step-icon svg { width: 28px; height: 28px; stroke: var(--amber); stroke-width: 2; fill: none; }
     .step-title { margin: 0; color: #000; font-weight: 900; font-size: 1.1rem; }
     .step-desc { margin: .35rem 0 0; color: var(--muted); line-height: 1.6; }
 
@@ -122,7 +117,7 @@
     .benefit h4 { color: #000; margin-bottom: .4rem; font-weight: 800; }
     .benefit p { color: var(--muted); font-size: .95rem; line-height: 1.6; }
 
-    /* ===== Fireworks (solo arriba/izquierda/derecha) ===== */
+    /* ===== Fireworks ===== */
     .benefit.fireworks { position: relative; overflow: hidden; }
     .benefit.fireworks .fireworks-wrap {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -189,9 +184,35 @@
 
     <!-- Steps -->
     <div class="steps-pro">
-      <article class="step-card"><div class="step-head"><div class="step-icon">🎓</div><h3 class="step-title">Graduate from Caloosa Code</h3></div><p class="step-desc">Complete the 5-month QA Bootcamp mastering Manual, Automation, API, and Performance Testing under expert guidance.</p></article>
-      <article class="step-card"><div class="step-head"><div class="step-icon">🏢</div><h3 class="step-title">Join a Partner Internship</h3></div><p class="step-desc">Get matched with one of our partner companies for a 3-month guided internship with real industry exposure.</p></article>
-      <article class="step-card"><div class="step-head"><div class="step-icon">💻</div><h3 class="step-title">Gain Real QA Experience</h3></div><p class="step-desc">Work on real projects, collaborate with QA teams, and add your first QA experience to your resume.</p></article>
+      <article class="step-card">
+        <div class="step-head">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M12 14v7"/><path d="M5 12.5v4.5l7 3 7-3v-4.5"/></svg>
+          </div>
+          <h3 class="step-title">Graduate from Caloosa Code</h3>
+        </div>
+        <p class="step-desc">Complete the 5-month QA Bootcamp mastering Manual, Automation, API, and Performance Testing under expert guidance.</p>
+      </article>
+
+      <article class="step-card">
+        <div class="step-head">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path d="M3 21V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14"/><path d="M3 21h18"/><path d="M8 21v-4h8v4"/></svg>
+          </div>
+          <h3 class="step-title">Join a Partner Internship</h3>
+        </div>
+        <p class="step-desc">Get matched with one of our partner companies for a 3-month guided internship with real industry exposure.</p>
+      </article>
+
+      <article class="step-card">
+        <div class="step-head">
+          <div class="step-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          </div>
+          <h3 class="step-title">Gain Real QA Experience</h3>
+        </div>
+        <p class="step-desc">Work on real projects, collaborate with QA teams, and add your first QA experience to your resume.</p>
+      </article>
     </div>
 
     <!-- Partners -->
@@ -219,7 +240,6 @@
         <div class="benefit"><h4>Career Growth</h4><p>Boost your resume with verified QA experience that employers value.</p></div>
         <div class="benefit fireworks">
           <div class="fireworks-wrap" aria-hidden="true">
-            <!-- Solo líneas hacia arriba o lados -->
             <span class="fw" style="--dx:0;--dy:-70px;--c:#FFD700;--len:26px;--rot:0deg;--delay:0s;"></span>
             <span class="fw" style="--dx:45px;--dy:-50px;--c:#FFB700;--len:22px;--rot:35deg;--delay:.2s;"></span>
             <span class="fw" style="--dx:-45px;--dy:-45px;--c:#FFD700;--len:20px;--rot:-35deg;--delay:.3s;"></span>
