@@ -42,13 +42,7 @@
     .logo span:first-child{color:#000}
     .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
 
-    nav .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      margin-left:1.25rem;
-      font-weight:600;
-      position:relative;
-    }
+    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
     nav .nav-links a:hover::after,
     nav .nav-links a.active::after{
       content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);
@@ -58,7 +52,6 @@
     .hamburger{display:none;border:2px solid #000;background:#fff;border-radius:10px;padding:.5rem .6rem;cursor:pointer;z-index:120;}
     .hamburger > span{display:block;width:22px;height:2px;background:#000;margin:4px 0;transition:.25s ease;}
 
-    /* ===== MOBILE ===== */
     .nav-panel{display:none;position:fixed;inset:0;background:#fff;padding:80px 24px 24px;z-index:110;}
     .nav-panel a{display:block;padding:14px 8px;font-weight:800;text-decoration:none;color:#000;border-bottom:1px solid #eee;}
     .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);z-index:90;}
@@ -68,10 +61,12 @@
     .nav-open .hamburger span:nth-child(2){opacity:0}
     .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-    main{max-width:1000px;margin:3rem auto;padding:0 1.5rem;margin-top:120px;} /* espacio para header */
+    /* ===== MAIN ===== */
+    main{max-width:1000px;margin:3rem auto;padding:0 1.5rem;margin-top:120px;}
     h1{font-size:2.5rem;font-weight:900;margin:0 0 .6rem 0}
     h1 span{color:var(--gold)}
     p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.4rem}
+
     .block{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:2rem;margin:3rem 0;}
     .text{color:var(--muted);line-height:1.7;font-size:1.05rem;text-align:justify;display:flex;flex-direction:column;justify-content:center;}
     .photo{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
@@ -80,8 +75,18 @@
     .photo-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,215,0,.25) 0%,rgba(255,215,0,.10) 100%);mix-blend-mode:multiply;pointer-events:none}
 
     .independent-text{max-width:1000px;margin:3rem auto;text-align:justify;color:var(--muted);line-height:1.8;font-size:1.05rem;}
+
+    .instructors{text-align:center;margin-top:4rem}
+    .instructors h2{font-size:2rem;font-weight:900;margin:.2rem 0 1.2rem;color:#000}
+    .instructor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;justify-items:center}
+    .instructor{text-align:center}
+    .instructor img{width:100px;height:100px;border-radius:50%;border:4px solid var(--gold);object-fit:cover;margin-bottom:10px}
+    .instructor h3{font-size:1rem;margin:0 0 4px;font-weight:700;color:#000}
+    .instructor p{font-size:.9rem;color:#666;margin:0 0 6px}
+    .instructor a{font-size:.85rem;color:var(--gold);text-decoration:none;font-weight:700}
+
     .yellow-section{background:var(--gold);color:#000;padding:3rem 1.5rem;text-align:center;margin-top:4rem}
-    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem}
 
     @media (max-width:800px){
       .block{grid-template-columns:1fr;text-align:center}
@@ -124,10 +129,86 @@
 
   <main>
     <h1>About <span>Caloosa Code</span></h1>
-    <p>...</p>
+
+    <section class="block">
+      <div class="text">
+        <p>Caloosa Code is an initiative born from the SWFL Tech Night community and led by <b>Delvis Echeverria</b>, a technology professional with 15+ years of experience in software development, specializing in QA and testing.</p>
+        <p>Delvis has a deep passion for teaching and mentorship, which inspired him to create a program that helps others gain the skills and confidence to grow in the tech industry.</p>
+      </div>
+      <div class="photo">
+        <span class="photo-frame">
+          <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/Delvis.png" alt="Delvis Echeverria" />
+        </span>
+      </div>
+    </section>
+
+    <div class="independent-text">
+      This initiative is designed for anyone interested in entering the software development field — whether they are career changers, recent graduates, or tech students looking for their first professional experience. Through a mix of theory and hands-on learning, participants cover software testing fundamentals, Manual Test, automation, APIs, and performance testing, preparing them for real-world work environments.
+    </div>
+
+    <section class="block">
+      <div class="photo">
+        <img src="https://raw.githubusercontent.com/delvisecheverria/caloosa-code/refs/heads/main/florida.png" alt="Florida Map" style="box-shadow:none;"/>
+      </div>
+      <div class="text">
+        <p>The name Caloosa pays tribute to the Caloosa tribe, an indigenous people of Southwest Florida known for their strength and strong sense of community.</p>
+        <p>In that same spirit, Caloosa Code is rooted locally but built to be global, with the mission of preparing talent not just for opportunities in Southwest Florida but for the global tech market.</p>
+      </div>
+    </section>
+
+    <section class="instructors">
+      <h2>Our Instructors</h2>
+      <div class="instructor-grid">
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Instructor">
+          <h3>Alex Rivera</h3>
+          <p>Automation Engineer</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=21" alt="Instructor">
+          <h3>Maria Torres</h3>
+          <p>QA Lead</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=5" alt="Instructor">
+          <h3>Daniel Kim</h3>
+          <p>Performance Tester</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=33" alt="Instructor">
+          <h3>Carlos Mendoza</h3>
+          <p>Security Testing Expert</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=49" alt="Instructor">
+          <h3>Sophia Johnson</h3>
+          <p>API Testing Instructor</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+        <div class="instructor">
+          <img src="https://i.pravatar.cc/100?img=48" alt="Instructor">
+          <h3>Isabella Garcia</h3>
+          <p>Mobile QA Specialist</p>
+          <a href="#">LinkedIn →</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 Caloosa Code</footer>
+  <section class="yellow-section">
+    <h2>Ready to Start Your QA Journey?</h2>
+    <p>Join <b>Caloosa Code</b> today and build skills that companies hire for. Applications are open now!</p>
+    <div class="btn-row">
+      <a class="yellow-btn" href="apply.html">Apply to the Bootcamp</a>
+      <a class="white-btn" href="apply.html">🎓 Win one of 5 Full Scholarships</a>
+    </div>
+  </section>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
   <script>
     const body=document.body,h=document.getElementById('hamburger'),n=document.getElementById('navPanel'),o=document.getElementById('overlay');
