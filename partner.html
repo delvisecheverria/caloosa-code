@@ -12,39 +12,61 @@
       --muted:#333;
       --border:rgba(255,183,0,.45);
     }
+
+    *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
       color:var(--text);
       background:#fff;
-      overflow-y: scroll;
-      scrollbar-gutter: stable;
+      overflow-y:scroll;
+      scrollbar-gutter:stable;
     }
 
-    /* ===== HEADER FIJO ===== */
+    /* ===== HEADER ===== */
     header{
       position:fixed;
       top:0;
       left:0;
       right:0;
+      width:100%;
       background:#fff;
-      border-bottom:1px solid #eee;
+      box-shadow:0 1px 3px rgba(0,0,0,.08);
       z-index:1000;
+    }
+    .header-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:1.25rem 1rem;
-      max-width:1200px;
-      margin:0 auto;
     }
-    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
+    .logo{
+      display:flex;align-items:center;gap:6px;
+      font-weight:800;text-transform:uppercase;
+      font-size:1.2rem;letter-spacing:.5px;
+    }
     .logo span:first-child{color:#000}
     .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
-    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
+    nav .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      margin-left:1.25rem;
+      font-weight:600;
+      position:relative;
+    }
     nav .nav-links a:hover::after,
-    nav .nav-links a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold)}
+    nav .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:0;bottom:-4px;
+      width:100%;height:2px;
+      background:var(--gold);
+    }
 
-    /* ===== MOBILE MENU ===== */
+    /* ===== HAMBURGER ===== */
     .hamburger{display:none;border:2px solid #000;background:#fff;border-radius:10px;padding:.5rem .6rem;cursor:pointer;z-index:120;}
     .hamburger>span{display:block;width:22px;height:2px;background:#000;margin:4px 0;transition:.25s ease;}
     .nav-panel{display:none;position:fixed;inset:0;background:#fff;padding:80px 24px 24px;z-index:110;}
@@ -55,11 +77,12 @@
     .nav-open .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
     .nav-open .hamburger span:nth-child(2){opacity:0}
     .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-    @media (max-width:800px){
+
+    @media(max-width:800px){
       .hamburger{display:inline-block}
       nav .nav-links{display:none}
     }
-    @media (min-width:801px){.nav-panel,.overlay{display:none!important}}
+    @media(min-width:801px){.nav-panel,.overlay{display:none!important}}
 
     /* ===== HERO ===== */
     .hero{
@@ -75,17 +98,8 @@
     .hero-text h1{font-size:2.5rem;font-weight:900;margin:0 0 1rem;}
     .hero-text h1 span{color:var(--gold);}
     .hero-text p{font-size:1.1rem;line-height:1.7;color:var(--muted);}
-    .hero-img{
-      flex:0 0 auto;
-      text-align:right;
-    }
-    .hero-img img{
-      width:100%;
-      max-width:340px;
-      height:auto;
-      object-fit:contain;
-      margin-top:0.5rem;
-    }
+    .hero-img{text-align:right;flex:0 0 auto;}
+    .hero-img img{width:100%;max-width:340px;height:auto;object-fit:contain;}
 
     /* ===== STATIC PARTNERS SECTION ===== */
     .partners-section{
@@ -141,7 +155,6 @@
     ul{padding-left:1.2rem;}
     li{margin-bottom:.6rem;line-height:1.6;color:var(--muted);}
 
-    /* ===== GRID ===== */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
     @media(max-width:850px){
       .grid{grid-template-columns:1fr;}
@@ -179,41 +192,38 @@
   <div class="overlay" id="overlay"></div>
 
   <header>
-    <div class="logo">
-      <span>&lt;//&gt;</span>
-      <span class="badge">CALOOSA</span>
-      <span>CODE</span>
+    <div class="header-inner">
+      <div class="logo">
+        <span>&lt;//&gt;</span><span class="badge">CALOOSA</span><span>CODE</span>
+      </div>
+      <nav>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="program.html">Curriculum</a>
+          <a href="guarantee.html">My First Job</a>
+          <a href="partners.html" class="active">Partners</a>
+          <a href="apply.html">Apply</a>
+          <a href="scholarships.html">Scholarships</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-panel" id="navPanel" aria-hidden="true">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="program.html">Curriculum</a>
+          <a href="guarantee.html">My First Job</a>
+          <a href="partners.html">Partners</a>
+          <a href="apply.html">Apply</a>
+          <a href="scholarships.html">Scholarships</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
     </div>
-    <nav>
-      <!-- desktop -->
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="program.html">Curriculum</a>
-        <a href="guarantee.html">My First Job</a>
-        <a href="partners.html" class="active">Partners</a>
-        <a href="apply.html">Apply</a>
-        <a href="scholarships.html">Scholarships</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <!-- mobile button -->
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- mobile panel -->
-      <div class="nav-panel" id="navPanel" aria-hidden="true">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="program.html">Curriculum</a>
-        <a href="guarantee.html">My First Job</a>
-        <a href="partners.html">Partners</a>
-        <a href="apply.html">Apply</a>
-        <a href="scholarships.html">Scholarships</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
   </header>
 
   <!-- HERO -->
@@ -282,10 +292,7 @@
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
   <script>
-    const body=document.body,
-          h=document.getElementById('hamburger'),
-          n=document.getElementById('navPanel'),
-          o=document.getElementById('overlay');
+    const body=document.body,h=document.getElementById('hamburger'),n=document.getElementById('navPanel'),o=document.getElementById('overlay');
     h.onclick=()=>body.classList.toggle('nav-open');
     o.onclick=()=>body.classList.remove('nav-open');
     n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
