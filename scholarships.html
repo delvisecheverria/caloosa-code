@@ -17,6 +17,7 @@
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
       color:var(--text);
       background:#fff;
+      overflow-y: scroll; /* ✅ Previene el movimiento lateral entre páginas */
       transition:padding-right .3s ease;
     }
 
@@ -95,10 +96,11 @@
       background:rgba(0,0,0,.45);
       backdrop-filter:blur(3px);
       z-index:90;
+      opacity:0;
+      transition:opacity .3s ease;
     }
+    .overlay.show{display:block;opacity:1;}
 
-    .nav-open .overlay{display:block;}
-    .nav-open .nav-panel{display:block;}
     .nav-open .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
     .nav-open .hamburger span:nth-child(2){opacity:0}
     .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
@@ -283,7 +285,7 @@
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
   <script>
-    // Hamburger & overlay
+    // Hamburguesa & overlay
     const body = document.body;
     const hamburger = document.getElementById('hamburger');
     const navPanel = document.getElementById('navPanel');
@@ -303,10 +305,12 @@
         body.style.paddingRight = scrollbarWidth + 'px';
         body.classList.add('no-scroll');
         navPanel.classList.add('show');
+        overlay.classList.add('show');
       } else {
         body.style.paddingRight = '';
         body.classList.remove('no-scroll');
         navPanel.classList.remove('show');
+        overlay.classList.remove('show');
       }
     }
 
