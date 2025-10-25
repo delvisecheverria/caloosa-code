@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apply — Caloosa Code</title>
+  <title>Apply — Caloosa Code Bootcamp</title>
   <style>
     :root {
       --gold: #FFD700;
       --amber: #FFB700;
       --text: #0B0C10;
       --muted: #333;
+      --border: rgba(255, 183, 0, .4);
     }
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
       background: #fff;
       color: var(--text);
+      overflow-y: scroll;
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -50,7 +51,6 @@
       padding: 3px 6px;
       border-radius: 6px;
     }
-
     nav .nav-links a {
       color: var(--text);
       text-decoration: none;
@@ -69,54 +69,7 @@
       background: var(--gold);
     }
 
-    .hamburger {
-      display: none;
-      border: 2px solid #000;
-      background: #fff;
-      border-radius: 10px;
-      padding: .5rem .6rem;
-      cursor: pointer;
-      z-index: 120;
-    }
-    .hamburger > span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #000;
-      margin: 4px 0;
-      transition: .25s ease;
-    }
-    .nav-panel {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: #fff;
-      padding: 80px 24px 24px;
-      z-index: 110;
-    }
-    .nav-panel a {
-      display: block;
-      padding: 14px 8px;
-      font-weight: 800;
-      text-decoration: none;
-      color: #000;
-      border-bottom: 1px solid #eee;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.45);
-      backdrop-filter: blur(3px);
-      z-index: 90;
-    }
-    .nav-open .nav-panel { display: block; }
-    .nav-open .overlay { display: block; }
-    .nav-open .hamburger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .nav-open .hamburger span:nth-child(2) { opacity: 0; }
-    .nav-open .hamburger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-    /* ===== HERO ===== */
+    /* HERO */
     .hero {
       max-width: 1100px;
       margin: 7rem auto 4rem;
@@ -138,10 +91,7 @@
       line-height: 1.7;
       color: var(--muted);
     }
-    .hero-img {
-      flex: 1;
-      text-align: right;
-    }
+    .hero-img { flex: 1; text-align: right; }
     .hero-img img {
       width: 100%;
       max-width: 360px;
@@ -149,23 +99,24 @@
       object-fit: contain;
     }
 
-    /* ===== FORM ===== */
+    /* FORM */
     main {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 4rem;
       padding: 0 1.5rem;
     }
     form {
       background: #fff;
-      border: 1px solid rgba(255, 215, 0, 0.4);
+      border: 1px solid var(--border);
       border-radius: 14px;
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
     form h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
+      font-size: 1.6rem;
+      font-weight: 900;
       margin-bottom: 1.5rem;
+      color: #000;
     }
     label {
       display: block;
@@ -182,6 +133,8 @@
       font-size: 1rem;
       font-family: inherit;
     }
+    select { background: #fff; }
+    textarea { resize: vertical; }
     button {
       background: #000;
       color: #fff;
@@ -203,7 +156,7 @@
       font-weight: 600;
     }
 
-    /* ===== CTA ===== */
+    /* CTA */
     .yellow-section {
       background: var(--gold);
       color: #000;
@@ -254,17 +207,10 @@
     @media (max-width:800px) {
       .hero { flex-direction: column; text-align: center; }
       .hero-img img { max-width: 280px; margin-top: 1rem; }
-      .hamburger { display: inline-block; }
-      nav .nav-links { display: none; }
-    }
-    @media (min-width:801px) {
-      .nav-panel, .overlay { display:none!important; }
     }
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
-
   <header>
     <div class="logo">
       <span>&lt;//&gt;</span><span class="badge">CALOOSA</span><span>CODE</span>
@@ -280,17 +226,6 @@
         <a href="scholarships.html">Scholarships</a>
         <a href="contact.html">Contact</a>
       </div>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-      <div class="nav-panel" id="navPanel">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="program.html">Curriculum</a>
-        <a href="guarantee.html">My First Job</a>
-        <a href="partner.html">Partners</a>
-        <a href="apply.html">Apply</a>
-        <a href="scholarships.html">Scholarships</a>
-        <a href="contact.html">Contact</a>
-      </div>
     </nav>
   </header>
 
@@ -298,47 +233,103 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Apply to <span>Caloosa Code</span></h1>
-      <p>Start your journey toward becoming a QA Engineer.  
-      Complete the form below and take the first step into hands-on, real-world training with guaranteed internship experience.</p>
+      <p>Ready to kickstart your QA career? Fill out this form to apply for the Caloosa Code Bootcamp and begin your journey to becoming a professional QA Engineer.</p>
     </div>
     <div class="hero-img">
-      <img src="apply-flamingo.png" alt="Flamingo applying illustration">
+      <img src="form.png" alt="Flamingo applying illustration">
     </div>
   </section>
 
   <!-- FORM -->
   <main>
     <form id="applyForm">
-      <h2>Application Form</h2>
+      <h2>Bootcamp Application Form</h2>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
+      <label>First Name</label>
+      <input type="text" name="firstName" required>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
+      <label>Last Name</label>
+      <input type="text" name="lastName" required>
 
-      <label for="country">Country / City</label>
-      <input type="text" id="country" name="country" required />
+      <label>Country</label>
+      <input type="text" name="country" required>
 
-      <label for="experience">Experience Level</label>
-      <select id="experience" name="experience" required>
+      <label>City</label>
+      <input type="text" name="city" required>
+
+      <label>Age</label>
+      <input type="number" name="age" required min="15" max="80">
+
+      <label>Are you currently a student?</label>
+      <select name="student" required>
         <option value="">Select one</option>
-        <option>Beginner</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+
+      <label>University or Institution</label>
+      <input type="text" name="university">
+
+      <label>Programming Knowledge</label>
+      <select name="programming" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
         <option>Intermediate</option>
         <option>Advanced</option>
       </select>
 
-      <label for="motivation">Why do you want to join Caloosa Code?</label>
-      <textarea id="motivation" name="motivation" rows="4" required></textarea>
+      <label>Database Knowledge</label>
+      <select name="database" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+
+      <label>QA Knowledge</label>
+      <select name="qa" required>
+        <option value="">Select level</option>
+        <option>None</option>
+        <option>Basic</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+
+      <label>Email Address</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" placeholder="+1 234 567 890" required>
+
+      <label>Preferred Language</label>
+      <select name="language" required>
+        <option value="">Select one</option>
+        <option>English</option>
+        <option>Español</option>
+      </select>
+
+      <label>How did you hear about us?</label>
+      <input type="text" name="referral" placeholder="Friend, social media, event, etc.">
+
+      <label>Tell us what motivates you to apply</label>
+      <textarea name="motivation" rows="3" required></textarea>
+
+      <label>What are your expectations from this bootcamp?</label>
+      <textarea name="expectations" rows="3"></textarea>
+
+      <label>Why do you want to become a QA Engineer?</label>
+      <textarea name="whyQA" rows="3"></textarea>
 
       <button type="submit">Submit Application</button>
-      <div class="success-msg">Your application has been submitted successfully ✅</div>
+      <div class="success-msg">✅ Your application has been successfully submitted!</div>
     </form>
   </main>
 
   <section class="yellow-section">
     <h2>Join Caloosa Code</h2>
-    <p>Be part of the mission to empower the next generation of QA professionals while gaining real-world experience.</p>
+    <p>Be part of our mission to empower the next generation of QA professionals through real-world learning and mentorship.</p>
     <div class="btn-row">
       <a href="partner.html" class="yellow-btn">Become a Partner</a>
       <a href="contact.html" class="yellow-btn">Contact Us</a>
@@ -348,16 +339,11 @@
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
   <script>
-    const body=document.body,h=document.getElementById('hamburger'),n=document.getElementById('navPanel'),o=document.getElementById('overlay');
-    h.onclick=()=>body.classList.toggle('nav-open');
-    o.onclick=()=>body.classList.remove('nav-open');
-    n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
-
-    const form=document.getElementById('applyForm');
-    const msg=document.querySelector('.success-msg');
-    form.addEventListener('submit',e=>{
+    const form = document.getElementById('applyForm');
+    const msg = document.querySelector('.success-msg');
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      msg.style.display='block';
+      msg.style.display = 'block';
       form.reset();
     });
   </script>
