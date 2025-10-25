@@ -64,6 +64,53 @@
       margin-top:0.5rem;
     }
 
+    /* LOGO SCROLLER SECTION */
+    .partner-logos{
+      background:var(--gold);
+      padding:2rem 0;
+      overflow:hidden;
+      position:relative;
+    }
+    .partner-logos::before,
+    .partner-logos::after{
+      content:"";
+      position:absolute;
+      top:0;
+      width:100px;
+      height:100%;
+      background:linear-gradient(to right, var(--gold), transparent);
+      z-index:10;
+    }
+    .partner-logos::after{
+      right:0;
+      transform:rotate(180deg);
+    }
+    .partner-logos::before{
+      left:0;
+    }
+    .logo-track{
+      display:flex;
+      gap:80px;
+      align-items:center;
+      animation:scroll 35s linear infinite;
+      will-change:transform;
+    }
+    .logo-track img{
+      height:50px;
+      width:auto;
+      filter:brightness(0) saturate(100%);
+      opacity:0.8;
+      transition:opacity .3s ease;
+    }
+    .logo-track img:hover{
+      opacity:1;
+      filter:none;
+    }
+    @keyframes scroll {
+      from {transform:translateX(0);}
+      to {transform:translateX(-50%);}
+    }
+
     /* CONTENT */
     main{max-width:1000px;margin:3rem auto;padding:0 1.5rem}
     section{margin-bottom:3rem;}
@@ -72,7 +119,7 @@
     ul{padding-left:1.2rem;}
     li{margin-bottom:.6rem;line-height:1.6;color:var(--muted);}
 
-    /* BENEFITS + COMMITMENT GRID */
+    /* GRID */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
     @media(max-width:850px){
       .grid{grid-template-columns:1fr;}
@@ -80,7 +127,7 @@
       .hero-img img{max-width:260px;margin:0 auto;}
     }
 
-    /* CALL TO ACTION */
+    /* CTA */
     .cta{
       background:var(--gold);
       color:#000;
@@ -135,6 +182,27 @@
     </div>
     <div class="hero-img">
       <img src="./partners.png" alt="Caloosa Code Partners illustration">
+    </div>
+  </section>
+
+  <!-- LOGO SCROLLER -->
+  <section class="partner-logos">
+    <div class="logo-track">
+      <img src="./logo1.png" alt="Partner 1">
+      <img src="./logo2.png" alt="Partner 2">
+      <img src="./logo3.png" alt="Partner 3">
+      <img src="./logo4.png" alt="Partner 4">
+      <img src="./logo5.png" alt="Partner 5">
+      <img src="./logo6.png" alt="Partner 6">
+      <img src="./logo7.png" alt="Partner 7">
+      <!-- Se repiten para scroll infinito -->
+      <img src="./logo1.png" alt="Partner 1">
+      <img src="./logo2.png" alt="Partner 2">
+      <img src="./logo3.png" alt="Partner 3">
+      <img src="./logo4.png" alt="Partner 4">
+      <img src="./logo5.png" alt="Partner 5">
+      <img src="./logo6.png" alt="Partner 6">
+      <img src="./logo7.png" alt="Partner 7">
     </div>
   </section>
 
