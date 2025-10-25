@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caloosa Code Partners</title>
+  <style>
+    :root{
+      --gold:#FFD700;
+      --amber:#FFB700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.45);
+    }
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+    }
+
+    /* HEADER */
+    header{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:relative;
+      z-index:100;
+    }
+    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
+    .logo span:first-child{color:#000}
+    .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
+    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
+    nav .nav-links a:hover::after,
+    nav .nav-links a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold)}
+    .hamburger{display:none;}
+
+    /* HERO */
+    .hero{
+      max-width:1100px;
+      margin:3rem auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:2rem;
+      padding:0 1.5rem;
+    }
+    .hero-text{flex:1;}
+    .hero-text h1{font-size:2.5rem;font-weight:900;margin:0 0 1rem;}
+    .hero-text h1 span{color:var(--gold);}
+    .hero-text p{font-size:1.1rem;line-height:1.7;color:var(--muted);}
+    .hero-img img{width:100%;max-width:450px;height:auto;object-fit:contain;}
+
+    /* CONTENT */
+    main{max-width:1000px;margin:3rem auto;padding:0 1.5rem}
+    section{margin-bottom:3rem;}
+    h2{font-size:1.8rem;font-weight:900;margin-bottom:.8rem;color:#000;}
+    p{color:var(--muted);line-height:1.7;font-size:1.05rem;}
+    ul{padding-left:1.2rem;}
+    li{margin-bottom:.6rem;line-height:1.6;color:var(--muted);}
+
+    /* BENEFITS + COMMITMENT GRID */
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    @media(max-width:850px){.grid{grid-template-columns:1fr}}
+
+    /* CALL TO ACTION */
+    .cta{
+      background:var(--gold);
+      color:#000;
+      text-align:center;
+      padding:3rem 1.5rem;
+      border-radius:16px;
+      margin-top:3rem;
+    }
+    .cta h2{font-size:2rem;font-weight:900;margin:0 0 1rem;}
+    .cta p{font-size:1.1rem;max-width:700px;margin:0 auto 1.5rem;}
+    .cta a{
+      display:inline-block;
+      background:#000;
+      color:#FFD700;
+      text-decoration:none;
+      font-weight:800;
+      padding:.9rem 1.7rem;
+      border-radius:10px;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .cta a:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.15);}
+
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span>&lt;//&gt;</span>
+      <span class="badge">CALOOSA</span>
+      <span>CODE</span>
+    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="guarantee.html">My First Job</a>
+        <a href="apply.html">Apply</a>
+        <a href="scholarships.html">Scholarships</a>
+        <a href="partners.html" class="active">Partners</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>What Are <span>Caloosa Code Partners?</span></h1>
+      <p>Caloosa Code Partners are companies committed to growing the tech ecosystem by opening their doors to students and professionals in training, giving them the opportunity to gain their first real-world experience in the software industry.</p>
+    </div>
+    <div class="hero-img">
+      <img src="./partners.png" alt="Caloosa Code Partners illustration">
+    </div>
+  </section>
+
+  <main>
+    <section>
+      <h2>Being a Partner Means More Than Hosting Interns</h2>
+      <p>It’s about joining a network of companies that invest in emerging talent, providing opportunities to work on real projects. It’s about taking an active role in practical training, complementing what participants learn in the bootcamp with direct workplace experience. It’s about becoming a bridge between education and industry, helping participants develop professionally while strengthening the tech community.</p>
+      <p>In essence, a Caloosa Code Partner not only gains access to motivated and well-prepared talent but also contributes to building a more diverse, inclusive, and competitive tech industry.</p>
+    </section>
+
+    <section class="grid">
+      <div>
+        <h2>Benefits</h2>
+        <ul>
+          <li><b>Industry-ready talent:</b> interns trained in QA, test automation, APIs, databases, and performance testing.</li>
+          <li><b>Low-risk, high-reward pipeline:</b> evaluate future hires before extending full-time offers.</li>
+          <li><b>Productivity boost:</b> interns manage QA tasks, freeing senior engineers for innovation.</li>
+          <li><b>Stronger employer brand:</b> position your company as a leader supporting tech growth.</li>
+          <li><b>Business value + social impact:</b> gain motivated interns while building a diverse workforce.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Partner Commitment</h2>
+        <ul>
+          <li>Provide real project opportunities (not just observation).</li>
+          <li>Assign light mentorship and supervision.</li>
+          <li>Support interns as they apply their training in real workflows.</li>
+          <li>Foster an inclusive, respectful environment.</li>
+          <li>Act as co-creators of talent, bridging education and industry.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta">
+    <h2>Join as a Caloosa Code Partner</h2>
+    <p>Be part of the mission to empower the next generation of QA professionals while building real business value for your company.</p>
+    <a href="contact.html">Become a Partner</a>
+  </section>
+
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
+</body>
+</html>
