@@ -191,9 +191,9 @@
         <a href="about.html">About</a>
         <a href="program.html">Curriculum</a>
         <a href="guarantee.html">My First Job</a>
-        <a href="partners.html" class="active">Partners</a>
         <a href="apply.html">Apply</a>
         <a href="scholarships.html">Scholarships</a>
+        <a href="partners.html" class="active">Partners</a>
         <a href="contact.html">Contact</a>
       </div>
 
@@ -208,9 +208,9 @@
         <a href="about.html">About</a>
         <a href="program.html">Curriculum</a>
         <a href="guarantee.html">My First Job</a>
-        <a href="partners.html">Partners</a>
         <a href="apply.html">Apply</a>
         <a href="scholarships.html">Scholarships</a>
+        <a href="partners.html">Partners</a>
         <a href="contact.html">Contact</a>
       </div>
     </nav>
@@ -282,8 +282,10 @@
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 
   <script>
-    const body=document.body,h=document.getElementById('hamburger'),
-    n=document.getElementById('navPanel'),o=document.getElementById('overlay');
+    const body=document.body,
+          h=document.getElementById('hamburger'),
+          n=document.getElementById('navPanel'),
+          o=document.getElementById('overlay');
     h.onclick=()=>body.classList.toggle('nav-open');
     o.onclick=()=>body.classList.remove('nav-open');
     n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
