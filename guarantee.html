@@ -5,216 +5,239 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Get Your First Job — Caloosa Code</title>
   <style>
-    :root{
-      --gold:#FFD700;
-      --amber:#FFB700;
-      --text:#0B0C10;
-      --muted:#333;
-      --border:rgba(255,183,0,.45);
+    :root {
+      --gold: #FFD700;
+      --amber: #FFB700;
+      --text: #0B0C10;
+      --muted: #333;
+      --border: rgba(255,183,0,.45);
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
-      color:var(--text);
-      background:#fff;
-      overflow-y:scroll;
-      scrollbar-gutter:stable;
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
     }
 
     /* ===== HEADER ===== */
-    header{
-      position:fixed;
-      top:0; left:0; right:0;
-      background:#fff;
-      border-bottom:1px solid #eee;
-      z-index:1000;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:1.25rem 1rem;
-      max-width:1200px;
-      margin:0 auto;
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
-    .logo span:first-child{color:#000}
-    .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
-    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
-    nav .nav-links a:hover::after,nav .nav-links a.active::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold)}
-
-    /* ===== HAMBURGER ===== */
-    .hamburger{display:none;border:2px solid #000;background:#fff;border-radius:10px;padding:.5rem .6rem;cursor:pointer;z-index:120;}
-    .hamburger > span{display:block;width:22px;height:2px;background:#000;margin:4px 0;transition:.25s ease;}
-    .nav-panel{display:none;position:fixed;inset:0;background:#fff;padding:80px 24px 24px;z-index:110;}
-    .nav-panel a{display:block;padding:14px 8px;font-weight:800;text-decoration:none;color:#000;border-bottom:1px solid #eee;}
-    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);z-index:90;}
-    .nav-open .nav-panel{display:block;}
-    .nav-open .overlay{display:block;}
-    .nav-open .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    .nav-open .hamburger span:nth-child(2){opacity:0}
-    .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .logo { display: flex; align-items: center; gap: 6px; font-weight: 800; text-transform: uppercase; font-size: 1.2rem; letter-spacing: .5px; }
+    .logo span:first-child { color: #000; }
+    .logo .badge { background: var(--gold); color: var(--text); padding: 3px 6px; border-radius: 6px; }
+    nav .nav-links a { color: var(--text); text-decoration: none; margin-left: 1.25rem; font-weight: 600; position: relative; }
+    nav .nav-links a:hover::after, nav .nav-links a.active::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 100%; height: 2px; background: var(--gold); }
 
     /* ===== MAIN ===== */
-    main{max-width:900px;margin:3rem auto;padding:0 1.5rem;text-align:left;margin-top:120px;}
-    h1{font-size:2.5rem;font-weight:900;margin-bottom:1rem;}
-    h1 span{color:var(--gold);}
-    h1 .highlight{color:#000;}
-    p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.4rem;}
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      text-align: left;
+      margin-top: 120px;
+    }
+    h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 1rem; }
+    h1 span { color: var(--gold); }
+    h1 .highlight { color: #000; }
+    p { color: var(--muted); line-height: 1.7; font-size: 1.05rem; margin-bottom: 1.4rem; }
 
     /* ===== STEPS ===== */
-    .steps-pro{margin:2rem 0 3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
-    .step-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:22px 18px 18px;
-      box-shadow:0 10px 24px rgba(0,0,0,.06);
-      transition:transform .25s,box-shadow .25s;
+    .steps-pro {
+      margin: 2rem 0 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
-    .step-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.08);}
-    .step-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;}
-    .step-icon{
-      width:48px;height:48px;border-radius:12px;
-      background:linear-gradient(135deg,var(--gold),var(--amber));
-      display:grid;place-items:center;
-      box-shadow:0 6px 14px rgba(255,183,0,.35);
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px 18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      transition: transform .25s, box-shadow .25s;
     }
-    .step-icon svg{width:24px;height:24px;stroke:#000;}
-    .step-title{margin:0;color:#000;font-weight:900;font-size:1.1rem;}
-    .step-desc{margin:.35rem 0 0;color:var(--muted);line-height:1.6;}
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(0,0,0,.08); }
+    .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .step-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--gold), var(--amber));
+      display: grid; place-items: center;
+      box-shadow: 0 6px 14px rgba(255,183,0,.35);
+    }
+    .step-icon svg { width: 24px; height: 24px; stroke: #000; }
+    .step-title { margin: 0; color: #000; font-weight: 900; font-size: 1.1rem; }
+    .step-desc { margin: .35rem 0 0; color: var(--muted); line-height: 1.6; }
 
     /* ===== PARTNER SECTION ===== */
-    .partners{
-      margin:5rem 0;
-      width:100%;
+    .partners {
+      margin: 5rem 0;
+      width: 100%;
     }
-    .partners h2{
-      text-align:center;
-      font-size:1.9rem;
-      font-weight:900;
-      color:#000;
-      margin-bottom:2rem;
+    .partners h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: #000;
+      margin-bottom: 2rem;
     }
-    .partners-content{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:2rem;
-      flex-wrap:nowrap;
-      max-width:1000px;
-      margin:0 auto;
+    .partners-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: nowrap;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    .partners-text{
-      flex:1;
-      text-align:left;
+    .partners-text {
+      flex: 1;
+      text-align: left;
     }
-    .partners-text p{
-      color:var(--muted);
-      font-size:1.05rem;
-      line-height:1.7;
-      max-width:500px;
-      margin:0;
+    .partners-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0;
     }
-    .partners-image{
-      flex:1;
-      display:flex;
-      justify-content:center;
+    .partners-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
     }
-    .partners-image img{
-      width:100%;
-      max-width:480px;
-      border-radius:16px;
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    .partners-image img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
     }
-
-    /* ===== PARTNER LOGOS ===== */
-    .partner-logos{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:30px;
-      flex-wrap:wrap;
-      margin-top:2.5rem;
+    .partner-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
     }
-    .partner-card{
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:10px 20px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:#fff;
-      box-shadow:0 4px 12px rgba(0,0,0,.04);
-      transition:transform .25s;
+    .partner-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,.04);
+      transition: transform .25s;
     }
-    .partner-card:hover{transform:translateY(-4px);}
-    .partner-logo{
-      width:26px;height:26px;border-radius:50%;
-      background:var(--gold);
+    .partner-card:hover { transform: translateY(-4px); }
+    .partner-logo {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--gold);
     }
-    .partner-name{font-weight:700;font-size:.95rem;color:#000;}
+    .partner-name { font-weight: 700; font-size: .95rem; color: #000; }
 
     /* ===== BENEFITS ===== */
-    .benefits{text-align:center;margin:4rem 0;}
-    .benefits h2{font-size:1.8rem;font-weight:900;margin-bottom:1rem;color:#000;}
-    .benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:1.5rem;}
-    .benefit{border:1px solid var(--border);padding:1.5rem;border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.04);position:relative;overflow:hidden;}
-    .benefit h4{color:#000;margin-bottom:.4rem;font-weight:800;}
-    .benefit p{color:var(--muted);font-size:.95rem;line-height:1.6;}
-
-    /* ===== Fireworks Animation ===== */
-    .benefit.fireworks::before,
-    .benefit.fireworks::after {
-      content: '';
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: radial-gradient(circle, var(--gold) 60%, transparent 70%);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: firework 2.5s infinite ease-in-out;
-      opacity: 0.7;
+    .benefits { text-align: center; margin: 4rem 0; }
+    .benefits h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 1rem; color: #000; }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
     }
-    .benefit.fireworks::after {
-      background: radial-gradient(circle, #000 60%, transparent 70%);
-      animation-delay: 1.25s;
+    .benefit {
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.04);
+      position: relative;
+      overflow: hidden;
     }
+    .benefit h4 { color: #000; margin-bottom: .4rem; font-weight: 800; }
+    .benefit p { color: var(--muted); font-size: .95rem; line-height: 1.6; }
 
-    @keyframes firework {
-      0% {transform: translate(-50%, -50%) scale(0.2); opacity: 0.7;}
-      40% {transform: translate(calc(-50% - 30px), calc(-50% - 40px)) scale(1.2); opacity: 1;}
-      70% {transform: translate(calc(-50% + 40px), calc(-50% + 30px)) scale(0.8); opacity: 0.8;}
-      100% {transform: translate(-50%, -50%) scale(0.2); opacity: 0.5;}
+    /* ===== Fireworks (sutiles) ===== */
+    .benefit.fireworks { position: relative; overflow: hidden; }
+    .benefit.fireworks .fireworks-wrap {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    }
+    .benefit.fireworks .fw {
+      --dx: 0px; --dy: -60px; --c: #FFD700; --delay: 0s;
+      position: absolute; top: 50%; left: 50%;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: radial-gradient(circle, var(--c) 65%, transparent 66%);
+      transform: translate(-50%, -50%) scale(0.2);
+      opacity: 0;
+      animation: spark 2.2s ease-out infinite var(--delay);
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, .55));
+    }
+    @keyframes spark {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+      10% { opacity: .95; transform: translate(-50%, -50%) scale(1); }
+      65% { opacity: .85; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.85); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.3); }
     }
 
     /* ===== CTA ===== */
-    .yellow-section{background:var(--gold);color:#000;padding:3rem 1.5rem;text-align:center;margin-top:4rem;}
-    .yellow-section h2{margin:0 0 .6rem;font-size:2rem;font-weight:900;color:#000;}
-    .yellow-section p{max-width:800px;margin:1rem auto;line-height:1.6;}
-    .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:1.2rem;}
-    .yellow-btn{display:inline-block;padding:.9rem 1.7rem;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid #fff;background:#fff;color:#000;transition:transform .25s,box-shadow .25s;}
-    .yellow-btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(0,0,0,.1);}
-    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
+    .yellow-section {
+      background: var(--gold);
+      color: #000;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+    .yellow-section h2 {
+      margin: 0 0 .6rem;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #000;
+    }
+    .yellow-section p { max-width: 800px; margin: 1rem auto; line-height: 1.6; }
+    .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.2rem; }
+    .yellow-btn {
+      display: inline-block; padding: .9rem 1.7rem;
+      border-radius: 10px; font-weight: 800; text-decoration: none;
+      border: 2px solid #fff; background: #fff; color: #000;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .yellow-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.1); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .85rem;
+      color: #555;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
 
     @media(max-width:900px){
-      .partners-content{flex-direction:column;text-align:center;}
-      .partners-text p{max-width:100%;text-align:center;}
-      .partners-image img{max-width:100%;}
-      .benefit-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
-    }
-    @media(max-width:800px){
-      .hamburger{display:inline-block}
-      nav .nav-links{display:none}
-    }
-    @media(min-width:801px){
-      .nav-panel,.overlay{display:none!important}
+      .partners-content { flex-direction: column; text-align: center; }
+      .partners-text p { max-width: 100%; text-align: center; }
+      .partners-image img { max-width: 100%; }
+      .benefit-grid { grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
     }
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
   <header>
     <div class="logo"><span>&lt;//&gt;</span><span class="badge">CALOOSA</span><span>CODE</span></div>
     <nav>
@@ -227,11 +250,6 @@
         <a href="scholarships.html">Scholarships</a>
         <a href="contact.html">Contact</a>
       </div>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-      <div class="nav-panel" id="navPanel">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
-        <a href="guarantee.html">My First Job</a><a href="apply.html">Apply</a><a href="scholarships.html">Scholarships</a><a href="contact.html">Contact</a>
-      </div>
     </nav>
   </header>
 
@@ -243,29 +261,21 @@
     <div class="steps-pro">
       <article class="step-card">
         <div class="step-head">
-          <div class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
+          <div class="step-icon">🎓</div>
           <h3 class="step-title">Graduate from Caloosa Code</h3>
         </div>
         <p class="step-desc">Complete the 5-month QA Bootcamp mastering Manual, Automation, API, and Performance Testing under expert guidance.</p>
       </article>
-
       <article class="step-card">
         <div class="step-head">
-          <div class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 21V9H8v12"/></svg>
-          </div>
+          <div class="step-icon">🏢</div>
           <h3 class="step-title">Join a Partner Internship</h3>
         </div>
         <p class="step-desc">Get matched with one of our partner companies for a 3-month guided internship with real industry exposure.</p>
       </article>
-
       <article class="step-card">
         <div class="step-head">
-          <div class="step-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/></svg>
-          </div>
+          <div class="step-icon">💻</div>
           <h3 class="step-title">Gain Real QA Experience</h3>
         </div>
         <p class="step-desc">Work on real projects, collaborate with QA teams, and add your first QA experience to your resume.</p>
@@ -299,7 +309,20 @@
         <div class="benefit"><h4>Real QA Experience</h4><p>Apply your skills in real projects within production-like environments.</p></div>
         <div class="benefit"><h4>Mentorship Support</h4><p>Receive continuous feedback from senior QA professionals during your internship.</p></div>
         <div class="benefit"><h4>Career Growth</h4><p>Boost your resume with verified QA experience that employers value.</p></div>
-        <div class="benefit fireworks"><h4>Your First QA Job</h4><p>Start your professional journey with hands-on experience and guidance from our partner network.</p></div>
+        <div class="benefit fireworks">
+          <div class="fireworks-wrap" aria-hidden="true">
+            <span class="fw" style="--dx:0;--dy:-68px;--c:#FFD700;--delay:0s;"></span>
+            <span class="fw" style="--dx:58px;--dy:-34px;--c:#FFB700;--delay:.25s;"></span>
+            <span class="fw" style="--dx:46px;--dy:48px;--c:#FFD700;--delay:.45s;"></span>
+            <span class="fw" style="--dx:-54px;--dy:38px;--c:#FFB700;--delay:.65s;"></span>
+            <span class="fw" style="--dx:-42px;--dy:-46px;--c:#FFD700;--delay:.85s;"></span>
+            <span class="fw" style="--dx:22px;--dy:-60px;--c:#000;--delay:.15s;"></span>
+            <span class="fw" style="--dx:-28px;--dy:-32px;--c:#000;--delay:.35s;"></span>
+            <span class="fw" style="--dx:34px;--dy:40px;--c:#000;--delay:.55s;"></span>
+          </div>
+          <h4>Your First QA Job</h4>
+          <p>Start your professional journey with hands-on experience and guidance from our partner network.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -313,12 +336,5 @@
   </section>
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
-
-  <script>
-    const body=document.body,h=document.getElementById('hamburger'),n=document.getElementById('navPanel'),o=document.getElementById('overlay');
-    h.onclick=()=>body.classList.toggle('nav-open');
-    o.onclick=()=>body.classList.remove('nav-open');
-    n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
-  </script>
 </body>
 </html>
