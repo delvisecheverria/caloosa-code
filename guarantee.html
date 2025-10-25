@@ -80,154 +80,84 @@
       display: grid; place-items: center;
       box-shadow: 0 6px 14px rgba(255,183,0,.35);
     }
-    .step-icon svg { width: 24px; height: 24px; stroke: #000; }
     .step-title { margin: 0; color: #000; font-weight: 900; font-size: 1.1rem; }
     .step-desc { margin: .35rem 0 0; color: var(--muted); line-height: 1.6; }
 
     /* ===== PARTNER SECTION ===== */
-    .partners {
-      margin: 5rem 0;
-      width: 100%;
-    }
-    .partners h2 {
-      text-align: center;
-      font-size: 1.9rem;
-      font-weight: 900;
-      color: #000;
-      margin-bottom: 2rem;
-    }
+    .partners { margin: 5rem 0; width: 100%; }
+    .partners h2 { text-align: center; font-size: 1.9rem; font-weight: 900; color: #000; margin-bottom: 2rem; }
     .partners-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: nowrap;
-      max-width: 1000px;
-      margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: nowrap; max-width: 1000px; margin: 0 auto;
     }
-    .partners-text {
-      flex: 1;
-      text-align: left;
-    }
-    .partners-text p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 500px;
-      margin: 0;
-    }
-    .partners-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    .partners-image img {
-      width: 100%;
-      max-width: 480px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    }
+    .partners-text { flex: 1; text-align: left; }
+    .partners-text p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 500px; margin: 0; }
+    .partners-image { flex: 1; display: flex; justify-content: center; }
+    .partners-image img { width: 100%; max-width: 480px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
     .partner-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 2.5rem;
+      display: flex; justify-content: center; align-items: center; gap: 30px;
+      flex-wrap: wrap; margin-top: 2.5rem;
     }
     .partner-card {
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,.04);
+      border-radius: 12px; padding: 10px 20px;
+      display: flex; align-items: center; gap: 10px;
+      background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.04);
       transition: transform .25s;
     }
     .partner-card:hover { transform: translateY(-4px); }
-    .partner-logo {
-      width: 26px; height: 26px; border-radius: 50%;
-      background: var(--gold);
-    }
+    .partner-logo { width: 26px; height: 26px; border-radius: 50%; background: var(--gold); }
     .partner-name { font-weight: 700; font-size: .95rem; color: #000; }
 
     /* ===== BENEFITS ===== */
     .benefits { text-align: center; margin: 4rem 0; }
     .benefits h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 1rem; color: #000; }
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-      margin-top: 1.5rem;
-    }
+    .benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
     .benefit {
       border: 1px solid var(--border);
-      padding: 1.5rem;
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,.04);
-      position: relative;
-      overflow: hidden;
+      padding: 1.5rem; border-radius: 12px;
+      background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,.04);
+      position: relative; overflow: hidden;
     }
     .benefit h4 { color: #000; margin-bottom: .4rem; font-weight: 800; }
     .benefit p { color: var(--muted); font-size: .95rem; line-height: 1.6; }
 
-    /* ===== Fireworks (sutiles) ===== */
+    /* ===== Fireworks (líneas sutiles, doradas y negras) ===== */
     .benefit.fireworks { position: relative; overflow: hidden; }
     .benefit.fireworks .fireworks-wrap {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
     }
     .benefit.fireworks .fw {
-      --dx: 0px; --dy: -60px; --c: #FFD700; --delay: 0s;
+      --dx: 0px; --dy: -60px; --c: #FFD700; --delay: 0s; --len: 20px; --rot: 0deg;
       position: absolute; top: 50%; left: 50%;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: radial-gradient(circle, var(--c) 65%, transparent 66%);
-      transform: translate(-50%, -50%) scale(0.2);
-      opacity: 0;
-      animation: spark 2.2s ease-out infinite var(--delay);
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, .55));
+      width: 2px; height: var(--len);
+      background: linear-gradient(to bottom, var(--c) 0%, transparent 100%);
+      border-radius: 2px; opacity: 0;
+      transform-origin: center bottom;
+      transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(0);
+      animation: sparkLine 2.5s ease-out infinite var(--delay);
+      filter: drop-shadow(0 0 4px var(--c));
     }
-    @keyframes spark {
-      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
-      10% { opacity: .95; transform: translate(-50%, -50%) scale(1); }
-      65% { opacity: .85; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.85); }
-      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.3); }
+    @keyframes sparkLine {
+      0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(0.2); }
+      10% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(1.3); }
+      60% { opacity: .8; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scaleY(.7); }
+      100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scaleY(0); }
     }
 
     /* ===== CTA ===== */
-    .yellow-section {
-      background: var(--gold);
-      color: #000;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-    .yellow-section h2 {
-      margin: 0 0 .6rem;
-      font-size: 2rem;
-      font-weight: 900;
-      color: #000;
-    }
+    .yellow-section { background: var(--gold); color: #000; padding: 3rem 1.5rem; text-align: center; margin-top: 4rem; }
+    .yellow-section h2 { margin: 0 0 .6rem; font-size: 2rem; font-weight: 900; color: #000; }
     .yellow-section p { max-width: 800px; margin: 1rem auto; line-height: 1.6; }
     .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.2rem; }
     .yellow-btn {
-      display: inline-block; padding: .9rem 1.7rem;
-      border-radius: 10px; font-weight: 800; text-decoration: none;
-      border: 2px solid #fff; background: #fff; color: #000;
-      transition: transform .25s, box-shadow .25s;
+      display: inline-block; padding: .9rem 1.7rem; border-radius: 10px;
+      font-weight: 800; text-decoration: none; border: 2px solid #fff;
+      background: #fff; color: #000; transition: transform .25s, box-shadow .25s;
     }
     .yellow-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,.1); }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: .85rem;
-      color: #555;
-      border-top: 1px solid #eee;
-      margin-top: 3rem;
-    }
+    footer { text-align: center; padding: 2rem; font-size: .85rem; color: #555; border-top: 1px solid #eee; margin-top: 3rem; }
 
     @media(max-width:900px){
       .partners-content { flex-direction: column; text-align: center; }
@@ -259,39 +189,17 @@
 
     <!-- Steps -->
     <div class="steps-pro">
-      <article class="step-card">
-        <div class="step-head">
-          <div class="step-icon">🎓</div>
-          <h3 class="step-title">Graduate from Caloosa Code</h3>
-        </div>
-        <p class="step-desc">Complete the 5-month QA Bootcamp mastering Manual, Automation, API, and Performance Testing under expert guidance.</p>
-      </article>
-      <article class="step-card">
-        <div class="step-head">
-          <div class="step-icon">🏢</div>
-          <h3 class="step-title">Join a Partner Internship</h3>
-        </div>
-        <p class="step-desc">Get matched with one of our partner companies for a 3-month guided internship with real industry exposure.</p>
-      </article>
-      <article class="step-card">
-        <div class="step-head">
-          <div class="step-icon">💻</div>
-          <h3 class="step-title">Gain Real QA Experience</h3>
-        </div>
-        <p class="step-desc">Work on real projects, collaborate with QA teams, and add your first QA experience to your resume.</p>
-      </article>
+      <article class="step-card"><div class="step-head"><div class="step-icon">🎓</div><h3 class="step-title">Graduate from Caloosa Code</h3></div><p class="step-desc">Complete the 5-month QA Bootcamp mastering Manual, Automation, API, and Performance Testing under expert guidance.</p></article>
+      <article class="step-card"><div class="step-head"><div class="step-icon">🏢</div><h3 class="step-title">Join a Partner Internship</h3></div><p class="step-desc">Get matched with one of our partner companies for a 3-month guided internship with real industry exposure.</p></article>
+      <article class="step-card"><div class="step-head"><div class="step-icon">💻</div><h3 class="step-title">Gain Real QA Experience</h3></div><p class="step-desc">Work on real projects, collaborate with QA teams, and add your first QA experience to your resume.</p></article>
     </div>
 
     <!-- Partners -->
     <section class="partners">
       <h2>Work with Our Partner Companies</h2>
       <div class="partners-content">
-        <div class="partners-text">
-          <p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p>
-        </div>
-        <div class="partners-image">
-          <img src="./job.png" alt="QA Internship Collaboration" />
-        </div>
+        <div class="partners-text"><p>Our students collaborate with trusted partner companies to gain hands-on QA experience in production environments, mentored by industry professionals.</p></div>
+        <div class="partners-image"><img src="./job.png" alt="QA Internship Collaboration" /></div>
       </div>
 
       <div class="partner-logos">
@@ -311,14 +219,16 @@
         <div class="benefit"><h4>Career Growth</h4><p>Boost your resume with verified QA experience that employers value.</p></div>
         <div class="benefit fireworks">
           <div class="fireworks-wrap" aria-hidden="true">
-            <span class="fw" style="--dx:0;--dy:-68px;--c:#FFD700;--delay:0s;"></span>
-            <span class="fw" style="--dx:58px;--dy:-34px;--c:#FFB700;--delay:.25s;"></span>
-            <span class="fw" style="--dx:46px;--dy:48px;--c:#FFD700;--delay:.45s;"></span>
-            <span class="fw" style="--dx:-54px;--dy:38px;--c:#FFB700;--delay:.65s;"></span>
-            <span class="fw" style="--dx:-42px;--dy:-46px;--c:#FFD700;--delay:.85s;"></span>
-            <span class="fw" style="--dx:22px;--dy:-60px;--c:#000;--delay:.15s;"></span>
-            <span class="fw" style="--dx:-28px;--dy:-32px;--c:#000;--delay:.35s;"></span>
-            <span class="fw" style="--dx:34px;--dy:40px;--c:#000;--delay:.55s;"></span>
+            <!-- Líneas -->
+            <span class="fw" style="--dx:0;--dy:-70px;--c:#FFD700;--len:24px;--rot:10deg;--delay:0s;"></span>
+            <span class="fw" style="--dx:45px;--dy:-40px;--c:#FFB700;--len:18px;--rot:40deg;--delay:.2s;"></span>
+            <span class="fw" style="--dx:-50px;--dy:-30px;--c:#FFD700;--len:22px;--rot:-35deg;--delay:.4s;"></span>
+            <span class="fw" style="--dx:35px;--dy:40px;--c:#FFD700;--len:20px;--rot:70deg;--delay:.6s;"></span>
+            <span class="fw" style="--dx:-40px;--dy:45px;--c:#FFB700;--len:26px;--rot:-65deg;--delay:.8s;"></span>
+            <span class="fw" style="--dx:20px;--dy:-60px;--c:#000000;--len:16px;--rot:15deg;--delay:.1s;"></span>
+            <span class="fw" style="--dx:-25px;--dy:-50px;--c:#000000;--len:14px;--rot:-25deg;--delay:.3s;"></span>
+            <span class="fw" style="--dx:25px;--dy:50px;--c:#000000;--len:18px;--rot:55deg;--delay:.5s;"></span>
+            <span class="fw" style="--dx:-35px;--dy:30px;--c:#000000;--len:20px;--rot:-55deg;--delay:.7s;"></span>
           </div>
           <h4>Your First QA Job</h4>
           <p>Start your professional journey with hands-on experience and guidance from our partner network.</p>
@@ -330,9 +240,7 @@
   <section class="yellow-section">
     <h2>Ready to Get Your First QA Job?</h2>
     <p>Join <b>Caloosa Code</b> today and graduate with guaranteed real-world QA experience.</p>
-    <div class="btn-row">
-      <a class="yellow-btn" href="apply.html">Apply Now</a>
-    </div>
+    <div class="btn-row"><a class="yellow-btn" href="apply.html">Apply Now</a></div>
   </section>
 
   <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
