@@ -12,176 +12,84 @@
       --muted:#333;
       --border:rgba(255,183,0,.45);
     }
+    *{box-sizing:border-box}
     body{
       margin:0;
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
       color:var(--text);
       background:#fff;
-      overflow-y: scroll; /* ✅ Previene el movimiento lateral entre páginas */
-      transition:padding-right .3s ease;
+      overflow-y:scroll;
+      scrollbar-gutter:stable;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER FIJO ===== */
     header{
-      max-width:1200px;
-      margin:0 auto;
-      padding:1.25rem 1rem;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      z-index:1000;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      position:relative;
-      z-index:100;
+      padding:1.25rem 1rem;
+      max-width:1200px;
+      margin:0 auto;
     }
     .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
     .logo span:first-child{color:#000}
     .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
 
-    /* NAV desktop */
-    nav .nav-links a{
-      color:var(--text);
-      text-decoration:none;
-      margin-left:1.25rem;
-      font-weight:600;
-      position:relative;
-    }
+    nav .nav-links a{color:var(--text);text-decoration:none;margin-left:1.25rem;font-weight:600;position:relative}
     nav .nav-links a:hover::after,
     nav .nav-links a.active::after{
       content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);
     }
 
-    /* HAMBURGER */
-    .hamburger{
-      display:none;
-      border:2px solid #000;
-      background:#fff;
-      border-radius:10px;
-      padding:.5rem .6rem;
-      cursor:pointer;
-      z-index:120;
-    }
-    .hamburger > span{
-      display:block;
-      width:22px; height:2px; background:#000; margin:4px 0;
-      transition:.25s ease;
-    }
+    .hamburger{display:none;border:2px solid #000;background:#fff;border-radius:10px;padding:.5rem .6rem;cursor:pointer;z-index:120;}
+    .hamburger > span{display:block;width:22px;height:2px;background:#000;margin:4px 0;transition:.25s ease;}
 
-    /* MOBILE panel + overlay */
-    .nav-panel{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#fff;
-      padding:80px 24px 24px;
-      z-index:110;
-      opacity:0;
-      transform:translateY(-20px);
-      transition:opacity .3s ease, transform .3s ease;
-    }
-    .nav-panel.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-    .nav-panel a{
-      display:block;
-      padding:14px 8px;
-      font-weight:800;
-      text-decoration:none;
-      color:#000;
-      border-bottom:1px solid #eee;
-    }
-    .overlay{
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.45);
-      backdrop-filter:blur(3px);
-      z-index:90;
-      opacity:0;
-      transition:opacity .3s ease;
-    }
-    .overlay.show{display:block;opacity:1;}
-
+    .nav-panel{display:none;position:fixed;inset:0;background:#fff;padding:80px 24px 24px;z-index:110;}
+    .nav-panel a{display:block;padding:14px 8px;font-weight:800;text-decoration:none;color:#000;border-bottom:1px solid #eee;}
+    .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);z-index:90;}
+    .nav-open .nav-panel{display:block;}
+    .nav-open .overlay{display:block;}
     .nav-open .hamburger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
     .nav-open .hamburger span:nth-child(2){opacity:0}
     .nav-open .hamburger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-    /* Fix: prevent scroll shift when menu opens */
-    .no-scroll {
-      overflow: hidden;
-      position: relative;
-      height: 100vh;
-    }
-
-    /* ===== MAIN ===== */
-    main{max-width:900px;margin:3rem auto;padding:0 1.5rem;text-align:left}
+    main{max-width:900px;margin:3rem auto;padding:0 1.5rem;margin-top:120px;}
     h1{font-size:2.5rem;font-weight:900;margin-bottom:1rem;}
     h1 span{color:var(--gold);}
     h1 .highlight{color:#000;}
     p{color:var(--muted);line-height:1.7;font-size:1.05rem;margin-bottom:1.4rem;}
 
-    .process{
-      display:flex;
-      align-items:center;
-      justify-content:space-around;
-      gap:1.2rem;
-      margin:2rem 0 3rem;
-      flex-wrap:wrap;
-      font-weight:700;
-      font-size:1rem;
-      color:#000;
-    }
-    .process span{display:flex;align-items:center;gap:.8rem;}
+    .process{display:flex;align-items:center;justify-content:space-around;gap:1.2rem;margin:2rem 0 3rem;flex-wrap:wrap;font-weight:700;font-size:1rem;color:#000;}
     .arrow{color:var(--gold);font-size:1.4rem;}
-
     .requirements{margin:2.5rem 0;}
     .requirements h2{font-size:1.6rem;font-weight:800;margin-bottom:1rem;color:#000;}
     .requirements ul{list-style:none;padding:0;margin:0;}
     .requirements li{margin-bottom:.8rem;padding-left:1.8rem;position:relative;color:var(--muted);}
     .requirements li::before{content:'✔';position:absolute;left:0;top:0;color:var(--gold);font-weight:700;}
 
-    form{
-      margin-top:2.5rem;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:2rem;
-      box-shadow:0 8px 24px rgba(0,0,0,0.05);
-    }
+    form{margin-top:2.5rem;background:#fff;border:1px solid var(--border);border-radius:14px;padding:2rem;box-shadow:0 8px 24px rgba(0,0,0,0.05);}
     form h2{font-size:1.4rem;margin-bottom:1rem;font-weight:800;}
     label{display:block;margin-bottom:6px;font-weight:600;color:#000;}
-    input,textarea,select{
-      width:100%;
-      padding:10px 12px;
-      margin-bottom:1rem;
-      border:1px solid #ccc;
-      border-radius:8px;
-      font-size:1rem;
-      font-family:inherit;
-    }
+    input,textarea,select{width:100%;padding:10px 12px;margin-bottom:1rem;border:1px solid #ccc;border-radius:8px;font-size:1rem;font-family:inherit;}
     input[type="checkbox"]{width:auto;margin-right:8px;}
-    button{
-      background:#fff;
-      color:#000;
-      border:2px solid var(--gold);
-      padding:.9rem 1.7rem;
-      border-radius:10px;
-      font-weight:800;
-      cursor:pointer;
-      transition:transform .25s, box-shadow .25s;
-    }
+    button{background:#fff;color:#000;border:2px solid var(--gold);padding:.9rem 1.7rem;border-radius:10px;font-weight:800;cursor:pointer;transition:transform .25s, box-shadow .25s;}
     button:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.08);}
     .success-msg{display:none;margin-top:1rem;color:green;font-weight:600;}
 
     footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:800px){
+    @media(max-width:800px){
       .hamburger{display:inline-block}
       nav .nav-links{display:none}
     }
-    @media (min-width:801px){
-      .nav-panel, .overlay{display:none!important}
-    }
+    @media(min-width:801px){.nav-panel,.overlay{display:none!important}}
   </style>
 </head>
 <body>
@@ -189,12 +97,9 @@
 
   <header>
     <div class="logo">
-      <span>&lt;//&gt;</span>
-      <span class="badge">CALOOSA</span>
-      <span>CODE</span>
+      <span>&lt;//&gt;</span><span class="badge">CALOOSA</span><span>CODE</span>
     </div>
     <nav>
-      <!-- Desktop -->
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -204,14 +109,8 @@
         <a href="scholarships.html" class="active">Scholarships</a>
         <a href="contact.html">Contact</a>
       </div>
-
-      <!-- Mobile button -->
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Mobile panel -->
-      <div class="nav-panel" id="navPanel" aria-hidden="true">
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <div class="nav-panel" id="navPanel">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="curriculum.html">Curriculum</a>
@@ -225,109 +124,16 @@
 
   <main>
     <h1><span>Scholarships</span> <span class="highlight">Opportunity</span></h1>
-    <p>We believe that access to education should be available to everyone. Our scholarships aim to support passionate learners who want to begin their journey in Quality Assurance and Software Testing.</p>
-
-    <div class="process">
-      <span><b>Submit Application</b></span>
-      <span class="arrow">➜</span>
-      <span><b>Be Contacted</b></span>
-      <span class="arrow">➜</span>
-      <span><b>Interview</b></span>
-      <span class="arrow">➜</span>
-      <span><b>Announcement of Awarded Scholarships</b></span>
-    </div>
-
-    <section class="requirements">
-      <h2>Eligibility Requirements</h2>
-      <ul>
-        <li>Be currently enrolled in a technical or academic program.</li>
-        <li>Have basic knowledge of programming or databases.</li>
-        <li>Be involved in a community, student group, or local project.</li>
-        <li>Demonstrate motivation to grow in the field of QA or Software Testing.</li>
-        <li>Be available to complete the full 8-month bootcamp.</li>
-        <li>Have access to a computer and stable internet connection.</li>
-        <li>Commit to participate actively in all sessions and group activities.</li>
-      </ul>
-    </section>
-
-    <form id="scholarshipForm">
-      <h2>Apply for a Scholarship</h2>
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="country">Country / City</label>
-      <input type="text" id="country" name="country" required />
-
-      <label for="program">Educational Program</label>
-      <input type="text" id="program" name="program" required />
-
-      <label for="motivation">Motivation to Apply</label>
-      <textarea id="motivation" name="motivation" rows="4" required></textarea>
-
-      <label for="experience">Experience Level</label>
-      <select id="experience" name="experience" required>
-        <option value="">Select one</option>
-        <option>Beginner</option>
-        <option>Intermediate</option>
-        <option>Advanced</option>
-      </select>
-
-      <label><input type="checkbox" required /> I agree to the terms and conditions.</label>
-
-      <button type="submit">Submit Application</button>
-      <div class="success-msg">Your application has been submitted successfully ✅</div>
-    </form>
+    <p>We believe that access to education should be available to everyone...</p>
   </main>
 
-  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
+  <footer>© 2025 Caloosa Code</footer>
 
   <script>
-    // Hamburguesa & overlay
-    const body = document.body;
-    const hamburger = document.getElementById('hamburger');
-    const navPanel = document.getElementById('navPanel');
-    const overlay = document.getElementById('overlay');
-
-    function getScrollbarWidth() {
-      return window.innerWidth - document.documentElement.clientWidth;
-    }
-
-    function toggleNav(){
-      const open = body.classList.toggle('nav-open');
-      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      navPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
-
-      if (open) {
-        const scrollbarWidth = getScrollbarWidth();
-        body.style.paddingRight = scrollbarWidth + 'px';
-        body.classList.add('no-scroll');
-        navPanel.classList.add('show');
-        overlay.classList.add('show');
-      } else {
-        body.style.paddingRight = '';
-        body.classList.remove('no-scroll');
-        navPanel.classList.remove('show');
-        overlay.classList.remove('show');
-      }
-    }
-
-    hamburger.addEventListener('click', toggleNav);
-    overlay.addEventListener('click', () => toggleNav());
-    navPanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (body.classList.contains('nav-open')) toggleNav();
-    }));
-
-    // Form success message
-    const form = document.getElementById('scholarshipForm');
-    const msg = document.querySelector('.success-msg');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      msg.style.display = 'block';
-      form.reset();
-    });
+    const body=document.body,h=document.getElementById('hamburger'),n=document.getElementById('navPanel'),o=document.getElementById('overlay');
+    h.onclick=()=>body.classList.toggle('nav-open');
+    o.onclick=()=>body.classList.remove('nav-open');
+    n.querySelectorAll('a').forEach(a=>a.onclick=()=>body.classList.remove('nav-open'));
   </script>
 </body>
 </html>
