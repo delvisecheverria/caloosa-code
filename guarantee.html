@@ -122,7 +122,7 @@
     .benefit h4 { color: #000; margin-bottom: .4rem; font-weight: 800; }
     .benefit p { color: var(--muted); font-size: .95rem; line-height: 1.6; }
 
-    /* ===== Fireworks (líneas sutiles, doradas y negras) ===== */
+    /* ===== Fireworks (solo arriba/izquierda/derecha) ===== */
     .benefit.fireworks { position: relative; overflow: hidden; }
     .benefit.fireworks .fireworks-wrap {
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
@@ -135,13 +135,13 @@
       border-radius: 2px; opacity: 0;
       transform-origin: center bottom;
       transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(0);
-      animation: sparkLine 2.5s ease-out infinite var(--delay);
+      animation: sparkLine 2.8s ease-out infinite var(--delay);
       filter: drop-shadow(0 0 4px var(--c));
     }
     @keyframes sparkLine {
       0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(0.2); }
       10% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--rot)) scaleY(1.3); }
-      60% { opacity: .8; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scaleY(.7); }
+      60% { opacity: .9; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scaleY(.8); }
       100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--rot)) scaleY(0); }
     }
 
@@ -219,16 +219,14 @@
         <div class="benefit"><h4>Career Growth</h4><p>Boost your resume with verified QA experience that employers value.</p></div>
         <div class="benefit fireworks">
           <div class="fireworks-wrap" aria-hidden="true">
-            <!-- Líneas -->
-            <span class="fw" style="--dx:0;--dy:-70px;--c:#FFD700;--len:24px;--rot:10deg;--delay:0s;"></span>
-            <span class="fw" style="--dx:45px;--dy:-40px;--c:#FFB700;--len:18px;--rot:40deg;--delay:.2s;"></span>
-            <span class="fw" style="--dx:-50px;--dy:-30px;--c:#FFD700;--len:22px;--rot:-35deg;--delay:.4s;"></span>
-            <span class="fw" style="--dx:35px;--dy:40px;--c:#FFD700;--len:20px;--rot:70deg;--delay:.6s;"></span>
-            <span class="fw" style="--dx:-40px;--dy:45px;--c:#FFB700;--len:26px;--rot:-65deg;--delay:.8s;"></span>
-            <span class="fw" style="--dx:20px;--dy:-60px;--c:#000000;--len:16px;--rot:15deg;--delay:.1s;"></span>
-            <span class="fw" style="--dx:-25px;--dy:-50px;--c:#000000;--len:14px;--rot:-25deg;--delay:.3s;"></span>
-            <span class="fw" style="--dx:25px;--dy:50px;--c:#000000;--len:18px;--rot:55deg;--delay:.5s;"></span>
-            <span class="fw" style="--dx:-35px;--dy:30px;--c:#000000;--len:20px;--rot:-55deg;--delay:.7s;"></span>
+            <!-- Solo líneas hacia arriba o lados -->
+            <span class="fw" style="--dx:0;--dy:-70px;--c:#FFD700;--len:26px;--rot:0deg;--delay:0s;"></span>
+            <span class="fw" style="--dx:45px;--dy:-50px;--c:#FFB700;--len:22px;--rot:35deg;--delay:.2s;"></span>
+            <span class="fw" style="--dx:-45px;--dy:-45px;--c:#FFD700;--len:20px;--rot:-35deg;--delay:.3s;"></span>
+            <span class="fw" style="--dx:60px;--dy:-40px;--c:#000000;--len:18px;--rot:25deg;--delay:.5s;"></span>
+            <span class="fw" style="--dx:-60px;--dy:-35px;--c:#000000;--len:16px;--rot:-25deg;--delay:.7s;"></span>
+            <span class="fw" style="--dx:30px;--dy:-60px;--c:#FFB700;--len:24px;--rot:10deg;--delay:.9s;"></span>
+            <span class="fw" style="--dx:-30px;--dy:-60px;--c:#FFD700;--len:24px;--rot:-10deg;--delay:1.1s;"></span>
           </div>
           <h4>Your First QA Job</h4>
           <p>Start your professional journey with hands-on experience and guidance from our partner network.</p>
