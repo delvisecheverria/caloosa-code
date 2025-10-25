@@ -182,14 +182,12 @@
       gap: 35px;
       flex-wrap: wrap;
     }
-    .social-icons a {
-      color: var(--gold);
-      font-size: 2rem;
-      transition: transform .25s ease, color .25s ease;
+    .social-icons a svg {
+      transition: transform .25s ease, stroke .25s ease;
     }
-    .social-icons a:hover {
+    .social-icons a:hover svg {
       transform: scale(1.15);
-      color: #000;
+      stroke: #000;
     }
 
     /* ===== CTA ===== */
@@ -251,7 +249,6 @@
       .nav-panel, .overlay { display:none!important; }
     }
   </style>
-  <script src="https://kit.fontawesome.com/a2e0e9e5b5.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="overlay" id="overlay"></div>
@@ -293,17 +290,38 @@
       <a href="#" class="btn">Send Message</a>
     </div>
     <div class="image">
-      <img src="flamingo.png" alt="Yellow flamingo flying on paper airplane">
+      <img src="flamingo-plane.png" alt="Yellow flamingo flying on paper airplane">
     </div>
   </main>
 
   <section class="social-section">
     <h2>Follow Us on Social Media</h2>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" style="fill:none;stroke:#FFD700;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" style="fill:none;stroke:#FFD700;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" style="fill:none;stroke:#FFD700;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+      <a href="#" aria-label="TikTok">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" style="fill:none;stroke:#FFD700;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+          <path d="M9 3v12a4 4 0 1 1-4-4"/>
+          <path d="M15 3a5 5 0 0 0 5 5"/>
+        </svg>
+      </a>
     </div>
   </section>
 
