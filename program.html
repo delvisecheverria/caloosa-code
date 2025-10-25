@@ -1,294 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Program — Caloosa Code</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curriculum — Caloosa Code</title>
   <style>
-    body {
+    :root{
+      --gold:#FFD700;
+      --amber:#FFB700;
+      --text:#0B0C10;
+      --muted:#333;
+      --border:rgba(255,183,0,.45);
+    }
+    body{
       margin:0;
-      font-family:"Inter Tight", system-ui, sans-serif;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
       background:#fff;
-      color:#000;
+      overflow-y: scroll;
     }
 
-    header {
-      text-align:center;
-      padding-top:28px;
-    }
-
-    .brand {
-      display:inline-flex;
-      align-items:center;
-      gap:3px;
-      font-weight:700;
-      font-size:.85rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-    .symbol { color:#000; }
-    .badge { background:#FFD700; color:#000; padding:1px 4px; font-weight:800; }
-    .code { color:#000; }
-
-    .empower {
-      font-size:.65rem;
-      letter-spacing:.3em;
-      text-transform:uppercase;
-      color:#666;
-      margin-top:12px;
-      margin-bottom:16px;
-    }
-
-    .page-title {
-      font-weight:400;
-      letter-spacing:.5px;
-      margin:6px 0 12px 0;
-    }
-    .page-title b { font-weight:700; }
-
-    .main-nav {
+    /* ===== HEADER ===== */
+    header{
+      max-width:1200px;
+      margin:0 auto;
+      padding:1.25rem 1rem;
       display:flex;
-      justify-content:center;
-      gap:24px;
-      font-size:.8rem;
-      text-transform:uppercase;
-      margin:14px 0 24px;
-    }
-    .main-nav a {
+      align-items:center;
+      justify-content:space-between;
       position:relative;
+      z-index:100;
+    }
+    .logo{display:flex;align-items:center;gap:6px;font-weight:800;text-transform:uppercase;font-size:1.2rem;letter-spacing:.5px}
+    .logo span:first-child{color:#000}
+    .logo .badge{background:var(--gold);color:var(--text);padding:3px 6px;border-radius:6px}
+
+    nav .nav-links a{
+      color:var(--text);
       text-decoration:none;
-      color:#222;
-      padding-bottom:3px;
-      transition:color .2s;
-    }
-    .main-nav a:hover { color:#000; }
-    .main-nav a.active { color:#000; }
-    .main-nav a.active::after {
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:0;
-      width:100%;
-      height:2px;
-      background:#FFD700;
-    }
-
-    /* Grid principal: 3 arriba y 3 abajo */
-    .blocks-section {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:28px;
-      max-width:1100px;
-      margin:40px auto 80px;
-      padding:0 20px;
-    }
-
-    .block {
-      border:2px solid #FFD700;
-      border-radius:14px;
-      background:#FFFBE5;
-      box-shadow:0 4px 10px rgba(0,0,0,0.08);
-      padding:24px 20px;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-
-    .block:hover {
-      transform:scale(1.02);
-      box-shadow:0 6px 16px rgba(0,0,0,0.12);
-    }
-
-    .block h3 {
-      font-size:1rem;
-      text-transform:uppercase;
-      color:#000;
-      text-align:center;
-      margin-bottom:12px;
-    }
-
-    .block h4 {
-      margin-top:14px;
-      font-size:.9rem;
-      font-weight:700;
-      text-transform:uppercase;
-      color:#000;
-    }
-
-    .block ul {
-      margin:6px 0 0 16px;
-      font-size:.85rem;
-      line-height:1.5;
-      color:#333;
-    }
-
-    .block li { margin-bottom:5px; }
-
-    footer {
-      text-align:center;
-      font-size:.75rem;
-      color:#555;
-      margin:36px 0 22px;
-    }
-    footer a {
-      color:#FFD700;
-      text-decoration:none;
+      margin-left:1.25rem;
       font-weight:600;
+      position:relative;
+    }
+    nav .nav-links a:hover::after,
+    nav .nav-links a.active::after{
+      content:"";
+      position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--gold);
     }
 
-    @media (max-width:768px){
-      .blocks-section {
-        grid-template-columns:1fr;
-      }
+    /* ===== HERO ===== */
+    .hero{
+      text-align:center;
+      max-width:900px;
+      margin:3rem auto 2rem;
+      padding:0 1.5rem;
+    }
+    .hero h1{
+      font-size:2.6rem;
+      font-weight:900;
+      color:#000;
+      margin-bottom:.5rem;
+    }
+    .hero p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:1.1rem;
+      max-width:700px;
+      margin:0 auto;
+    }
+
+    /* ===== CURRICULUM GRID ===== */
+    .modules-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      max-width:1100px;
+      margin:2.5rem auto;
+      padding:0 1.5rem;
+    }
+    .module{
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      background:#fff;
+      transition:transform .25s, box-shadow .25s;
+      text-align:left;
+    }
+    .module:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+    .module .label{
+      display:inline-block;
+      background:var(--gold);
+      color:#000;
+      font-size:.8rem;
+      font-weight:700;
+      padding:3px 8px;
+      border-radius:6px;
+      margin-bottom:10px;
+    }
+    .module h3{
+      margin:0 0 .8rem 0;
+      font-size:1.1rem;
+      font-weight:800;
+      color:#000;
+    }
+    .module ul{
+      padding-left:1.2rem;
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.6;
+    }
+    .module ul li{margin-bottom:.4rem;}
+
+    /* ===== CTA SECTION ===== */
+    .cta-section{
+      background:var(--gold);
+      text-align:center;
+      padding:3rem 1.5rem;
+      color:#000;
+    }
+    .cta-section h2{
+      font-size:2rem;
+      font-weight:900;
+      margin-bottom:.5rem;
+    }
+    .cta-section p{
+      font-size:1.05rem;
+      line-height:1.7;
+      max-width:700px;
+      margin:0 auto 1.5rem;
+    }
+    .yellow-btn{
+      display:inline-block;
+      background:#000;
+      color:var(--gold);
+      padding:.9rem 1.7rem;
+      border-radius:10px;
+      font-weight:800;
+      text-decoration:none;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .yellow-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(0,0,0,.2);
+    }
+
+    footer{text-align:center;padding:2rem;font-size:.85rem;color:#555;border-top:1px solid #eee;margin-top:3rem;}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:800px){
+      .hamburger{display:inline-block;}
+      nav .nav-links{display:none;}
+    }
+    @media(min-width:801px){
+      .nav-panel, .overlay{display:none!important;}
     }
   </style>
 </head>
 <body>
   <header>
-    <span class="brand">
-      <span class="symbol">&lt;//&gt;</span>
+    <div class="logo">
+      <span>&lt;//&gt;</span>
       <span class="badge">CALOOSA</span>
-      <span class="code">CODE</span>
-    </span>
-    <div class="empower">EMPOWERING THE NEXT GENERATION OF QA ENGINEERS</div>
-    <h1 class="page-title">QA ENGINEER <b>PROGRAM</b></h1>
-    <nav class="main-nav">
-      <a href="program.html" class="active">Program</a>
-      <a href="about.html">About</a>
-      <a href="partners.html">Partners</a>
-      <a href="contact.html">Contact</a>
+      <span>CODE</span>
+    </div>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="curriculum.html" class="active">Curriculum</a>
+        <a href="guarantee.html">My First Job</a>
+        <a href="partners.html">Partners</a>
+        <a href="apply.html">Apply</a>
+        <a href="contact.html">Contact</a>
+      </div>
     </nav>
   </header>
 
-  <main>
-    <section class="blocks-section">
+  <section class="hero">
+    <h1>QA Engineer Curriculum</h1>
+    <p>A 5-month intensive program designed to prepare you for your first QA job through hands-on learning, real projects, and mentorship.</p>
+  </section>
 
-      <!-- Block 1 -->
-      <div class="block">
-        <h3>Weeks 1–4: QA Fundamentals & Manual Testing</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li>Introduction to the Software Development Life Cycle (SDLC)</li>
-          <li>Types and levels of testing, QA roles</li>
-          <li>Test case design and execution</li>
-          <li>Test case management using AIO Test / TestRail</li>
-          <li>Bug reporting and management in Jira</li>
-          <li>Hands-on practice with a sample web application and full traceability</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Understand the software development lifecycle and QA’s role in it</li>
-          <li>Differentiate between testing types and levels</li>
-          <li>Design, execute, and manage manual test cases</li>
-          <li>Report bugs with clarity and reproducibility</li>
-          <li>Demonstrate traceability from requirements to bugs</li>
-        </ul>
-      </div>
+  <section class="modules-grid">
+    <div class="module">
+      <span class="label">Weeks 1–4</span>
+      <h3>QA Fundamentals & Manual Testing</h3>
+      <ul>
+        <li>Understand SDLC and QA’s role in it</li>
+        <li>Differentiate between testing types and levels</li>
+        <li>Design and execute manual test cases</li>
+        <li>Report bugs with clarity and reproducibility</li>
+        <li>Use Jira, TestRail, and AIO Test effectively</li>
+      </ul>
+    </div>
 
-      <!-- Block 2 -->
-      <div class="block">
-        <h3>Weeks 5–10: Web & Mobile Test Automation</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li><b>Web Automation (Weeks 5–7):</b></li>
-          <li>Selenium + C# fundamentals</li>
-          <li>Test framework structure using NUnit or MSTest</li>
-          <li>DOM interaction, locators, and Page Object Model</li>
-          <li>BrowserStack, GitHub integration</li>
-          <li><b>Mobile Automation (Weeks 8–10):</b></li>
-          <li>Mobile testing fundamentals (iOS / Android)</li>
-          <li>Appium setup for local and emulator testing</li>
-          <li>Framework structure for mobile automation</li>
-          <li>Locator strategies for mobile apps</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Build a basic test automation framework with Selenium and C#</li>
-          <li>Automate functional test cases using DOM locators</li>
-          <li>Apply Page Object Model and maintain scripts efficiently</li>
-          <li>Configure Appium and run tests on real devices or emulators</li>
-          <li>Extend automation skills to mobile testing scenarios</li>
-        </ul>
-      </div>
+    <div class="module">
+      <span class="label">Weeks 5–10</span>
+      <h3>Web & Mobile Test Automation</h3>
+      <ul>
+        <li>Build frameworks with Selenium & C#</li>
+        <li>Apply Page Object Model for test maintenance</li>
+        <li>Run Appium tests on real devices</li>
+        <li>Version control with GitHub</li>
+      </ul>
+    </div>
 
-      <!-- Block 3 -->
-      <div class="block">
-        <h3>Weeks 11–14: API Testing + Databases</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li>SQL fundamentals: SELECT, INSERT, UPDATE, DELETE</li>
-          <li>Queries for test data validation using DBeaver</li>
-          <li>REST API fundamentals: JSON, HTTP methods, Body</li>
-          <li>Endpoint functional testing with Postman</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Write and run SQL queries to validate data</li>
-          <li>Test REST API endpoints for functionality and accuracy</li>
-          <li>Create Postman collections, use environments, and automate assertions</li>
-        </ul>
-      </div>
+    <div class="module">
+      <span class="label">Weeks 11–14</span>
+      <h3>API Testing + Databases</h3>
+      <ul>
+        <li>Validate REST API endpoints with Postman</li>
+        <li>Use environments and automate assertions</li>
+        <li>Run SQL queries for data verification</li>
+        <li>Tools: Postman, DBeaver</li>
+      </ul>
+    </div>
 
-      <!-- Block 4 -->
-      <div class="block">
-        <h3>Weeks 15–17: Performance Testing</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li>Types of load, stress, and endurance tests</li>
-          <li>Scripting with JMeter</li>
-          <li>Load generation with OctoPerf</li>
-          <li>Result analysis and performance monitoring</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Understand performance testing methodologies</li>
-          <li>Create JMeter scripts for load and stress testing</li>
-          <li>Generate realistic load scenarios using OctoPerf</li>
-          <li>Analyze and interpret performance metrics</li>
-          <li>Provide recommendations based on results</li>
-        </ul>
-      </div>
+    <div class="module">
+      <span class="label">Weeks 15–17</span>
+      <h3>Performance Testing</h3>
+      <ul>
+        <li>Understand load, stress, and endurance testing</li>
+        <li>Create JMeter scripts for performance validation</li>
+        <li>Analyze test results and performance metrics</li>
+      </ul>
+    </div>
 
-      <!-- Block 5 -->
-      <div class="block">
-        <h3>Weeks 18–20: Capstone Project & Career Prep</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li>End-to-end QA project using real-world scenarios</li>
-          <li>Application of manual, API, and automation testing</li>
-          <li>Building final QA portfolio and presentation</li>
-          <li>Resume and interview preparation</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Apply all QA concepts in a complete project</li>
-          <li>Build a professional QA portfolio</li>
-          <li>Prepare for job interviews with confidence</li>
-        </ul>
-      </div>
+    <div class="module">
+      <span class="label">Weeks 18–20</span>
+      <h3>Capstone Project & Career Preparation</h3>
+      <ul>
+        <li>Build your QA portfolio</li>
+        <li>Prepare for interviews and mock sessions</li>
+        <li>Present your final QA project</li>
+        <li>Receive personalized feedback</li>
+      </ul>
+    </div>
+  </section>
 
-      <!-- Block 6 -->
-      <div class="block">
-        <h3>Months 6–8: Internship / First QA Job</h3>
-        <h4>Content:</h4>
-        <ul>
-          <li>Hands-on QA experience with live projects</li>
-          <li>Work with teams and industry tools</li>
-          <li>Mentorship and feedback sessions</li>
-        </ul>
-        <h4>Objectives:</h4>
-        <ul>
-          <li>Gain real industry experience</li>
-          <li>Build confidence in professional environments</li>
-          <li>Secure your first QA position</li>
-        </ul>
-      </div>
+  <section class="cta-section">
+    <h2>Ready to Start Your QA Journey?</h2>
+    <p>Join <b>Caloosa Code</b> today and build real QA skills that companies hire for. Applications are open now!</p>
+    <a class="yellow-btn" href="apply.html">Apply Now</a>
+  </section>
 
-    </section>
-
-    <footer>
-      <p>©2025 Caloosa Code — Building the Future of QA Talent</p>
-      <p><a href="mailto:decheverria@sqadvisory.com">decheverria@sqadvisory.com</a></p>
-    </footer>
-  </main>
+  <footer>© 2025 Caloosa Code — Empowering the Next Generation of QA Engineers</footer>
 </body>
 </html>
