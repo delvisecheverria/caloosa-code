@@ -64,51 +64,50 @@
       margin-top:0.5rem;
     }
 
-    /* LOGO SCROLLER SECTION */
-    .partner-logos{
+    /* STATIC PARTNERS SECTION */
+    .partners-section{
       background:var(--gold);
-      padding:2rem 0;
-      overflow:hidden;
-      position:relative;
+      color:#000;
+      text-align:center;
+      padding:3rem 1.5rem;
+      margin-top:2rem;
     }
-    .partner-logos::before,
-    .partner-logos::after{
-      content:"";
-      position:absolute;
-      top:0;
-      width:100px;
-      height:100%;
-      background:linear-gradient(to right, var(--gold), transparent);
-      z-index:10;
+    .partners-section h2{
+      font-size:2rem;
+      font-weight:900;
+      margin:0 0 2rem 0;
     }
-    .partner-logos::after{
-      right:0;
-      transform:rotate(180deg);
-    }
-    .partner-logos::before{
-      left:0;
-    }
-    .logo-track{
+    .partners-logos{
       display:flex;
-      gap:80px;
-      align-items:center;
-      animation:scroll 35s linear infinite;
-      will-change:transform;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:40px;
+      margin-bottom:2rem;
     }
-    .logo-track img{
+    .partners-logos img{
       height:50px;
       width:auto;
-      filter:brightness(0) saturate(100%);
-      opacity:0.8;
-      transition:opacity .3s ease;
+      filter:brightness(0);
+      opacity:0.85;
+      transition:opacity .3s ease, transform .3s ease;
     }
-    .logo-track img:hover{
+    .partners-logos img:hover{
       opacity:1;
-      filter:none;
+      transform:scale(1.05);
     }
-    @keyframes scroll {
-      from {transform:translateX(0);}
-      to {transform:translateX(-50%);}
+    .partners-section a{
+      display:inline-block;
+      background:#000;
+      color:#FFD700;
+      text-decoration:none;
+      font-weight:800;
+      padding:.9rem 1.7rem;
+      border-radius:10px;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .partners-section a:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 16px rgba(0,0,0,.15);
     }
 
     /* CONTENT */
@@ -185,25 +184,18 @@
     </div>
   </section>
 
-  <!-- LOGO SCROLLER -->
-  <section class="partner-logos">
-    <div class="logo-track">
+  <!-- STATIC LOGOS SECTION -->
+  <section class="partners-section">
+    <h2>Our Partners</h2>
+    <div class="partners-logos">
       <img src="./logo1.png" alt="Partner 1">
       <img src="./logo2.png" alt="Partner 2">
       <img src="./logo3.png" alt="Partner 3">
       <img src="./logo4.png" alt="Partner 4">
       <img src="./logo5.png" alt="Partner 5">
       <img src="./logo6.png" alt="Partner 6">
-      <img src="./logo7.png" alt="Partner 7">
-      <!-- Se repiten para scroll infinito -->
-      <img src="./logo1.png" alt="Partner 1">
-      <img src="./logo2.png" alt="Partner 2">
-      <img src="./logo3.png" alt="Partner 3">
-      <img src="./logo4.png" alt="Partner 4">
-      <img src="./logo5.png" alt="Partner 5">
-      <img src="./logo6.png" alt="Partner 6">
-      <img src="./logo7.png" alt="Partner 7">
     </div>
+    <a href="contact.html">Become a Partner</a>
   </section>
 
   <main>
